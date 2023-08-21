@@ -1,16 +1,32 @@
 lorom
 
+; Use tileset index to figure out glows instead of area
 org $89AC62
   JSR GetTilesetIndex ;LDA $079F
-  ASL A
+  ASL
   TAY
   LDA GlowTypeTable,Y ;DB is $83
 
 org $89AC98
   JSR GetTilesetIndex ;LDA $079F
-  ASL A
+  ASL
   TAY
   LDA AnimTypeTable,Y
+
+; Force on excape glow bits during escape event
+org $89AB90
+  JMP ForceGlowMask
+org $89ABA3
+  JMP ForceGlowMask
+org $89AC57
+  JSR MaskGlowBits
+  ;LDA $000D,X
+  ;AND #$00FF
+
+; Turn off rain if pbs have been collected
+org $89AC25
+  JSR GetFxType
+  ;LDA $0009,X
 
 org $89AF60 ;free space
 GetTilesetIndex:
@@ -20,6 +36,130 @@ GetTilesetIndex:
   PLX
   AND #$00FF
   RTS
+
+MaskGlowBits:
+  LDA #$000E
+  JSL $808233
+  BCC +
+  JSR GetTilesetIndex
+  TAY
+  LDA EscapeMaskTable,Y
+  BIT $000D,X
+  BNE +
+  ORA $000D,X
+  RTS
++
+  LDA $000D,X
+  RTS
+
+ForceGlowMask:
+  LDA #$000E
+  JSL $808233
+  BCC ForceGlowMask_Exit
+  JSR GetTilesetIndex
+  TAY
+  LDA EscapeMaskTable,Y
+  AND #$00FF
+  BEQ ForceGlowMask_Exit
+  STA $196A
+
+  JSR GetTilesetIndex
+  ASL
+  TAY
+  LDA GlowTypeTable,Y ;DB is $83
+  STA $AF
+  LDY #$0000
+
+ForceGlowMask_Loop:
+  LSR $196A
+  BCC ForceGlowMask_Next
+  LDA ($AF),Y
+  PHY
+  TAY
+  JSL $8DC4E9
+  PLY
+ForceGlowMask_Next:
+  INY
+  INY
+  CPY #$0010
+  BNE ForceGlowMask_Loop
+
+ForceGlowMask_Exit:
+  PLB
+  PLP
+  RTL
+
+GetFxType:
+  LDA $0009,X
+  AND #$00FF
+  CMP #$000A
+  BEQ GetFxType_Rain
+  CMP #$000C
+  BEQ GetFxType_Fog
+GetFxType_Default:
+  LDA $0009,X
+  RTS
+GetFxType_Fog:
+  LDA #$0000
+  JSL $808233
+  BCC GetFxType_Default
+  BRA GetFxType_Remove
+GetFxType_Rain:
+  LDA $09D0
+  BEQ GetFxType_Default
+GetFxType_Remove:
+  LDA #$0000
+  RTS
+
+; swap some tileset indexes based on asleep/off
+org $82DEFD
+  JSL CheckTileset
+  ;AND #$00FF
+  ;ASL
+org $8AB500 ;free space (due to scrolling sky asm)
+CheckTileset:
+  AND #$00FF
+  CMP #$0002
+  BEQ InnerCrateriaAwake
+  CMP #$0003
+  BEQ InnerCrateriaAwake
+  CMP #$0004
+  BEQ WreakedShipAwake
+  CMP #$0005
+  BEQ WreakedShipAwake
+  ASL
+  RTL
+InnerCrateriaAwake:
+  LDA #$0000
+  JSL $808233
+  BCS +
+
+  LDA $079F ; area index
+  XBA
+  ORA $079D ; room index
+  CMP #$0013 ;OLD TOURIAN BOSS ROOM
+  BEQ +
+  CMP #$012D ;MINI KRAID HALLWAY
+  BEQ +
+  CMP #$0411 ;PLASMA BEAM ROOM
+  BEQ +
+  CMP #$0247 ;NINJA PIRATES BOSS ROOM
+  BEQ +
+
+  LDA #$0006 ;zebes asleep (tileset 3)
+  RTL
++
+  LDA #$0004 ;zebes awake (tileset 2)
+  RTL
+WreakedShipAwake:
+  LDA #$0058
+  JSL $808233
+  BCC +
+  LDA #$0008 ;Phantoon defeated (tileset 4)
+  RTL
++
+  LDA #$000A ;Phantoon lurking (tileset 5)
+  RTL
 
 ; Move animation VRAM offsets
 org $878279
@@ -217,3 +357,21 @@ AnimTypeTable:
   DW Anim_Area_4 ;Draygon
   DW Anim_Area_1 ;SpoSpo
   DW Anim_Area_3 ;Phantoon
+
+EscapeMaskTable:
+  DB $07, $07 ;Crateria Surface
+  DB $19, $19 ;Inner Crateria
+  DB $00, $00 ;Wrecked Ship
+  DB $00, $00 ;Brinstar
+  DB $00 ;Tourian Statues Access
+  DB $00, $00 ;Norfair
+  DB $00, $00 ;Maridia
+  DB $1D, $1D ;Tourian
+  DB $00, $00, $00, $00, $00, $00 ;Ceres
+  DB $00, $00, $00, $00, $00 ;Utility Rooms
+  ;Bosses
+  DB $00 ;Kraid
+  DB $00 ;Crocomire
+  DB $00 ;Draygon
+  DB $00 ;SpoSpo
+  DB $00 ;Phantoon
