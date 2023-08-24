@@ -27,6 +27,16 @@ org $89AC57
 org $89AC25
   JSR GetFxType
   ;LDA $0009,X
+org $89ABFB
+  JSR GetFxPaletteBlend
+  ;AND #$00FF
+
+; use surface new to set max height for lightning with rain fx
+org $8DEC59
+  LDA $0AFA
+  CMP $197A
+  ;LDA $0AFA
+  ;CMP #$0380
 
 org $89AF60 ;free space
 GetTilesetIndex:
@@ -43,12 +53,23 @@ MaskGlowBits:
   BCC +
   JSR GetTilesetIndex
   TAY
-  LDA EscapeMaskTable,Y
-  BIT $000D,X
+  LDA EscapeGlowTable,Y
+  AND #$00FF ; If the tileset doesn't have escape glows, don't do anything with them.
+  BEQ +
+  BIT $000D,X ; If the excape glows are already handled by the fx, use that.
   BNE +
   ORA $000D,X
+  AND EscapeMaskTable,Y ; Turn off the basic tileset specific glow in tilesets with escape glows.
   RTS
 +
+  CPY #$0002
+  BPL MaskGlowBits_Default
+  LDA $09D0
+  BEQ MaskGlowBits_Default
+  LDA $000D,X
+  AND #$00FE
+  RTS
+MaskGlowBits_Default:
   LDA $000D,X
   RTS
 
@@ -58,7 +79,7 @@ ForceGlowMask:
   BCC ForceGlowMask_Exit
   JSR GetTilesetIndex
   TAY
-  LDA EscapeMaskTable,Y
+  LDA EscapeGlowTable,Y
   AND #$00FF
   BEQ ForceGlowMask_Exit
   STA $196A
@@ -108,6 +129,31 @@ GetFxType_Rain:
   LDA $09D0
   BEQ GetFxType_Default
 GetFxType_Remove:
+  LDA #$0000
+  RTS
+
+GetFxPaletteBlend:
+  AND #$00FF
+  PHA
+  LDA $0009,X
+  AND #$00FF
+  CMP #$000A
+  BEQ GetFxPaletteBlend_Rain
+  CMP #$000C
+  BEQ GetFxPaletteBlend_Fog
+GetFxPaletteBlend_Default:
+  PLA
+  RTS
+GetFxPaletteBlend_Fog:
+  LDA #$0000
+  JSL $808233
+  BCC GetFxPaletteBlend_Default
+  BRA GetFxPaletteBlend_Remove
+GetFxPaletteBlend_Rain:
+  LDA $09D0
+  BEQ GetFxPaletteBlend_Default
+GetFxPaletteBlend_Remove:
+  PLA
   LDA #$0000
   RTS
 
@@ -358,8 +404,8 @@ AnimTypeTable:
   DW Anim_Area_1 ;SpoSpo
   DW Anim_Area_3 ;Phantoon
 
-EscapeMaskTable:
-  DB $07, $07 ;Crateria Surface
+EscapeGlowTable:
+  DB $06, $06 ;Crateria Surface
   DB $19, $19 ;Inner Crateria
   DB $00, $00 ;Wrecked Ship
   DB $00, $00 ;Brinstar
@@ -375,3 +421,21 @@ EscapeMaskTable:
   DB $00 ;Draygon
   DB $00 ;SpoSpo
   DB $00 ;Phantoon
+
+EscapeMaskTable:
+  DB $FE, $FE ;Crateria Surface
+  DB $FF, $FF ;Inner Crateria
+  DB $FF, $FF ;Wrecked Ship
+  DB $FF, $FF ;Brinstar
+  DB $FF ;Tourian Statues Access
+  DB $FF, $FF ;Norfair
+  DB $FF, $FF ;Maridia
+  DB $FD, $FD ;Tourian
+  DB $FF, $FF, $FF, $FF, $FF, $FF ;Ceres
+  DB $FF, $FF, $FF, $FF, $FF ;Utility Rooms
+  ;Bosses
+  DB $FF ;Kraid
+  DB $FF ;Crocomire
+  DB $FF ;Draygon
+  DB $FF ;SpoSpo
+  DB $FF ;Phantoon

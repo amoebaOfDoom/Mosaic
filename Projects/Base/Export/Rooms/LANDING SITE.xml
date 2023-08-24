@@ -7870,7 +7870,7 @@
       <FX1s>
         <FX1 default="true">
           <surfacestart>FFFF</surfacestart>
-          <surfacenew>FFFF</surfacenew>
+          <surfacenew>0380</surfacenew>
           <surfacespeed>0000</surfacespeed>
           <surfacedelay>00</surfacedelay>
           <type>0A</type>
@@ -10417,7 +10417,7 @@
       <FX1s>
         <FX1 default="true">
           <surfacestart>FFFF</surfacestart>
-          <surfacenew>FFFF</surfacenew>
+          <surfacenew>0380</surfacenew>
           <surfacespeed>0000</surfacespeed>
           <surfacedelay>00</surfacedelay>
           <type>0A</type>
