@@ -12,26 +12,24 @@ bts_slope_gentle_large = 0x17
 tile_number_air = 0x0FF
 tile_number_interior = 0x3FF
 tile_number_unknown = 0x0FE
-tile_number_outside_corner = 0x10D
-tile_number_horizontal_edge = 0x10F
-tile_number_vertical_edge = 0x110
-tile_number_outside_corner_opaque = 0x116
-tile_number_horizontal_edge_opaque = 0x118
-tile_number_vertical_edge_opaque = 0x119
-tile_number_inside_corner = 0x114
+tile_number_outside_corner = 0x305
+tile_number_horizontal_edge = 0x2A5
+tile_number_vertical_edge = 0x2A2
+tile_number_inside_corner = 0x2E5
 tile_number_solid_block = 0x2B8
 
-tile_number_slope_half_floor = 0x1DC
-tile_number_under_slope_half_floor = 0x1FC
-tile_number_slope_normal = 0x10E
-tile_number_slope_steep_small = 0x1D8
-tile_number_slope_steep_large = 0x1F8
-tile_number_beside_slope_steep_small = 0x1D9
-tile_number_beside_slope_steep_large = 0x1F9
-tile_number_slope_gentle_small = 0x1D5
-tile_number_slope_gentle_large = 0x1D6
-tile_number_under_slope_gentle_small = 0x1F5
-tile_number_under_slope_gentle_large = 0x1F6
+tile_number_slope_half_floor = 0x1CD
+tile_number_under_slope_half_floor = 0x1ED
+tile_number_slope_normal = 0x2C5
+tile_number_under_slope_normal = 0x2E5
+tile_number_slope_steep_small = 0x1D0
+tile_number_slope_steep_large = 0x1F0
+tile_number_beside_slope_steep_small = 0x1CF
+tile_number_beside_slope_steep_large = 0x1EF
+tile_number_slope_gentle_small = 0x1D2
+tile_number_slope_gentle_large = 0x1D3
+tile_number_under_slope_gentle_small = 0x1F2
+tile_number_under_slope_gentle_large = 0x1F3
 
 function invariant(x, y)
     -- Tiles to leave intact: CRE tiles except for black
@@ -109,14 +107,9 @@ function solid_bottom(x, y)
     return false
 end
 function foreign(x, y)
-    -- Tiles to treat as not belonging to the walls being formed, not including air.
+    -- Tiles to treat as not belonging to the walls being formed.
     -- Walls next to these will use opaque (black) edges rather than transparent.
     return not air(x, y) and invariant(x, y)
-end
-function foreign_air(x, y)
-    -- Tiles to treat as not belonging to the walls being formed, including air.
-    -- Walls next to these will use opaque (black) edges rather than transparent.
-    return air(x, y) or invariant(x, y)
 end
 function bts_vflip(x, y)
     return t:bts(x, y) & 0x80 ~= 0
@@ -144,11 +137,11 @@ if t:type(0, 0) == 1 then
         return true
     end
     if bts == bts_slope_steep_small then
-        t:set_gfx(tile_number_slope_steep_small, bts_hflip(0, 0), bts_vflip(0, 0))
+        t:set_gfx(tile_number_slope_steep_small, not bts_hflip(0, 0), bts_vflip(0, 0))
         return true
     end
     if bts == bts_slope_steep_large then
-        t:set_gfx(tile_number_slope_steep_large, bts_hflip(0, 0), bts_vflip(0, 0))
+        t:set_gfx(tile_number_slope_steep_large, not bts_hflip(0, 0), bts_vflip(0, 0))
         return true
     end
     if bts == bts_slope_gentle_small then
@@ -167,11 +160,11 @@ if t:type(0, 0) == 1 then
         t:set_gfx(tile_number_horizontal_edge, false, true)
         return true
     end    
-    if (t:bts(0, 0) == bts_slope_half_floor & 0xBF or t:bts(0, 0) & 0xBF == bts_slope_half_platform) and solid(0, 1) then
+    if (t:bts(0, 0) & 0xBF == bts_slope_half_floor or t:bts(0, 0) & 0xBF == bts_slope_half_platform) and solid(0, 1) then
         t:set_gfx(tile_number_slope_half_floor, false, false)
         return true
     end
-    if (t:bts(0, 0) == bts_slope_half_floor & 0xBF | 0x80 or t:bts(0, 0) & 0xBF == bts_slope_half_platform | 0x80) and solid(0, -1) then
+    if (t:bts(0, 0) & 0xBF == bts_slope_half_floor | 0x80 or t:bts(0, 0) & 0xBF == bts_slope_half_platform | 0x80) and solid(0, -1) then
         t:set_gfx(tile_number_slope_half_floor, false, true)
         return true
     end
@@ -179,43 +172,25 @@ end
 
 -- Solid tiles: look at neighboring edges
 if solid(0, 0) then
-    -- Outside corners (opaque):
-    if foreign(-1, 0) and solid_left(1, 0) and foreign(0, -1) and solid_top(0, 1) then
-        t:set_gfx(tile_number_outside_corner_opaque, false, false)
-        return true
-    end
-    if foreign(1, 0) and solid_right(-1, 0) and foreign(0, -1) and solid_top(0, 1) then
-        t:set_gfx(tile_number_outside_corner_opaque, true, false)
-        return true
-    end
-    if foreign(-1, 0) and solid_left(1, 0) and foreign(0, 1) and solid_bottom(0, -1) then
-        t:set_gfx(tile_number_outside_corner_opaque, false, true)
-        return true
-    end
-    if foreign(1, 0) and solid_right(-1, 0) and foreign(0, 1) and solid_bottom(0, -1) then
-        t:set_gfx(tile_number_outside_corner_opaque, true, true)
-        return true
-    end
-
     -- Outside corners (with transparency):
-    if foreign_air(-1, 0) and solid_left(1, 0) and foreign_air(0, -1) and solid_top(0, 1) then
+    if air(-1, 0) and solid_left(1, 0) and air(0, -1) and solid_top(0, 1) then
         t:set_gfx(tile_number_outside_corner, false, false)
         return true
     end
-    if foreign_air(1, 0) and solid_right(-1, 0) and foreign_air(0, -1) and solid_top(0, 1) then
+    if air(1, 0) and solid_right(-1, 0) and air(0, -1) and solid_top(0, 1) then
         t:set_gfx(tile_number_outside_corner, true, false)
         return true
     end
-    if foreign_air(-1, 0) and solid_left(1, 0) and foreign_air(0, 1) and solid_bottom(0, -1) then
+    if air(-1, 0) and solid_left(1, 0) and air(0, 1) and solid_bottom(0, -1) then
         t:set_gfx(tile_number_outside_corner, false, true)
         return true
     end
-    if foreign_air(1, 0) and solid_right(-1, 0) and foreign_air(0, 1) and solid_bottom(0, -1) then
+    if air(1, 0) and solid_right(-1, 0) and air(0, 1) and solid_bottom(0, -1) then
         t:set_gfx(tile_number_outside_corner, true, true)
         return true
     end
 
-    -- Horizontal/vertical edges (transparent):
+    -- Horizontal/vertical edges:
     if air(-1, 0) and solid_left(1, 0) and solid_bottom(0, -1) and solid_top(0, 1) then
         t:set_gfx(tile_number_vertical_edge, false, false)
         return true
@@ -233,39 +208,21 @@ if solid(0, 0) then
         return true
     end
 
-    -- Horizontal/vertical edges (opaque):
-    if foreign(-1, 0) and solid_left(1, 0) and solid_bottom(0, -1) and solid_top(0, 1) then
-        t:set_gfx(tile_number_vertical_edge_opaque, false, false)
-        return true
-    end
-    if foreign(1, 0) and solid_right(-1, 0) and solid_bottom(0, -1) and solid_top(0, 1) then
-        t:set_gfx(tile_number_vertical_edge_opaque, true, false)
-        return true
-    end
-    if solid_right(-1, 0) and solid_left(1, 0) and foreign(0, -1) and solid_top(0, 1) then
-        t:set_gfx(tile_number_horizontal_edge_opaque, false, false)
-        return true
-    end
-    if solid_right(-1, 0) and solid_left(1, 0) and foreign(0, 1) and solid_bottom(0, -1) then
-        t:set_gfx(tile_number_horizontal_edge_opaque, false, true)
-        return true
-    end
-
     -- Slope adjacent:
     if t:type(-1, 0) == 1 and t:bts(-1, 0) & 0x7F == bts_slope_steep_small and solid_left(1, 0) then
-        t:set_gfx(tile_number_beside_slope_steep_small, false, bts_vflip(-1, 0))
+        t:set_gfx(tile_number_beside_slope_steep_small, true, bts_vflip(-1, 0))
         return true
     end
     if t:type(-1, 0) == 1 and t:bts(-1, 0) & 0x7F == bts_slope_steep_large and solid_left(1, 0) then
-        t:set_gfx(tile_number_beside_slope_steep_large, false, bts_vflip(-1, 0))
+        t:set_gfx(tile_number_beside_slope_steep_large, true, bts_vflip(-1, 0))
         return true
     end
     if t:type(1, 0) == 1 and t:bts(1, 0) & 0x7F == bts_slope_steep_small | 0x40 and solid_right(-1, 0) then
-        t:set_gfx(tile_number_beside_slope_steep_small, true, bts_vflip(1, 0))
+        t:set_gfx(tile_number_beside_slope_steep_small, false, bts_vflip(1, 0))
         return true
     end
     if t:type(1, 0) == 1 and t:bts(1, 0) & 0x7F == bts_slope_steep_large | 0x40 and solid_right(-1, 0) then
-        t:set_gfx(tile_number_beside_slope_steep_large, true, bts_vflip(1, 0))
+        t:set_gfx(tile_number_beside_slope_steep_large, false, bts_vflip(1, 0))
         return true
     end
     if t:type(0, -1) == 1 and t:bts(0, -1) & 0xBF == bts_slope_gentle_small and solid_top(0, 1) then
