@@ -134,7 +134,7 @@
         805F 805F 8070 8070 8070 805F 805F 8070 8070 805F 805F 8070 8070 8070 805F 805F
         80BB 80BD 80FF 80FF 80FF 80BD 80BD 80FF 80FF 80BD 80BD 80FF 80FF 80FF 80BD 80BB
         80BB 88BD 80FF 80FF 80FF 88BD 88BD 80FF 80FF 88BD 88BD 80FF 80FF 80FF 88BD 80BB
-        810F 810F 810F 810F 810F 810F 810F 810F 810F 810F 810F 810F 810F 810F 810F 810F
+        8118 8118 810F 810F 810F 8118 8118 810F 810F 8118 8118 810F 810F 810F 8118 8118
         8111 8111 8111 8111 8111 8111 8111 8111 8111 8111 8111 8111 8111 8111 8111 8111
         8111 8111 8111 8111 8111 8111 8111 8111 8111 8111 8111 8111 8111 8111 8111 8111
       </Screen>
@@ -280,7 +280,7 @@
           <transparency1_A>02</transparency1_A>
           <transparency2_B>1E</transparency2_B>
           <liquidflags_C>03</liquidflags_C>
-          <paletteflags>01</paletteflags>
+          <paletteflags>80</paletteflags>
           <animationflags>03</animationflags>
           <paletteblend>02</paletteblend>
         </FX1>
