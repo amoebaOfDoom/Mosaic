@@ -160,11 +160,11 @@ if t:type(0, 0) == 1 then
         t:set_gfx(tile_number_horizontal_edge, false, true)
         return true
     end    
-    if (t:bts(0, 0) == bts_slope_half_floor or t:bts(0, 0) == bts_slope_half_platform) and solid(0, 1) then
+    if (t:bts(0, 0) & 0xBF == bts_slope_half_floor or t:bts(0, 0) & 0xBF == bts_slope_half_platform) and solid(0, 1) then
         t:set_gfx(tile_number_slope_half_floor, false, false)
         return true
     end
-    if (t:bts(0, 0) == bts_slope_half_floor | 0x80 or t:bts(0, 0) == bts_slope_half_platform | 0x80) and solid(0, -1) then
+    if (t:bts(0, 0) & 0xBF == bts_slope_half_floor | 0x80 or t:bts(0, 0) & 0xBF == bts_slope_half_platform | 0x80) and solid(0, -1) then
         t:set_gfx(tile_number_slope_half_floor, false, true)
         return true
     end
@@ -241,11 +241,11 @@ if solid(0, 0) then
         t:set_gfx(tile_number_under_slope_gentle_large, bts_hflip(0, 1), true)
         return true
     end
-    if t:type(0, -1) == 1 and (t:bts(0, -1) == bts_slope_half_floor or t:bts(0, -1) == bts_slope_half_platform) and solid_top(0, 1) then
+    if t:type(0, -1) == 1 and (t:bts(0, -1) & 0xBF == bts_slope_half_floor or t:bts(0, -1) & 0xBF == bts_slope_half_platform) and solid_top(0, 1) then
         t:set_gfx(tile_number_under_slope_half_floor, bts_hflip(0, 1), false)
         return true
     end
-    if t:type(0, 1) == 1 and (t:bts(0, 1) == bts_slope_half_floor | 0x80 or t:bts(0, 1) == bts_slope_half_platform | 0x80) and solid_bottom(0, -1) then
+    if t:type(0, 1) == 1 and (t:bts(0, 1) & 0xBF == bts_slope_half_floor | 0x80 or t:bts(0, 1) & 0xBF == bts_slope_half_platform | 0x80) and solid_bottom(0, -1) then
         t:set_gfx(tile_number_under_slope_half_floor, bts_hflip(0, 1), true)
         return true
     end

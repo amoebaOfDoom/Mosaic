@@ -109,9 +109,14 @@ function solid_bottom(x, y)
     return false
 end
 function foreign(x, y)
-    -- Tiles to treat as not belonging to the walls being formed.
+    -- Tiles to treat as not belonging to the walls being formed, not including air.
     -- Walls next to these will use opaque (black) edges rather than transparent.
     return not air(x, y) and invariant(x, y)
+end
+function foreign_air(x, y)
+    -- Tiles to treat as not belonging to the walls being formed, including air.
+    -- Walls next to these will use opaque (black) edges rather than transparent.
+    return air(x, y) or invariant(x, y)
 end
 function bts_vflip(x, y)
     return t:bts(x, y) & 0x80 ~= 0
@@ -162,11 +167,11 @@ if t:type(0, 0) == 1 then
         t:set_gfx(tile_number_horizontal_edge, false, true)
         return true
     end    
-    if (t:bts(0, 0) == bts_slope_half_floor or t:bts(0, 0) == bts_slope_half_platform) and solid(0, 1) then
+    if (t:bts(0, 0) == bts_slope_half_floor & 0xBF or t:bts(0, 0) & 0xBF == bts_slope_half_platform) and solid(0, 1) then
         t:set_gfx(tile_number_slope_half_floor, false, false)
         return true
     end
-    if (t:bts(0, 0) == bts_slope_half_floor | 0x80 or t:bts(0, 0) == bts_slope_half_platform | 0x80) and solid(0, -1) then
+    if (t:bts(0, 0) == bts_slope_half_floor & 0xBF | 0x80 or t:bts(0, 0) & 0xBF == bts_slope_half_platform | 0x80) and solid(0, -1) then
         t:set_gfx(tile_number_slope_half_floor, false, true)
         return true
     end
@@ -174,24 +179,6 @@ end
 
 -- Solid tiles: look at neighboring edges
 if solid(0, 0) then
-    -- Outside corners (with transparency):
-    if air(-1, 0) and solid_left(1, 0) and air(0, -1) and solid_top(0, 1) then
-        t:set_gfx(tile_number_outside_corner, false, false)
-        return true
-    end
-    if air(1, 0) and solid_right(-1, 0) and air(0, -1) and solid_top(0, 1) then
-        t:set_gfx(tile_number_outside_corner, true, false)
-        return true
-    end
-    if air(-1, 0) and solid_left(1, 0) and air(0, 1) and solid_bottom(0, -1) then
-        t:set_gfx(tile_number_outside_corner, false, true)
-        return true
-    end
-    if air(1, 0) and solid_right(-1, 0) and air(0, 1) and solid_bottom(0, -1) then
-        t:set_gfx(tile_number_outside_corner, true, true)
-        return true
-    end
-
     -- Outside corners (opaque):
     if foreign(-1, 0) and solid_left(1, 0) and foreign(0, -1) and solid_top(0, 1) then
         t:set_gfx(tile_number_outside_corner_opaque, false, false)
@@ -207,6 +194,24 @@ if solid(0, 0) then
     end
     if foreign(1, 0) and solid_right(-1, 0) and foreign(0, 1) and solid_bottom(0, -1) then
         t:set_gfx(tile_number_outside_corner_opaque, true, true)
+        return true
+    end
+
+    -- Outside corners (with transparency):
+    if foreign_air(-1, 0) and solid_left(1, 0) and foreign_air(0, -1) and solid_top(0, 1) then
+        t:set_gfx(tile_number_outside_corner, false, false)
+        return true
+    end
+    if foreign_air(1, 0) and solid_right(-1, 0) and foreign_air(0, -1) and solid_top(0, 1) then
+        t:set_gfx(tile_number_outside_corner, true, false)
+        return true
+    end
+    if foreign_air(-1, 0) and solid_left(1, 0) and foreign_air(0, 1) and solid_bottom(0, -1) then
+        t:set_gfx(tile_number_outside_corner, false, true)
+        return true
+    end
+    if foreign_air(1, 0) and solid_right(-1, 0) and foreign_air(0, 1) and solid_bottom(0, -1) then
+        t:set_gfx(tile_number_outside_corner, true, true)
         return true
     end
 
@@ -279,11 +284,11 @@ if solid(0, 0) then
         t:set_gfx(tile_number_under_slope_gentle_large, bts_hflip(0, 1), true)
         return true
     end
-    if t:type(0, -1) == 1 and (t:bts(0, -1) == bts_slope_half_floor or t:bts(0, -1) == bts_slope_half_platform) and solid_top(0, 1) then
+    if t:type(0, -1) == 1 and (t:bts(0, -1) & 0xBF == bts_slope_half_floor or t:bts(0, -1) & 0xBF == bts_slope_half_platform) and solid_top(0, 1) then
         t:set_gfx(tile_number_under_slope_half_floor, bts_hflip(0, 1), false)
         return true
     end
-    if t:type(0, 1) == 1 and (t:bts(0, 1) == bts_slope_half_floor | 0x80 or t:bts(0, 1) == bts_slope_half_platform | 0x80) and solid_bottom(0, -1) then
+    if t:type(0, 1) == 1 and (t:bts(0, 1) & 0xBF == bts_slope_half_floor | 0x80 or t:bts(0, 1) & 0xBF == bts_slope_half_platform | 0x80) and solid_bottom(0, -1) then
         t:set_gfx(tile_number_under_slope_half_floor, bts_hflip(0, 1), true)
         return true
     end
