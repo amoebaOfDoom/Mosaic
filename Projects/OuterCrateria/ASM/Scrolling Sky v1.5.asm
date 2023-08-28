@@ -37,7 +37,7 @@ org $8FC120
 org $88F600 ;free space
 ScrollingSkySectionTable_List:
   DW ScrollingSkySectionTable_000, ScrollingSkySectionTable_002, ScrollingSkySectionTable_004, ScrollingSkySectionTable_006
-  DW ScrollingSkySectionTable_008, ScrollingSkySectionTable_00A, ScrollingSkySectionTable_00C
+  DW ScrollingSkySectionTable_008, ScrollingSkySectionTable_00A, ScrollingSkySectionTable_00C, ScrollingSkySectionTable_00E
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; The first section should start at the top.
@@ -189,6 +189,19 @@ ScrollingSkySectionTable_00C: ;optimized vanilla (7 screens)
   DW $0680 : DD !repeated : DW $9F80
   DW $0690 : DD $00000000 : DW $9F90
   DW $0678 : DD $00000000 : DW $0000
+
+ScrollingSkySectionTable_00E: ;optimized vanilla (2 screens) -3 tiles
+  DW $0000 : DD $00008000 : DW $9F80
+  DW $0020 : DD $0000C000 : DW $9F84
+  DW $0050 : DD !repeated : DW $9F80
+  DW $0078 : DD !repeated : DW $9F84
+  DW $00C8 : DD !repeated : DW $9F80
+  DW $0110 : DD $00007000 : DW $9F8C
+  DW $0130 : DD !repeated : DW $9F84
+  DW $0150 : DD !repeated : DW $9F80
+  DW $0160 : DD $00000000 : DW $9F90
+  DW $01D0 : DD $00000000 : DW $0000
+
 warnpc $88FFFF
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
