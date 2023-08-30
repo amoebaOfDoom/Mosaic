@@ -207,6 +207,56 @@ WreakedShipAwake:
   LDA #$000A ;Phantoon lurking (tileset 5)
   RTL
 
+UpdateSandFloorColors: ;DB is 8D
+  PHX
+  PHY
+  LDY #$0000
+  LDX #$0048
+-
+  LDA $F4EF,Y
+  STA $7EC200,X
+  INX
+  INX
+  INY
+  INY
+  CPY #$0010
+  BMI -
+  PLY
+  PLX
+  RTL
+UpdateHeavySandColors: ;DB is 8D
+  PHX
+  PHY
+  LDY #$0000
+  LDX #$0050
+-
+  LDA $F547,Y
+  STA $7EC200,X
+  INX
+  INX
+  INY
+  INY
+  CPY #$0008
+  BMI -
+  PLY
+  PLX
+  RTL
+
+; force the sand glows to load their colors on init
+org $8DF795
+  DW #SandFloorColorsInit, $F4E9
+org $8DF799
+  DW #HeavySandColorsInit, $F541
+org $8DC686 ; overwrite unused garbage data
+SandFloorColorsInit:
+  JSL UpdateSandFloorColors:
+  RTS
+HeavySandColorsInit:
+  JSL UpdateHeavySandColors:
+  RTS
+warnpc $8DC696
+
+
 ; Move animation VRAM offsets
 org $878279
   DW $2500 ; R_Tread
