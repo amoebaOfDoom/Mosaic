@@ -40,7 +40,6 @@
         <Code OP="8D" ARG="07E7" />
         <Code OP="A9" ARG="0000" />
         <Code OP="22" ARG="90F084" />
-        <Code OP="22" ARG="8483D7" StackRelative="00 F9 B8 60" />
         <Code OP="60" />
       </doorcode>
     </Door>
