@@ -269,6 +269,30 @@ org $87828B
 org $878291
   DW $26F0 ; SandFall
 
+org $87C964
+CeilingFrame1:
+  DB $FA, $20, $2E, $C0, $9F, $00, $DD, $00, $6B, $07, $36, $1E, $90, $75, $E2, $C8, $00, $FF, $08, $FF, $1A, $FF, $58, $FF, $40, $FF, $02, $FC, $15, $E0, $2A, $C0
+  DB $CF, $10, $73, $08, $6D, $02, $F7, $08, $43, $88, $81, $E8, $18, $5E, $25, $0F, $00, $FF, $20, $FF, $64, $FF, $74, $FF, $43, $FF, $00, $FF, $40, $1F, $A8, $07
+CeilingFrame2:
+  DB $FA, $20, $2E, $C0, $9F, $00, $DD, $00, $6B, $07, $36, $1C, $90, $60, $E2, $E2, $00, $FF, $08, $FF, $1A, $FF, $58, $FF, $40, $FF, $02, $FC, $15, $E0, $2A, $C0
+  DB $CF, $10, $73, $08, $6D, $02, $F7, $08, $43, $88, $81, $E8, $18, $1E, $25, $A7, $00, $FF, $20, $FF, $64, $FF, $74, $FF, $43, $FF, $00, $FF, $40, $1F, $A8, $07
+CeilingFrame3:
+  DB $FA, $20, $2E, $C0, $9F, $00, $DD, $00, $6B, $07, $36, $1E, $90, $75, $E2, $C8, $00, $FF, $08, $FF, $1A, $FF, $58, $FF, $40, $FF, $02, $FC, $15, $E0, $2A, $C0
+  DB $CF, $10, $73, $08, $6D, $02, $F7, $08, $43, $88, $81, $E8, $18, $5E, $25, $0F, $00, $FF, $20, $FF, $64, $FF, $74, $FF, $43, $FF, $00, $FF, $40, $1F, $A8, $07
+CeilingFrame4:
+  DB $FA, $20, $2E, $C0, $9F, $00, $DD, $00, $6B, $07, $36, $1C, $90, $60, $E2, $E2, $00, $FF, $08, $FF, $1A, $FF, $58, $FF, $40, $FF, $02, $FC, $15, $E0, $2A, $C0
+  DB $CF, $10, $73, $08, $6D, $02, $F7, $08, $43, $88, $81, $E8, $18, $1E, $25, $A7, $00, $FF, $20, $FF, $64, $FF, $74, $FF, $43, $FF, $00, $FF, $40, $1F, $A8, $07
+
+CeilingInstructionList:
+  DW $000A, #CeilingFrame1
+  DW $000A, #CeilingFrame2
+  DW $000A, #CeilingFrame3
+  DW $000A, #CeilingFrame4
+  DW $80B7, #CeilingInstructionList
+
+Ceiling_:
+  DW #CeilingInstructionList, $0040, $26D0 ; Maridia sand ceiling
+
 ;Move vileplume tilemap tiles
 org $849E0D
   DW $0002, $37D9, $87D8
@@ -402,21 +426,21 @@ Glow_Area_7:
 
   ;  01         02         04         08         10         20         40         80
 Anim_Area_0:
-  DW !H_Spike_, !V_Spike_, !Ocean___, !SandFall, !SandHead, !VilePlum, !R_Tread_, !L_Tread_
+  DW !H_Spike_, !V_Spike_, !Ocean___, !SandFall, #Ceiling_, !VilePlum, !R_Tread_, !L_Tread_
 Anim_Area_1:
-  DW !H_Spike_, !V_Spike_, !NullAnim, !SandFall, !SandHead, !VilePlum, !R_Tread_, !L_Tread_
+  DW !H_Spike_, !V_Spike_, !NullAnim, !SandFall, #Ceiling_, !VilePlum, !R_Tread_, !L_Tread_
 Anim_Area_2:
-  DW !H_Spike_, !V_Spike_, !NullAnim, !SandFall, !SandHead, !VilePlum, !R_Tread_, !L_Tread_
+  DW !H_Spike_, !V_Spike_, !NullAnim, !SandFall, #Ceiling_, !VilePlum, !R_Tread_, !L_Tread_
 Anim_Area_3:
-  DW !H_Spike_, !V_Spike_, !Laundry_, !SandFall, !SandHead, !VilePlum, !R_Tread_, !L_Tread_
+  DW !H_Spike_, !V_Spike_, !Laundry_, !SandFall, #Ceiling_, !VilePlum, !R_Tread_, !L_Tread_
 Anim_Area_4:
   DW !H_Spike_, !V_Spike_, !NullAnim, !SandFall, !SandHead, !VilePlum, !R_Tread_, !L_Tread_
 Anim_Area_5:
-  DW !H_Spike_, !V_Spike_, !NullAnim, !SandFall, !SandHead, !VilePlum, !R_Tread_, !L_Tread_
+  DW !H_Spike_, !V_Spike_, !NullAnim, !SandFall, #Ceiling_, !VilePlum, !R_Tread_, !L_Tread_
 Anim_Area_6:
-  DW !H_Spike_, !V_Spike_, !NullAnim, !SandFall, !SandHead, !VilePlum, !R_Tread_, !L_Tread_
+  DW !H_Spike_, !V_Spike_, !NullAnim, !SandFall, #Ceiling_, !VilePlum, !R_Tread_, !L_Tread_
 Anim_Area_7:
-  DW !H_Spike_, !V_Spike_, !NullAnim, !SandFall, !SandHead, !VilePlum, !R_Tread_, !L_Tread_
+  DW !H_Spike_, !V_Spike_, !NullAnim, !SandFall, #Ceiling_, !VilePlum, !R_Tread_, !L_Tread_
 
 GlowTypeTable:
   DW Glow_Area_0a, Glow_Area_0a ;Crateria Surface

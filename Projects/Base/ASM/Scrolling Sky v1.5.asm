@@ -38,6 +38,7 @@ org $88F600 ;free space
 ScrollingSkySectionTable_List:
   DW ScrollingSkySectionTable_000, ScrollingSkySectionTable_002, ScrollingSkySectionTable_004, ScrollingSkySectionTable_006
   DW ScrollingSkySectionTable_008, ScrollingSkySectionTable_00A, ScrollingSkySectionTable_00C, ScrollingSkySectionTable_00E
+  DW ScrollingSkySectionTable_010
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; The first section should start at the top.
@@ -127,7 +128,7 @@ ScrollingSkySectionTable_008: ;optimized vanilla (1 screen)
   DW $0060 : DD $0000C000 : DW $9F84
   DW $0080 : DD !repeated : DW $9F80
   DW $0090 : DD $00000000 : DW $9F90
-  DW $0100 : DD $00000000 : DW $0000
+  DW $0118 : DD $00000000 : DW $0000
 
 ScrollingSkySectionTable_00A: ;optimized vanilla (6 screens)
   DW $0000 : DD $00008000 : DW $9F80
@@ -361,6 +362,10 @@ ScrollingSection_Loop:
   INC A
   INC A
   STA $7E9F01,x
+  LDA $12
+  CLC
+  ADC #$007F
+  STA $12
   INX
   INX
   INX
