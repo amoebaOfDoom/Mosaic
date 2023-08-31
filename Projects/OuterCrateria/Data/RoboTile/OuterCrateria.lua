@@ -1,6 +1,7 @@
 bts_slope_half_platform = 0x00
 bts_slope_half_floor = 0x07
 bts_slope_whole_floor = 0x13
+bts_slope_half_wall = 0x01
 bts_slope_normal = 0x12        -- 45-degree angle slope
 bts_slope_offset_small = 0x14  -- 45-degree angle slope, offset by half tile
 bts_slope_offset_large = 0x15  -- 45-degree angle slope, offset by half tile
@@ -8,6 +9,8 @@ bts_slope_steep_small = 0x1B
 bts_slope_steep_large = 0x1C
 bts_slope_gentle_small = 0x16
 bts_slope_gentle_large = 0x17
+bts_slope_step_small = 0x02
+bts_slope_step_large = 0x03
 
 tile_number_air = 0x0FF
 tile_number_interior = 0x3FF
@@ -23,6 +26,8 @@ tile_number_solid_block = 0x2B8
 
 tile_number_slope_half_floor = 0x1DC
 tile_number_under_slope_half_floor = 0x1FC
+tile_number_slope_half_wall = 0x21A
+tile_number_beside_slope_half_wall = 0x21B
 tile_number_slope_normal = 0x10E
 tile_number_slope_steep_small = 0x1D8
 tile_number_slope_steep_large = 0x1F8
@@ -32,6 +37,8 @@ tile_number_slope_gentle_small = 0x1D5
 tile_number_slope_gentle_large = 0x1D6
 tile_number_under_slope_gentle_small = 0x1F5
 tile_number_under_slope_gentle_large = 0x1F6
+tile_number_slope_step_small = 0x14E
+tile_number_slope_step_large = 0x16F
 
 function invariant(x, y)
     -- Tiles to leave intact: CRE tiles except for black
@@ -175,6 +182,18 @@ if t:type(0, 0) == 1 then
         t:set_gfx(tile_number_slope_half_floor, false, true)
         return true
     end
+    if t:bts(0, 0) & 0x3F == bts_slope_half_wall then
+        t:set_gfx(tile_number_slope_half_wall, bts_hflip(0, 0), false)
+        return true
+    end    
+    if t:bts(0, 0) & 0x3F == bts_slope_step_small then
+        t:set_gfx(tile_number_slope_step_small, bts_hflip(0, 0), bts_vflip(0, 0))
+        return true
+    end    
+    if t:bts(0, 0) & 0x3F == bts_slope_step_large then
+        t:set_gfx(tile_number_slope_step_large, bts_hflip(0, 0), bts_vflip(0, 0))
+        return true
+    end    
 end
 
 -- Solid tiles: look at neighboring edges
@@ -290,6 +309,14 @@ if solid(0, 0) then
     end
     if t:type(0, 1) == 1 and (t:bts(0, 1) & 0xBF == bts_slope_half_floor | 0x80 or t:bts(0, 1) & 0xBF == bts_slope_half_platform | 0x80) and solid_bottom(0, -1) then
         t:set_gfx(tile_number_under_slope_half_floor, bts_hflip(0, 1), true)
+        return true
+    end
+    if t:type(-1, 0) == 1 and (t:bts(-1, 0) & 0x7F == bts_slope_half_wall) then
+        t:set_gfx(tile_number_beside_slope_half_wall, false, false)
+        return true
+    end
+    if t:type(1, 0) == 1 and (t:bts(1, 0) & 0x7F == bts_slope_half_wall | 0x40) then
+        t:set_gfx(tile_number_beside_slope_half_wall, true, false)
         return true
     end
 
