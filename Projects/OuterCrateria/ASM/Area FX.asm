@@ -47,42 +47,33 @@ GetTilesetIndex:
   AND #$00FF
   RTS
 
-MaskGlowBits:
-  LDA #$000E
-  JSL $808233
-  BCC +
+CallGlowHandler:
+  PHB
+  PHK
+  PLB
   JSR GetTilesetIndex
-  TAY
-  LDA EscapeGlowTable,Y
-  AND #$00FF ; If the tileset doesn't have escape glows, don't do anything with them.
-  BEQ +
-  BIT $000D,X ; If the excape glows are already handled by the fx, use that.
-  BNE +
-  ORA $000D,X
-  AND EscapeMaskTable,Y ; Turn off the basic tileset specific glow in tilesets with escape glows.
+  PHX
+  ASL
+  TAX
+  JSR (GlowHandlerTable,X)
+  PLX
+  PLB
   RTS
-+
-  CPY #$0002
-  BPL MaskGlowBits_Default
-  LDA $09D0
-  BEQ MaskGlowBits_Default
+
+MaskGlowBits:
   LDA $000D,X
-  AND #$00FE
-  RTS
-MaskGlowBits_Default:
-  LDA $000D,X
+  AND #$00FF
+  STA $196A
+  JSR CallGlowHandler
   RTS
 
 ForceGlowMask:
-  LDA #$000E
-  JSL $808233
-  BCC ForceGlowMask_Exit
-  JSR GetTilesetIndex
-  TAY
-  LDA EscapeGlowTable,Y
-  AND #$00FF
-  BEQ ForceGlowMask_Exit
+  LDA #$0000
   STA $196A
+  JSR CallGlowHandler
+  AND #$00FF
+  STA $196A
+  BEQ ForceGlowMask_Exit
 
   JSR GetTilesetIndex
   ASL
@@ -109,6 +100,88 @@ ForceGlowMask_Exit:
   PLB
   PLP
   RTL
+
+GlowHandlerTable:
+  DW Handler_Area_0a, Handler_Area_0a ;Crateria Surface
+  DW Handler_Area_0b, Handler_Area_0b ;Inner Crateria
+  DW Handler_Area_3, Handler_Area_3 ;Wrecked Ship
+  DW Handler_Area_1, Handler_Area_1 ;Brinstar
+  DW Handler_Area_1 ;Tourian Statues Access
+  DW Handler_Area_2, Handler_Area_2 ;Norfair
+  DW Handler_Area_4, Handler_Area_4 ;Maridia
+  DW Handler_Area_5, Handler_Area_5 ;Tourian
+  DW Handler_Area_6, Handler_Area_6, Handler_Area_6, Handler_Area_6, Handler_Area_6, Handler_Area_6 ;Ceres
+  DW Handler_Area_6, Handler_Area_6, Handler_Area_6, Handler_Area_6, Handler_Area_6 ;Utility Rooms
+  ;Bosses
+  DW Handler_Area_1 ;Kraid
+  DW Handler_Area_2 ;Crocomire
+  DW Handler_Area_4 ;Draygon
+  DW Handler_Area_1 ;SpoSpo
+  DW Handler_Area_3 ;Phantoon
+
+ProcessEscapeMask:
+  LDA #$000E
+  JSL $808233
+  BCC ProcessEscapeMask_Default
+  LDA EscapeGlowTable,Y
+  BIT $196A ; If the excape glows are already handled by the fx, use that.
+  BNE ProcessEscapeMask_Default
+  ORA $196A
+  AND EscapeMaskTable,Y ; Turn off the basic tileset specific glow in tilesets with escape glows.
+  RTS
+ProcessEscapeMask_Default:
+  LDA $196A
+  RTS
+
+EscapeGlowTable:
+  DB $06 ;Crateria Surface
+  DB $19 ;Inner Crateria
+  DB $1D ;Tourian
+
+EscapeMaskTable:
+  DB $FE ;Crateria Surface
+  DB $FF ;Inner Crateria
+  DB $FD ;Tourian
+
+Handler_Area_0a:
+  LDY #$0000
+  JSR ProcessEscapeMask
+
+  LDY $09D0
+  BEQ +
+  AND #$00FE
+  RTS
++
+  RTS
+
+Handler_Area_0b:
+  LDY #$0001
+  JSR ProcessEscapeMask
+  RTS
+
+Handler_Area_3:
+  LDA #$0058
+  JSL $808233
+  BCC +
+  LDA $196A
+  ORA #$0001
+  RTS
++
+  LDA $196A
+  AND #$00FE
+  RTS
+
+Handler_Area_5:
+  LDY #$0003
+  JSR ProcessEscapeMask
+  RTS
+
+Handler_Area_1:
+Handler_Area_2:
+Handler_Area_4:
+Handler_Area_6:
+  LDA $196A
+  RTS
 
 GetFxType:
   LDA $0009,X
@@ -477,39 +550,3 @@ AnimTypeTable:
   DW Anim_Area_4 ;Draygon
   DW Anim_Area_1 ;SpoSpo
   DW Anim_Area_3 ;Phantoon
-
-EscapeGlowTable:
-  DB $06, $06 ;Crateria Surface
-  DB $19, $19 ;Inner Crateria
-  DB $00, $00 ;Wrecked Ship
-  DB $00, $00 ;Brinstar
-  DB $00 ;Tourian Statues Access
-  DB $00, $00 ;Norfair
-  DB $00, $00 ;Maridia
-  DB $1D, $1D ;Tourian
-  DB $00, $00, $00, $00, $00, $00 ;Ceres
-  DB $00, $00, $00, $00, $00 ;Utility Rooms
-  ;Bosses
-  DB $00 ;Kraid
-  DB $00 ;Crocomire
-  DB $00 ;Draygon
-  DB $00 ;SpoSpo
-  DB $00 ;Phantoon
-
-EscapeMaskTable:
-  DB $FE, $FE ;Crateria Surface
-  DB $FF, $FF ;Inner Crateria
-  DB $FF, $FF ;Wrecked Ship
-  DB $FF, $FF ;Brinstar
-  DB $FF ;Tourian Statues Access
-  DB $FF, $FF ;Norfair
-  DB $FF, $FF ;Maridia
-  DB $FD, $FD ;Tourian
-  DB $FF, $FF, $FF, $FF, $FF, $FF ;Ceres
-  DB $FF, $FF, $FF, $FF, $FF ;Utility Rooms
-  ;Bosses
-  DB $FF ;Kraid
-  DB $FF ;Crocomire
-  DB $FF ;Draygon
-  DB $FF ;SpoSpo
-  DB $FF ;Phantoon
