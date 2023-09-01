@@ -43,7 +43,7 @@ tile_number_slope_step_large = 0x16F
 function invariant(x, y)
     -- Tiles to leave intact: CRE tiles except for black
     local tile = t:gfx_tile(x, y)
-    return tile < 0x100 and tile ~= 0x81
+    return tile < 0xFF and tile ~= 0x81
 end
 function air(x, y) 
     return t:type(x, y) == 0
