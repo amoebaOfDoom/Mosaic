@@ -56,6 +56,7 @@ OpenBowlingStairs_2:
   LDA #$0000
   LDX #$1A78
   JSR UpdateTileType
+  LDA #$0000
   LDX #$1A7A
   JSR UpdateTileType
 
@@ -99,12 +100,15 @@ CloseBowlingStairs_2:
   LDA #$8000
   LDX #$1A78
   JSR UpdateTileType
+  LDA #$8000
   LDX #$1A7A
   JSR UpdateTileType
 
+  LDA #$8000
   LDX #$1B38
   JSR UpdateTileType
 
+  LDA #$8000
   LDX #$1BF8
   JSR UpdateTileType
 
