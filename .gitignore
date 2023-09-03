@@ -2,3 +2,4 @@
 *.bak
 Tools/
 Notes/
+**/quickmet.xml
