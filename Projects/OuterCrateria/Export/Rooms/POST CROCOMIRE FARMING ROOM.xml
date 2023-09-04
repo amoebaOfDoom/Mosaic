@@ -19,7 +19,7 @@
   <height>02</height>
   <upscroll>90</upscroll>
   <dnscroll>A0</dnscroll>
-  <specialGFX>02</specialGFX>
+  <specialGFX>82</specialGFX>
   <Doors>
     <Door>
       <toroom area="02" index="0A" />
