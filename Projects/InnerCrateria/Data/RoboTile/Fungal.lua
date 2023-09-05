@@ -10,26 +10,35 @@ tile_right_edge_1 = 0x2C0
 tile_right_edge_2 = 0x2C1
 tile_bottom_right_outside_corner = 0x2C4
 tile_top_left_inside_corner = 0x22C
+tile_bottom_right_inside_corner = 0x20D
 
-tile_half_bottom_edge_1 = 0x224
-tile_half_bottom_edge_2 = 0x225
-tile_under_half_bottom_edge_1 = 0x244
-tile_under_half_bottom_edge_2 = 0x245
+tile_half_bottom_edge_1 = 0x204
+tile_half_bottom_edge_2 = 0x205
+tile_under_half_bottom_edge_1 = 0x224
+tile_under_half_bottom_edge_2 = 0x225
 
-tile_half_left_edge_1 = 0x267
-tile_half_left_edge_2 = 0x287
-tile_beside_half_left_edge_1 = 0x266
-tile_beside_half_left_edge_2 = 0x286
+tile_half_left_edge_1 = 0x247
+tile_half_left_edge_2 = 0x267
+tile_beside_half_left_edge_1 = 0x246
+tile_beside_half_left_edge_2 = 0x266
 
-tile_bottom_left_45_slope = 0x2BC  -- this isn't the right tile for this
+tile_bottom_left_45_slope = 0x1ED
 
 tile_bottom_left_steep_slope_large = 0x269
 tile_bottom_left_steep_slope_small = 0x249
 tile_beside_bottom_left_steep_slope_small = 0x248
 
+tile_top_left_steep_slope_large = 0x24C
+tile_top_left_steep_slope_small = 0x26C
+tile_beside_top_left_steep_slope_small = 0x24B
+
 tile_bottom_right_gentle_slope_large = 0x2AA
 tile_bottom_right_gentle_slope_small = 0x2A9
 tile_below_bottom_right_gentle_slope_small = 0x2C9
+
+--tile_top_right_gentle_slope_large = 0x2A7
+--tile_top_right_gentle_slope_small = 0x2A8
+--tile_above_top_right_gentle_slope_small = 0x2A6
 
 tile_step_small = 0x14E
 
@@ -49,15 +58,24 @@ end
 if t:type(0, 0) == 1 then
     bts = t:bts(0, 0) & 0x3F
     if bts == bts_slope_bottom_right_45 then
-        t:set_gfx(tile_bottom_left_45_slope, not bts_hflip(0, 0), bts_vflip(0, 0))
+        t:set_gfx(tile_bottom_left_45_slope, bts_hflip(0, 0), bts_vflip(0, 0))
         return true
     end
     if bts == bts_slope_bottom_right_steep_small then
         t:set_gfx(tile_bottom_left_steep_slope_small, not bts_hflip(0, 0), bts_vflip(0, 0))
+        if not bts_vflip(0, 0) then
+            t:set_gfx(tile_bottom_left_steep_slope_small, not bts_hflip(0, 0), false)
+        else
+            t:set_gfx(tile_top_left_steep_slope_small, not bts_hflip(0, 0), false)
+        end
         return true
     end
     if bts == bts_slope_bottom_right_steep_large then
-        t:set_gfx(tile_bottom_left_steep_slope_large, not bts_hflip(0, 0), bts_vflip(0, 0))
+        if not bts_vflip(0, 0) then
+            t:set_gfx(tile_bottom_left_steep_slope_large, not bts_hflip(0, 0), false)
+        else
+            t:set_gfx(tile_top_left_steep_slope_large, not bts_hflip(0, 0), false)
+        end
         return true
     end
     if bts == bts_slope_bottom_right_gentle_small then
@@ -170,11 +188,19 @@ if solid(0, 0) then
 
     -- Slope adjacent:
     if t:type(-1, 0) == 1 and t:bts(-1, 0) & 0x7F == bts_slope_bottom_right_steep_small and solid_left(1, 0) then
-        t:set_gfx(tile_beside_bottom_left_steep_slope_small, true, bts_vflip(-1, 0))
+        if not bts_vflip(-1, 0) then
+            t:set_gfx(tile_beside_bottom_left_steep_slope_small, true, false)
+        else
+            t:set_gfx(tile_beside_top_left_steep_slope_small, true, false)
+        end
         return true
     end
     if t:type(1, 0) == 1 and t:bts(1, 0) & 0x7F == bts_slope_bottom_right_steep_small | 0x40 and solid_right(-1, 0) then
-        t:set_gfx(tile_beside_bottom_left_steep_slope_small, false, bts_vflip(1, 0))
+        if not bts_vflip(1, 0) then
+            t:set_gfx(tile_beside_bottom_left_steep_slope_small, false, false)
+        else
+            t:set_gfx(tile_beside_top_left_steep_slope_small, false, false)
+        end
         return true
     end
     if t:type(0, -1) == 1 and t:bts(0, -1) & 0xBF == bts_slope_bottom_right_gentle_small and solid_top(0, 1) then
@@ -221,19 +247,19 @@ if solid(0, 0) then
     if solid_right(-1, 0) and solid_left(1, 0) and solid_bottom(0, -1) and solid_top(0, 1) then
         -- Inside corners:
         if outside(-1, -1) and not air(1, -1) and not air(-1, 1) and not air(1, 1) then
-            t:set_gfx(tile_top_left_inside_corner, true, true)
+            t:set_gfx(tile_bottom_right_inside_corner, false, false)
             return true
         end
         if not air(-1, -1) and outside(1, -1) and not air(-1, 1) and not air(1, 1) then
-            t:set_gfx(tile_top_left_inside_corner, false, true)
+            t:set_gfx(tile_bottom_right_inside_corner, true, false)
             return true
         end
         if not air(-1, -1) and not air(1, -1) and outside(-1, 1) and not air(1, 1) then
-            t:set_gfx(tile_top_left_inside_corner, true, false)
+            t:set_gfx(tile_bottom_right_inside_corner, false, true)
             return true
         end
         if not air(-1, -1) and not air(1, -1) and not air(-1, 1) and outside(1, 1) then
-            t:set_gfx(tile_top_left_inside_corner, false, false)
+            t:set_gfx(tile_bottom_right_inside_corner, true, true)
             return true
         end
 
