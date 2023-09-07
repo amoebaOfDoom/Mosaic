@@ -858,7 +858,7 @@
       <layer2_yscroll>C0</layer2_yscroll>
       <ScrollData const="0000" />
       <roomvar>0000</roomvar>
-      <FX2>E5A4</FX2>
+      <FX2>0000</FX2>
       <PLMs>
         <PLM>
           <type>DB44</type>
@@ -945,7 +945,7 @@
           <Section>Tiles2</Section>
         </Data>
       </BGData>
-      <layer1_2>C953</layer1_2>
+      <layer1_2>0000</layer1_2>
     </State>
   </States>
 </Room>
