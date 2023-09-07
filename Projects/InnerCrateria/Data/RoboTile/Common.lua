@@ -49,7 +49,10 @@ end
 function solid_slope_bottom(bts)
     return bts == 0x00 or bts == 0x07 or bts == 0x13 or bts == 0x12 or bts == 0x15 or bts == 0x16 or bts == 0x17 or bts == 0x1C
 end
-function solid_left(x, y)
+function inside_left(x, y)
+    if invariant(x, y) then
+        return false
+    end
     if t:type(x, y) == 8 then
         return true
     end
@@ -62,7 +65,10 @@ function solid_left(x, y)
     end
     return false
 end
-function solid_right(x, y)
+function inside_right(x, y)
+    if invariant(x, y) then
+        return false
+    end
     if t:type(x, y) == 8 then
         return true
     end
@@ -75,7 +81,10 @@ function solid_right(x, y)
     end
     return false
 end
-function solid_top(x, y)
+function inside_top(x, y)
+    if invariant(x, y) then
+        return false
+    end
     if t:type(x, y) == 8 then
         return true
     end
@@ -88,7 +97,10 @@ function solid_top(x, y)
     end
     return false
 end
-function solid_bottom(x, y)
+function inside_bottom(x, y)
+    if invariant(x, y) then
+        return false
+    end
     if t:type(x, y) == 8 then
         return true
     end
@@ -100,4 +112,28 @@ function solid_bottom(x, y)
         end
     end
     return false
+end
+function outside_left(x, y)
+    return not inside_left(x,y)
+end
+function outside_right(x, y)
+    return not inside_right(x,y)
+end
+function outside_top(x, y)
+    return not inside_top(x,y)
+end
+function outside_bottom(x, y)
+    return not inside_bottom(x,y)
+end
+function outside_bottom_left(x, y)
+    return outside_bottom(x, y) or outside_left(x, y)
+end
+function outside_bottom_right(x, y)
+    return outside_bottom(x, y) or outside_right(x, y)
+end
+function outside_top_left(x, y)
+    return outside_top(x, y) or outside_left(x, y)
+end
+function outside_top_right(x, y)
+    return outside_top(x, y) or outside_right(x, y)
 end
