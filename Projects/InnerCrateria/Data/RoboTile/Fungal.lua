@@ -154,7 +154,7 @@ if solid(0, 0) then
 
     -- Horizontal/vertical edges (opaque):
     if outside(-1, 0) and solid_left(1, 0) and solid_bottom(0, -1) and solid_top(0, 1) then
-        if t:abs_y() % 2 == 0 then
+        if (t:abs_x() + t:abs_y()) % 2 == 0 then
             t:set_gfx(tile_right_edge_1, false, false)
         else
             t:set_gfx(tile_right_edge_2, false, false)
@@ -162,7 +162,7 @@ if solid(0, 0) then
         return true
     end
     if outside(1, 0) and solid_right(-1, 0) and solid_bottom(0, -1) and solid_top(0, 1) then
-        if t:abs_y() % 2 == 0 then
+        if (t:abs_x() + t:abs_y()) % 2 == 0 then
             t:set_gfx(tile_right_edge_1, true, false)
         else
             t:set_gfx(tile_right_edge_2, true, false)
@@ -170,7 +170,7 @@ if solid(0, 0) then
         return true
     end
     if solid_right(-1, 0) and solid_left(1, 0) and outside(0, -1) and solid_top(0, 1) then
-        if t:abs_x() % 2 == 0 then
+        if (t:abs_x() + t:abs_y()) % 2 == 0 then
             t:set_gfx(tile_bottom_edge_1, false, false)
         else
             t:set_gfx(tile_bottom_edge_2, false, false)
@@ -178,7 +178,7 @@ if solid(0, 0) then
         return true
     end
     if solid_right(-1, 0) and solid_left(1, 0) and outside(0, 1) and solid_bottom(0, -1) then
-        if t:abs_x() % 2 == 0 then
+        if (t:abs_x() + t:abs_y()) % 2 == 0 then
             t:set_gfx(tile_bottom_edge_1, false, true)
         else
             t:set_gfx(tile_bottom_edge_2, false, true)
