@@ -196,7 +196,7 @@
       </Screen>
         </BTS>
       </LevelData>
-      <GFXset>80</GFXset>
+      <GFXset>00</GFXset>
       <music>0000</music>
       <FX1s>
         <FX1 default="true">
