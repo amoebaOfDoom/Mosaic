@@ -37,9 +37,9 @@ class Room:
       
       layer1_nodes = state_node.findall("./LevelData/Layer1/Screen")
       for layer1_node in layer1_nodes:
-        x = int(bts_node.attrib['X'], 16)
-        y = int(bts_node.attrib['Y'], 16)
-        tiles = [(int(b, 16) & 0xF000) for b in bts_node.text.split()]
+        x = int(layer1_node.attrib['X'], 16)
+        y = int(layer1_node.attrib['Y'], 16)
+        tiles = [(int(t, 16) & 0xF000) for t in layer1_node.text.split()]
         for i, tile in enumerate(tiles):
           state[x][y][i] |= tiles[i]
 
@@ -90,10 +90,10 @@ for name, style in styles.items():
             for b_i, bts in enumerate(screen):
               base_bts = base.rooms[a_i][r_i].states[s_i][c_i][n_i][b_i]
               if(base_bts & 0xFF != bts & 0xFF):
-                print(f"Bad bts in file: {room.path} State<{s_i}>Screen({c_i},{n_i})[{b_i}]. Should be {hex(base_bts & 0xFF)} but was {hex(bts & 0xFF)}")
+                print(f"Bad bts in file: {room.path} State<{s_i}>Screen({c_i},{n_i})[{b_i}]. Should be {(base_bts & 0xFF):02X} but was {(bts & 0xFF):02X}")
                 valid = 1
               if(base_bts & 0xF000 != bts & 0xF000):
-                print(f"Bad tile type in file: {room.path} State<{s_i}>Screen({c_i},{n_i})[{b_i}]. Should be {hex(base_bts & 0xF000)} but was {hex(bts & 0xF000)}")
+                print(f"Bad tile type in file: {room.path} State<{s_i}>Screen({c_i},{n_i})[{b_i}]. Should be {(base_bts & 0xF000):04X} but was {(bts & 0xF000):04X}")
                 valid = 1
 
 exit(valid)
