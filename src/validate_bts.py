@@ -89,11 +89,10 @@ for name, style in styles.items():
           for n_i, screen in enumerate(column):
             for b_i, bts in enumerate(screen):
               base_bts = base.rooms[a_i][r_i].states[s_i][c_i][n_i][b_i]
-              if(base_bts & 0xFF != bts & 0xFF):
-                print(f"Bad bts in file: {room.path} State<{s_i}>Screen({c_i},{n_i})[{b_i}]. Should be {(base_bts & 0xFF):02X} but was {(bts & 0xFF):02X}")
-                valid = 1
-              if(base_bts & 0xF000 != bts & 0xF000):
-                print(f"Bad tile type in file: {room.path} State<{s_i}>Screen({c_i},{n_i})[{b_i}]. Should be {(base_bts & 0xF000):04X} but was {(bts & 0xF000):04X}")
+              base_bts_str = f"({base_bts >> 12:X}, {base_bts & 0xFF:02X})"
+              bts_str = f"({bts >> 12:X}, {bts & 0xFF:02X})"
+              if base_bts != bts:
+                print(f"{room.path} State<{s_i}>Screen({c_i},{n_i})[{b_i:X}]. Should be {base_bts_str} but was {bts_str}")
                 valid = 1
 
 exit(valid)
