@@ -94,10 +94,21 @@ for name, style in styles.items():
 
               base_tiletype_bts_str = f"({base_tiletype:X}, {base_bts:02X})"
               tiletype_bts_str = f"({tiletype:X}, {bts:02X})"
+              context_str = f"{room.path} State<{s_i}>Screen({c_i},{n_i})[{b_i:X}]."
+
+              # Basic check on tile type and BTS match:
               if (base_tiletype, base_bts) != (tiletype, bts):
-                print(f"{room.path} State<{s_i}>Screen({c_i},{n_i})[{b_i:X}]. Should be {base_tiletype_bts_str} but was {tiletype_bts_str}")
+                print(f"{context_str} Should be {base_tiletype_bts_str} but was {tiletype_bts_str}")
                 valid = 1
+
+              # Grapple block check:
               if tiletype == 0xE and tile != base_tile:
-                print(f"{room.path} State<{s_i}>Screen({c_i},{n_i})[{b_i:X}]. Wrong tile for grapple block: should be {base_tile:04X} but was {tile:04X}")
+                print(f"{context_str} Wrong tile for grapple block: should be {base_tile:04X} but was {tile:04X}")
+
+              # Check for background tiles in wrong layer:
+              if name == "OuterCrateria":
+                if tile & 0x3FF in [0x13D, 0x13E, 0x13F]:
+                  print(f"{context_str} Background tile in layer 1: {tile:04X}")
+
 
 exit(valid)
