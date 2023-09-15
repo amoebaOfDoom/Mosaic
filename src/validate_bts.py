@@ -104,11 +104,12 @@ for name, style in styles.items():
               # Grapple block check:
               if tiletype == 0xE and tile != base_tile:
                 print(f"{context_str} Wrong tile for grapple block: should be {base_tile:04X} but was {tile:04X}")
+                valid = 1
 
               # Check for background tiles in wrong layer:
               if name == "OuterCrateria":
                 if tile & 0x3FF in [0x13D, 0x13E, 0x13F]:
                   print(f"{context_str} Background tile in layer 1: {tile:04X}")
-
+                  valid = 1
 
 exit(valid)
