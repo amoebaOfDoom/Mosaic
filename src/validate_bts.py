@@ -32,16 +32,16 @@ class Room:
       for bts_node in bts_nodes:
         x = int(bts_node.attrib['X'], 16)
         y = int(bts_node.attrib['Y'], 16)
-        bts = [int(b, 16) for b in bts_node.text.split()]
+        bts = [[int(b, 16)] for b in bts_node.text.split()]
         state[x][y] = bts
       
       layer1_nodes = state_node.findall("./LevelData/Layer1/Screen")
       for layer1_node in layer1_nodes:
         x = int(layer1_node.attrib['X'], 16)
         y = int(layer1_node.attrib['Y'], 16)
-        tiles = [(int(t, 16) & 0xF000) for t in layer1_node.text.split()]
+        tiles = [int(t, 16) for t in layer1_node.text.split()]
         for i, tile in enumerate(tiles):
-          state[x][y][i] |= tiles[i]
+          state[x][y][i].append(tiles[i])
 
       self.states.append(state)
 
@@ -87,12 +87,17 @@ for name, style in styles.items():
       for s_i, state in enumerate(room.states):
         for c_i, column in enumerate(state):
           for n_i, screen in enumerate(column):
-            for b_i, bts in enumerate(screen):
-              base_bts = base.rooms[a_i][r_i].states[s_i][c_i][n_i][b_i]
-              base_bts_str = f"({base_bts >> 12:X}, {base_bts & 0xFF:02X})"
-              bts_str = f"({bts >> 12:X}, {bts & 0xFF:02X})"
-              if base_bts != bts:
-                print(f"{room.path} State<{s_i}>Screen({c_i},{n_i})[{b_i:X}]. Should be {base_bts_str} but was {bts_str}")
+            for b_i, (bts, tile) in enumerate(screen):
+              tiletype = tile >> 12
+              base_bts, base_tile = base.rooms[a_i][r_i].states[s_i][c_i][n_i][b_i]
+              base_tiletype = base_tile >> 12
+
+              base_tiletype_bts_str = f"({base_tiletype:X}, {base_bts:02X})"
+              tiletype_bts_str = f"({tiletype:X}, {bts:02X})"
+              if (base_tiletype, base_bts) != (tiletype, bts):
+                print(f"{room.path} State<{s_i}>Screen({c_i},{n_i})[{b_i:X}]. Should be {base_tiletype_bts_str} but was {tiletype_bts_str}")
                 valid = 1
+              if tiletype == 0xE and tile != base_tile:
+                print(f"{room.path} State<{s_i}>Screen({c_i},{n_i})[{b_i:X}]. Wrong tile for grapple block: should be {base_tile:04X} but was {tile:04X}")
 
 exit(valid)
