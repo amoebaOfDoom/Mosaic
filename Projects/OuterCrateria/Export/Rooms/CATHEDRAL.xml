@@ -269,7 +269,7 @@
           <transparency1_A>02</transparency1_A>
           <transparency2_B>1E</transparency2_B>
           <liquidflags_C>0B</liquidflags_C>
-          <paletteflags>01</paletteflags>
+          <paletteflags>80</paletteflags>
           <animationflags>03</animationflags>
           <paletteblend>02</paletteblend>
         </FX1>
@@ -347,8 +347,8 @@
         </Enemy>
       </EnemyTypes>
       <layer2_type>BGData</layer2_type>
-      <layer2_xscroll>00</layer2_xscroll>
-      <layer2_yscroll>00</layer2_yscroll>
+      <layer2_xscroll>C0</layer2_xscroll>
+      <layer2_yscroll>C0</layer2_yscroll>
       <ScrollData const="0000" />
       <roomvar>0000</roomvar>
       <FX2>0000</FX2>
