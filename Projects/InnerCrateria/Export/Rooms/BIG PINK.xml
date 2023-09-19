@@ -19,7 +19,7 @@
   <height>0A</height>
   <upscroll>70</upscroll>
   <dnscroll>A0</dnscroll>
-  <specialGFX>00</specialGFX>
+  <specialGFX>80</specialGFX>
   <Doors>
     <Door>
       <toroom area="01" index="0A" />
@@ -2844,7 +2844,7 @@
           <surfacenew>FFFF</surfacenew>
           <surfacespeed>0000</surfacespeed>
           <surfacedelay>00</surfacedelay>
-          <type>08</type>
+          <type>00</type>
           <transparency1_A>02</transparency1_A>
           <transparency2_B>0A</transparency2_B>
           <liquidflags_C>00</liquidflags_C>
