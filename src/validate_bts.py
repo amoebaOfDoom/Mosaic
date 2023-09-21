@@ -80,8 +80,7 @@ valid = 0
 
 for name, style in styles.items():
   if name == "Base":
-    next
-
+    continue
   for a_i, area in style.rooms.items():
     for r_i, room in area.items():
       for s_i, state in enumerate(room.states):
