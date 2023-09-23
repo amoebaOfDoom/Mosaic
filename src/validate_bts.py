@@ -54,6 +54,7 @@ class Style:
     self.room_path = os.path.relpath(str(path / "Export" / "Rooms"))
     self.name = str(path.name)
     self.rooms = {x : {} for x in range(8)}
+    self.excluded = {x : {} for x in range(8)}
 
     room_files = Path(self.room_path).glob('*.xml')
 
@@ -61,6 +62,8 @@ class Style:
       room = Room(room_file)
       if room.include() or self.name == "Base":
         self.rooms[room.area][room.index] = room
+      else:
+        self.excluded[room.area][room.index] = room
 
 parser = ArgumentParser(prog="generate_manifest")
 parser.add_argument('-r',  dest="root_path")
@@ -80,8 +83,9 @@ valid = 0
 
 for name, style in styles.items():
   if name == "Base":
-    next
-
+    continue
+  excluded_count_list = [len(style.excluded[a_i]) for a_i in range(6)]
+  print(f"{name} excluded room count: {excluded_count_list}")
   for a_i, area in style.rooms.items():
     for r_i, room in area.items():
       for s_i, state in enumerate(room.states):
