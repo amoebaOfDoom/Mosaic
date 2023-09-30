@@ -1,0 +1,26 @@
+<PLMInfo>
+  <Name>Shutter Gate Controller</Name>
+  <Offset X="1" Y="0"/>      
+  <Properties>
+    <Property>
+      <Name>Color</Name>
+      <Description>Type of weapon needed to open the gate.</Description>
+      <Mask>0xFFFC</Mask>
+      <NameValues>
+        <NameValue Value="0"  Name="Blue"/>
+        <NameValue Value="1"  Name="Red"/>
+        <NameValue Value="2"  Name="Green"/>
+        <NameValue Value="3" Name="Yellow"/>
+      </NameValues>
+    </Property>
+    <Property>
+      <Name>Direction</Name>
+      <Description>Direction the gate button faces.</Description>
+      <Mask>0x0003</Mask>
+      <NameValues>
+        <NameValue Value="0"  Name="Left"/>
+        <NameValue Value="2"  Name="Right"/>
+      </NameValues>
+    </Property>
+  </Properties>
+</PLMInfo>

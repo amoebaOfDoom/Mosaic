@@ -1,0 +1,32 @@
+<EnemyInfo>
+  <Name>Rinka</Name>
+  <Description>
+    The donuts that attack you in Tourian. The keep respawning and float towards Samus until they hit or go offscreen.
+  
+    RAM:
+    $0F86 (Special): $6000 (Respawn)
+    $0FB4 (Speed1): Spawn Mode
+        
+    Submitted by dewhi100
+  </Description>
+  <Speed2/>
+  <Speed1>
+  <Property>
+      <Name>Spawn Mode</Name>
+      <Description>
+        If 0, the rinka will always spawn where you have placed it. Otherwise, the game will keep spawning it wherever it thinks is good for trolling Samus (could be anywhere).
+        Speed 1-3 are used in MBs room to teleport the rinkas around the room to follow Samus without having 9 rinkas actually placed in the room and running off screen.
+        It will only make sense in a room with MB's room's layout.
+      </Description>
+      <Mask>0xFFFF</Mask>
+      <NameValues>
+      <NameValue Value="0" Name="Manual"/>
+      <NameValue Value="1" Name="Au-troll-matic 1"/>
+      <NameValue Value="2" Name="Au-troll-matic 2"/>
+      <NameValue Value="3" Name="Au-troll-matic 3"/>
+      </NameValues>
+    </Property>
+  </Speed1>
+  <Tilemap>
+  </Tilemap>
+</EnemyInfo>

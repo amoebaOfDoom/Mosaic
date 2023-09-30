@@ -1,0 +1,53 @@
+<EnemyInfo>
+  <Name>Mother Brain Tubes</Name>
+  <Description>
+    Mother Brain's tubes falling. Spawned by Mother Brain during fake death. Hardcoded enemy population entries are located at $A9:8AE5.
+    
+    Main tube is special and refers to the 16x32 px² section that Mother Brain sits on in the first phase. It sets Mother Brain's Y position as it's falling until it reaches Y position FCh, where it sets up Mother Brain for the next phase.
+
+    RAM:
+        $0FA8: Function. Defines enemy's main AI. Initialised to $8B88 for non-main tubes and $8BCB for main tube.
+        $0FAA: Y threshold position. Non-main tubes only. Once the enemy's Y position exceeds this value, it explodes and gets deleted.
+        $0FAC: Y velocity. [$0FAC] / 100h is added to the enemy's Y position every frame. Initialised to 0. Acceleration is 6/frame: $A9:8B8D for non-main tubes, $A9:8BDB for main tube.
+        $0FAE: Smoke timer. Spawns smoke enemy projectile if negative, decremented every frame. Initialised to 0. Reset value is 8 ($A9:8C37).
+        $0FB0: Smoke counter. Used as index to table of X position offsets to spawn smoke, relative to enemy's X position ($A9:8C61). Initialised to 0. Incremented with each smoke spawned, wraps around from 3 to 0.
+  </Description>
+  <Speed1>
+    <Property>
+      <Name>Sequence index</Name>
+      <Description>
+        Word-aligned index used to initialise enemy from a table $A9:8B5D, setting the X/Y radii, Y position threshold for falling, and initial enemy function.
+        Mother Brain spawns these tubes with indices in the following order: 0, 2, 4, 6, 8.
+      </Description>
+      <Mask>0xFFFF</Mask>
+      <NameValues>
+        <NameValue Value="0" Name="Bottom left tube"/>
+        <NameValue Value="2" Name="Bottom right tube"/>
+        <NameValue Value="4" Name="Bottom middle left tube"/>
+        <NameValue Value="6" Name="Bottom middle right tube"/>
+        <NameValue Value="8" Name="Main tube"/>
+      </NameValues>
+    </Property>
+  </Speed1>
+  <Speed2>
+    <Property>
+      <Name>Fall delay</Name>
+      <Description>For the main tube only. The delay in frames before starting to fall. Values 8001h..FFFFh are equivalent to zero.</Description>
+      <Mask>0xFFFF</Mask>
+    </Property>
+  </Speed2>
+  <Tilemap>
+    <Property>
+      <Name>Instruction list pointer</Name>
+      <Description>Simple instruction lists that draws the graphics for the enemy and nothing more. Requires the "process instructions" bit to be set in the enemy "special".</Description>
+      <Mask>0xFFFF</Mask>
+      <NameValues>
+        <NameValue Value="35945" Name="Bottom left tube"/>
+        <NameValue Value="35951" Name="Bottom right tube"/>
+        <NameValue Value="35957" Name="Bottom middle left tube"/>
+        <NameValue Value="35963" Name="Bottom middle right tube"/>
+        <NameValue Value="35969" Name="Main tube"/>
+      </NameValues>
+    </Property>
+  </Tilemap>
+</EnemyInfo>

@@ -1,0 +1,27 @@
+<EnemyInfo>
+  <Name>Waver</Name>
+  <Description>
+    A flying clam shaped enemy that moves in wave patterns. It will bounce off the solid collision.
+
+    The horizontal speed can be set at $A3:86F1, $A3:86FB, $A3:870D, and $A3:871F. Units are in 1/256th of a px/frame. Default is 1.5 px/frame.
+
+    Vertical speed oscilated back and forth with a maximum set at $A3:8797. Units are in px/frame. Default is 4 px/frame.
+
+    The oscilation speed is set at $A3:87CA. Units are in angles on a sin curve, with 0x80 being a half turn. Default is 2. 
+
+    The waver will initiate a spin animation when the oscilation's half phase angle is equal to the value set at $A3:87D9. Default is 0x38. Since it's half phase, it will trigger once for each half turn, and the compared value must be less than 0x80. The animation lasts 32 frames.
+  </Description>
+  <Speed1>
+    <Property>
+      <Name>Direction</Name>
+      <Description>Initial direction the enemy will move.</Description>
+      <Mask>0x0001</Mask>
+      <NameValues>
+        <NameValue Value="0" Name="Left"/>
+        <NameValue Value="1" Name="Right"/>
+      </NameValues>
+    </Property>
+  </Speed1>
+  <Speed2 />
+  <Tilemap />
+</EnemyInfo>

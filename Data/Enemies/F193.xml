@@ -1,0 +1,16 @@
+<EnemyInfo>
+  <Name>Red Pipe Bug (ZEB)</Name>
+  <Description>Respawning bug that flies out of the floor when samus is neaby.</Description>
+  <Speed1>
+    <Property>
+      <Name>Animation</Name>
+      <Description>Animation instruction set to use. This must be set to 0.</Description>
+      <Mask>0xFFFF</Mask>
+      <NameValues>
+        <NameValue Value="0" Name="Red Bug"/>
+      </NameValues>
+    </Property>
+  </Speed1>
+  <Speed2 />
+  <Tilemap />
+</EnemyInfo>

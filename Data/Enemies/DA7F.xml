@@ -1,0 +1,16 @@
+<EnemyInfo>
+  <Name>Zoa</Name>
+  <Description>
+    A blue bug that rises up when samus is nearby. Once it is level with samus, it will charge horizontally at samus, despawning off screen.
+
+    The upward speed can be set at $A3:B4C8 (pixels/frame) and $A3:B4CD (sub pixels/frame).
+
+    Horizontal speed cycles through three states, which can be set at $A3:B419. It is a list of 3 pairs of words (first is px/frame, second is sub px/frame). The amount of frames spent on each speed can be set at:
+      speed 1: $A3:B3C3, $A3:B3E9
+      speed 2: $A3:B3C9, $A3:B3EF
+      speed 3: $A3:B3CF, $A3:B3F0
+  </Description>
+  <Speed1 />
+  <Speed2 />
+  <Tilemap />
+</EnemyInfo>

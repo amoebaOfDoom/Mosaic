@@ -1,0 +1,25 @@
+<EnemyInfo>
+  <Name>Fire Geyser</Name>
+  <Description>
+    An geyser of fire that shoots up periodically. This is a two part enemy. The parts must be consecutive and in order in the enemy list.
+  </Description>
+  <Speed1>
+    <Property>
+      <Name>Delay</Name>
+      <Description>Delay in frames between eruptions. This is used only in the first part.</Description>
+      <Mask>0xFFFF</Mask>
+    </Property>
+  </Speed1>
+  <Speed2>
+    <Property>
+      <Name>Part</Name>
+      <Description>Which enemy part.</Description>
+      <Mask>0xFFFF</Mask>
+      <NameValues>
+        <NameValue Value="0" Name="First"/>
+        <NameValue Value="1" Name="Second"/>
+      </NameValues>
+    </Property>
+  </Speed2>
+  <Tilemap />
+</EnemyInfo>

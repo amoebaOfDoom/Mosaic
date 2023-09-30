@@ -1,0 +1,15 @@
+<PLMInfo>
+  <Name>Eye Door (Right-Top)</Name>
+  <Properties>
+    <Property>
+	  <Name>Always Respawn</Name>
+	  <Description>Ignores the door ID and door always respawns on room load. Must be the same value as the other Eye Door PLM pieces.</Description>
+	  <Mask>0x8000</Mask>
+	</Property>
+  	<Property>
+	  <Name>Door ID</Name>
+	  <Description>Unique ID for the door to save that it had been opened. Must be the same value as the other Eye Door PLM pieces.</Description>
+	  <Mask>0x00FF</Mask>
+	</Property>	
+  </Properties>
+</PLMInfo>

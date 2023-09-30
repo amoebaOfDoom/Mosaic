@@ -1,0 +1,19 @@
+<EnemyInfo>
+  <Name>Seahorse (Dragon)</Name>
+  <Description>
+    A seahorse enemy that moves up when samus is nearby, and shoots fireballs. This is a two part enemy. The two parts must be consecutive and in order in the enemy list. 
+  </Description>
+  <Speed1>
+    <Property>
+      <Name>Part</Name>
+      <Description>Which part this enemy is.</Description>
+      <Mask>0xFFFF</Mask>
+      <NameValues>
+        <NameValue Value="0" Name="First"/>
+        <NameValue Value="1" Name="Second"/>
+      </NameValues>
+    </Property>
+  </Speed1>
+  <Speed2 />
+  <Tilemap />
+</EnemyInfo>

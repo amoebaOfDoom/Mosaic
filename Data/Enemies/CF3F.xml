@@ -1,0 +1,10 @@
+<EnemyInfo>
+  <Name>KAME</Name>
+  <Description>Maridia mama turtle. Works best with solid collision and processing off camera.</Description>
+  <Speed1>
+  </Speed1>
+  <Speed2>
+  </Speed2>
+  <Tilemap>
+  </Tilemap>
+</EnemyInfo>

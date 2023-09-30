@@ -1,0 +1,46 @@
+<EnemyInfo>
+  <Name>Boulder</Name>
+  <Description>
+    A large rock that can fall and roll in a direction damaging samus on contact. When samus is in range of the boulder, it will fall some distance, start bouncing, roll, and finally break when it hits a wall. The falling state ignored collision. If the boulder is set to not fall, then it will skip to the roll state. 
+  </Description>
+  <Speed1>
+    <Property>
+      <Name>Roll Hover</Name>
+      <Description>When the boulder is no longer bouncing, it will momentarily hover above the ground. Once it is rolling on flat ground, the hover is disabled. Not sure the intended purpose of this option.</Description>
+      <Mask>0x00FF</Mask>
+      <NameValues>
+        <NameValue Value="0" Name="2 pixels"/>
+        <NameValue Value="1" Name="5 pixels"/>
+      </NameValues>
+    </Property>
+    <Property>
+      <Name>Direction</Name>
+      <Description>Direction to roll. If set to None, it will break after falling with no roll. If the boulder is not set to fall, then the None direction will behave like Left.</Description>
+      <Mask>0xFF00</Mask>
+      <NameValues>
+        <NameValue Value="0" Name="Right"/>
+        <NameValue Value="1" Name="Left"/>
+        <NameValue Value="2" Name="None"/>
+      </NameValues>
+    </Property>
+  </Speed1>
+  <Speed2>
+    <Property>
+      <Name>Forward Proximity</Name>
+      <Description>Number of pixels in front of the boulder that samus will trigger the movement of the boulder. This checks in the direction the boulder is set to roll.</Description>
+      <Mask>0x00FF</Mask>
+    </Property>
+    <Property>
+      <Name>Drop Distance</Name>
+      <Description>Distance in pixels above the starting location to fall from. The boulder is moved to the distance above the starting location and will fall back down to the start location (ignoring collision). Then it will change to the bouncing state. If set to 0, the boulder will skip the falling/bouncing states.</Description>
+      <Mask>0xFF00</Mask>
+    </Property>
+  </Speed2>
+  <Tilemap>
+    <Property>
+      <Name>Downward Proximity</Name>
+      <Description>Number of pixels below the boulder that samus will trigger the movement of the boulder.</Description>
+      <Mask>0x00FF</Mask>
+    </Property>
+  </Tilemap>
+</EnemyInfo>

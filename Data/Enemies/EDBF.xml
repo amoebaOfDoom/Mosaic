@@ -1,0 +1,9 @@
+<EnemyInfo>
+  <Name>Dead Sidehopper (Alive GFX)</Name>
+  <Description>
+    This is graphics for the Alive version of the Dead Sidehopper enemy. This enemy cannot be used as an enemy directly, and can only be used as an Enemy Type. Palette should be set to 7.
+  </Description>
+  <Speed1 />
+  <Speed2 />
+  <Tilemap />
+</EnemyInfo>

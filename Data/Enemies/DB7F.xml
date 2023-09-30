@@ -1,0 +1,9 @@
+<EnemyInfo>
+  <Name>Skree</Name>
+  <Description>
+    A bat that hangs from the cieling and charges down at samus when nearby. When it hits the ground, it burrows beneath, flinging damaging rocks around.
+  </Description>
+  <Speed1 />
+  <Speed2 />
+  <Tilemap />
+</EnemyInfo>

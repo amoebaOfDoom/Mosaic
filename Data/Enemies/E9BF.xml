@@ -1,0 +1,16 @@
+<EnemyInfo>
+  <Name>Burrowing Dragon</Name>
+  <Description>
+    Seahorse/Dragon enemy that jumps out of the ground, walks forward while shooting fireballs, and finally burrowing back underground.
+
+    The enemy needs to be placed below the ground with enough clearance for it to jump out above it. It will jump out when samus is within a certain range, which can be editted at:
+
+    $A8:DD80 ; Y range (in pixels)
+    $A8:DCC7 ; X range (in pixels)
+
+    It will burrow back into the ground after walking forward a number pixels defines at $A8:DCCB.
+  </Description>
+  <Speed1 />
+  <Speed2 />
+  <Tilemap />
+</EnemyInfo>

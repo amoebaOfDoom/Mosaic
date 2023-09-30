@@ -1,0 +1,68 @@
+<EnemyInfo>
+  <Name>Shutter V1 (Vertical)</Name>
+  <Description>
+    A vertical pipe/shutter that moves and blocks the path. It can be triggered by a timer or Samus proximity. This is a simpler version of the Shutter V2. 
+  </Description>
+  <Speed1>
+    <Property>
+      <Name>Trigger</Name>
+      <Description>In proximity mode, this is pixels in horizontal distance to trigger. In timer mode, this is the number of frames before triggering.</Description>
+      <Mask>0xFFFF</Mask>
+    </Property>
+  </Speed1>
+  <Speed2>
+    <Property>
+      <Name>Speed</Name>
+      <Description>Speed to move. Table located at A2:EA56.</Description>
+      <Mask>0x00FF</Mask>
+      <NameValues>
+        <NameValue Value="0" Name="1/16 px/frame"/>
+        <NameValue Value="1" Name="1/8 px/frame"/>
+        <NameValue Value="2" Name="3/16 px/frame"/>
+        <NameValue Value="3" Name="1/4 px/frame"/>
+        <NameValue Value="4" Name="5/16 px/frame"/>
+        <NameValue Value="5" Name="3/8 px/frame"/>
+        <NameValue Value="6" Name="7/16 px/frame"/>
+        <NameValue Value="7" Name="1/2 px/frame"/>
+        <NameValue Value="8" Name="9/16 px/frame"/>
+        <NameValue Value="9" Name="5/8 px/frame"/>
+        <NameValue Value="10" Name="11/16 px/frame"/>
+        <NameValue Value="11" Name="3/4 px/frame"/>
+        <NameValue Value="12" Name="13/16 px/frame"/>
+        <NameValue Value="13" Name="7/8 px/frame"/>
+        <NameValue Value="14" Name="15/16 px/frame"/>
+        <NameValue Value="15" Name="1 px/frame"/>
+        <NameValue Value="16" Name="1 1/16 px/frame"/>
+        <NameValue Value="17" Name="1 1/8 px/frame"/>
+        <NameValue Value="18" Name="1 3/16 px/frame"/>
+        <NameValue Value="19" Name="1 1/4 px/frame"/>
+        <NameValue Value="20" Name="1 5/16 px/frame"/>
+        <NameValue Value="21" Name="1 3/8 px/frame"/>
+        <NameValue Value="22" Name="1 7/16 px/frame"/>
+        <NameValue Value="23" Name="1 1/2 px/frame"/>
+      </NameValues>
+    </Property>
+  </Speed2>
+  <Tilemap>
+    <Property>
+      <Name>Trigger Mode</Name>
+      <Description>Method to use to trigger movement.</Description>
+      <Mask>0x0001</Mask>
+      <NameValues>
+        <NameValue Value="0" Name="Timer"/>
+        <NameValue Value="1" Name="Proximity"/>
+      </NameValues>
+    </Property>
+  </Tilemap>
+  <Graphics>
+    <Property>
+      <Name>Direction</Name>
+      <Description>Direction to move.</Description>
+      <Mask>0x0001</Mask>
+      <NameValues>
+        <NameValue Value="0" Name="Down"/>
+        <NameValue Value="1" Name="Up"/>
+      </NameValues>
+    </Property>
+  </Graphics>
+</EnemyInfo>

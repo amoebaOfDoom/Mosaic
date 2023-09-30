@@ -1,0 +1,57 @@
+<EnemyInfo>
+  <Name>BOYON</Name>
+  <Description>Jumping gooball. Velocity curve is located at $A2:8701-8712</Description>
+  <Speed1>
+    <Property>
+      <Name>Acceleration</Name>
+      <Description>Apply a scale factor to the built in velocity curve.</Description>
+      <Mask>0x00FF</Mask>
+      <NameValues>
+        <NameValue Value="0" Name="1x"/>
+        <NameValue Value="1" Name="2x"/>
+        <NameValue Value="2" Name="4x"/>
+        <NameValue Value="3" Name="8x"/>
+        <NameValue Value="4" Name="10x"/>
+        <NameValue Value="5" Name="13x"/>
+        <NameValue Value="6" Name="16x"/>
+        <NameValue Value="7" Name="20x"/>
+        <NameValue Value="8" Name="48x"/>
+        <NameValue Value="9" Name="64x"/>
+        <NameValue Value="10" Name="80x"/>
+        <NameValue Value="11" Name="96x"/>
+        <NameValue Value="12" Name="112x"/>
+        <NameValue Value="13" Name="128x"/>
+        <NameValue Value="14" Name="144x"/>
+        <NameValue Value="15" Name="160x"/>
+        <NameValue Value="16" Name="176x"/>
+        <NameValue Value="17" Name="256x"/>
+      </NameValues>
+    </Property>
+    <Property>
+      <Name>Cutoff height</Name>
+      <Description>Cutoff height where if (velocity curve * acceleration factor > cutoff height) then stop increasing height. This may result in a maximum height that is quite larger than the cutoff height.</Description>
+      <Mask>0xFF00</Mask>
+      <NameValues>
+        <NameValue Value="0" Name="48 Pixels (3 Tiles)"/>
+        <NameValue Value="1" Name="64 Pixels (4 Tiles)"/>
+        <NameValue Value="2" Name="80 Pixels (5 Tiles)"/>
+        <NameValue Value="3" Name="96 Pixels (6 Tiles)"/>
+        <NameValue Value="4" Name="112 Pixels (7 Tiles)"/>
+        <NameValue Value="5" Name="128 Pixels (8 Tiles)"/>
+        <NameValue Value="6" Name="144 Pixels (9 Tiles)"/>
+        <NameValue Value="7" Name="160 Pixels (10 tiles)"/>
+        <NameValue Value="8" Name="176 Pixels (11 tiles)"/>
+        <NameValue Value="9" Name="256 Pixels (16 Tiles)"/>
+      </NameValues>
+    </Property>
+  </Speed1>
+  <Speed2>
+    <Property>
+      <Name>Activation radius</Name>
+      <Description>How close in x pixels does the enemy start jumping? (center point to center point)</Description>
+      <Mask>0xFFFF</Mask>
+    </Property>
+  </Speed2>
+  <Tilemap>
+  </Tilemap>
+</EnemyInfo>

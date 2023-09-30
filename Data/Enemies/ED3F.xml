@@ -1,0 +1,9 @@
+<EnemyInfo>
+  <Name>Dead Torizo</Name>
+  <Description>
+    Giant Torizo statue that is already dead. It will decay when interacted with in any way.
+  </Description>
+  <Speed1 />
+  <Speed2 />
+  <Tilemap />
+</EnemyInfo>

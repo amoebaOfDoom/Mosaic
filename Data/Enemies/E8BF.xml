@@ -1,0 +1,27 @@
+<EnemyInfo>
+  <Name>Balloon Fish</Name>
+  <Description>
+    A floating balloon creature that can be grappled. While grappled it will move up. The enemy is two parts. The second part must immediately follow the first in the enemy list. The second part must also have its move distance parameter set to 0.
+
+    While the enemy is not grappled, it will move up and down a fixed amount that is defined at $A8:C19F (default 0x0040 pixels).
+  </Description>
+  <Speed1>
+    <Property>
+      <Name>Part</Name>
+      <Description>Part identification. The part order must match the order in the enemy list.</Description>
+      <Mask>0xFFFF</Mask>
+      <NameValues>
+        <NameValue Value="1" Name="First"/>
+        <NameValue Value="0" Name="Second"/>
+      </NameValues>
+    </Property>
+  </Speed1>
+  <Speed2>
+    <Property>
+      <Name>Distance</Name>
+      <Description>Number of pixels to move upwards while grappled. This should only be set in the first part. The second part should be set to 0.</Description>
+      <Mask>0xFFFF</Mask>
+    </Property>    
+  </Speed2>
+  <Tilemap />
+</EnemyInfo>

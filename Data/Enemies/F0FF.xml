@@ -1,0 +1,23 @@
+<EnemyInfo>
+  <Name>Chozo Statue</Name>
+  <Description>
+    Standing Chozo statue that can be interacted with by being on the hand in morphball. There's a Wrecked Ship version (facing left) that walks forward and a Norfair Version (facing right) that change the FX liquid level.
+
+    The hand object has hard coded locations not relative to the statue enemy's position:
+      $AA:E777 : 4A,17 ;} Wrecked Ship chozo hand X,Y position
+      $AA:E79D : 0C,1D ;} Spawn Lower chozo hand X,Y position
+  </Description>
+  <Speed1 />
+  <Speed2>
+    <Property>
+      <Name>Type</Name>
+      <Description>Chozo statue type.</Description>
+      <Mask>0xFFFF</Mask>
+      <NameValues>
+        <NameValue Value="0" Name="Wrecked Ship"/>
+        <NameValue Value="2" Name="Norfair"/>
+      </NameValues>
+    </Property>
+  </Speed2>
+  <Tilemap />
+</EnemyInfo>

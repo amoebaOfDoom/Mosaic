@@ -1,0 +1,26 @@
+<EnemyInfo>
+  <Name>Shaktool (DORI)</Name>
+  <Description>
+    Shaktool moves along the wall, and is typically used to destroy enemy destructable blocks. It is made of 7 enemy parts which must be consecutive and in order. The initial position is determined by the first part.
+
+    The initial orientation can be modified by adjusting the list of angles at $AA:DEB1, It includes 7 entries which indicate the initial angle of each piece relative to the previous piece. Angles range from 0000 to FFFF, where 0000 is up going around clockwise. The first piece is the right saw, and the last piece is the left saw.
+  </Description>
+  <Speed1 />
+  <Speed2>
+    <Property>
+      <Name>Part</Name>
+      <Description>Shatool Part. All 7 enemies must be consecutive and in order.</Description>
+      <Mask>0xFFFF</Mask>
+      <NameValues>
+        <NameValue Value="0" Name="Part 1"/>
+        <NameValue Value="2" Name="Part 2"/>
+        <NameValue Value="4" Name="Part 3"/>
+        <NameValue Value="6" Name="Part 4"/>
+        <NameValue Value="8" Name="Part 5"/>
+        <NameValue Value="10" Name="Part 6"/>
+        <NameValue Value="12" Name="Part 7"/>
+      </NameValues>
+    </Property>
+  </Speed2>
+  <Tilemap />
+</EnemyInfo>

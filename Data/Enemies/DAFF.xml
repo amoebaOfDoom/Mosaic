@@ -1,0 +1,7 @@
+<EnemyInfo>
+  <Name>Respawner</Name>
+  <Description>Placeholder enemy that is generated when a respawning enemy is killed. Do not use and do not overwrite.</Description>
+  <Speed1 />
+  <Speed2 />
+  <Tilemap />
+</EnemyInfo>
