@@ -1,9 +1,0 @@
-<EnemyInfo>
-  <Name>Moth (Broken)</Name>
-  <Description>
-    This enemy has the same code as the regular Moth, but it's graphics in the DNA is set to be manually allocated. Which would normally be fine except that it would require a different spritemap, which is not supplied. This enemy likely completely nonfunctional in its current state and should not be used. 
-  </Description>
-  <Speed1 />
-  <Speed2 />
-  <Tilemap />
-</EnemyInfo>

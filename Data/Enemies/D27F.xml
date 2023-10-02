@@ -1,9 +1,0 @@
-<EnemyInfo>
-  <Name>Rio</Name>
-  <Description>
-	  A large wings enemy that moves in a parabolic path, and flies at samus repeatedly.
-  </Description>
-  <Speed1 />
-  <Speed2 />
-  <Tilemap />
-</EnemyInfo>

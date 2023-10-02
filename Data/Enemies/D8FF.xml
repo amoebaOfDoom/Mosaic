@@ -1,9 +1,0 @@
-<EnemyInfo>
-  <Name>Mochtroid</Name>
-  <Description>
-    Similar to a metroid, it floats towards samus and deals damage over time on contact. Unlike a metroid, it does not latch on and has normal vulnerabilities.
-  </Description>
-  <Speed1 />
-  <Speed2 />
-  <Tilemap />
-</EnemyInfo>

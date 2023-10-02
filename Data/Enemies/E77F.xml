@@ -1,9 +1,0 @@
-<EnemyInfo>
-  <Name>Ghost</Name>
-  <Description>
-    Ghost the appear near samus and then disappears.
-  </Description>
-  <Speed1 />
-  <Speed2 />
-  <Tilemap />
-</EnemyInfo>

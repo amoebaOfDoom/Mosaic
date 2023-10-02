@@ -1,9 +1,0 @@
-<EnemyInfo>
-  <Name>Glass Tube Cracks</Name>
-  <Description>
-    This enemy animates the cracks when the glass tube is breaking. It must be in the same position as the glass tube PLM. Special should be set to 0x2200.
-  </Description>
-  <Speed1 />
-  <Speed2 />
-  <Tilemap />
-</EnemyInfo>
