@@ -1,0 +1,18 @@
+<Config>
+  <Projectdir>Projects\InnerCrateria\</Projectdir>
+  <Assembler>
+  </Assembler>
+  <Assembler_ExtraArgs>
+  </Assembler_ExtraArgs>
+  <SMILEexe>
+  </SMILEexe>
+  <CheckForUpdates>false</CheckForUpdates>
+  <UpdateTrack>Standard</UpdateTrack>
+  <SingleWindowMode>true</SingleWindowMode>
+  <DefaultRoomZoom>1</DefaultRoomZoom>
+  <CollisionMode>Outline</CollisionMode>
+  <HideXRayAir>false</HideXRayAir>
+  <EditorGrid Size="16" />
+  <EditorBG>Black</EditorBG>
+  <Emulators />
+</Config>

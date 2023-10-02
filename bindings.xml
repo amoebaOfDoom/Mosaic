@@ -1,0 +1,54 @@
+<Controls>
+  <UIBindings>
+    <Binding Action="Editor__Copy" Key="Ctrl+C" />
+    <Binding Action="Editor__Paste" Key="Ctrl+V" />
+    <Binding Action="Editor__Undo" Key="Ctrl+Z" />
+    <Binding Action="Editor__Redo" Key="Ctrl+Y" />
+    <Binding Action="Editor__Redo" Key="Ctrl+Shift+Z" />
+    <Binding Action="Clipboard_Editor__Horizonal_Flip" Key="S" />
+    <Binding Action="Editor__Zoom_In" Key="Ctrl+Oemplus" />
+    <Binding Action="Editor__Zoom_Out" Key="Ctrl+OemMinus" />
+    <Binding Action="Editor__Nudge_Selection_Area_Right" Key="Right" />
+    <Binding Action="Editor__Nudge_Selection_Area_Left" Key="Left" />
+    <Binding Action="Editor__Nudge_Selection_Area_Up" Key="Up" />
+    <Binding Action="Editor__Nudge_Selection_Area_Down" Key="Down" />
+    <Binding Action="Editor__Clear_Selection_Area" Key="Escape" />
+    <Binding Action="Editor__All_Selection_Area" Key="Ctrl+A" />
+    <Binding Action="Editor__Ping_Selection" Key="Space" />
+    <Binding Action="Room_Editor__Select_Layer_1" Key="1" />
+    <Binding Action="Map_Editor__Select_Map_Layer" Key="1" />
+    <Binding Action="Room_Editor__Select_Layer_2" Key="2" />
+    <Binding Action="Map_Editor__Select_Hud_Layer" Key="2" />
+    <Binding Action="Room_Editor__Select_Collision_Layer" Key="3" />
+    <Binding Action="Map_Editor__Select_Map_Station_Layer" Key="3" />
+    <Binding Action="Room_Editor__Select_Actor_Layer" Key="4" />
+    <Binding Action="Map_Editor__Select_Room_Layer" Key="4" />
+    <Binding Action="Room_Editor__Select_Sprite_Layer" Key="5" />
+    <Binding Action="Map_Editor__Select_Icons_Layer" Key="5" />
+    <Binding Action="Room_Editor__Layer_1_Visibility" Key="Ctrl+1" />
+    <Binding Action="Map_Editor__Map_Layer_Visibility" Key="Ctrl+1" />
+    <Binding Action="Room_Editor__Layer_2_Visibility" Key="Ctrl+2" />
+    <Binding Action="Map_Editor__Hud_Layer_Visibility" Key="Ctrl+2" />
+    <Binding Action="Room_Editor__Collision_Layer_Visibility" Key="Ctrl+3" />
+    <Binding Action="Map_Editor__Map_Station_Layer_Visibility" Key="Ctrl+3" />
+    <Binding Action="Room_Editor__Actor_Layer_Visibility" Key="Ctrl+4" />
+    <Binding Action="Map_Editor__Room_Layer_Visibility" Key="Ctrl+4" />
+    <Binding Action="Room_Editor__Sprite_Layer_Visibility" Key="Ctrl+5" />
+    <Binding Action="Map_Editor__Icons_Layer_Visibility" Key="Ctrl+5" />
+    <Binding Action="Room_Editor__Error_Layer_Visibility" Key="Ctrl+9" />
+    <Binding Action="Mouse__Primary_Action" MouseButton="Left" />
+    <Binding Action="Mouse__Secondary_Action" MouseButton="Right" />
+    <Binding Action="Mouse__Scroll_Drag" MouseButton="Middle" />
+    <Binding Action="Mouse__Select_Replace" MouseButton="XButton1" />
+    <Binding Action="Mouse__Select_Subtract" MouseButton="XButton1" Key="Ctrl" />
+    <Binding Action="Mouse__Select_Union" MouseButton="XButton1" Key="Shift" />
+    <Binding Action="Mouse__Select_Intersect" MouseButton="XButton1" Key="Ctrl+Shift" />
+    <Binding Action="Mouse__Select_Invert" MouseButton="XButton1" Key="Alt" />
+    <Binding Action="Mouse__Select_Single" MouseButton="XButton1" Key="Alt+Shift" />
+    <Binding Action="Editor__Horizontal_Flip_Mode" Key="H" />
+    <Binding Action="Editor__Vertical_Flip_Mode" Key="F" />
+    <Binding Action="Editor__Brush_Mode" Key="E" />
+    <Binding Action="Editor__Selection_Mode" Key="A" />
+    <Binding Action="Clipboard_Editor__Vertical_Flip" Key="Z" />
+  </UIBindings>
+</Controls>

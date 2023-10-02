@@ -1,0 +1,29 @@
+<EnemyInfo>
+  <Name>Giant Sidehopper</Name>
+  <Description>
+    A large sidehopping enemy that jumps around randomly. All the sidehoppers share code. The enemy DNA $2A (BaseInstructionListPointer) uses the value 0-3 to determine which graphic animations to use.
+
+    For adjusting the movement, there is a table that can be modified. This table is shared by all sidehopper enemies. In each of the follow lists, there are 2 words. The first is for regular sidehoppers and the second is for all others. In vanilla the values are always identical.
+      Small Hop:
+        $A3:AAE6 ; Y acceleration
+        $A3:AAEA ; X speed
+        $A3:AAEE ; Jump height
+      Big Hop:
+        $A3:AAF2 ; Y acceleration
+        $A3:AAF6 ; X speed
+        $A3:AAFA ; Jump height
+  </Description>
+  <Speed1>
+    <Property>
+      <Name>Direction</Name>
+      <Description>Direction of gravity for the sidehopper. Any non-zero value is up, but vanilla typically used 0x8000</Description>
+      <Mask>0xFFFF</Mask>
+      <NameValues>
+        <NameValue Value="0" Name="Down"/>
+        <NameValue Value="32768" Name="Up"/>
+      </NameValues>
+    </Property>
+  </Speed1>
+  <Speed2 />
+  <Tilemap />
+</EnemyInfo>

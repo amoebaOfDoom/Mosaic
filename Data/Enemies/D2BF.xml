@@ -1,0 +1,14 @@
+<EnemyInfo>
+  <Name>Squeept</Name>
+  <Description>
+	  Upper Norfair rocket claws that jump up and down in the lava before Bubble Mountain.
+	
+    RAM:
+	  $0F86(Special): $2000 (No flags)
+        
+    Submitted by dewhi100
+  </Description>
+  <Speed1 />
+  <Speed2 />
+  <Tilemap />
+</EnemyInfo>

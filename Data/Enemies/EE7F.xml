@@ -1,0 +1,22 @@
+<EnemyInfo>
+  <Name>Dead Skreebat</Name>
+  <Description>
+    Dead skreebat that will decay when interacted with. This enemy's graphics is in the Dead Sidehopper enemy, so that enemy should be in the enemy types instead of this one.
+
+    Only 1 of each direction can be used in a room. If there are multiple enemies with the same direction, they incorrectly share decay animations. This is why there are three versions of the ceiling, so that three ceiling types can be used at once. Palette should be set to 7.
+  </Description>
+  <Speed1>
+    <Property>
+      <Name>Direction</Name>
+      <Description>Direction. Each direction should be used only once in a room. The three ceiling directions are the same, but allow three different dead skreebats on the ceiling.</Description>
+      <Mask>0xFFFF</Mask>
+      <NameValues>
+        <NameValue Value="0" Name="Ceiling 1"/>
+        <NameValue Value="2" Name="Ceiling 2"/>
+        <NameValue Value="4" Name="Ceiling 3"/>
+      </NameValues>
+    </Property>
+  </Speed1>
+  <Speed2 />
+  <Tilemap />
+</EnemyInfo>

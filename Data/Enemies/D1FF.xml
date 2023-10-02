@@ -1,0 +1,14 @@
+<EnemyInfo>
+  <Name>Polyp</Name>
+  <Description>
+    Rocks that spit out of the ground in the upper Norfair tunnel where the lava rises.
+  
+    RAM:
+    $0F86(Special): $2500 (Invisible, Non-responsive)
+        
+    Submitted by dewhi100
+  </Description>
+  <Speed1 />
+  <Speed2 />
+  <Tilemap />
+</EnemyInfo>

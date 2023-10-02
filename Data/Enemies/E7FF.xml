@@ -1,0 +1,15 @@
+<EnemyInfo>
+  <Name>Kago</Name>
+  <Description>
+    A webbed hive of bugs. When shot a bug jump out.
+  </Description>
+  <Speed1>
+    <Property>
+      <Name>Health</Name>
+      <Description>Number of times (+1) the kago can be shot before it is destroyed.</Description>
+      <Mask>0xFFFF</Mask>
+    </Property>
+  </Speed1>
+  <Speed2 />
+  <Tilemap />
+</EnemyInfo>

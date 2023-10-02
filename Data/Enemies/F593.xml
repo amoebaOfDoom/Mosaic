@@ -1,0 +1,32 @@
+<EnemyInfo>
+  <Name>Ninja Space Pirate (Metal)</Name>
+  <Description>
+    Space Pirate that throws claws and can somersault and dive kick.
+    The Special->Extended Tilemap should be True.
+
+    Even though this enemy shares the same AI as the other ninja pirates, it is the only one that has 5x drops and invulnerability. The AI checks the enemy ID to determine if it should have these properties.
+
+    The checks can be editted at:
+    $B2:8780, $B2:87AA, $B2:87CF, $B2:8845
+  </Description>
+  <Speed1>
+  <Property>
+    <Name>Direction</Name>
+    <Description>Which direction to be initially facing.</Description>
+    <Mask>0x0001</Mask>
+    <NameValues>
+      <NameValue Value="0" Name="Left"/>
+      <NameValue Value="1" Name="Right"/>
+    </NameValues>
+  </Property>
+  </Speed1>  
+  <Speed2>
+    <Property>
+      <Name>Travel Range</Name>
+      <Description>Distance in front of the enemy to move. After doing a jump, it will run to the edge of its range and turn around.</Description>
+      <Mask>0x00FF</Mask>
+    </Property>
+  </Speed2>
+  <Tilemap>
+  </Tilemap>
+</EnemyInfo>

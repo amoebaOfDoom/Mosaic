@@ -1,0 +1,19 @@
+<EnemyInfo>
+  <Name>Metroid</Name>
+  <Description>
+    The Metroid floats around and charges samus. On contact, the Metroid will latch onto samus draining health over time, which can be knocked off with a bomb. If frozen, the metroid is vulnerable to missiles and super missiles. The metroid can also be killed with power bombs.
+
+    The Metroid graphics must be first in the list or the frozen spritemap will not be correct.
+
+    The freeze timer can be modified at $A3:F028.
+  </Description>
+  <Speed1 />
+  <Speed2>
+    <Property>
+      <Name>Freeze Health</Name>
+      <Description>Amount of ice damage the enemy needds to take before being frozen the first time. After it thaws, this value does not reset, so it will freeze in a single shot.</Description>
+      <Mask>0xFFFF</Mask>
+    </Property>
+  </Speed2>
+  <Tilemap />
+</EnemyInfo>

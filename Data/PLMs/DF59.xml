@@ -1,0 +1,15 @@
+<PLMInfo>
+  <Name>Electric Turret (Right)</Name>
+  <Properties>
+  	<Property>
+	  <Name>Unknown</Name>
+	  <Mask>0xFFFF</Mask>
+	  <NameValues>
+	  	<NameValue Value="34818"  Name="0x8802"/>
+	  	<NameValue Value="34820"  Name="0x8804"/>
+	  	<NameValue Value="34822"  Name="0x8806"/>
+	  	<NameValue Value="34824"  Name="0x8808"/>
+	  </NameValues>	  
+	</Property>	
+  </Properties>
+</PLMInfo>

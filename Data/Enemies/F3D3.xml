@@ -1,0 +1,40 @@
+<EnemyInfo>
+  <Name>Climbing Space Pirate (Red)</Name>
+  <Description>
+    Space Pirate that climbs up and down walls, and can shoot and jump across.
+    The Special->Extended Tilemap should be True.
+
+    The enemy has two jump speeds which can be edited at:
+    $B2:EFC3: slowspeed
+    $B2:EFEF: fastspeed - slowspeed
+  </Description>
+  <Speed1>
+  <Property>
+    <Name>Direction</Name>
+    <Description>Which side the wall is on.</Description>
+    <Mask>0x0001</Mask>
+    <NameValues>
+      <NameValue Value="0" Name="Left"/>
+      <NameValue Value="1" Name="Right"/>
+    </NameValues>
+  </Property>
+  <Property>
+    <Name>Jump Speed</Name>
+    <Description>The jump speed is timed and not relative to the distance.</Description>
+    <Mask>0x8000</Mask>
+    <NameValues>
+      <NameValue Value="0" Name="Fast"/>
+      <NameValue Value="1" Name="Slow"/>
+    </NameValues>
+  </Property>
+  </Speed1>  
+  <Speed2>
+    <Property>
+      <Name>Jump Range</Name>
+      <Description>Distance to jump. The enemy ignores the actual wall collision, so make sure this lines up with wall on the far side.</Description>
+      <Mask>0xFFFF</Mask>
+    </Property>
+  </Speed2>
+  <Tilemap>
+  </Tilemap>
+</EnemyInfo>

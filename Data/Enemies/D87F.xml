@@ -1,0 +1,46 @@
+<EnemyInfo>
+  <Name>Moth</Name>
+  <Description>
+    A moth that starts moving once Samus is within a specified range. Unfortunately almost every move pattern does not move correctly because of an error in the 8-bit sin/cos functions. Only really the basic "Straight" is the only one that works correctly (and is the only one used in vanilla). All the others will only move in a down-left directions, which makes most of them to just not function at all, such as "Towards Samus" and "Away From Samus".
+
+    The "Wander Then Stop (Solid)" does a random walk and stop after a time perdiod or if it hits a solid tile. It resets its AI when it hits solid, but that reseeds the RNG, forcing it to move in the same direction. It also doesn't properly get moved back to the edge of the colision so it will clip into the solid tile. If samus is in range, it will just continue to slowly move through the solid instead of moving elsewhere.
+
+    The "Wander Then Continue (No Solid)" does a random walk and then continues in the final random direction forever. It tried to reverse speed when it's far from Samus while it is in the random mode to stay in range. However if Samus moves too far away it will just reverse direction constantly instead of moving towards samus.
+
+    The "Straight Then Stop" will periodically stop while it is still in range of samus. It is a minor issue, but it works apart from that. It will move stop when far from Samus, and move again when Samus is nearby.
+  </Description>
+  <Speed1>
+    <Property>
+      <Name>Direction</Name>
+      <Description>Direction to move for "Straight" and "Zigzag" movement modes. 0x00 is Up, proceding clockwise to 0x40 Right, 0x80 Down, 0xC0 Left.</Description>
+      <Mask>0xFF00</Mask>
+    </Property>
+    <Property>
+      <Name>Speed</Name>
+      <Description>Movement speed in pixels per frame.</Description>
+      <Mask>0x00FF</Mask>
+    </Property>
+  </Speed1>
+  <Speed2>
+    <Property>
+      <Name>Proximity</Name>
+      <Description>Range from Samus in pixels to trigger movement. The region is a square with inscribed radius of the range.</Description>
+      <Mask>0x00FF</Mask>
+    </Property>
+    <Property>
+      <Name>Movement</Name>
+      <Description>How the enemy will move once Samus is nearby. Almost all of these do not work correctly except "Straight" and "Straight Then Stop".</Description>
+      <Mask>0xFF00</Mask>
+      <NameValues>
+        <NameValue Value="0" Name="Straight"/>
+        <NameValue Value="1" Name="Zigzag"/>
+        <NameValue Value="2" Name="Towards Samus"/>
+        <NameValue Value="3" Name="Wander Then Stop (Solid)"/>
+        <NameValue Value="4" Name="Wander Then Continue (No Solid)"/>
+        <NameValue Value="5" Name="Straight Then Stop"/>
+        <NameValue Value="6" Name="Away From Samus"/>
+      </NameValues>
+    </Property>
+  </Speed2>
+  <Tilemap />
+</EnemyInfo>

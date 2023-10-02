@@ -1,0 +1,13 @@
+<EnemyInfo>
+  <Name>Mini Draygon Spike (EBI)</Name>
+  <Description>
+    Mini Dragon moves up and down shooting a spike projectile towards samus. This is the third part of the Mini Draygon enemy. It must immediately follow the second part and this enemy should not be included in the enemy types lists, as the main enemy has all the graphics. If the enemy moves outside the room bounds, it become invincible but continue to fire.
+
+    There is a bug in the vanilla for this enemy that prevents it from moving in the way that it's supposed to. This can be fixed by setting $A8:8811 to 0xBD. This will change it so that the enemy starts in the middle of its move range and initially moves up. The vanilla behavior is that the enemy starts at the top of it's range and initially moves down.
+
+    The projectile speed can be modified at $A8:89E6, which a word in units of pixels per frame.
+  </Description>
+  <Speed1 />
+  <Speed2 />
+  <Tilemap />
+</EnemyInfo>

@@ -1,0 +1,7 @@
+<EnemyInfo>
+  <Name>Mini Kraid</Name>
+  <Description>Small kraid that walks around a little bit and shoots tiny kraid projectiles at samus.</Description>
+  <Speed1 />
+  <Speed2 />
+  <Tilemap />
+</EnemyInfo>

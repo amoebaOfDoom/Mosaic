@@ -1,0 +1,10 @@
+<PLMInfo>
+  <Name>Event PLM</Name>
+  <Properties>
+  	<Property>
+	  <Name>Event ID</Name>
+	  <Description>Event to set when enemies cleared flag is set.</Description>
+	  <Mask>0x00FF</Mask>
+	</Property>	
+  </Properties>
+</PLMInfo>

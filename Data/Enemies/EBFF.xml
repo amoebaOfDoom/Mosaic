@@ -1,0 +1,17 @@
+<EnemyInfo>
+  <Name>Ki-Hunter Wings C</Name>
+  <Description>
+    Wing part for Ki-Hunters. The wing enemy must immediate follow the Ki-Hunter, and should be at the same position. The enemy type for the wings should be ommitted. Even if the Ki-Hunter is initially flightless, the wing enemy should be included anyways.
+
+    There are three versions of the Ki-Hunter Wings, but they are all identical, and can be interchanged if desired. They do not contain the wing graphics, so it has no effect which one is used.
+  </Description>
+  <Speed1>
+    <Property>
+      <Name>Health</Name>
+      <Description>Amount of damage the Ki-Hunter can receive before the wings fall off.</Description>
+      <Mask>0xFFFF</Mask>
+    </Property>
+  </Speed1>
+  <Speed2 />
+  <Tilemap />
+</EnemyInfo>

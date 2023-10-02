@@ -1,0 +1,38 @@
+<EnemyInfo>
+  <Name>Gunship Bottom</Name>
+  <Description>
+    Gunship bottom / entrance pad. Uses palette 7 regardless of enemy set. Does not use "speed" nor "Tilemap".
+    In enemy population, this enemy must be placed after the gunship top if "speed 2" is zero, or after another gunship bottom if "speed 2" is non-zero.
+    
+    Sets the "intangible" and "process instruction" bits of initial "special".
+    Uses the graphics of the previous enemy in enemy population.
+    
+    The initial Y position of this enemy is moved 15px upwards.
+    If "speed 2" is zero and landing on Zebes from Ceres, Y position is set to 17px above Samus.
+    If "speed 2" is non-zero, Y position is set to the gunship top's Y position - 1.
+    
+    This enemy is primarily driven by the gunship top and only serves to run an instruction list for graphics with no main AI.
+
+    RAM:
+        $0FAE: Hover sound effect timer (if "speed 2" is zero) (0..47h)
+        $0FB0: Liftoff timer (if "speed 2" is zero) (0..80h).
+        $0FB2: Initialised to $A7D7 (RTL). Gunship Y velocity * 100h during liftoff (if "speed 2" is zero).
+        
+    Submitted by PJ
+  </Description>
+  <Speed2>
+    <Property>
+      <Name>Gunship part</Name>
+      <Description></Description>
+      <Mask>0xFFFF</Mask>
+      <NameValues>
+        <NameValue Value="0" Name="Gunship bottom"/>
+        <NameValue Value="1" Name="Gunship entrance pad"/>
+      </NameValues>
+    </Property>
+  </Speed2>
+  <Speed1>
+  </Speed1>
+  <Tilemap>
+  </Tilemap>
+</EnemyInfo>

@@ -1,0 +1,32 @@
+<EnemyInfo>
+  <Name>Walking Space Pirate (Grey)</Name>
+  <Description>
+    Space Pirate that walks back and forth and can shoot.
+    The Special->Extended Tilemap should be True.
+  </Description>
+  <Speed1>
+  <Property>
+    <Name>Direction</Name>
+    <Description>Which direction to be initially facing.</Description>
+    <Mask>0x0001</Mask>
+    <NameValues>
+      <NameValue Value="0" Name="Left"/>
+      <NameValue Value="1" Name="Right"/>
+    </NameValues>
+  </Property>
+  <Property>
+    <Name>Blocks</Name>
+    <Description>If enabled, the enemy will perform a blocking animation when shot. This does not affect vulnerability or damage.</Description>
+    <Mask>0x8000</Mask>
+  </Property>
+  </Speed1>  
+  <Speed2>
+    <Property>
+      <Name>Travel Range</Name>
+      <Description>Distance to travel in both directions. The enemy will turn around once reaching the boundry.</Description>
+      <Mask>0xFFFF</Mask>
+    </Property>
+  </Speed2>
+  <Tilemap>
+  </Tilemap>
+</EnemyInfo>

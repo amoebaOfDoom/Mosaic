@@ -1,0 +1,20 @@
+<EnemyInfo>
+  <Name>Robot (Active)</Name>
+  <Description>
+    Deactivated robot that does move. If the current area main boss is alive, then the robot will change into the inactive version.
+  </Description>
+  <Speed1>
+    <Property>
+      <Name>Direction</Name>
+      <Description>Which direction the robot should be leaning towards. This only has an affect if the robot is inactive.</Description>
+      <Mask>0x0003</Mask>
+      <NameValues>
+        <NameValue Value="0" Name="Upright"/>
+        <NameValue Value="1" Name="Left"/>
+        <NameValue Value="2" Name="Right"/>
+      </NameValues>
+    </Property>
+  </Speed1>
+  <Speed2 />
+  <Tilemap />
+</EnemyInfo>

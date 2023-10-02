@@ -1,0 +1,9 @@
+<EnemyInfo>
+  <Name>Crusher Spikes (KZAN)</Name>
+  <Description>
+    The optional spikes for the Crusher enemy. It's an optional enemy that extends the hitbox below the main crusher. In vanilla, they two enemy parts have the same damage reactions and width, but that can be modified in their DNA. If this enemy is included, it must be ommitted from the enemy types list, and must be immediately after the main Crusher enemy it is attached to.
+  </Description>
+  <Speed1 />
+  <Speed2 />
+  <Tilemap />
+</EnemyInfo>
