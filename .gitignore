@@ -3,3 +3,7 @@
 Tools/
 Notes/
 **/quickmet.xml
+**/*.exxe
+**/bindings.xml
+**/smart.xml
+Data/
