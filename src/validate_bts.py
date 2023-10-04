@@ -81,11 +81,75 @@ base = styles["Base"]
 
 valid = 0
 
+filterd_rooms = [
+  (0, 4),  #CRATERIA SAVE ROOM
+  (0, 8),  #ELEVATOR TO MARIDIA
+  (0, 15), #ELEVATOR TO RED BRINSTAR
+  (0, 20), #ELEVATOR TO BLUE BRINSTAR
+  (0, 25), #ELEVATOR TO GREEN BRINSTAR
+  (0, 27), #CRATERIA MAP ROOM
+  (0, 21), #SILVER TORIZO BOSS ROOM
+  (0, 51), #STATUE ROOM
+
+  (1, 7),  #BRINSTAR MISSILE STATION
+  (1, 11), #SPORE SPAWN BOSS ROOM
+  (1, 21), #DACHORA ENERGY STATION
+  (1, 27), #PINK BRINSTAR SAVE ROOM
+  (1, 30), #GREEN BRINSTAR SAVE ROOM
+  (1, 31), #ETECOON SAVE ROOM
+  (1, 47), #KRAID BOSS ROOM
+  (1, 49), #RED BRINSTAR ENERGY STATION
+  (1, 5),  #BRINSTAR MAP ROOM
+  (1, 50), #KRAID REFILL ROOM
+  (1, 54), #KRAID SAVE ROOM
+  (1, 55), #RED BRINSTAR SAVE ROOM
+
+  (2, 10), #CROCOMIRE BOSS ROOM
+  (2, 15), #POST CROCOMIRE SAVE ROOM
+  (2, 43), #UPPER NORFAIR ENERGY STATION
+  (2, 46), #NORFAIR MAP ROOM
+  (2, 47), #BUBBLE MOUNTIAN SAVE ROOM
+  (2, 50), #ROCKY NORFAIR SAVE ROOM
+  (2, 51), #PRE CROCOMIRE SAVE ROOM
+  (2, 52), #RIDLEY HIDEOUT SAVE ROOM
+  (2, 55), #GOLD TORIZO BOSS ROOM
+  (2, 57), #GOLDEN TORIZO ENERGY STATION
+  (2, 58), #RIDLEY BOSS ROOM
+  (2, 76), #RED KEYHUNTER SAVE ROOM
+
+  (3,  9), #WRECKED SHIP MAP ROOM
+  (3, 10), #PHANTOON BOSS ROOM
+  (3, 15), #WRECKED SHIP SAVE ROOM
+
+  (4,  0), #WEST MARIDIA SAVE ROOM
+  (4,  1), #GLASS TUBE
+  (4, 22), #MARIDIA MAP ROOM
+  (4, 23), #EAST MARIDIA SAVE ROOM
+  (4, 41), #MARIDIA AQUEDUCT SAVE ROOM
+  (4, 44), #DRAYGON SAVE ROOM
+  (4, 45), #MARIDIA MISSILE REFILL ROOM
+  (4, 50), #BOTWOON BOSS ROOM
+  (4, 52), #DRAYGON ENERGY REFILL
+  (4, 55), #DRAYGON BOSS ROOM
+
+  (5,  9), #TOURIAN RECHARGE ROOM'
+  (5, 10), #MOTHER BRAIN BOSS ROOM
+  (5, 13), #MOTHER BRAIN SAVE ROOM
+  (5, 18), #TOURIAN ELEVATOR SAVE ROOM
+]
+
 for name, style in styles.items():
   if name == "Base":
     continue
   excluded_count_list = [len(style.excluded[a_i]) for a_i in range(6)]
   print(f"{name} excluded room count: {excluded_count_list}")
+
+  filtered_excluded_list = [sorted([(a_i, r_i, Path(r.path).stem) for r_i, r in style.excluded[a_i].items() if (a_i, r_i) not in filterd_rooms]) for a_i in range(6)]
+  print(f"{name} Rooms TODO:")
+  for area in filtered_excluded_list:
+    for (a_i, r_i, r) in area:
+      print(f"  ({a_i}, {r_i}), #{r}")
+
   for a_i, area in style.rooms.items():
     for r_i, room in area.items():
       for s_i, state in enumerate(room.states):
