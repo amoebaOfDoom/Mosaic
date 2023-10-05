@@ -135,7 +135,7 @@ ProcessEscapeMask_Default:
 
 EscapeGlowTable:
   DB $06 ;Crateria Surface
-  DB $19 ;Inner Crateria
+  DB $18 ;Inner Crateria
   DB $1D ;Tourian
 
 EscapeMaskTable:
