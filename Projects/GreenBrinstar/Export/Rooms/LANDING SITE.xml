@@ -2550,7 +2550,7 @@
           <transparency1_A>02</transparency1_A>
           <transparency2_B>02</transparency2_B>
           <liquidflags_C>00</liquidflags_C>
-          <paletteflags>06</paletteflags>
+          <paletteflags>00</paletteflags>
           <animationflags>00</animationflags>
           <paletteblend>00</paletteblend>
         </FX1>
@@ -7873,13 +7873,13 @@
           <surfacenew>0380</surfacenew>
           <surfacespeed>0000</surfacespeed>
           <surfacedelay>00</surfacedelay>
-          <type>0A</type>
+          <type>00</type>
           <transparency1_A>02</transparency1_A>
-          <transparency2_B>0E</transparency2_B>
+          <transparency2_B>02</transparency2_B>
           <liquidflags_C>00</liquidflags_C>
           <paletteflags>01</paletteflags>
           <animationflags>00</animationflags>
-          <paletteblend>22</paletteblend>
+          <paletteblend>00</paletteblend>
         </FX1>
       </FX1s>
       <Enemies killcount="00">
@@ -10420,13 +10420,13 @@
           <surfacenew>0380</surfacenew>
           <surfacespeed>0000</surfacespeed>
           <surfacedelay>00</surfacedelay>
-          <type>0A</type>
+          <type>00</type>
           <transparency1_A>02</transparency1_A>
-          <transparency2_B>0E</transparency2_B>
+          <transparency2_B>02</transparency2_B>
           <liquidflags_C>00</liquidflags_C>
           <paletteflags>01</paletteflags>
           <animationflags>00</animationflags>
-          <paletteblend>22</paletteblend>
+          <paletteblend>00</paletteblend>
         </FX1>
       </FX1s>
       <Enemies killcount="00">
