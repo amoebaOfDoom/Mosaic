@@ -6,7 +6,7 @@ tile_unknown = 0x0FE
 tile_unknown_solid = 0x17D
 tile_interior = 0x16E
 tile_bottom_edge = 0x16B
-tile_below_bottom_edge = 0x18F
+tile_under_bottom_edge = 0x18F
 
 tile_top_edge = 0x178
 tile_left_edge = 0x16F
@@ -35,11 +35,17 @@ tile_under_bottom_right_gentle_slope_small = 0x254
 tile_under_bottom_right_gentle_slope_large = 0x255
 tile_under_under_bottom_right_gentle_slope_small = 0x274
 
+tile_top_right_gentle_slope_small = 0x197
+tile_top_right_gentle_slope_large = 0x177
+
 tile_bottom_left_steep_slope_small = 0x23B
 tile_bottom_left_steep_slope_large = 0x25B
 tile_beside_bottom_left_steep_slope_small = 0x23A
 tile_beside_bottom_left_steep_slope_large = 0x25A
 tile_beside_beside_bottom_left_steep_slope_small = 0x239
+
+tile_top_right_steep_slope_small = 0x197
+tile_top_left_steep_slope_large = 0x1D9
 
 -- Invariant tiles (non-black CRE tiles): leave them unchanged
 if invariant(0, 0) then
@@ -76,7 +82,7 @@ if t:type(0, 0) == 1 then
         return true
     end
     if bts == bts_slope_bottom_right_steep_small | 0x80 then
-        t:set_gfx(tile_top_left_steep_slope_small, not bts_hflip(0, 0), false)
+        t:set_gfx(tile_top_right_steep_slope_small, bts_hflip(0, 0), false)
         return true
     end
     if bts == bts_slope_bottom_right_steep_large then
@@ -93,6 +99,14 @@ if t:type(0, 0) == 1 then
     end
     if bts == bts_slope_bottom_right_gentle_large then
         t:set_gfx(tile_bottom_right_gentle_slope_large, bts_hflip(0, 0), false)
+        return true
+    end
+    if bts == bts_slope_bottom_right_gentle_small | 0x80 then
+        t:set_gfx(tile_top_right_gentle_slope_small, bts_hflip(0, 0), false)
+        return true
+    end
+    if bts == bts_slope_bottom_right_gentle_large | 0x80 then
+        t:set_gfx(tile_top_right_gentle_slope_large, bts_hflip(0, 0), false)
         return true
     end
     if bts == bts_slope_whole_bottom_edge and air(0, -1) then
@@ -155,9 +169,9 @@ if solid(0, 0) then
         return true
     end
 
-    -- Below horizontal edges:
+    -- under horizontal edges:
     if inside_right(-1, 0) and inside_left(1, 0) and outside_bottom(0, -2) and solid(0, -1) then
-        t:set_gfx(tile_below_bottom_edge, t:abs_x() % 2 == 0, false)
+        t:set_gfx(tile_under_bottom_edge, t:abs_x() % 2 == 0, false)
         return true
     end    
 
@@ -179,11 +193,11 @@ if solid(0, 0) then
         end
     end
     if t:type(0, -1) == 1 and t:bts(0, -1) & 0xBF == bts_slope_bottom_right_gentle_small and inside_top(0, 1) then
-        t:set_gfx(tile_below_bottom_right_gentle_slope_small, bts_hflip(0, -1), false)
+        t:set_gfx(tile_under_bottom_right_gentle_slope_small, bts_hflip(0, -1), false)
         return true
     end
     if t:type(0, 1) == 1 and t:bts(0, 1) & 0xBF == bts_slope_bottom_right_gentle_small | 0x80 and inside_bottom(0, -1) then
-        -- t:set_gfx(tile_below_bottom_right_gentle_slope_small, bts_hflip(0, 1), true)
+        -- t:set_gfx(tile_under_bottom_right_gentle_slope_small, bts_hflip(0, 1), true)
         -- return true
     end
     if t:type(0, -1) == 1 and (t:bts(0, -1) & 0xBF == bts_slope_half_bottom_edge_1 or t:bts(0, -1) & 0xBF == bts_slope_half_bottom_edge_2) and inside_top(0, 1) then
