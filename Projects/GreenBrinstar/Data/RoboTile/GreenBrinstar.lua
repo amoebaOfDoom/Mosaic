@@ -2,7 +2,7 @@ require("Common")
 
 tile_black = 0x081
 tile_air = 0x0FF
-tile_unknown = 0x0FE
+tile_unknown = 0x0DF
 tile_unknown_solid = 0x17D
 tile_interior = 0x16E
 tile_bottom_edge = 0x16B
