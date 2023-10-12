@@ -2,7 +2,7 @@ require("Common")
 
 tile_black = 0x081
 tile_air = 0x0FF
-tile_unknown = 0x0FE
+tile_unknown = 0x0DF
 tile_unknown_solid = 0x17D
 tile_interior = 0x16E
 tile_bottom_edge = 0x16B
@@ -200,6 +200,15 @@ if solid(0, 0) then
         -- t:set_gfx(tile_under_bottom_right_gentle_slope_small, bts_hflip(0, 1), true)
         -- return true
     end
+    if t:type(0, -2) == 1 and t:bts(0, -2) & 0xBF == bts_slope_bottom_right_gentle_small and solid(0, -1) then
+        t:set_gfx(tile_under_under_bottom_right_gentle_slope_small, bts_hflip(0, -2), false)
+        return true
+    end
+    if t:type(0, -1) == 1 and t:bts(0, -1) & 0xBF == bts_slope_bottom_right_gentle_large and inside_top(0, 1) then
+        t:set_gfx(tile_under_bottom_right_gentle_slope_large, bts_hflip(0, -1), false)
+        return true
+    end
+
     if t:type(0, -1) == 1 and (t:bts(0, -1) & 0xBF == bts_slope_half_bottom_edge_1 or t:bts(0, -1) & 0xBF == bts_slope_half_bottom_edge_2) and inside_top(0, 1) then
         t:set_gfx(tile_under_half_bottom_edge, false, false)
         return true
