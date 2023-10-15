@@ -163,11 +163,11 @@
           <surfacedelay>00</surfacedelay>
           <type>06</type>
           <transparency1_A>02</transparency1_A>
-          <transparency2_B>14</transparency2_B>
+          <transparency2_B>18</transparency2_B>
           <liquidflags_C>82</liquidflags_C>
-          <paletteflags>01</paletteflags>
+          <paletteflags>21</paletteflags>
           <animationflags>00</animationflags>
-          <paletteblend>E8</paletteblend>
+          <paletteblend>48</paletteblend>
         </FX1>
       </FX1s>
       <Enemies killcount="05">
@@ -233,7 +233,7 @@
         </Enemy>
       </EnemyTypes>
       <layer2_type>BGData</layer2_type>
-      <layer2_xscroll>00</layer2_xscroll>
+      <layer2_xscroll>C0</layer2_xscroll>
       <layer2_yscroll>C0</layer2_yscroll>
       <ScrollData>02 00 01 </ScrollData>
       <roomvar>0000</roomvar>
