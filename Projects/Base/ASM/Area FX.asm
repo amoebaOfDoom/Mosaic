@@ -322,10 +322,10 @@ org $8DF799
   DW #HeavySandColorsInit, $F541
 org $8DC686 ; overwrite unused garbage data
 SandFloorColorsInit:
-  JSL UpdateSandFloorColors:
+  JSL UpdateSandFloorColors
   RTS
 HeavySandColorsInit:
-  JSL UpdateHeavySandColors:
+  JSL UpdateHeavySandColors
   RTS
 warnpc $8DC696
 
