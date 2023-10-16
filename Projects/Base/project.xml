@@ -1,5 +1,5 @@
 <Config Version="1.19.8657.42371">
-  <ROMfile>..\..\..\..\..\Desktop\Tundain\sm romhacking\Hacks\Mosaic retiling\Super Metroid (JU) [!].smc</ROMfile>
+  <ROMfile>..\..\Super Metroid.smc</ROMfile>
   <PatchQuickmet>true</PatchQuickmet>
   <SaveNames>true</SaveNames>
   <LevelBufferAmount>200</LevelBufferAmount>
