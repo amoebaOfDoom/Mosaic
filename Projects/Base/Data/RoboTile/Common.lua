@@ -13,12 +13,12 @@ bts_slope_bottom_right_step_small = 0x02
 bts_slope_bottom_right_step_large = 0x03
 
 tile_number_air = 0x0FF
-tile_number_unknown = 0x0FE
+tile_number_unknown = 0x0DE
 
 function invariant(x, y)
     -- Tiles to leave intact: CRE tiles except for black
     local tile = t:gfx_tile(x, y)
-    return tile < 0xFE and tile ~= 0x81 and tile ~= 0x44
+    return tile < 0xFF and tile ~= tile_number_air and tile ~= 0x81 and tile ~= 0x44
 end
 function air(x, y) 
     return t:type(x, y) == 0
@@ -50,7 +50,7 @@ function solid_slope_bottom(bts)
     return bts == 0x00 or bts == 0x07 or bts == 0x13 or bts == 0x12 or bts == 0x15 or bts == 0x16 or bts == 0x17 or bts == 0x1C
 end
 function inside_left(x, y)
-    if invariant(x, y) then
+    if outside(x, y) then
         return false
     end
     if t:type(x, y) == 8 then
@@ -66,7 +66,7 @@ function inside_left(x, y)
     return false
 end
 function inside_right(x, y)
-    if invariant(x, y) then
+    if outside(x, y) then
         return false
     end
     if t:type(x, y) == 8 then
@@ -82,7 +82,7 @@ function inside_right(x, y)
     return false
 end
 function inside_top(x, y)
-    if invariant(x, y) then
+    if outside(x, y) then
         return false
     end
     if t:type(x, y) == 8 then
@@ -98,7 +98,7 @@ function inside_top(x, y)
     return false
 end
 function inside_bottom(x, y)
-    if invariant(x, y) then
+    if outside(x, y) then
         return false
     end
     if t:type(x, y) == 8 then
