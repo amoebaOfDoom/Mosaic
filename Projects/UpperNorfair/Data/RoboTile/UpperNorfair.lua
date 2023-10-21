@@ -79,7 +79,7 @@ end
 
 -- Air tiles: blank them out:
 if air(0, 0) then
-    if solid(0, -1) and not inside_right(-1, -1) and not inside_left(1, -1) and inside_bottom(0, -2) then
+    if solid(0, -1) and not invariant(0, -1) and not inside_right(-1, -1) and not inside_left(1, -1) and inside_bottom(0, -2) then
         -- Below single tile hanging from ceiling
         t:set_gfx(tile_below_hanging_hflip, true, false)
         return true
@@ -328,7 +328,7 @@ if solid(0, 0) then
         return true
     end
 
-    if not inside_right(-1, 0) and not inside_left(1, 0) and inside_bottom(0, -1) and not inside_top(0, 1) then
+    if air(0, 1) and not inside_right(-1, 0) and not inside_left(1, 0) and inside_bottom(0, -1) and not inside_top(0, 1) then
         -- Single tile hanging from ceiling
         t:set_gfx(tile_hanging_hflip, true, false)
         return true
