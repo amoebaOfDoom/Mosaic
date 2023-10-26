@@ -116,9 +116,9 @@
         00FF 00FF 33F5 33F5 33F5 33F5 805F 00FF 33F5 33F5 00FF 805F 807B 805F 807B 805F
         805F 00FF 33F5 33F5 33F5 33F5 80BD 00FF 33F5 33F5 00FF 80BD 00FF 80BD 00FF 80BD
         00FF 00FF 33F5 33F5 33F5 33F5 80BE 00FF 33F5 33F5 00FF 80BE 00FF 80BE 00FF 80BE
-        33F9 33F9 33F9 33F9 33F9 33F9 83FB 33F9 33F9 33F9 33F9 83FB 33F9 83FB 33F9 87FD
-        33FA 33FA 33FA 33FA 33FA 33FA 83FC 33FA 33FA 33FA 33FA 83FC 33FA 83FC 33FA 87FE
-        83FA 83FA 83FA 83FA 83FA 83FA 83FC 83FA 83FA 83FA 83FA 83FC 83FA 83FC 83FA 87FE
+        33F9 33F9 33F9 33F9 33F9 33F9 83FB 33F9 33F9 33F9 33F9 83FB 33F9 83FB 33F9 83FB
+        33FA 33FA 33FA 33FA 33FA 33FA 83FC 33FA 33FA 33FA 33FA 83FC 33FA 83FC 33FA 83FC
+        83FA 83FA 83FA 83FA 83FA 83FA 83FC 83FA 83FA 83FA 83FA 83FC 83FA 83FC 83FA 83FC
       </Screen>
         </Layer1>
         <BTS>
@@ -206,11 +206,11 @@
           <surfacedelay>00</surfacedelay>
           <type>06</type>
           <transparency1_A>02</transparency1_A>
-          <transparency2_B>14</transparency2_B>
+          <transparency2_B>18</transparency2_B>
           <liquidflags_C>82</liquidflags_C>
           <paletteflags>20</paletteflags>
           <animationflags>08</animationflags>
-          <paletteblend>E8</paletteblend>
+          <paletteblend>48</paletteblend>
         </FX1>
       </FX1s>
       <Enemies killcount="03">
