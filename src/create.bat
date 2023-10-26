@@ -14,6 +14,7 @@ mkdir "%ROOT%\Projects\%1\Export\Rooms"
 xcopy "%ROOT%\Projects\Base\Export\Rooms\" "%ROOT%\Projects\%1\Export\Rooms\"
 
 mklink "%ROOT%\Projects\%1\project.xml" "..\Base\project.xml"
+mklink /D "%ROOT%\Projects\%1\ASM" "..\Base\ASM"
 mklink /D "%ROOT%\Projects\%1\Data\Tileset" "..\..\Base\Data\Tileset"
 mklink /D "%ROOT%\Projects\%1\Export\Demos" "..\..\Base\Export\Demos"
 mklink /D "%ROOT%\Projects\%1\Export\Ending" "..\..\Base\Export\Ending"
