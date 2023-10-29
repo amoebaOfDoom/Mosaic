@@ -132,7 +132,7 @@
       <layer2_yscroll>00</layer2_yscroll>
       <ScrollData const="0000" />
       <roomvar>0000</roomvar>
-      <FX2>C11B</FX2>
+      <FX2>0000</FX2>
       <PLMs />
       <BGData>
         <Data Type="DECOMP">
@@ -206,7 +206,7 @@
           <Section>Tiles2</Section>
         </Data>
       </BGData>
-      <layer1_2>91CE</layer1_2>
+      <layer1_2>91D3</layer1_2>
     </State>
   </States>
 </Room>
