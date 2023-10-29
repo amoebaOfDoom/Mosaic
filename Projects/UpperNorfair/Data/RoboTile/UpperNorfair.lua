@@ -257,11 +257,11 @@ if solid(0, 0) then
         return true
     end
     if t:type(-1, 0) == 1 and (t:bts(-1, 0) & 0x7F == bts_slope_half_right_edge) then
-        t:set_gfx(tile_beside_half_left_edge, true, false)
+        t:set_gfx(tile_beside_half_right_edge, false, false)
         return true
     end
     if t:type(1, 0) == 1 and (t:bts(1, 0) & 0x7F == bts_slope_half_right_edge | 0x40) then
-        t:set_gfx(tile_beside_half_left_edge, false, false)
+        t:set_gfx(tile_beside_half_right_edge, true, false)
         return true
     end
     if t:type(0, -1) == 1 and (t:bts(0, -1) & 0xBF == bts_slope_bottom_right_45) then
