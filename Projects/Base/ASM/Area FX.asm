@@ -624,7 +624,7 @@ Glow_Area_2:
 Glow_Area_3:
   DW !WS_Green, !NullGlow, !NullGlow, !NullGlow, !NullGlow, !SandFlor, !HevySand, !SamusHot
 Glow_Area_4:
-  DW !SandFlor, !HevySand, !Waterfal, !NullGlow, !NullGlow, !SandFlor, !HevySand, !SamusHot
+  DW !NullGlow, !NullGlow, !Waterfal, !NullGlow, !NullGlow, !SandFlor, !HevySand, !SamusHot
 Glow_Area_5:
   DW !Tor_4Esc, !Tourian1, !Tor_3Esc, !Tor_1Esc, !Tor_2Esc, !SandFlor, !HevySand, !SamusHot
 Glow_Area_6:
