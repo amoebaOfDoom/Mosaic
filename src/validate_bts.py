@@ -23,17 +23,19 @@ class Room:
     self.states = []
 
     for state_node in states:
+      state = {}
+
       level_data = state_node.findall("./LevelData")[0]
       width = int(level_data.attrib['Width'], 16)
       height = int(level_data.attrib['Height'], 16)
-      state = [[None for x in range(height)] for y in range(width)]
+      state['level_data'] = [[None for x in range(height)] for y in range(width)]
 
       bts_nodes = state_node.findall("./LevelData/BTS/Screen")
       for bts_node in bts_nodes:
         x = int(bts_node.attrib['X'], 16)
         y = int(bts_node.attrib['Y'], 16)
         bts = [[int(b, 16)] for b in bts_node.text.split()]
-        state[x][y] = bts
+        state['level_data'][x][y] = bts
       
       layer1_nodes = state_node.findall("./LevelData/Layer1/Screen")
       for layer1_node in layer1_nodes:
@@ -41,7 +43,17 @@ class Room:
         y = int(layer1_node.attrib['Y'], 16)
         tiles = [int(t, 16) for t in layer1_node.text.split()]
         for i, tile in enumerate(tiles):
-          state[x][y][i].append(tiles[i])
+          state['level_data'][x][y][i].append(tiles[i])
+
+      fx_nodes = state_node.findall("./FX1s/FX1")
+      state['fx'] = [{'palette_flags': 0} for i in fx_nodes]
+
+      if(len(fx_nodes) == 0):
+        state['fx'] = [{'palette_flags': 0}]
+      else:
+        for f_i, fx_node in enumerate(fx_nodes):
+          palette_flags = get_int(fx_node, "./paletteflags")
+          state['fx'][f_i]['palette_flags'] = palette_flags
 
       self.states.append(state)
 
@@ -152,11 +164,11 @@ for name, style in styles.items():
   for a_i, area in style.rooms.items():
     for r_i, room in area.items():
       for s_i, state in enumerate(room.states):
-        for c_i, column in enumerate(state):
+        for c_i, column in enumerate(state['level_data']):
           for n_i, screen in enumerate(column):
             for b_i, (bts, tile) in enumerate(screen):
               tiletype = tile >> 12
-              base_bts, base_tile = base.rooms[a_i][r_i].states[s_i][c_i][n_i][b_i]
+              base_bts, base_tile = base.rooms[a_i][r_i].states[s_i]['level_data'][c_i][n_i][b_i]
               base_tiletype = base_tile >> 12
 
               base_tiletype_bts_str = f"({base_tiletype:X}, {base_bts:02X})"
@@ -178,5 +190,14 @@ for name, style in styles.items():
                 if tile & 0x3FF in [0x13D, 0x13E, 0x13F]:
                   print(f"{context_str} Background tile in layer 1: {tile:04X}")
                   valid = 1
+        for f_i, fx in enumerate(state['fx']):
+          base_fx = base.rooms[a_i][r_i].states[s_i]['fx'][f_i]
+          context_str = f"{room.path} State<{s_i}>FX({f_i})"
+
+          heat = (fx['palette_flags'] & 0x80) != 0
+          base_heat = (base_fx['palette_flags'] & 0x80) != 0
+          if(heat != base_heat):
+            print(f"{context_str} Heat bit should be {base_heat} but was {heat}")
+            valid = 1
 
 exit(valid)
