@@ -49,9 +49,9 @@
         889E 805F 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF D82C 9860
         8106 80BE 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF D80C 9840
         8107 80BE 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 805F 809E 809E 809E
-        8105 80BE 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 80BE 00FF 852B 8506
+        8105 80BE 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 80BE 00FF 852B 8500
         8107 805F 889E 889E 889E 889E 889E 805F 00FF 00FF 00FF 00FF 805F 809E 805F 8507
-        811D 811C 8101 8101 812B 00FF 00FF 80BE 00FF 00FF 00FF 00FF 00FF 00FF 80BE 8505
+        811D 811C 8100 8101 812B 00FF 00FF 80BE 00FF 00FF 00FF 00FF 00FF 00FF 80BE 8505
         810C 810C 817F 805F 889E 889E 889E 805F 00FF 00FF 00FF 00FF 00FF 00FF 80BE 857F
         889E 889E 809E 805F 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 805F 809E
       </Screen>
@@ -123,11 +123,11 @@
           <surfacedelay>00</surfacedelay>
           <type>06</type>
           <transparency1_A>02</transparency1_A>
-          <transparency2_B>14</transparency2_B>
+          <transparency2_B>18</transparency2_B>
           <liquidflags_C>83</liquidflags_C>
           <paletteflags>00</paletteflags>
           <animationflags>00</animationflags>
-          <paletteblend>EE</paletteblend>
+          <paletteblend>48</paletteblend>
         </FX1>
       </FX1s>
       <Enemies killcount="04">

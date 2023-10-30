@@ -1399,7 +1399,7 @@
           <transparency1_A>02</transparency1_A>
           <transparency2_B>14</transparency2_B>
           <liquidflags_C>83</liquidflags_C>
-          <paletteflags>01</paletteflags>
+          <paletteflags>20</paletteflags>
           <animationflags>00</animationflags>
           <paletteblend>EE</paletteblend>
         </FX1>
@@ -1465,7 +1465,7 @@
       <layer2_type>Layer2</layer2_type>
       <layer2_xscroll>C0</layer2_xscroll>
       <layer2_yscroll>00</layer2_yscroll>
-      <ScrollData const="0001" />
+      <ScrollData>02 02 02 02 02 02 02 02 02 02 02 02 02 02 02 02 02 02 00 00 00 00 00 00 </ScrollData>
       <roomvar>0000</roomvar>
       <FX2>0000</FX2>
       <PLMs>
