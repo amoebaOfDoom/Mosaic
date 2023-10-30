@@ -149,7 +149,7 @@
       </Screen>
         </BTS>
       </LevelData>
-      <GFXset>0A</GFXset>
+      <GFXset>09</GFXset>
       <music>0000</music>
       <FX1s>
         <FX1 default="true">
@@ -161,7 +161,7 @@
           <transparency1_A>02</transparency1_A>
           <transparency2_B>1E</transparency2_B>
           <liquidflags_C>82</liquidflags_C>
-          <paletteflags>1F</paletteflags>
+          <paletteflags>9E</paletteflags>
           <animationflags>00</animationflags>
           <paletteblend>00</paletteblend>
         </FX1>
