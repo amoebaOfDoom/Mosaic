@@ -380,7 +380,7 @@
         </PLM>
       </PLMs>
       <BGData />
-      <layer1_2>C8D1</layer1_2>
+      <layer1_2>C11B</layer1_2>
     </State>
     <State condition="default">
       <LevelData Width="1" Height="3">
@@ -700,7 +700,7 @@
         </PLM>
       </PLMs>
       <BGData />
-      <layer1_2>C8D1</layer1_2>
+      <layer1_2>C11B</layer1_2>
     </State>
   </States>
 </Room>
