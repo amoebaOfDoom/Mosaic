@@ -5,13 +5,13 @@ org $89AC62
   JSR GetTilesetIndex ;LDA $079F
   ASL
   TAY
-  LDA GlowTypeTable,Y ;DB is $83
+  LDA.w GlowTypeTable,Y ;DB is $83
 
 org $89AC98
   JSR GetTilesetIndex ;LDA $079F
   ASL
   TAY
-  LDA AnimTypeTable,Y
+  LDA.w AnimTypeTable,Y
 
 ; Force on excape glow bits during escape event
 org $89AB90
@@ -78,7 +78,7 @@ ForceGlowMask:
   JSR GetTilesetIndex
   ASL
   TAY
-  LDA GlowTypeTable,Y ;DB is $83
+  LDA.w GlowTypeTable,Y ;DB is $83
   STA $AF
   LDY #$0000
 
