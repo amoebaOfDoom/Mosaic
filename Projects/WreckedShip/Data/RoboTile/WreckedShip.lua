@@ -23,8 +23,8 @@ tile_under_bottom_right_45_slope = 0x128
 tile_under_beside_bottom_right_45_slope = 0x109
 
 tile_top_right_45_slope = 0x220
-tile_top_right_45_small_slope = tile_unknown
-tile_top_right_45_large_slope = tile_unknown
+tile_top_right_45_small_slope = 0x1D8
+tile_top_right_45_large_slope = 0x223
 
 tile_bottom_right_gentle_slope_small = 0x229
 tile_bottom_right_gentle_slope_large = 0x22A
