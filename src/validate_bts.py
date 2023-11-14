@@ -181,7 +181,7 @@ for name, style in styles.items():
                 valid = 1
 
               # Grapple block check:
-              if tiletype == 0xE and tile != base_tile:
+              if tiletype == 0xE and tile & 0xF7FF != base_tile & 0xF7FF:
                 print(f"{context_str} Wrong tile for grapple block: should be {base_tile:04X} but was {tile:04X}")
                 valid = 1
 
