@@ -8,7 +8,7 @@
   <height>03</height>
   <upscroll>70</upscroll>
   <dnscroll>A0</dnscroll>
-  <specialGFX>00</specialGFX>
+  <specialGFX>80</specialGFX>
   <Doors>
     <Door>
       <toroom area="02" index="00" />
@@ -280,7 +280,7 @@
           <transparency1_A>02</transparency1_A>
           <transparency2_B>1E</transparency2_B>
           <liquidflags_C>03</liquidflags_C>
-          <paletteflags>1F</paletteflags>
+          <paletteflags>9E</paletteflags>
           <animationflags>03</animationflags>
           <paletteblend>02</paletteblend>
         </FX1>

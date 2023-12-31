@@ -1,6 +1,6 @@
 *.smc
 *.bak
-Tools/
+/Tools/
 Notes/
 **/quickmet.xml
 **/*.exxe
