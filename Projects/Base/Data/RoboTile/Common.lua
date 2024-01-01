@@ -41,7 +41,7 @@ function solid_slope_left(bts)
     return bts == 0x13
 end
 function solid_slope_right(bts)
-    return bts == 0x13 or bts == 0x12 or bts == 0x15 or bts == 0x1B or bts == 0x1C or bts == 0x17
+    return bts == 0x01 or bts == 0x13 or bts == 0x12 or bts == 0x15 or bts == 0x1B or bts == 0x1C or bts == 0x17
 end
 function solid_slope_top(bts)
     return bts == 0x13
