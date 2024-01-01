@@ -1,5 +1,5 @@
 <RoboTileSet>
 <Script Name="Fill" Priority="0">
-require("WestMaridia")
+require("WestMaridiaThin")
 </Script>
 </RoboTileSet>
