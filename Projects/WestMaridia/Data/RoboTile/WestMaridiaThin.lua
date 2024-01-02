@@ -31,6 +31,12 @@ tile_beside_bottom_right_steep_slope_small = 0x12C
 tile_bottom_right_steep_slope_large = 0x12B
 tile_beside_bottom_right_steep_slope_large = tile_interior
 
+tile_platform_middle = 0x144
+tile_platform_left = 0x143
+
+tile_column = 0x141
+tile_column_bottom = 0x142
+
 -- Invariant tiles (non-black CRE tiles): leave them unchanged
 if invariant(0, 0) then
     return true
@@ -73,13 +79,6 @@ if t:type(0, 0) == 1 then
         t:set_gfx(tile_bottom_right_gentle_slope_large, bts_hflip(0, 0), bts_vflip(0, 0))
         return true
     end
-    if t:bts(0, 0) & 0xBF == bts_slope_whole_bottom_edge and air(0, -1) then
-        t:set_gfx(tile_bottom_edge, false, false)
-    end
-    if t:bts(0, 0) & 0xBF == bts_slope_whole_bottom_edge | 0x80 and air(0, 1) then
-        t:set_gfx(tile_bottom_edge, false, true)
-        return true
-    end    
     if (t:bts(0, 0) & 0xBF == bts_slope_half_bottom_edge_1 or t:bts(0, 0) & 0xBF == bts_slope_half_bottom_edge_2) and solid(0, 1) then
         t:set_gfx(tile_half_bottom_edge, false, false)
         return true
@@ -114,6 +113,36 @@ if solid(0, 0) then
         return true
     end
 
+    -- Platforms:
+    if inside_right(-1, 0) and inside_left(1, 0) and outside_top(0, 1) and outside_bottom(0, -1) then
+        t:set_gfx(tile_platform_middle, false, false)
+        return true
+    end
+    if inside_right(-1, 0) and outside_left(1, 0) and outside_top(0, 1) and outside_bottom(0, -1) then
+        t:set_gfx(tile_platform_left, true, false)
+        return true
+    end
+    if outside_right(-1, 0) and inside_left(1, 0) and outside_top(0, 1) and outside_bottom(0, -1) then
+        t:set_gfx(tile_platform_left, false, false)
+        return true
+    end
+
+    if outside_right(-1, 0) and outside_left(1, 0) and inside_bottom(0, -1) and outside_top(0, 1) then
+        -- Bottom of single-tile-wide pillar
+        t:set_gfx(tile_column_bottom, false, false)
+        return true
+    end
+    if outside_right(-1, 0) and outside_left(1, 0) and inside_bottom(0, -1) and inside_top(0, 1) then
+        -- Middle of single-tile-wide pillar
+        t:set_gfx(tile_column, false, false)
+        return true
+    end
+    if outside_right(-1, 0) and outside_left(1, 0) and outside_bottom(0, -1) and inside_top(0, 1) then
+        -- Top of single-tile-wide pillar
+        t:set_gfx(tile_column_bottom, false, true)
+        return true
+    end
+    
     -- Horizontal/vertical edges:
     if outside_right(-1, 0) and inside_left(1, 0) and inside_bottom(0, -1) and inside_top(0, 1) then
         t:set_gfx(tile_right_edge, false, false)

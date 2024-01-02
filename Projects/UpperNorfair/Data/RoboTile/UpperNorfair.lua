@@ -303,15 +303,15 @@ if solid(0, 0) then
     end    
 
     -- Platforms:
-    if inside_right(-1, 0) and inside_left(1, 0) and outside_top(0, 1) and outside_top(0, 1) then
+    if inside_right(-1, 0) and inside_left(1, 0) and outside_top(0, 1) and outside_bottom(0, -1) then
         t:set_gfx(tile_platform_middle, false, false)
         return true
     end
-    if inside_right(-1, 0) and outside_left(1, 0) and outside_top(0, 1) and outside_top(0, 1) then
+    if inside_right(-1, 0) and outside_left(1, 0) and outside_top(0, 1) and outside_bottom(0, -1) then
         t:set_gfx(tile_platform_right, false, false)
         return true
     end
-    if outside_right(-1, 0) and inside_left(1, 0) and outside_top(0, 1) and outside_top(0, 1) then
+    if outside_right(-1, 0) and inside_left(1, 0) and outside_top(0, 1) and outside_bottom(0, -1) then
         t:set_gfx(tile_platform_right, true, false)
         return true
     end
