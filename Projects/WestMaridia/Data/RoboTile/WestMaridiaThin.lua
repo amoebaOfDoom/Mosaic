@@ -60,7 +60,7 @@ if t:type(0, 0) == 1 then
         return true
     end
     if bts == bts_slope_bottom_right_45_large then
-        t:set_gfx(tile_bottom_right_45_large_slope_hflip, bts_hflip(0, 0), bts_vflip(0, 0))
+        t:set_gfx(tile_bottom_right_45_large_slope, bts_hflip(0, 0), bts_vflip(0, 0))
         return true
     end
     if bts == bts_slope_bottom_right_steep_small then
