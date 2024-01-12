@@ -22,7 +22,7 @@ tile_half_right_edge_2 = 0x18E
 tile_beside_half_right_edge_1 = 0x1A8
 tile_beside_half_right_edge_2 = 0x18F
 
-tile_top_right_45_slope = 0x194
+tile_bottom_right_45_slope = 0x1A7
 tile_above_top_right_45_slope = 0x195
 
 tile_top_right_45_small_slope = tile_unknown
@@ -55,11 +55,11 @@ end
 if t:type(0, 0) == 1 then
     bts = t:bts(0, 0) & 0xBF
     if bts == bts_slope_bottom_right_45 then
-        t:set_gfx(tile_top_right_45_slope, bts_hflip(0, 0), true)
+        t:set_gfx(tile_bottom_right_45_slope, bts_hflip(0, 0), false)
         return true
     end
     if bts == bts_slope_bottom_right_45 | 0x80 then
-        t:set_gfx(tile_top_right_45_slope, bts_hflip(0, 0), false)
+        t:set_gfx(tile_bottom_right_45_slope, bts_hflip(0, 0), true)
         return true
     end
     if bts == bts_slope_bottom_right_45_small | 0x80 then
