@@ -6,3 +6,4 @@ Notes/
 **/*.exxe
 **/bindings.xml
 **/smart.xml
+/Data/
