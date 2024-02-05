@@ -167,8 +167,12 @@ for name, style in styles.items():
         for c_i, column in enumerate(state['level_data']):
           for n_i, screen in enumerate(column):
             for b_i, (bts, tile) in enumerate(screen):
+              if name == "TransitTube":
+                base_room = base.rooms[4][0x18]
+              else:
+                base_room = base.rooms[a_i][r_i]
               tiletype = tile >> 12
-              base_bts, base_tile = base.rooms[a_i][r_i].states[s_i]['level_data'][c_i][n_i][b_i]
+              base_bts, base_tile = base_room.states[s_i]['level_data'][c_i][n_i][b_i]
               base_tiletype = base_tile >> 12
 
               base_tiletype_bts_str = f"({base_tiletype:X}, {base_bts:02X})"
