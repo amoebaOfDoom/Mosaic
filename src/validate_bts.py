@@ -149,8 +149,18 @@ filterd_rooms = [
   (5, 18), #TOURIAN ELEVATOR SAVE ROOM
 ]
 
+ignored_styles = [
+  "Base",
+  "CrateriaPalette",
+  "BrinstarPalette",
+  "NorfairPalette",
+  "WreckedShipPalette",
+  "MaridiaPalette",
+  "TourianPalette",
+]
+
 for name, style in styles.items():
-  if name == "Base":
+  if name in ignored_styles:
     continue
   excluded_count_list = [len(style.excluded[a_i]) for a_i in range(6)]
   print(f"{name} excluded room count: {excluded_count_list}")
