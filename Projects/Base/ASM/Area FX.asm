@@ -172,7 +172,7 @@ Handler_Area_3:
   RTS
 
 Handler_Area_5:
-  LDY #$0003
+  LDY #$0002
   JSR ProcessEscapeMask
   RTS
 
@@ -613,14 +613,14 @@ org $83B800
 !SpoSpoBG = $F779
 !Purp_BG_ = $F77D
 !Beacon__ = $F781
-!Nor_Hot1 = $F785
-!Nor_Hot2 = $F789
-!Nor_Hot3 = $F78D
-!Nor_Hot4 = $F791
+!NorHot1_ = $F785
+!NorHot2_ = $F789
+!NorHot3_ = $F78D
+!NorHot4_ = $F791
 !SandFlor = $F795
 !HevySand = $F799
 !Waterfal = $F79D
-!Tourian1 = $F7A1
+!Tourian_ = $F7A1
 !Tourian2 = $F7A5
 !Tor_1Esc = $FFC9
 !Tor_2Esc = $FFCD
@@ -641,13 +641,13 @@ Glow_Area_0b:
 Glow_Area_1:
   DW !Blue_BG_, !Purp_BG_, !Beacon__, !SpoSpoBG, !NullGlow, !SandFlor, !HevySand, !SamusHot
 Glow_Area_2:
-  DW !NullGlow, !Nor_Hot1, !Nor_Hot2, !Nor_Hot3, !Nor_Hot4, !SandFlor, !HevySand, !SamusHot
+  DW !NullGlow, !NorHot1_, !NorHot2_, !NorHot3_, !NorHot4_, !SandFlor, !HevySand, !SamusHot
 Glow_Area_3:
   DW !WS_Green, !NullGlow, !NullGlow, !NullGlow, !NullGlow, !SandFlor, !HevySand, !SamusHot
 Glow_Area_4:
   DW !NullGlow, !NullGlow, !Waterfal, !NullGlow, !NullGlow, !SandFlor, !HevySand, !SamusHot
 Glow_Area_5:
-  DW !Tor_4Esc, !Tourian1, !Tor_3Esc, !Tor_1Esc, !Tor_2Esc, !SandFlor, !HevySand, !SamusHot
+  DW !Tor_4Esc, !Tourian_, !Tor_3Esc, !Tor_1Esc, !Tor_2Esc, !SandFlor, !HevySand, !SamusHot
 Glow_Area_6:
   DW !NullGlow, !NullGlow, !NullGlow, !NullGlow, !NullGlow, !SandFlor, !HevySand, !SamusHot
 Glow_Area_7:
