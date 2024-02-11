@@ -3160,28 +3160,28 @@ SpoSpoBGTable:
   DW SpoSpoBGInit,SpoSpoBG4_List, SpoSpoBGInit,SpoSpoBG5_List, SpoSpoBGInit,SpoSpoBG6_List, SpoSpoBGInit,SpoSpoBG7_List
 SpoSpoBG0_List:
   DW SetPreInstruction, SpoSpoBGPreInstruction
-  DW GlowJMP, Blue_BG_0_List_Loop
+  DW GlowJMP, Blue_BG_0_List
 SpoSpoBG1_List:
   DW SetPreInstruction, SpoSpoBGPreInstruction
-  DW GlowJMP, Blue_BG_1_List_Loop
+  DW GlowJMP, Blue_BG_1_List
 SpoSpoBG2_List:
   DW SetPreInstruction, SpoSpoBGPreInstruction
-  DW GlowJMP, Blue_BG_2_List_Loop
+  DW GlowJMP, Blue_BG_2_List
 SpoSpoBG3_List:
   DW SetPreInstruction, SpoSpoBGPreInstruction
-  DW GlowJMP, Blue_BG_3_List_Loop
+  DW GlowJMP, Blue_BG_3_List
 SpoSpoBG4_List:
   DW SetPreInstruction, SpoSpoBGPreInstruction
-  DW GlowJMP, Blue_BG_4_List_Loop
+  DW GlowJMP, Blue_BG_4_List
 SpoSpoBG5_List:
   DW SetPreInstruction, SpoSpoBGPreInstruction
-  DW GlowJMP, Blue_BG_5_List_Loop
+  DW GlowJMP, Blue_BG_5_List
 SpoSpoBG6_List:
   DW SetPreInstruction, SpoSpoBGPreInstruction
-  DW GlowJMP, Blue_BG_6_List_Loop
+  DW GlowJMP, Blue_BG_6_List
 SpoSpoBG7_List:
   DW SetPreInstruction, SpoSpoBGPreInstruction
-  DW GlowJMP, Blue_BG_7_List_Loop
+  DW GlowJMP, Blue_BG_7_List
 
 Purp_BG_Table:
   DW EmptyInit,Purp_BG_0_List, EmptyInit,Purp_BG_1_List, EmptyInit,Purp_BG_2_List, EmptyInit,Purp_BG_3_List
