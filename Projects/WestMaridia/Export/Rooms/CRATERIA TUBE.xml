@@ -8,7 +8,7 @@
   <height>01</height>
   <upscroll>70</upscroll>
   <dnscroll>A0</dnscroll>
-  <specialGFX>00</specialGFX>
+  <specialGFX>80</specialGFX>
   <Doors>
     <Door>
       <toroom area="00" index="00" />
@@ -42,14 +42,14 @@
         811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D
         811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D
         811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D
-        8D1D 8D82 8DA2 8982 811D 811D 811D 811D 811D 811D 811D 811D 8D82 89A2 8982 891D
-        8D88 8D8C 83B2 89C5 8980 8983 8980 89A0 8980 8983 8980 89A0 8DC5 87B2 898C 8988
-        95AC 03D1 03EE 04FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 07EE 07D1 91AC
-        95AD 03CF 03EF 04FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 07EF 07CF 91AD
-        9DAD 0BCF 0BEF 04FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 0FEF 0FCF 99AD
-        9DAC 0BD1 0BEE 04FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 0FEE 0FD1 99AC
-        8588 858C 83B0 81C5 8180 8183 8183 8180 81A0 8180 8183 8580 85C5 87B0 818C 8188
-        851D 8582 85A2 8182 811D 811D 811D 811D 811D 811D 811D 811D 8582 81A2 8182 811D
+        8D1D 8D88 8980 8983 8980 8983 8980 89A0 8980 8983 8980 89A0 8980 8980 8988 891D
+        8D88 8D8C 87ED 83C0 83C1 83C2 83C3 83C4 87C4 87C3 87C2 87C1 87C0 83ED 898C 8988
+        95AC 03D1 07F3 03E0 03E1 03E2 03E3 03E4 07E4 07E3 07E2 07E1 07E0 03F3 07D1 91AC
+        95AD 03CF 07EA 03C5 03C6 03C7 03C8 03C9 07C9 07C8 07C7 07C6 07C5 03EA 07CF 91AD
+        9DAD 0BCF 0FEA 03E5 03E6 03E7 03E8 03E9 07E9 07E8 07E7 07E6 07E5 0BEA 0FCF 99AD
+        9DAC 0BD1 0FF3 03CA 03CB 03CC 03CD 03CE 07CE 07CD 07CC 07CB 07CA 0BF3 0FD1 99AC
+        8588 858C 8FED 83EB 83EC 83EC 83EC 83EC 87EC 87EC 87EC 87EC 87EB 8BED 818C 8188
+        851D 8588 81A0 8180 8180 8183 8183 8180 81A0 8180 8183 8580 8580 85A0 8188 811D
         811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D
         811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D
         811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D 811D
@@ -79,7 +79,21 @@
       </LevelData>
       <GFXset>0B</GFXset>
       <music>0000</music>
-      <FX1s />
+      <FX1s>
+        <FX1 default="true">
+          <surfacestart>0008</surfacestart>
+          <surfacenew>FFFF</surfacenew>
+          <surfacespeed>0000</surfacespeed>
+          <surfacedelay>00</surfacedelay>
+          <type>06</type>
+          <transparency1_A>02</transparency1_A>
+          <transparency2_B>14</transparency2_B>
+          <liquidflags_C>05</liquidflags_C>
+          <paletteflags>00</paletteflags>
+          <animationflags>00</animationflags>
+          <paletteblend>E2</paletteblend>
+        </FX1>
+      </FX1s>
       <Enemies killcount="00" />
       <EnemyTypes />
       <layer2_type>BGData</layer2_type>
@@ -225,7 +239,7 @@
           <Section>Tiles2</Section>
         </Data>
       </BGData>
-      <layer1_2>91D3</layer1_2>
+      <layer1_2>C11B</layer1_2>
     </State>
   </States>
 </Room>
