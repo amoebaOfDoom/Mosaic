@@ -418,7 +418,7 @@
         </PLM>
       </PLMs>
       <BGData />
-      <layer1_2>C91E</layer1_2>
+      <layer1_2>C11B</layer1_2>
     </State>
     <State condition="default">
       <LevelData Width="4" Height="1">
@@ -803,7 +803,7 @@
         </PLM>
       </PLMs>
       <BGData />
-      <layer1_2>C91E</layer1_2>
+      <layer1_2>C11B</layer1_2>
     </State>
   </States>
 </Room>
