@@ -28,7 +28,7 @@ tile_half_right_edge_2 = 0x18E
 tile_half_right_edge_3 = 0x1AA
 tile_beside_half_right_edge_1 = 0x1A8
 tile_beside_half_right_edge_2 = 0x18F
-tile_beside_half_right_edge_2 = 0x1AB
+tile_beside_half_right_edge_3 = 0x1AB
 
 tile_bottom_right_45_slope = 0x1A7
 tile_above_top_right_45_slope = 0x195
