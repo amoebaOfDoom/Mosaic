@@ -6,13 +6,11 @@
 ; If no bits are set, then always set the map area to match the tileset
 
 lorom
-org $82DE86
-  ;STA $079F
+org $82DEF7
+  ;LDX $07BB
   JSR SetMapAreaInject
-org $82BEED ; overwrite unused code
+org $82BEA3 ; overwrite unused code
 SetMapAreaInject:
-  STA $079F
-
   LDA $7ED824 ; event bits $20-27
   AND #$00FF
   BEQ MatchMapToTileset
@@ -22,17 +20,18 @@ SetMapAreaInject:
   INC $1F5B
   LSR
   BCC -
+  LDX $07BB
   RTS
 
 MatchMapToTileset:
-  PHX
   LDX $07BB
   LDA $8F0003,X
   AND #$00FF
   TAX
-  LDA StandardArea, X
+  LDA.l StandardArea,X
+  AND #$00FF
   STA $1F5B
-  PLX
+  LDX $07BB
   RTS
 
 StandardArea:
@@ -40,11 +39,11 @@ StandardArea:
   DB $00, $00 ;Inner Crateria
   DB $03, $03 ;Wrecked Ship
   DB $01, $01 ;Brinstar
-  DB $00 ;Tourian Statues Access
+  DB $01 ;Tourian Statues Access
   DB $02, $02 ;Norfair
   DB $04, $04 ;Maridia
   DB $05, $05 ;Tourian
-  DB $06, $06, $06, $60, $60, $60 ;Ceres
+  DB $06, $06, $06, $06, $06, $06 ;Ceres
   DB $00, $00, $00, $00, $00 ;Utility Rooms
   ;Bosses
   DB $01 ;Kraid
@@ -52,3 +51,5 @@ StandardArea:
   DB $04 ;Draygon
   DB $01 ;SpoSpo
   DB $03 ;Phantoon
+
+warnpc $82BF03

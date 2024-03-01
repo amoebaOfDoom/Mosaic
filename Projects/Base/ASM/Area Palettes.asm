@@ -20,17 +20,15 @@ EnablePalettesFlag:
 
 org $8AC002
 GetPalettePointer:
-  PHX
-
   ; Enable area palettes is either the flag is set in ROM or one of the debug events is set
   LDA EnablePalettesFlag
   CMP #$F0F0
-  BEQ GetMapArea
+  BEQ UseMapArea
   LDA $7ED824 ; event bits $20-27
   AND #$00FF
-  BNE GetMapArea
+  BNE UseMapArea
 
-;GetTilesetArea:
+;UseTilesetArea:
   LDX $7E07BB ; tileset index
   LDA $8F0003,X
   AND #$00FF
@@ -38,7 +36,7 @@ GetPalettePointer:
   LDA StandardArea,X
   AND #$00FF
   BRA LoadBasedOnArea
-GetMapArea:
+UseMapArea:
   LDA $1F5B  ; map area
   ASL
   CLC
@@ -48,11 +46,10 @@ GetMapArea:
 
 LoadBasedOnArea:
   TAX
-  LDA MapAreaPalettes+1,X
+  LDA AreaPalettes+1,X
   STA $07C7 ; palette bank
-  LDA MapAreaPalettes+0,X
+  LDA AreaPalettes+0,X
   STA $12 ; palette base offset
-
 
   LDX $7E07BB ; tileset index
   LDA $8F0003,X
@@ -67,10 +64,9 @@ LoadBasedOnArea:
   ADC $12 ; can't overflow the bank because we don't allow the area palettes to cross banks
   STA $07C6
 
-  PLX
   RTL
 
-MapAreaPalettes:
+AreaPalettes:
   DL AreaPalettes_0, AreaPalettes_1, AreaPalettes_2, AreaPalettes_3, AreaPalettes_4, AreaPalettes_5, AreaPalettes_6, AreaPalettes_7
 
 StandardArea:
@@ -78,7 +74,7 @@ StandardArea:
   DB $00*3, $00*3 ;Inner Crateria
   DB $03*3, $03*3 ;Wrecked Ship
   DB $01*3, $01*3 ;Brinstar
-  DB $00*3 ;Tourian Statues Access
+  DB $01*3 ;Tourian Statues Access/Blue brinstar
   DB $02*3, $02*3 ;Norfair
   DB $04*3, $04*3 ;Maridia
   DB $05*3, $05*3 ;Tourian

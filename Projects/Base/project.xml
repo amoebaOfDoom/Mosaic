@@ -7,7 +7,7 @@
   <LoadASMonImportFromXML>false</LoadASMonImportFromXML>
   <ScanROMonImportFromROM>false</ScanROMonImportFromROM>
   <ApplyASMonImportFromROM>false</ApplyASMonImportFromROM>
-  <LogLevel>Info</LogLevel>
+  <LogLevel>Debug</LogLevel>
   <PaletteFormat>SNES</PaletteFormat>
   <RoomNameSpaceBankAny>
     <Space start="DFD500" end="DFFFFF" />
@@ -181,8 +181,8 @@
   </UserReservedSpace>
   <ScannedFreeSpace />
   <ASMUsedSpaceBankAny>
-    <Space start="82BEED" end="82BF39" />
-    <Space start="82DE86" end="82DE88" />
+    <Space start="82BEA3" end="82BEF3" />
+    <Space start="82DEF7" end="82DEF9" />
     <Space start="82DEFD" end="82DF00" />
     <Space start="82DF1D" end="82DF28" />
     <Space start="82E833" end="82E83A" />
