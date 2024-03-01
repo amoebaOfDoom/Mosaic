@@ -1,4 +1,4 @@
-<Config Version="1.19.8819.19030">
+<Config Version="1.19.8826.17969">
   <ROMfile>..\..\Super Metroid.smc</ROMfile>
   <PatchQuickmet>true</PatchQuickmet>
   <SaveNames>true</SaveNames>
@@ -181,9 +181,10 @@
   </UserReservedSpace>
   <ScannedFreeSpace />
   <ASMUsedSpaceBankAny>
-    <Space start="82BEED" end="82BF04" />
+    <Space start="82BEED" end="82BF39" />
     <Space start="82DE86" end="82DE88" />
     <Space start="82DEFD" end="82DF00" />
+    <Space start="82DF1D" end="82DF28" />
     <Space start="82E833" end="82E83A" />
     <Space start="82EADB" end="82EAE2" />
     <Space start="83B800" end="83B98B" />
@@ -216,6 +217,7 @@
     <Space start="8AB500" end="8AB5EE" />
     <Space start="8AB600" end="8AB6AC" />
     <Space start="8AB700" end="8ABEDF" />
+    <Space start="8AC002" end="8AC093" />
     <Space start="8DC4FF" end="8DC520" />
     <Space start="8DC527" end="8DC54A" />
     <Space start="8DC686" end="8DC68F" />
@@ -229,6 +231,8 @@
     <Space start="8FC116" end="8FC123" />
     <Space start="90EA57" end="90EA5E" />
     <Space start="BB8000" end="BBFF42" />
+    <Space start="C08000" end="C0F5CF" />
+    <Space start="C18000" end="C1F5CF" />
   </ASMUsedSpaceBankAny>
   <PLMBank>
     <option>Default</option>
