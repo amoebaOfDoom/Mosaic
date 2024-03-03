@@ -101,7 +101,7 @@ SpawnGlow_V2:
   CMP #$00BB ; assert tag
   BEQ +
   JSL $808573 ; crash
-  +
++
   STA $1E7D,X
 
   LDA.w #EmptyPre
@@ -2751,7 +2751,8 @@ OldT3Esc6_List_Loop:
   DW GlowJMP, OldT3Esc6_List_Loop
 
 ; Brinstar tileset glows
-
+; 94 75 23
+; 60 49 8
 Blue_BG_Table:
   DW EmptyInit,Blue_BG_0_List, EmptyInit,Blue_BG_1_List, EmptyInit,Blue_BG_2_List, EmptyInit,Blue_BG_3_List
   DW EmptyInit,Blue_BG_4_List, EmptyInit,Blue_BG_5_List, EmptyInit,Blue_BG_6_List, EmptyInit,Blue_BG_7_List
@@ -2759,46 +2760,46 @@ Blue_BG_0_List:
   DW SetColorIndex, $00E2
 Blue_BG_0_List_Loop:
   DW $000A
-    DW $5D22, $4463, $1840
+    DW $584A, $3827, $1803
     DW GlowYeild
   DW $000A
-    DW $5901, $4042, $1420
+    DW $5449, $3426, $1403
     DW GlowYeild
   DW $000A
-    DW $54E0, $3C21, $1000
+    DW $5049, $3026, $1402
     DW GlowYeild
   DW $000A
-    DW $50C0, $3C21, $1000
+    DW $4C48, $2C25, $1002
     DW GlowYeild
   DW $000A
-    DW $4CA0, $3800, $0C00
+    DW $4428, $2C05, $1002
     DW GlowYeild
   DW $000A
-    DW $4880, $3800, $0C00
+    DW $4027, $2804, $0C02
     DW GlowYeild
   DW $000A
-    DW $4460, $3400, $0800
+    DW $3C27, $2404, $0C01
     DW GlowYeild
   DW $000A
-    DW $4040, $3400, $0800
+    DW $3826, $2003, $0801
     DW GlowYeild
   DW $000A
-    DW $4460, $3400, $0800
+    DW $3C27, $2404, $0C01
     DW GlowYeild
   DW $000A
-    DW $4880, $3800, $0C00
+    DW $4027, $2804, $0C02
     DW GlowYeild
   DW $000A
-    DW $4CA0, $3800, $0C00
+    DW $4428, $2C05, $1002
     DW GlowYeild
   DW $000A
-    DW $50C0, $3C21, $1000
+    DW $4C48, $2C25, $1002
     DW GlowYeild
   DW $000A
-    DW $54E0, $3C21, $1000
+    DW $5049, $3026, $1402
     DW GlowYeild
   DW $000A
-    DW $5901, $4042, $1420
+    DW $5449, $3426, $1403
     DW GlowYeild
   DW GlowJMP, Blue_BG_0_List_Loop
 
@@ -6485,28 +6486,28 @@ WS_Green7_List:
   DW SetColorIndex, $0098
 WS_Green0_List_Loop:
   DW $000A
-    DW $1EA9, $0BB1
+    DW $2C06, $5C69
     DW GlowYeild
   DW $000A
-    DW $1667, $034E
+    DW $3408, $64EC
     DW GlowYeild
   DW $000A
-    DW $0E25, $02EB
+    DW $4009, $6D4F
     DW GlowYeild
   DW $000A
-    DW $05E3, $0288
+    DW $4C0A, $71B2
     DW GlowYeild
   DW $000A
-    DW $01A1, $0225
+    DW $540C, $7A35
     DW GlowYeild
   DW $000A
-    DW $05E3, $0288
+    DW $4C0A, $71B2
     DW GlowYeild
   DW $000A
-    DW $0E25, $02EB
+    DW $4009, $6D4F
     DW GlowYeild
   DW $000A
-    DW $1667, $034E
+    DW $3408, $64EC
     DW GlowYeild
   DW GlowJMP, WS_Green0_List_Loop
 
@@ -8582,7 +8583,7 @@ print pc
 org $8DF765
 SkyFlash:
   DW $00BB, SkyFlashTable
-org $8DF760
+org $8DF76D
 WS_Green:
   DW $00BB, WS_GreenTable
 org $8DF775
