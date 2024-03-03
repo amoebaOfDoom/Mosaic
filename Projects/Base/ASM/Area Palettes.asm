@@ -117,6 +117,7 @@ AreaPalettes_<n>:
 %PaletteFile(09, <n>, <area>)
 %PaletteFile(0A, <n>, <area>)
 %PaletteFile(0B, <n>, <area>)
+%PaletteFile(0C, <n>, <area>)
 %PaletteFile(0D, <n>, <area>)
 %PaletteFile(0E, <n>, <area>)
 %PaletteFile(0F, <n>, <area>)
@@ -132,6 +133,7 @@ AreaPalettes_<n>:
 %PaletteFile(19, <n>, <area>)
 %PaletteFile(1A, <n>, <area>)
 %PaletteFile(1B, <n>, <area>)
+%PaletteFile(1C, <n>, <area>)
 %PaletteFile(1D, <n>, <area>)
 %PaletteFile(1E, <n>, <area>)
 endmacro
