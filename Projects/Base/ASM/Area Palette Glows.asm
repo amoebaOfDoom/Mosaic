@@ -80,7 +80,7 @@ MainGlowHandler_Exit:
 org $8DC54C
 MainGlowHandler_V1:
 
-org $8DF7A9 ; overwrite moved glow
+org $8DF891 ; overwrite moved glow
 SpawnGlow_V1:
   LDA #$C594  ; points to an RTS
   STA $1EAD,X ; pre-instruction
@@ -3184,6 +3184,7 @@ SpoSpoBG7_List:
   DW SetPreInstruction, SpoSpoBGPreInstruction
   DW GlowJMP, Blue_BG_7_List
 
+; 87 56 34 26 19 11 8 4
 Purp_BG_Table:
   DW EmptyInit,Purp_BG_0_List, EmptyInit,Purp_BG_1_List, EmptyInit,Purp_BG_2_List, EmptyInit,Purp_BG_3_List
   DW EmptyInit,Purp_BG_4_List, EmptyInit,Purp_BG_5_List, EmptyInit,Purp_BG_6_List, EmptyInit,Purp_BG_7_List
@@ -3191,46 +3192,46 @@ Purp_BG_0_List:
   DW SetColorIndex, $00C8
 Purp_BG_0_List_Loop:
   DW $000A
-    DW $4C17, $280F, $2409, $1C07, $1405, $0C03, $0802, $0401
+    DW $544A, $3C09, $2407, $1C06, $1404, $1002, $0C01, $0801
     DW GlowYeild
   DW $000A
-    DW $4816, $240E, $2008, $1806, $1004, $0802, $0401, $0000
+    DW $544A, $3C09, $2407, $1C06, $1404, $1002, $0C01, $0801
     DW GlowYeild
   DW $000A
-    DW $4415, $200D, $1C07, $1405, $0C03, $0401, $0000, $0000
+    DW $4C49, $3808, $2006, $1805, $1404, $1002, $0C01, $0801
     DW GlowYeild
   DW $000A
-    DW $4014, $1C0C, $1806, $1004, $0802, $0000, $0000, $0000
+    DW $4448, $3007, $1C06, $1805, $1003, $0C02, $0801, $0801
     DW GlowYeild
   DW $000A
-    DW $3C13, $180B, $1405, $0C03, $0401, $0000, $0000, $0000
+    DW $3C27, $2C07, $1C05, $1404, $1003, $0C01, $0801, $0401
     DW GlowYeild
   DW $000A
-    DW $3812, $140A, $1004, $0802, $0000, $0000, $0000, $0000
+    DW $3426, $2806, $1804, $1004, $0C03, $0C01, $0801, $0401
     DW GlowYeild
   DW $000A
-    DW $3411, $1009, $0C03, $0401, $0000, $0000, $0000, $0000
+    DW $2C25, $2005, $1404, $1003, $0C02, $0801, $0801, $0401
     DW GlowYeild
   DW $000A
-    DW $3010, $0C08, $0802, $0000, $0000, $0000, $0000, $0000
+    DW $2825, $1C04, $1003, $0C03, $0802, $0801, $0400, $0400
     DW GlowYeild
   DW $000A
-    DW $3411, $1009, $0C03, $0401, $0000, $0000, $0000, $0000
+    DW $2C25, $2005, $1404, $1003, $0C02, $0801, $0801, $0401
     DW GlowYeild
   DW $000A
-    DW $3812, $140A, $1004, $0802, $0000, $0000, $0000, $0000
+    DW $3426, $2806, $1804, $1004, $0C03, $0C01, $0801, $0401
     DW GlowYeild
   DW $000A
-    DW $3C13, $180B, $1405, $0C03, $0401, $0000, $0000, $0000
+    DW $3C27, $2C07, $1C05, $1404, $1003, $0C01, $0801, $0401
     DW GlowYeild
   DW $000A
-    DW $4014, $1C0C, $1806, $1004, $0802, $0000, $0000, $0000
+    DW $4448, $3007, $1C06, $1805, $1003, $0C02, $0801, $0801
     DW GlowYeild
   DW $000A
-    DW $4415, $200D, $1C07, $1405, $0C03, $0401, $0000, $0000
+    DW $4C49, $3808, $2006, $1805, $1404, $1002, $0C01, $0801
     DW GlowYeild
   DW $000A
-    DW $4816, $240E, $2008, $1806, $1004, $0802, $0401, $0000
+    DW $544A, $3C09, $2407, $1C06, $1404, $1002, $0C01, $0801
     DW GlowYeild
   DW GlowJMP, Purp_BG_0_List_Loop
 
@@ -3567,6 +3568,7 @@ Beacon__Table:
   DW EmptyInit,Beacon__0_List, EmptyInit,Beacon__1_List, EmptyInit,Beacon__2_List, EmptyInit,Beacon__3_List
   DW EmptyInit,Beacon__4_List, EmptyInit,Beacon__5_List, EmptyInit,Beacon__6_List, EmptyInit,Beacon__7_List
 Beacon__0_List:
+Beacon__1_List: ; shared with statues hallway and red brinstar
 Beacon__7_List:
   DW SetColorIndex, $00E2
 Beacon__0_List_Loop:
@@ -3622,62 +3624,6 @@ Beacon__0_List_Loop:
     DW $739C
     DW GlowYeild
   DW GlowJMP, Beacon__0_List_Loop
-
-Beacon__1_List:
-  DW SetColorIndex, $00E2
-Beacon__1_List_Loop:
-  DW $000A
-    DW $02BF, $017F, $0015
-    DW SkipColors_9
-    DW $7FFF
-    DW GlowYeild
-  DW $000A
-    DW $023B, $00FB, $0011
-    DW SkipColors_9
-    DW $739C
-    DW GlowYeild
-  DW $000A
-    DW $01D8, $0098, $000E
-    DW SkipColors_9
-    DW $5AD6
-    DW GlowYeild
-  DW $000A
-    DW $0154, $0055, $000B
-    DW SkipColors_9
-    DW $4E73
-    DW GlowYeild
-  DW $000A
-    DW $00D0, $0010, $0007
-    DW SkipColors_9
-    DW $4631
-    DW GlowYeild
-  DW $000A
-    DW $00AA, $000B, $0004
-    DW SkipColors_9
-    DW $3DEF
-    DW GlowYeild
-  DW PlaySFX : DB $18
-  DW $000A
-    DW $00D0, $0010, $0007
-    DW SkipColors_9
-    DW $4631
-    DW GlowYeild
-  DW $000A
-    DW $0154, $0055, $000B
-    DW SkipColors_9
-    DW $4E73
-    DW GlowYeild
-  DW $000A
-    DW $01D8, $0098, $000E
-    DW SkipColors_9
-    DW $5AD6
-    DW GlowYeild
-  DW $000A
-    DW $023B, $00FB, $0011
-    DW SkipColors_9
-    DW $739C
-    DW GlowYeild
-  DW GlowJMP, Beacon__1_List_Loop
 
 Beacon__2_List:
   DW SetColorIndex, $00E2
@@ -3968,108 +3914,212 @@ SetHeatGlowSync:
   INY
   RTS
 
+NorfairCommonColors_0:
+  DW $09FD, $093B, $0459
+NorfairCommonColors_1:
+  DW $0E3D, $0D7C, $089A
+NorfairCommonColors_2:
+  DW $165E, $0DBC, $08FB
+NorfairCommonColors_3:
+  DW $1A9E, $11FD, $0D3C
+NorfairCommonColors_4:
+  DW $1EBE, $161D, $119C
+NorfairCommonColors_5:
+  DW $22FE, $1A5E, $15DD
+NorfairCommonColors_6:
+  DW $2B1F, $1A9E, $163E
+NorfairCommonColors_7:
+  DW $2F5F, $1EDF, $1A7F
+
+NorfairCommon:
+  LDA $0000,Y
+  STA $7EC000,X
+  INX
+  INX
+  LDA $0002,Y
+  STA $7EC000,X
+  INX
+  INX
+  LDA $0004,Y
+  STA $7EC000,X
+  INX
+  INX
+  PLY
+  INY
+  INY
+  RTS
+
+NorfairCommon_0:
+  PHY
+  LDY #NorfairCommonColors_0
+  JMP NorfairCommon
+
+NorfairCommon_1:
+  PHY
+  LDY #NorfairCommonColors_1
+  JMP NorfairCommon
+
+NorfairCommon_2:
+  PHY
+  LDY #NorfairCommonColors_2
+  JMP NorfairCommon
+
+NorfairCommon_3:
+  PHY
+  LDY #NorfairCommonColors_3
+  JMP NorfairCommon
+
+NorfairCommon_4:
+  PHY
+  LDY #NorfairCommonColors_4
+  JMP NorfairCommon
+
+NorfairCommon_5:
+  PHY
+  LDY #NorfairCommonColors_5
+  JMP NorfairCommon
+
+NorfairCommon_6:
+  PHY
+  LDY #NorfairCommonColors_6
+  JMP NorfairCommon
+
+NorfairCommon_7:
+  PHY
+  LDY #NorfairCommonColors_7
+  JMP NorfairCommon
+
+NorfairCommonColorsInit:
+  PHX
+  PHY
+  LDA $1EBD,Y
+  TAY
+  LDX $0002,Y
+  LDA NorfairCommonColors_0+0
+  STA $7EC200,X
+  LDA NorfairCommonColors_0+2
+  STA $7EC202,X
+  LDA NorfairCommonColors_0+4
+  STA $7EC204,X
+
+  LDA #$0EDF
+  STA $7EC268
+  STA $7EC250
+  LDA #$0E3F
+  STA $7EC252
+  LDA #$0D7F
+  STA $7EC254
+  LDA #$0C9F
+  STA $7EC256
+  LDA #$0EDF
+  STA $7EC25A
+
+  PLY
+  PLX
+  RTS
+
 NorHot1_Table:
-  DW EmptyInit,NorHot1_0_List, EmptyInit,NorHot1_1_List, EmptyInit,NorHot1_2_List, EmptyInit,NorHot1_3_List
-  DW EmptyInit,NorHot1_4_List, EmptyInit,NorHot1_5_List, EmptyInit,NorHot1_6_List, EmptyInit,NorHot1_7_List
+  DW NorfairCommonColorsInit,NorHot1_0_List, NorfairCommonColorsInit,NorHot1_1_List, NorfairCommonColorsInit,NorHot1_2_List, NorfairCommonColorsInit,NorHot1_3_List
+  DW NorfairCommonColorsInit,NorHot1_4_List, NorfairCommonColorsInit,NorHot1_5_List, NorfairCommonColorsInit,NorHot1_6_List, NorfairCommonColorsInit,NorHot1_7_List
 NorHot1_0_List:
 NorHot1_7_List:
   DW SetColorIndex, $006A
 NorHot1_0_List_Loop:
   DW SetHeatGlowSync : DB $00
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_4
-    DW $09FD, $4A52
+    DW $0E3F, $4A52
     DW GlowYeild
   DW SetHeatGlowSync : DB $01
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_4
-    DW $0E3D, $4214
+    DW $125F, $4234
     DW GlowYeild
   DW SetHeatGlowSync : DB $02
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_4
-    DW $165E, $39F5
+    DW $169F, $3A16
     DW GlowYeild
   DW SetHeatGlowSync : DB $03
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_4
-    DW $1A9E, $31D7
+    DW $1ABF, $31F8
     DW GlowYeild
   DW SetHeatGlowSync : DB $04
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_4
-    DW $1EBE, $29D9
+    DW $22DF, $25D9
     DW GlowYeild
   DW SetHeatGlowSync : DB $05
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_4
-    DW $22FE, $21BA
+    DW $26FF, $1DBB
     DW GlowYeild
   DW SetHeatGlowSync : DB $06
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_4
-    DW $2B1F, $199C
+    DW $2B3F, $159D
     DW GlowYeild
   DW SetHeatGlowSync : DB $07
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
+    DW NorfairCommon_7
     DW SkipColors_4
     DW $2F5F, $0D7F
     DW GlowYeild
   DW SetHeatGlowSync : DB $08
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
+    DW NorfairCommon_7
     DW SkipColors_4
     DW $2F5F, $0D7F
     DW GlowYeild
   DW SetHeatGlowSync : DB $09
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_4
-    DW $2B1F, $199C
+    DW $2B3F, $159D
     DW GlowYeild
   DW SetHeatGlowSync : DB $0A
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_4
-    DW $22FE, $21BA
+    DW $26FF, $1DBB
     DW GlowYeild
   DW SetHeatGlowSync : DB $0B
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_4
-    DW $1EBE, $29D9
+    DW $22DF, $25D9
     DW GlowYeild
   DW SetHeatGlowSync : DB $0C
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_4
-    DW $1A9E, $31D7
+    DW $1ABF, $31F8
     DW GlowYeild
   DW SetHeatGlowSync : DB $0D
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_4
-    DW $165E, $39F5
+    DW $169F, $3A16
     DW GlowYeild
   DW SetHeatGlowSync : DB $0E
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_4
-    DW $0E3D, $4214
+    DW $125F, $4234
     DW GlowYeild
   DW SetHeatGlowSync : DB $0F
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_4
-    DW $09FD, $4A52
+    DW $0E3F, $4A52
     DW GlowYeild
   DW GlowJMP, NorHot1_0_List_Loop
 
@@ -4078,97 +4128,97 @@ NorHot1_1_List:
 NorHot1_1_List_Loop:
   DW SetHeatGlowSync : DB $00
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_4
     DW $09FD, $4A52
     DW GlowYeild
   DW SetHeatGlowSync : DB $01
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_4
     DW $0E3D, $4214
     DW GlowYeild
   DW SetHeatGlowSync : DB $02
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_4
     DW $165E, $39F5
     DW GlowYeild
   DW SetHeatGlowSync : DB $03
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_4
     DW $1A9E, $31D7
     DW GlowYeild
   DW SetHeatGlowSync : DB $04
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_4
     DW $1EBE, $29D9
     DW GlowYeild
   DW SetHeatGlowSync : DB $05
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_4
     DW $22FE, $21BA
     DW GlowYeild
   DW SetHeatGlowSync : DB $06
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_4
     DW $2B1F, $199C
     DW GlowYeild
   DW SetHeatGlowSync : DB $07
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
+    DW NorfairCommon_7
     DW SkipColors_4
     DW $2F5F, $0D7F
     DW GlowYeild
   DW SetHeatGlowSync : DB $08
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
+    DW NorfairCommon_7
     DW SkipColors_4
     DW $2F5F, $0D7F
     DW GlowYeild
   DW SetHeatGlowSync : DB $09
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_4
     DW $2B1F, $199C
     DW GlowYeild
   DW SetHeatGlowSync : DB $0A
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_4
     DW $22FE, $21BA
     DW GlowYeild
   DW SetHeatGlowSync : DB $0B
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_4
     DW $1EBE, $29D9
     DW GlowYeild
   DW SetHeatGlowSync : DB $0C
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_4
     DW $1A9E, $31D7
     DW GlowYeild
   DW SetHeatGlowSync : DB $0D
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_4
     DW $165E, $39F5
     DW GlowYeild
   DW SetHeatGlowSync : DB $0E
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_4
     DW $0E3D, $4214
     DW GlowYeild
   DW SetHeatGlowSync : DB $0F
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_4
     DW $09FD, $4A52
     DW GlowYeild
@@ -4179,97 +4229,97 @@ NorHot1_2_List:
 NorHot1_2_List_Loop:
   DW SetHeatGlowSync : DB $00
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_4
     DW $09FD, $4A52
     DW GlowYeild
   DW SetHeatGlowSync : DB $01
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_4
     DW $0E3D, $4214
     DW GlowYeild
   DW SetHeatGlowSync : DB $02
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_4
     DW $165E, $39F5
     DW GlowYeild
   DW SetHeatGlowSync : DB $03
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_4
     DW $1A9E, $31D7
     DW GlowYeild
   DW SetHeatGlowSync : DB $04
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_4
     DW $1EBE, $29D9
     DW GlowYeild
   DW SetHeatGlowSync : DB $05
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_4
     DW $22FE, $21BA
     DW GlowYeild
   DW SetHeatGlowSync : DB $06
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_4
     DW $2B1F, $199C
     DW GlowYeild
   DW SetHeatGlowSync : DB $07
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
+    DW NorfairCommon_7
     DW SkipColors_4
     DW $2F5F, $0D7F
     DW GlowYeild
   DW SetHeatGlowSync : DB $08
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
+    DW NorfairCommon_7
     DW SkipColors_4
     DW $2F5F, $0D7F
     DW GlowYeild
   DW SetHeatGlowSync : DB $09
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_4
     DW $2B1F, $199C
     DW GlowYeild
   DW SetHeatGlowSync : DB $0A
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_4
     DW $22FE, $21BA
     DW GlowYeild
   DW SetHeatGlowSync : DB $0B
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_4
     DW $1EBE, $29D9
     DW GlowYeild
   DW SetHeatGlowSync : DB $0C
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_4
     DW $1A9E, $31D7
     DW GlowYeild
   DW SetHeatGlowSync : DB $0D
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_4
     DW $165E, $39F5
     DW GlowYeild
   DW SetHeatGlowSync : DB $0E
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_4
     DW $0E3D, $4214
     DW GlowYeild
   DW SetHeatGlowSync : DB $0F
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_4
     DW $09FD, $4A52
     DW GlowYeild
@@ -4280,97 +4330,97 @@ NorHot1_3_List:
 NorHot1_3_List_Loop:
   DW SetHeatGlowSync : DB $00
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_4
     DW $09FD, $4A52
     DW GlowYeild
   DW SetHeatGlowSync : DB $01
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_4
     DW $0E3D, $4214
     DW GlowYeild
   DW SetHeatGlowSync : DB $02
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_4
     DW $165E, $39F5
     DW GlowYeild
   DW SetHeatGlowSync : DB $03
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_4
     DW $1A9E, $31D7
     DW GlowYeild
   DW SetHeatGlowSync : DB $04
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_4
     DW $1EBE, $29D9
     DW GlowYeild
   DW SetHeatGlowSync : DB $05
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_4
     DW $22FE, $21BA
     DW GlowYeild
   DW SetHeatGlowSync : DB $06
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_4
     DW $2B1F, $199C
     DW GlowYeild
   DW SetHeatGlowSync : DB $07
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
+    DW NorfairCommon_7
     DW SkipColors_4
     DW $2F5F, $0D7F
     DW GlowYeild
   DW SetHeatGlowSync : DB $08
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
+    DW NorfairCommon_7
     DW SkipColors_4
     DW $2F5F, $0D7F
     DW GlowYeild
   DW SetHeatGlowSync : DB $09
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_4
     DW $2B1F, $199C
     DW GlowYeild
   DW SetHeatGlowSync : DB $0A
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_4
     DW $22FE, $21BA
     DW GlowYeild
   DW SetHeatGlowSync : DB $0B
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_4
     DW $1EBE, $29D9
     DW GlowYeild
   DW SetHeatGlowSync : DB $0C
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_4
     DW $1A9E, $31D7
     DW GlowYeild
   DW SetHeatGlowSync : DB $0D
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_4
     DW $165E, $39F5
     DW GlowYeild
   DW SetHeatGlowSync : DB $0E
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_4
     DW $0E3D, $4214
     DW GlowYeild
   DW SetHeatGlowSync : DB $0F
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_4
     DW $09FD, $4A52
     DW GlowYeild
@@ -4381,97 +4431,97 @@ NorHot1_4_List:
 NorHot1_4_List_Loop:
   DW SetHeatGlowSync : DB $00
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_4
     DW $09FD, $4A52
     DW GlowYeild
   DW SetHeatGlowSync : DB $01
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_4
     DW $0E3D, $4214
     DW GlowYeild
   DW SetHeatGlowSync : DB $02
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_4
     DW $165E, $39F5
     DW GlowYeild
   DW SetHeatGlowSync : DB $03
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_4
     DW $1A9E, $31D7
     DW GlowYeild
   DW SetHeatGlowSync : DB $04
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_4
     DW $1EBE, $29D9
     DW GlowYeild
   DW SetHeatGlowSync : DB $05
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_4
     DW $22FE, $21BA
     DW GlowYeild
   DW SetHeatGlowSync : DB $06
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_4
     DW $2B1F, $199C
     DW GlowYeild
   DW SetHeatGlowSync : DB $07
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
+    DW NorfairCommon_7
     DW SkipColors_4
     DW $2F5F, $0D7F
     DW GlowYeild
   DW SetHeatGlowSync : DB $08
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
+    DW NorfairCommon_7
     DW SkipColors_4
     DW $2F5F, $0D7F
     DW GlowYeild
   DW SetHeatGlowSync : DB $09
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_4
     DW $2B1F, $199C
     DW GlowYeild
   DW SetHeatGlowSync : DB $0A
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_4
     DW $22FE, $21BA
     DW GlowYeild
   DW SetHeatGlowSync : DB $0B
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_4
     DW $1EBE, $29D9
     DW GlowYeild
   DW SetHeatGlowSync : DB $0C
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_4
     DW $1A9E, $31D7
     DW GlowYeild
   DW SetHeatGlowSync : DB $0D
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_4
     DW $165E, $39F5
     DW GlowYeild
   DW SetHeatGlowSync : DB $0E
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_4
     DW $0E3D, $4214
     DW GlowYeild
   DW SetHeatGlowSync : DB $0F
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_4
     DW $09FD, $4A52
     DW GlowYeild
@@ -4482,97 +4532,97 @@ NorHot1_5_List:
 NorHot1_5_List_Loop:
   DW SetHeatGlowSync : DB $00
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_4
     DW $09FD, $4A52
     DW GlowYeild
   DW SetHeatGlowSync : DB $01
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_4
     DW $0E3D, $4214
     DW GlowYeild
   DW SetHeatGlowSync : DB $02
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_4
     DW $165E, $39F5
     DW GlowYeild
   DW SetHeatGlowSync : DB $03
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_4
     DW $1A9E, $31D7
     DW GlowYeild
   DW SetHeatGlowSync : DB $04
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_4
     DW $1EBE, $29D9
     DW GlowYeild
   DW SetHeatGlowSync : DB $05
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_4
     DW $22FE, $21BA
     DW GlowYeild
   DW SetHeatGlowSync : DB $06
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_4
     DW $2B1F, $199C
     DW GlowYeild
   DW SetHeatGlowSync : DB $07
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
+    DW NorfairCommon_7
     DW SkipColors_4
     DW $2F5F, $0D7F
     DW GlowYeild
   DW SetHeatGlowSync : DB $08
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
+    DW NorfairCommon_7
     DW SkipColors_4
     DW $2F5F, $0D7F
     DW GlowYeild
   DW SetHeatGlowSync : DB $09
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_4
     DW $2B1F, $199C
     DW GlowYeild
   DW SetHeatGlowSync : DB $0A
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_4
     DW $22FE, $21BA
     DW GlowYeild
   DW SetHeatGlowSync : DB $0B
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_4
     DW $1EBE, $29D9
     DW GlowYeild
   DW SetHeatGlowSync : DB $0C
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_4
     DW $1A9E, $31D7
     DW GlowYeild
   DW SetHeatGlowSync : DB $0D
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_4
     DW $165E, $39F5
     DW GlowYeild
   DW SetHeatGlowSync : DB $0E
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_4
     DW $0E3D, $4214
     DW GlowYeild
   DW SetHeatGlowSync : DB $0F
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_4
     DW $09FD, $4A52
     DW GlowYeild
@@ -4583,188 +4633,183 @@ NorHot1_6_List:
 NorHot1_6_List_Loop:
   DW SetHeatGlowSync : DB $00
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_4
     DW $09FD, $4A52
     DW GlowYeild
   DW SetHeatGlowSync : DB $01
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_4
     DW $0E3D, $4214
     DW GlowYeild
   DW SetHeatGlowSync : DB $02
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_4
     DW $165E, $39F5
     DW GlowYeild
   DW SetHeatGlowSync : DB $03
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_4
     DW $1A9E, $31D7
     DW GlowYeild
   DW SetHeatGlowSync : DB $04
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_4
     DW $1EBE, $29D9
     DW GlowYeild
   DW SetHeatGlowSync : DB $05
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_4
     DW $22FE, $21BA
     DW GlowYeild
   DW SetHeatGlowSync : DB $06
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_4
     DW $2B1F, $199C
     DW GlowYeild
   DW SetHeatGlowSync : DB $07
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
+    DW NorfairCommon_7
     DW SkipColors_4
     DW $2F5F, $0D7F
     DW GlowYeild
   DW SetHeatGlowSync : DB $08
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
+    DW NorfairCommon_7
     DW SkipColors_4
     DW $2F5F, $0D7F
     DW GlowYeild
   DW SetHeatGlowSync : DB $09
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_4
     DW $2B1F, $199C
     DW GlowYeild
   DW SetHeatGlowSync : DB $0A
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_4
     DW $22FE, $21BA
     DW GlowYeild
   DW SetHeatGlowSync : DB $0B
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_4
     DW $1EBE, $29D9
     DW GlowYeild
   DW SetHeatGlowSync : DB $0C
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_4
     DW $1A9E, $31D7
     DW GlowYeild
   DW SetHeatGlowSync : DB $0D
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_4
     DW $165E, $39F5
     DW GlowYeild
   DW SetHeatGlowSync : DB $0E
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_4
     DW $0E3D, $4214
     DW GlowYeild
   DW SetHeatGlowSync : DB $0F
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_4
     DW $09FD, $4A52
     DW GlowYeild
   DW GlowJMP, NorHot1_6_List_Loop
 
 NorHot2_Table:
-  DW EmptyInit,NorHot2_1_List, EmptyInit,NorHot2_1_List, EmptyInit,NorHot2_2_List, EmptyInit,NorHot2_3_List
-  DW EmptyInit,NorHot2_4_List, EmptyInit,NorHot2_5_List, EmptyInit,NorHot2_6_List, EmptyInit,NorHot2_7_List
+  DW NorfairCommonColorsInit,NorHot2_0_List, NorfairCommonColorsInit,NorHot2_1_List, NorfairCommonColorsInit,NorHot2_2_List, NorfairCommonColorsInit,NorHot2_3_List
+  DW NorfairCommonColorsInit,NorHot2_4_List, NorfairCommonColorsInit,NorHot2_5_List, NorfairCommonColorsInit,NorHot2_6_List, NorfairCommonColorsInit,NorHot2_7_List
 NorHot2_0_List:
 NorHot2_7_List:
   DW SetColorIndex, $0082
 NorHot2_0_List_Loop:
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
-    DW $4309, $0C77
+    DW $2C06, $2108
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
-    DW $36AC, $0CB8
+    DW $284A, $214B
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
-    DW $328F, $1119
+    DW $246D, $210F
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
-    DW $2A52, $157A
+    DW $2031, $2152
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
-    DW $2214, $15BB
+    DW $1854, $2235
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
-    DW $1DF7, $1A1C
+    DW $1518, $2278
     DW GlowYeild
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
-    DW $15BA, $1E7D
-    DW GlowYeild
-  DW $0008
-    DW $2F5F, $1EDF, $1A7F
-    DW SkipColors_8
-    DW $0D7F, $22FF
-    DW GlowYeild
-  DW $0008
-    DW $2F5F, $1EDF, $1A7F
-    DW SkipColors_8
-    DW $0D7F, $22FF
-    DW GlowYeild
-  DW $0008
-    DW $2B1F, $1A9E, $163E
-    DW SkipColors_8
-    DW $15BA, $1E7D
-    DW GlowYeild
-  DW $0007
-    DW $22FE, $1A5E, $15DD
-    DW SkipColors_8
-    DW $1DF7, $1A1C
-    DW GlowYeild
-  DW $0006
-    DW $1EBE, $161D, $119C
-    DW SkipColors_8
-    DW $2214, $15BB
-    DW GlowYeild
-  DW $0005
-    DW $1A9E, $11FD, $0D3C
-    DW SkipColors_8
-    DW $2A52, $157A
-    DW GlowYeild
-  DW $0004
-    DW $165E, $0DBC, $08FB
-    DW SkipColors_8
-    DW $328F, $1119
-    DW GlowYeild
-  DW $0004
-    DW $0E3D, $0D7C, $089A
-    DW SkipColors_8
-    DW $36AC, $0CB8
+    DW $113B, $223C
     DW GlowYeild
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_7
     DW SkipColors_8
-    DW $4309, $0C77
+    DW $0D7F, $227F
+    DW GlowYeild
+  DW $0008
+    DW NorfairCommon_6
+    DW SkipColors_8
+    DW $113B, $223C
+    DW GlowYeild
+  DW $0007
+    DW NorfairCommon_5
+    DW SkipColors_8
+    DW $1518, $2278
+    DW GlowYeild
+  DW $0006
+    DW NorfairCommon_4
+    DW SkipColors_8
+    DW $1854, $2235
+    DW GlowYeild
+  DW $0005
+    DW NorfairCommon_3
+    DW SkipColors_8
+    DW $2031, $2152
+    DW GlowYeild
+  DW $0004
+    DW NorfairCommon_2
+    DW SkipColors_8
+    DW $246D, $210F
+    DW GlowYeild
+  DW $0004
+    DW NorfairCommon_1
+    DW SkipColors_8
+    DW $284A, $214B
+    DW GlowYeild
+  DW $0010
+    DW NorfairCommon_0
+    DW SkipColors_8
+    DW $2C06, $2108
     DW GlowYeild
   DW GlowJMP, NorHot2_0_List_Loop
 
@@ -4772,82 +4817,77 @@ NorHot2_1_List:
   DW SetColorIndex, $0082
 NorHot2_1_List_Loop:
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $4309, $0C77
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $36AC, $0CB8
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $328F, $1119
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $2A52, $157A
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $2214, $15BB
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $1DF7, $1A1C
     DW GlowYeild
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $15BA, $1E7D
     DW GlowYeild
-  DW $0008
-    DW $2F5F, $1EDF, $1A7F
+  DW $0010
+    DW NorfairCommon_7
     DW SkipColors_8
     DW $0D7F, $22FF
     DW GlowYeild
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
-    DW SkipColors_8
-    DW $0D7F, $22FF
-    DW GlowYeild
-  DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $15BA, $1E7D
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $1DF7, $1A1C
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $2214, $15BB
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $2A52, $157A
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $328F, $1119
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $36AC, $0CB8
     DW GlowYeild
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $4309, $0C77
     DW GlowYeild
@@ -4857,82 +4897,77 @@ NorHot2_2_List:
   DW SetColorIndex, $0082
 NorHot2_2_List_Loop:
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $4309, $0C77
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $36AC, $0CB8
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $328F, $1119
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $2A52, $157A
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $2214, $15BB
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $1DF7, $1A1C
     DW GlowYeild
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $15BA, $1E7D
     DW GlowYeild
-  DW $0008
-    DW $2F5F, $1EDF, $1A7F
+  DW $0010
+    DW NorfairCommon_7
     DW SkipColors_8
     DW $0D7F, $22FF
     DW GlowYeild
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
-    DW SkipColors_8
-    DW $0D7F, $22FF
-    DW GlowYeild
-  DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $15BA, $1E7D
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $1DF7, $1A1C
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $2214, $15BB
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $2A52, $157A
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $328F, $1119
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $36AC, $0CB8
     DW GlowYeild
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $4309, $0C77
     DW GlowYeild
@@ -4942,82 +4977,77 @@ NorHot2_3_List:
   DW SetColorIndex, $0082
 NorHot2_3_List_Loop:
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $4309, $0C77
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $36AC, $0CB8
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $328F, $1119
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $2A52, $157A
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $2214, $15BB
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $1DF7, $1A1C
     DW GlowYeild
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $15BA, $1E7D
     DW GlowYeild
-  DW $0008
-    DW $2F5F, $1EDF, $1A7F
+  DW $0010
+    DW NorfairCommon_7
     DW SkipColors_8
     DW $0D7F, $22FF
     DW GlowYeild
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
-    DW SkipColors_8
-    DW $0D7F, $22FF
-    DW GlowYeild
-  DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $15BA, $1E7D
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $1DF7, $1A1C
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $2214, $15BB
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $2A52, $157A
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $328F, $1119
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $36AC, $0CB8
     DW GlowYeild
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $4309, $0C77
     DW GlowYeild
@@ -5027,82 +5057,77 @@ NorHot2_4_List:
   DW SetColorIndex, $0082
 NorHot2_4_List_Loop:
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $4309, $0C77
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $36AC, $0CB8
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $328F, $1119
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $2A52, $157A
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $2214, $15BB
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $1DF7, $1A1C
     DW GlowYeild
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $15BA, $1E7D
     DW GlowYeild
-  DW $0008
-    DW $2F5F, $1EDF, $1A7F
+  DW $0010
+    DW NorfairCommon_7
     DW SkipColors_8
     DW $0D7F, $22FF
     DW GlowYeild
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
-    DW SkipColors_8
-    DW $0D7F, $22FF
-    DW GlowYeild
-  DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $15BA, $1E7D
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $1DF7, $1A1C
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $2214, $15BB
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $2A52, $157A
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $328F, $1119
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $36AC, $0CB8
     DW GlowYeild
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $4309, $0C77
     DW GlowYeild
@@ -5112,82 +5137,77 @@ NorHot2_5_List:
   DW SetColorIndex, $0082
 NorHot2_5_List_Loop:
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $4309, $0C77
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $36AC, $0CB8
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $328F, $1119
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $2A52, $157A
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $2214, $15BB
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $1DF7, $1A1C
     DW GlowYeild
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $15BA, $1E7D
     DW GlowYeild
-  DW $0008
-    DW $2F5F, $1EDF, $1A7F
+  DW $0010
+    DW NorfairCommon_7
     DW SkipColors_8
     DW $0D7F, $22FF
     DW GlowYeild
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
-    DW SkipColors_8
-    DW $0D7F, $22FF
-    DW GlowYeild
-  DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $15BA, $1E7D
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $1DF7, $1A1C
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $2214, $15BB
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $2A52, $157A
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $328F, $1119
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $36AC, $0CB8
     DW GlowYeild
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $4309, $0C77
     DW GlowYeild
@@ -5197,173 +5217,163 @@ NorHot2_6_List:
   DW SetColorIndex, $0082
 NorHot2_6_List_Loop:
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $4309, $0C77
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $36AC, $0CB8
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $328F, $1119
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $2A52, $157A
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $2214, $15BB
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $1DF7, $1A1C
     DW GlowYeild
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $15BA, $1E7D
     DW GlowYeild
-  DW $0008
-    DW $2F5F, $1EDF, $1A7F
+  DW $0010
+    DW NorfairCommon_7
     DW SkipColors_8
     DW $0D7F, $22FF
     DW GlowYeild
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
-    DW SkipColors_8
-    DW $0D7F, $22FF
-    DW GlowYeild
-  DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $15BA, $1E7D
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $1DF7, $1A1C
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $2214, $15BB
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $2A52, $157A
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $328F, $1119
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $36AC, $0CB8
     DW GlowYeild
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $4309, $0C77
     DW GlowYeild
   DW GlowJMP, NorHot2_6_List_Loop
 
 NorHot3_Table:
-  DW EmptyInit,NorHot3_0_List, EmptyInit,NorHot3_1_List, EmptyInit,NorHot3_2_List, EmptyInit,NorHot3_3_List
-  DW EmptyInit,NorHot3_4_List, EmptyInit,NorHot3_5_List, EmptyInit,NorHot3_6_List, EmptyInit,NorHot3_7_List
+  DW NorfairCommonColorsInit,NorHot3_0_List, NorfairCommonColorsInit,NorHot3_1_List, NorfairCommonColorsInit,NorHot3_2_List, NorfairCommonColorsInit,NorHot3_3_List
+  DW NorfairCommonColorsInit,NorHot3_4_List, NorfairCommonColorsInit,NorHot3_5_List, NorfairCommonColorsInit,NorHot3_6_List, NorfairCommonColorsInit,NorHot3_7_List
 NorHot3_0_List:
 NorHot3_7_List:
   DW SetColorIndex, $00A2
 NorHot3_0_List_Loop:
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
-    DW $2DB3, $38CF
+    DW $3DB3, $1404
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
-    DW $2594, $30D1
+    DW $3595, $1428
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
-    DW $2176, $28D3
+    DW $3196, $104C
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
-    DW $1D57, $24D5
+    DW $2978, $1070
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
-    DW $1959, $20F7
+    DW $215A, $10B3
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
-    DW $153B, $18F9
+    DW $193C, $10D7
     DW GlowYeild
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
-    DW $111C, $14FB
-    DW GlowYeild
-  DW $0008
-    DW $2F5F, $1EDF, $1A7F
-    DW SkipColors_8
-    DW $0D1F, $0D1F
-    DW GlowYeild
-  DW $0008
-    DW $2F5F, $1EDF, $1A7F
-    DW SkipColors_8
-    DW $0D1F, $0D1F
-    DW GlowYeild
-  DW $0008
-    DW $2B1F, $1A9E, $163E
-    DW SkipColors_8
-    DW $111C, $14FB
-    DW GlowYeild
-  DW $0007
-    DW $22FE, $1A5E, $15DD
-    DW SkipColors_8
-    DW $153B, $18F9
-    DW GlowYeild
-  DW $0006
-    DW $1EBE, $161D, $119C
-    DW SkipColors_8
-    DW $1959, $20F7
-    DW GlowYeild
-  DW $0005
-    DW $1A9E, $11FD, $0D3C
-    DW SkipColors_8
-    DW $1D57, $24D5
-    DW GlowYeild
-  DW $0004
-    DW $165E, $0DBC, $08FB
-    DW SkipColors_8
-    DW $2176, $28D3
-    DW GlowYeild
-  DW $0004
-    DW $0E3D, $0D7C, $089A
-    DW SkipColors_8
-    DW $2594, $30D1
+    DW $153D, $0CFB
     DW GlowYeild
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_7
     DW SkipColors_8
-    DW $2DB3, $38CF
+    DW $0D1F, $0D1F
+    DW GlowYeild
+  DW $0008
+    DW NorfairCommon_6
+    DW SkipColors_8
+    DW $153D, $0CFB
+    DW GlowYeild
+  DW $0007
+    DW NorfairCommon_5
+    DW SkipColors_8
+    DW $193C, $10D7
+    DW GlowYeild
+  DW $0006
+    DW NorfairCommon_4
+    DW SkipColors_8
+    DW $215A, $10B3
+    DW GlowYeild
+  DW $0005
+    DW NorfairCommon_3
+    DW SkipColors_8
+    DW $2978, $1070
+    DW GlowYeild
+  DW $0004
+    DW NorfairCommon_2
+    DW SkipColors_8
+    DW $3196, $104C
+    DW GlowYeild
+  DW $0004
+    DW NorfairCommon_1
+    DW SkipColors_8
+    DW $3595, $1428
+    DW GlowYeild
+  DW $0010
+    DW NorfairCommon_0
+    DW SkipColors_8
+    DW $3DB3, $1404
     DW GlowYeild
   DW GlowJMP, NorHot3_0_List_Loop
 
@@ -5371,82 +5381,77 @@ NorHot3_1_List:
   DW SetColorIndex, $00A2
 NorHot3_1_List_Loop:
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $2DB3, $38CF
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $2594, $30D1
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $2176, $28D3
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $1D57, $24D5
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $1959, $20F7
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $153B, $18F9
     DW GlowYeild
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $111C, $14FB
     DW GlowYeild
-  DW $0008
-    DW $2F5F, $1EDF, $1A7F
+  DW $0010
+    DW NorfairCommon_7
     DW SkipColors_8
     DW $0D1F, $0D1F
     DW GlowYeild
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
-    DW SkipColors_8
-    DW $0D1F, $0D1F
-    DW GlowYeild
-  DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $111C, $14FB
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $153B, $18F9
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $1959, $20F7
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $1D57, $24D5
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $2176, $28D3
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $2594, $30D1
     DW GlowYeild
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $2DB3, $38CF
     DW GlowYeild
@@ -5456,82 +5461,77 @@ NorHot3_2_List:
   DW SetColorIndex, $00A2
 NorHot3_2_List_Loop:
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $2DB3, $38CF
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $2594, $30D1
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $2176, $28D3
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $1D57, $24D5
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $1959, $20F7
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $153B, $18F9
     DW GlowYeild
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $111C, $14FB
     DW GlowYeild
-  DW $0008
-    DW $2F5F, $1EDF, $1A7F
+  DW $0010
+    DW NorfairCommon_7
     DW SkipColors_8
     DW $0D1F, $0D1F
     DW GlowYeild
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
-    DW SkipColors_8
-    DW $0D1F, $0D1F
-    DW GlowYeild
-  DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $111C, $14FB
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $153B, $18F9
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $1959, $20F7
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $1D57, $24D5
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $2176, $28D3
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $2594, $30D1
     DW GlowYeild
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $2DB3, $38CF
     DW GlowYeild
@@ -5541,82 +5541,77 @@ NorHot3_3_List:
   DW SetColorIndex, $00A2
 NorHot3_3_List_Loop:
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $2DB3, $38CF
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $2594, $30D1
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $2176, $28D3
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $1D57, $24D5
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $1959, $20F7
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $153B, $18F9
     DW GlowYeild
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $111C, $14FB
     DW GlowYeild
-  DW $0008
-    DW $2F5F, $1EDF, $1A7F
+  DW $0010
+    DW NorfairCommon_7
     DW SkipColors_8
     DW $0D1F, $0D1F
     DW GlowYeild
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
-    DW SkipColors_8
-    DW $0D1F, $0D1F
-    DW GlowYeild
-  DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $111C, $14FB
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $153B, $18F9
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $1959, $20F7
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $1D57, $24D5
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $2176, $28D3
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $2594, $30D1
     DW GlowYeild
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $2DB3, $38CF
     DW GlowYeild
@@ -5626,82 +5621,77 @@ NorHot3_4_List:
   DW SetColorIndex, $00A2
 NorHot3_4_List_Loop:
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $2DB3, $38CF
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $2594, $30D1
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $2176, $28D3
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $1D57, $24D5
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $1959, $20F7
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $153B, $18F9
     DW GlowYeild
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $111C, $14FB
     DW GlowYeild
-  DW $0008
-    DW $2F5F, $1EDF, $1A7F
+  DW $0010
+    DW NorfairCommon_7
     DW SkipColors_8
     DW $0D1F, $0D1F
     DW GlowYeild
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
-    DW SkipColors_8
-    DW $0D1F, $0D1F
-    DW GlowYeild
-  DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $111C, $14FB
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $153B, $18F9
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $1959, $20F7
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $1D57, $24D5
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $2176, $28D3
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $2594, $30D1
     DW GlowYeild
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $2DB3, $38CF
     DW GlowYeild
@@ -5711,82 +5701,77 @@ NorHot3_5_List:
   DW SetColorIndex, $00A2
 NorHot3_5_List_Loop:
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $2DB3, $38CF
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $2594, $30D1
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $2176, $28D3
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $1D57, $24D5
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $1959, $20F7
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $153B, $18F9
     DW GlowYeild
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $111C, $14FB
     DW GlowYeild
-  DW $0008
-    DW $2F5F, $1EDF, $1A7F
+  DW $0010
+    DW NorfairCommon_7
     DW SkipColors_8
     DW $0D1F, $0D1F
     DW GlowYeild
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
-    DW SkipColors_8
-    DW $0D1F, $0D1F
-    DW GlowYeild
-  DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $111C, $14FB
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $153B, $18F9
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $1959, $20F7
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $1D57, $24D5
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $2176, $28D3
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $2594, $30D1
     DW GlowYeild
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $2DB3, $38CF
     DW GlowYeild
@@ -5796,173 +5781,244 @@ NorHot3_6_List:
   DW SetColorIndex, $00A2
 NorHot3_6_List_Loop:
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $2DB3, $38CF
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $2594, $30D1
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $2176, $28D3
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $1D57, $24D5
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $1959, $20F7
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $153B, $18F9
     DW GlowYeild
   DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $111C, $14FB
     DW GlowYeild
-  DW $0008
-    DW $2F5F, $1EDF, $1A7F
+  DW $0010
+    DW NorfairCommon_7
     DW SkipColors_8
     DW $0D1F, $0D1F
     DW GlowYeild
   DW $0008
-    DW $2F5F, $1EDF, $1A7F
-    DW SkipColors_8
-    DW $0D1F, $0D1F
-    DW GlowYeild
-  DW $0008
-    DW $2B1F, $1A9E, $163E
+    DW NorfairCommon_6
     DW SkipColors_8
     DW $111C, $14FB
     DW GlowYeild
   DW $0007
-    DW $22FE, $1A5E, $15DD
+    DW NorfairCommon_5
     DW SkipColors_8
     DW $153B, $18F9
     DW GlowYeild
   DW $0006
-    DW $1EBE, $161D, $119C
+    DW NorfairCommon_4
     DW SkipColors_8
     DW $1959, $20F7
     DW GlowYeild
   DW $0005
-    DW $1A9E, $11FD, $0D3C
+    DW NorfairCommon_3
     DW SkipColors_8
     DW $1D57, $24D5
     DW GlowYeild
   DW $0004
-    DW $165E, $0DBC, $08FB
+    DW NorfairCommon_2
     DW SkipColors_8
     DW $2176, $28D3
     DW GlowYeild
   DW $0004
-    DW $0E3D, $0D7C, $089A
+    DW NorfairCommon_1
     DW SkipColors_8
     DW $2594, $30D1
     DW GlowYeild
   DW $0010
-    DW $09FD, $093B, $0459
+    DW NorfairCommon_0
     DW SkipColors_8
     DW $2DB3, $38CF
     DW GlowYeild
   DW GlowJMP, NorHot3_6_List_Loop
 
+NorfairCommonDark_0:
+  DW $09DA, $091A, $087A
+NorfairCommonDark_1:
+  DW $0DDA, $093A, $089A
+NorfairCommonDark_2:
+  DW $0DFA, $0D5A, $08BA
+NorfairCommonDark_3:
+  DW $11FA, $0D7A, $08FA
+NorfairCommonDark_4:
+  DW $161A, $119A, $0D1A
+NorfairCommonDark_5:
+  DW $1A1A, $11BA, $0D3A
+NorfairCommonDark_6:
+  DW $1A3A, $15DA, $0D7A
+NorfairCommonDark_7:
+  DW $225A, $1A1A, $11BA
+
+NorfairDark_0:
+  PHY
+  LDY #NorfairCommonDark_0
+  JMP NorfairCommon
+
+NorfairDark_1:
+  PHY
+  LDY #NorfairCommonDark_1
+  JMP NorfairCommon
+
+NorfairDark_2:
+  PHY
+  LDY #NorfairCommonDark_2
+  JMP NorfairCommon
+
+NorfairDark_3:
+  PHY
+  LDY #NorfairCommonDark_3
+  JMP NorfairCommon
+
+NorfairDark_4:
+  PHY
+  LDY #NorfairCommonDark_4
+  JMP NorfairCommon
+
+NorfairDark_5:
+  PHY
+  LDY #NorfairCommonDark_5
+  JMP NorfairCommon
+
+NorfairDark_6:
+  PHY
+  LDY #NorfairCommonDark_6
+  JMP NorfairCommon
+
+NorfairDark_7:
+  PHY
+  LDY #NorfairCommonDark_7
+  JMP NorfairCommon
+
+NorfairCommonDarkInit:
+  PHX
+  PHY
+  LDA $1EBD,Y
+  TAY
+  LDX $0002,Y
+  LDA NorfairCommonDark_0+0
+  STA $7EC200,X
+  LDA NorfairCommonDark_0+2
+  STA $7EC202,X
+  LDA NorfairCommonDark_0+4
+  STA $7EC204,X
+
+  LDA #$0596
+  STA $7EC220,X
+  LDA #$04D6
+  STA $7EC222,X
+  LDA #$0456
+  STA $7EC224,X
+
+  PLY
+  PLX
+  RTS
+
 NorHot4_Table:
-  DW EmptyInit,NorHot4_0_List, EmptyInit,NorHot4_1_List, EmptyInit,NorHot4_2_List, EmptyInit,NorHot4_3_List
-  DW EmptyInit,NorHot4_4_List, EmptyInit,NorHot4_5_List, EmptyInit,NorHot4_6_List, EmptyInit,NorHot4_7_List
+  DW NorfairCommonDarkInit,NorHot4_0_List, NorfairCommonDarkInit,NorHot4_1_List, NorfairCommonDarkInit,NorHot4_2_List, NorfairCommonDarkInit,NorHot4_3_List
+  DW NorfairCommonDarkInit,NorHot4_4_List, NorfairCommonDarkInit,NorHot4_5_List, NorfairCommonDarkInit,NorHot4_6_List, NorfairCommonDarkInit,NorHot4_7_List
 NorHot4_0_List:
 NorHot4_7_List:
   DW SetColorIndex, $00C2
 NorHot4_0_List_Loop:
   DW $0010
-    DW $09DA, $091A, $087A
+    DW NorfairDark_0
     DW SkipColors_8
-    DW $08A8, $0C05
+    DW $1CA6, $0C43
     DW GlowYeild
   DW $0004
-    DW $0DDA, $093A, $089A
+    DW NorfairDark_1
     DW SkipColors_8
-    DW $08AA, $0828
+    DW $18A9, $0C66
     DW GlowYeild
   DW $0004
-    DW $0DFA, $0D5A, $08BA
+    DW NorfairDark_2
     DW SkipColors_8
-    DW $08AC, $084A
+    DW $18CC, $0C8A
     DW GlowYeild
   DW $0005
-    DW $11FA, $0D7A, $08FA
+    DW NorfairDark_3
     DW SkipColors_8
-    DW $08CF, $086D
+    DW $14CF, $0CAD
     DW GlowYeild
   DW $0006
-    DW $161A, $119A, $0D1A
+    DW NorfairDark_4
     DW SkipColors_8
-    DW $08D1, $0890
+    DW $10F1, $08B0
     DW GlowYeild
   DW $0007
-    DW $1A1A, $11BA, $0D3A
+    DW NorfairDark_5
     DW SkipColors_8
-    DW $08F4, $08B3
+    DW $0CF4, $08D3
     DW GlowYeild
   DW $0008
-    DW $1A3A, $15DA, $0D7A
+    DW NorfairDark_6
     DW SkipColors_8
-    DW $08F6, $08D5
-    DW GlowYeild
-  DW $0008
-    DW $225A, $1A1A, $11BA
-    DW SkipColors_8
-    DW $091A, $091A
-    DW GlowYeild
-  DW $0008
-    DW $225A, $1A1A, $11BA
-    DW SkipColors_8
-    DW $091A, $091A
-    DW GlowYeild
-  DW $0008
-    DW $1A3A, $15DA, $0D7A
-    DW SkipColors_8
-    DW $08F6, $08D5
-    DW GlowYeild
-  DW $0007
-    DW $1A1A, $11BA, $0D3A
-    DW SkipColors_8
-    DW $08F4, $08B3
-    DW GlowYeild
-  DW $0006
-    DW $161A, $119A, $0D1A
-    DW SkipColors_8
-    DW $08D1, $0890
-    DW GlowYeild
-  DW $0005
-    DW $11FA, $0D7A, $08FA
-    DW SkipColors_8
-    DW $08CF, $086D
-    DW GlowYeild
-  DW $0004
-    DW $0DFA, $0D5A, $08BA
-    DW SkipColors_8
-    DW $08AC, $084A
-    DW GlowYeild
-  DW $0004
-    DW $0DDA, $093A, $089A
-    DW SkipColors_8
-    DW $08AA, $0828
+    DW $0D17, $08F7
     DW GlowYeild
   DW $0010
-    DW $09DA, $091A, $087A
+    DW NorfairDark_7
     DW SkipColors_8
-    DW $08A8, $0C05
+    DW $091A, $091A
+    DW GlowYeild
+  DW $0008
+    DW NorfairDark_6
+    DW SkipColors_8
+    DW $0D17, $08F7
+    DW GlowYeild
+  DW $0007
+    DW NorfairDark_5
+    DW SkipColors_8
+    DW $0CF4, $08D3
+    DW GlowYeild
+  DW $0006
+    DW NorfairDark_4
+    DW SkipColors_8
+    DW $10F1, $08B0
+    DW GlowYeild
+  DW $0005
+    DW NorfairDark_3
+    DW SkipColors_8
+    DW $14CF, $0CAD
+    DW GlowYeild
+  DW $0004
+    DW NorfairDark_2
+    DW SkipColors_8
+    DW $18CC, $0C8A
+    DW GlowYeild
+  DW $0004
+    DW NorfairDark_1
+    DW SkipColors_8
+    DW $18A9, $0C66
+    DW GlowYeild
+  DW $0010
+    DW NorfairDark_0
+    DW SkipColors_8
+    DW $1CA6, $0C43
     DW GlowYeild
   DW GlowJMP, NorHot4_0_List_Loop
 
@@ -5970,82 +6026,77 @@ NorHot4_1_List:
   DW SetColorIndex, $00C2
 NorHot4_1_List_Loop:
   DW $0010
-    DW $09DA, $091A, $087A
+    DW NorfairDark_0
     DW SkipColors_8
     DW $08A8, $0C05
     DW GlowYeild
   DW $0004
-    DW $0DDA, $093A, $089A
+    DW NorfairDark_1
     DW SkipColors_8
     DW $08AA, $0828
     DW GlowYeild
   DW $0004
-    DW $0DFA, $0D5A, $08BA
+    DW NorfairDark_2
     DW SkipColors_8
     DW $08AC, $084A
     DW GlowYeild
   DW $0005
-    DW $11FA, $0D7A, $08FA
+    DW NorfairDark_3
     DW SkipColors_8
     DW $08CF, $086D
     DW GlowYeild
   DW $0006
-    DW $161A, $119A, $0D1A
+    DW NorfairDark_4
     DW SkipColors_8
     DW $08D1, $0890
     DW GlowYeild
   DW $0007
-    DW $1A1A, $11BA, $0D3A
+    DW NorfairDark_5
     DW SkipColors_8
     DW $08F4, $08B3
     DW GlowYeild
   DW $0008
-    DW $1A3A, $15DA, $0D7A
+    DW NorfairDark_6
     DW SkipColors_8
     DW $08F6, $08D5
     DW GlowYeild
-  DW $0008
-    DW $225A, $1A1A, $11BA
+  DW $0010
+    DW NorfairDark_7
     DW SkipColors_8
     DW $091A, $091A
     DW GlowYeild
   DW $0008
-    DW $225A, $1A1A, $11BA
-    DW SkipColors_8
-    DW $091A, $091A
-    DW GlowYeild
-  DW $0008
-    DW $1A3A, $15DA, $0D7A
+    DW NorfairDark_6
     DW SkipColors_8
     DW $08F6, $08D5
     DW GlowYeild
   DW $0007
-    DW $1A1A, $11BA, $0D3A
+    DW NorfairDark_5
     DW SkipColors_8
     DW $08F4, $08B3
     DW GlowYeild
   DW $0006
-    DW $161A, $119A, $0D1A
+    DW NorfairDark_4
     DW SkipColors_8
     DW $08D1, $0890
     DW GlowYeild
   DW $0005
-    DW $11FA, $0D7A, $08FA
+    DW NorfairDark_3
     DW SkipColors_8
     DW $08CF, $086D
     DW GlowYeild
   DW $0004
-    DW $0DFA, $0D5A, $08BA
+    DW NorfairDark_2
     DW SkipColors_8
     DW $08AC, $084A
     DW GlowYeild
   DW $0004
-    DW $0DDA, $093A, $089A
+    DW NorfairDark_1
     DW SkipColors_8
     DW $08AA, $0828
     DW GlowYeild
   DW $0010
-    DW $09DA, $091A, $087A
+    DW NorfairDark_0
     DW SkipColors_8
     DW $08A8, $0C05
     DW GlowYeild
@@ -6055,82 +6106,77 @@ NorHot4_2_List:
   DW SetColorIndex, $00C2
 NorHot4_2_List_Loop:
   DW $0010
-    DW $09DA, $091A, $087A
+    DW NorfairDark_0
     DW SkipColors_8
     DW $08A8, $0C05
     DW GlowYeild
   DW $0004
-    DW $0DDA, $093A, $089A
+    DW NorfairDark_1
     DW SkipColors_8
     DW $08AA, $0828
     DW GlowYeild
   DW $0004
-    DW $0DFA, $0D5A, $08BA
+    DW NorfairDark_2
     DW SkipColors_8
     DW $08AC, $084A
     DW GlowYeild
   DW $0005
-    DW $11FA, $0D7A, $08FA
+    DW NorfairDark_3
     DW SkipColors_8
     DW $08CF, $086D
     DW GlowYeild
   DW $0006
-    DW $161A, $119A, $0D1A
+    DW NorfairDark_4
     DW SkipColors_8
     DW $08D1, $0890
     DW GlowYeild
   DW $0007
-    DW $1A1A, $11BA, $0D3A
+    DW NorfairDark_5
     DW SkipColors_8
     DW $08F4, $08B3
     DW GlowYeild
   DW $0008
-    DW $1A3A, $15DA, $0D7A
+    DW NorfairDark_6
     DW SkipColors_8
     DW $08F6, $08D5
     DW GlowYeild
-  DW $0008
-    DW $225A, $1A1A, $11BA
+  DW $0010
+    DW NorfairDark_7
     DW SkipColors_8
     DW $091A, $091A
     DW GlowYeild
   DW $0008
-    DW $225A, $1A1A, $11BA
-    DW SkipColors_8
-    DW $091A, $091A
-    DW GlowYeild
-  DW $0008
-    DW $1A3A, $15DA, $0D7A
+    DW NorfairDark_6
     DW SkipColors_8
     DW $08F6, $08D5
     DW GlowYeild
   DW $0007
-    DW $1A1A, $11BA, $0D3A
+    DW NorfairDark_5
     DW SkipColors_8
     DW $08F4, $08B3
     DW GlowYeild
   DW $0006
-    DW $161A, $119A, $0D1A
+    DW NorfairDark_4
     DW SkipColors_8
     DW $08D1, $0890
     DW GlowYeild
   DW $0005
-    DW $11FA, $0D7A, $08FA
+    DW NorfairDark_3
     DW SkipColors_8
     DW $08CF, $086D
     DW GlowYeild
   DW $0004
-    DW $0DFA, $0D5A, $08BA
+    DW NorfairDark_2
     DW SkipColors_8
     DW $08AC, $084A
     DW GlowYeild
   DW $0004
-    DW $0DDA, $093A, $089A
+    DW NorfairDark_1
     DW SkipColors_8
     DW $08AA, $0828
     DW GlowYeild
   DW $0010
-    DW $09DA, $091A, $087A
+    DW NorfairDark_0
     DW SkipColors_8
     DW $08A8, $0C05
     DW GlowYeild
@@ -6140,82 +6186,77 @@ NorHot4_3_List:
   DW SetColorIndex, $00C2
 NorHot4_3_List_Loop:
   DW $0010
-    DW $09DA, $091A, $087A
+    DW NorfairDark_0
     DW SkipColors_8
     DW $08A8, $0C05
     DW GlowYeild
   DW $0004
-    DW $0DDA, $093A, $089A
+    DW NorfairDark_1
     DW SkipColors_8
     DW $08AA, $0828
     DW GlowYeild
   DW $0004
-    DW $0DFA, $0D5A, $08BA
+    DW NorfairDark_2
     DW SkipColors_8
     DW $08AC, $084A
     DW GlowYeild
   DW $0005
-    DW $11FA, $0D7A, $08FA
+    DW NorfairDark_3
     DW SkipColors_8
     DW $08CF, $086D
     DW GlowYeild
   DW $0006
-    DW $161A, $119A, $0D1A
+    DW NorfairDark_4
     DW SkipColors_8
     DW $08D1, $0890
     DW GlowYeild
   DW $0007
-    DW $1A1A, $11BA, $0D3A
+    DW NorfairDark_5
     DW SkipColors_8
     DW $08F4, $08B3
     DW GlowYeild
   DW $0008
-    DW $1A3A, $15DA, $0D7A
+    DW NorfairDark_6
     DW SkipColors_8
     DW $08F6, $08D5
     DW GlowYeild
-  DW $0008
-    DW $225A, $1A1A, $11BA
+  DW $0010
+    DW NorfairDark_7
     DW SkipColors_8
     DW $091A, $091A
     DW GlowYeild
   DW $0008
-    DW $225A, $1A1A, $11BA
-    DW SkipColors_8
-    DW $091A, $091A
-    DW GlowYeild
-  DW $0008
-    DW $1A3A, $15DA, $0D7A
+    DW NorfairDark_6
     DW SkipColors_8
     DW $08F6, $08D5
     DW GlowYeild
   DW $0007
-    DW $1A1A, $11BA, $0D3A
+    DW NorfairDark_5
     DW SkipColors_8
     DW $08F4, $08B3
     DW GlowYeild
   DW $0006
-    DW $161A, $119A, $0D1A
+    DW NorfairDark_4
     DW SkipColors_8
     DW $08D1, $0890
     DW GlowYeild
   DW $0005
-    DW $11FA, $0D7A, $08FA
+    DW NorfairDark_3
     DW SkipColors_8
     DW $08CF, $086D
     DW GlowYeild
   DW $0004
-    DW $0DFA, $0D5A, $08BA
+    DW NorfairDark_2
     DW SkipColors_8
     DW $08AC, $084A
     DW GlowYeild
   DW $0004
-    DW $0DDA, $093A, $089A
+    DW NorfairDark_1
     DW SkipColors_8
     DW $08AA, $0828
     DW GlowYeild
   DW $0010
-    DW $09DA, $091A, $087A
+    DW NorfairDark_0
     DW SkipColors_8
     DW $08A8, $0C05
     DW GlowYeild
@@ -6225,82 +6266,77 @@ NorHot4_4_List:
   DW SetColorIndex, $00C2
 NorHot4_4_List_Loop:
   DW $0010
-    DW $09DA, $091A, $087A
+    DW NorfairDark_0
     DW SkipColors_8
     DW $08A8, $0C05
     DW GlowYeild
   DW $0004
-    DW $0DDA, $093A, $089A
+    DW NorfairDark_1
     DW SkipColors_8
     DW $08AA, $0828
     DW GlowYeild
   DW $0004
-    DW $0DFA, $0D5A, $08BA
+    DW NorfairDark_2
     DW SkipColors_8
     DW $08AC, $084A
     DW GlowYeild
   DW $0005
-    DW $11FA, $0D7A, $08FA
+    DW NorfairDark_3
     DW SkipColors_8
     DW $08CF, $086D
     DW GlowYeild
   DW $0006
-    DW $161A, $119A, $0D1A
+    DW NorfairDark_4
     DW SkipColors_8
     DW $08D1, $0890
     DW GlowYeild
   DW $0007
-    DW $1A1A, $11BA, $0D3A
+    DW NorfairDark_5
     DW SkipColors_8
     DW $08F4, $08B3
     DW GlowYeild
   DW $0008
-    DW $1A3A, $15DA, $0D7A
+    DW NorfairDark_6
     DW SkipColors_8
     DW $08F6, $08D5
     DW GlowYeild
-  DW $0008
-    DW $225A, $1A1A, $11BA
+  DW $0010
+    DW NorfairDark_7
     DW SkipColors_8
     DW $091A, $091A
     DW GlowYeild
   DW $0008
-    DW $225A, $1A1A, $11BA
-    DW SkipColors_8
-    DW $091A, $091A
-    DW GlowYeild
-  DW $0008
-    DW $1A3A, $15DA, $0D7A
+    DW NorfairDark_6
     DW SkipColors_8
     DW $08F6, $08D5
     DW GlowYeild
   DW $0007
-    DW $1A1A, $11BA, $0D3A
+    DW NorfairDark_5
     DW SkipColors_8
     DW $08F4, $08B3
     DW GlowYeild
   DW $0006
-    DW $161A, $119A, $0D1A
+    DW NorfairDark_4
     DW SkipColors_8
     DW $08D1, $0890
     DW GlowYeild
   DW $0005
-    DW $11FA, $0D7A, $08FA
+    DW NorfairDark_3
     DW SkipColors_8
     DW $08CF, $086D
     DW GlowYeild
   DW $0004
-    DW $0DFA, $0D5A, $08BA
+    DW NorfairDark_2
     DW SkipColors_8
     DW $08AC, $084A
     DW GlowYeild
   DW $0004
-    DW $0DDA, $093A, $089A
+    DW NorfairDark_1
     DW SkipColors_8
     DW $08AA, $0828
     DW GlowYeild
   DW $0010
-    DW $09DA, $091A, $087A
+    DW NorfairDark_0
     DW SkipColors_8
     DW $08A8, $0C05
     DW GlowYeild
@@ -6310,82 +6346,77 @@ NorHot4_5_List:
   DW SetColorIndex, $00C2
 NorHot4_5_List_Loop:
   DW $0010
-    DW $09DA, $091A, $087A
+    DW NorfairDark_0
     DW SkipColors_8
     DW $08A8, $0C05
     DW GlowYeild
   DW $0004
-    DW $0DDA, $093A, $089A
+    DW NorfairDark_1
     DW SkipColors_8
     DW $08AA, $0828
     DW GlowYeild
   DW $0004
-    DW $0DFA, $0D5A, $08BA
+    DW NorfairDark_2
     DW SkipColors_8
     DW $08AC, $084A
     DW GlowYeild
   DW $0005
-    DW $11FA, $0D7A, $08FA
+    DW NorfairDark_3
     DW SkipColors_8
     DW $08CF, $086D
     DW GlowYeild
   DW $0006
-    DW $161A, $119A, $0D1A
+    DW NorfairDark_4
     DW SkipColors_8
     DW $08D1, $0890
     DW GlowYeild
   DW $0007
-    DW $1A1A, $11BA, $0D3A
+    DW NorfairDark_5
     DW SkipColors_8
     DW $08F4, $08B3
     DW GlowYeild
   DW $0008
-    DW $1A3A, $15DA, $0D7A
+    DW NorfairDark_6
     DW SkipColors_8
     DW $08F6, $08D5
     DW GlowYeild
-  DW $0008
-    DW $225A, $1A1A, $11BA
+  DW $0010
+    DW NorfairDark_7
     DW SkipColors_8
     DW $091A, $091A
     DW GlowYeild
   DW $0008
-    DW $225A, $1A1A, $11BA
-    DW SkipColors_8
-    DW $091A, $091A
-    DW GlowYeild
-  DW $0008
-    DW $1A3A, $15DA, $0D7A
+    DW NorfairDark_6
     DW SkipColors_8
     DW $08F6, $08D5
     DW GlowYeild
   DW $0007
-    DW $1A1A, $11BA, $0D3A
+    DW NorfairDark_5
     DW SkipColors_8
     DW $08F4, $08B3
     DW GlowYeild
   DW $0006
-    DW $161A, $119A, $0D1A
+    DW NorfairDark_4
     DW SkipColors_8
     DW $08D1, $0890
     DW GlowYeild
   DW $0005
-    DW $11FA, $0D7A, $08FA
+    DW NorfairDark_3
     DW SkipColors_8
     DW $08CF, $086D
     DW GlowYeild
   DW $0004
-    DW $0DFA, $0D5A, $08BA
+    DW NorfairDark_2
     DW SkipColors_8
     DW $08AC, $084A
     DW GlowYeild
   DW $0004
-    DW $0DDA, $093A, $089A
+    DW NorfairDark_1
     DW SkipColors_8
     DW $08AA, $0828
     DW GlowYeild
   DW $0010
-    DW $09DA, $091A, $087A
+    DW NorfairDark_0
     DW SkipColors_8
     DW $08A8, $0C05
     DW GlowYeild
@@ -6395,82 +6426,77 @@ NorHot4_6_List:
   DW SetColorIndex, $00C2
 NorHot4_6_List_Loop:
   DW $0010
-    DW $09DA, $091A, $087A
+    DW NorfairDark_0
     DW SkipColors_8
     DW $08A8, $0C05
     DW GlowYeild
   DW $0004
-    DW $0DDA, $093A, $089A
+    DW NorfairDark_1
     DW SkipColors_8
     DW $08AA, $0828
     DW GlowYeild
   DW $0004
-    DW $0DFA, $0D5A, $08BA
+    DW NorfairDark_2
     DW SkipColors_8
     DW $08AC, $084A
     DW GlowYeild
   DW $0005
-    DW $11FA, $0D7A, $08FA
+    DW NorfairDark_3
     DW SkipColors_8
     DW $08CF, $086D
     DW GlowYeild
   DW $0006
-    DW $161A, $119A, $0D1A
+    DW NorfairDark_4
     DW SkipColors_8
     DW $08D1, $0890
     DW GlowYeild
   DW $0007
-    DW $1A1A, $11BA, $0D3A
+    DW NorfairDark_5
     DW SkipColors_8
     DW $08F4, $08B3
     DW GlowYeild
   DW $0008
-    DW $1A3A, $15DA, $0D7A
+    DW NorfairDark_6
     DW SkipColors_8
     DW $08F6, $08D5
     DW GlowYeild
-  DW $0008
-    DW $225A, $1A1A, $11BA
+  DW $0010
+    DW NorfairDark_7
     DW SkipColors_8
     DW $091A, $091A
     DW GlowYeild
   DW $0008
-    DW $225A, $1A1A, $11BA
-    DW SkipColors_8
-    DW $091A, $091A
-    DW GlowYeild
-  DW $0008
-    DW $1A3A, $15DA, $0D7A
+    DW NorfairDark_6
     DW SkipColors_8
     DW $08F6, $08D5
     DW GlowYeild
   DW $0007
-    DW $1A1A, $11BA, $0D3A
+    DW NorfairDark_5
     DW SkipColors_8
     DW $08F4, $08B3
     DW GlowYeild
   DW $0006
-    DW $161A, $119A, $0D1A
+    DW NorfairDark_4
     DW SkipColors_8
     DW $08D1, $0890
     DW GlowYeild
   DW $0005
-    DW $11FA, $0D7A, $08FA
+    DW NorfairDark_3
     DW SkipColors_8
     DW $08CF, $086D
     DW GlowYeild
   DW $0004
-    DW $0DFA, $0D5A, $08BA
+    DW NorfairDark_2
     DW SkipColors_8
     DW $08AC, $084A
     DW GlowYeild
   DW $0004
-    DW $0DDA, $093A, $089A
+    DW NorfairDark_1
     DW SkipColors_8
     DW $08AA, $0828
     DW GlowYeild
   DW $0010
-    DW $09DA, $091A, $087A
+    DW NorfairDark_0
     DW SkipColors_8
     DW $08A8, $0C05
     DW GlowYeild
@@ -6934,59 +6960,54 @@ Tourian_7_List:
   DW SetPreInstruction, Tourian_PreInstruction
 Tourian_0_List_Loop:
   DW $000A
-    DW $5294
+    DW $5A73
     DW SkipColors_3
-    DW $0019, $0012, $5C00, $4000, $1084, $197F, $7FFF
+    DW $3412, $240B, $3460, $1840, $1084, $517F, $7FFF
     DW GlowYeild
   DW $000A
-    DW $4A52
+    DW $4E10
     DW SkipColors_3
-    DW $0016, $000F, $5000, $3400, $1084, $0D1C, $739C
+    DW $3011, $200A, $3040, $1840, $1084, $451C, $739C
     DW GlowYeild
   DW $000A
-    DW $4210
+    DW $3DAD
     DW SkipColors_3
-    DW $0013, $000C, $4400, $2800, $1084, $00B9, $6739
+    DW $2C0F, $200A, $2C40, $1420, $1084, $38B9, $6739
     DW GlowYeild
   DW $000A
-    DW $39CE
+    DW $3129
     DW SkipColors_3
-    DW $0010, $0009, $3800, $1C00, $1084, $0056, $5AD6
+    DW $2C0E, $1C09, $2820, $1420, $1084, $4456, $5AD6
     DW GlowYeild
   DW $000A
-    DW $318C
+    DW $20C6
     DW SkipColors_3
-    DW $000D, $0006, $2C00, $1000, $1084, $0013, $4E73
+    DW $280C, $1C09, $2420, $1000, $1084, $4413, $4E73
+    DW GlowYeild
+  DW $0014
+    DW $1463
+    DW SkipColors_3
+    DW $240B, $1808, $2000, $0400, $1084, $3410, $4210
     DW GlowYeild
   DW $000A
-    DW $294A
+    DW $20C6
     DW SkipColors_3
-    DW $000A, $0003, $2000, $0400, $1084, $0010, $4210
+    DW $280C, $1C09, $2420, $1000, $1084, $4413, $4E73
     DW GlowYeild
   DW $000A
-    DW $294A
+    DW $3129
     DW SkipColors_3
-    DW $000A, $0003, $2000, $0400, $1084, $0010, $4210
+    DW $2C0E, $1C09, $2820, $1420, $1084, $4456, $5AD6
     DW GlowYeild
   DW $000A
-    DW $318C
+    DW $3DAD
     DW SkipColors_3
-    DW $000D, $0006, $2C00, $1000, $1084, $0013, $4E73
+    DW $2C0F, $200A, $2C40, $1420, $1084, $38B9, $6739
     DW GlowYeild
   DW $000A
-    DW $39CE
+    DW $4E10
     DW SkipColors_3
-    DW $0010, $0009, $3800, $1C00, $1084, $0056, $5AD6
-    DW GlowYeild
-  DW $000A
-    DW $4210
-    DW SkipColors_3
-    DW $0013, $000C, $4400, $2800, $1084, $00B9, $6739
-    DW GlowYeild
-  DW $000A
-    DW $4A52
-    DW SkipColors_3
-    DW $0016, $000F, $5000, $3400, $1084, $0D1C, $739C
+    DW $3011, $200A, $3040, $1840, $1084, $451C, $739C
     DW GlowYeild
   DW GlowJMP, Tourian_0_List_Loop
 
@@ -7019,12 +7040,7 @@ Tourian_1_List_Loop:
     DW SkipColors_3
     DW $000D, $0006, $2C00, $1000, $1084, $0013, $4E73
     DW GlowYeild
-  DW $000A
-    DW $294A
-    DW SkipColors_3
-    DW $000A, $0003, $2000, $0400, $1084, $0010, $4210
-    DW GlowYeild
-  DW $000A
+  DW $0014
     DW $294A
     DW SkipColors_3
     DW $000A, $0003, $2000, $0400, $1084, $0010, $4210
@@ -7080,12 +7096,7 @@ Tourian_2_List_Loop:
     DW SkipColors_3
     DW $000D, $0006, $2C00, $1000, $1084, $0013, $4E73
     DW GlowYeild
-  DW $000A
-    DW $294A
-    DW SkipColors_3
-    DW $000A, $0003, $2000, $0400, $1084, $0010, $4210
-    DW GlowYeild
-  DW $000A
+  DW $0014
     DW $294A
     DW SkipColors_3
     DW $000A, $0003, $2000, $0400, $1084, $0010, $4210
@@ -7141,12 +7152,7 @@ Tourian_3_List_Loop:
     DW SkipColors_3
     DW $000D, $0006, $2C00, $1000, $1084, $0013, $4E73
     DW GlowYeild
-  DW $000A
-    DW $294A
-    DW SkipColors_3
-    DW $000A, $0003, $2000, $0400, $1084, $0010, $4210
-    DW GlowYeild
-  DW $000A
+  DW $0014
     DW $294A
     DW SkipColors_3
     DW $000A, $0003, $2000, $0400, $1084, $0010, $4210
@@ -7202,12 +7208,7 @@ Tourian_4_List_Loop:
     DW SkipColors_3
     DW $000D, $0006, $2C00, $1000, $1084, $0013, $4E73
     DW GlowYeild
-  DW $000A
-    DW $294A
-    DW SkipColors_3
-    DW $000A, $0003, $2000, $0400, $1084, $0010, $4210
-    DW GlowYeild
-  DW $000A
+  DW $0014
     DW $294A
     DW SkipColors_3
     DW $000A, $0003, $2000, $0400, $1084, $0010, $4210
@@ -7263,12 +7264,7 @@ Tourian_5_List_Loop:
     DW SkipColors_3
     DW $000D, $0006, $2C00, $1000, $1084, $0013, $4E73
     DW GlowYeild
-  DW $000A
-    DW $294A
-    DW SkipColors_3
-    DW $000A, $0003, $2000, $0400, $1084, $0010, $4210
-    DW GlowYeild
-  DW $000A
+  DW $0014
     DW $294A
     DW SkipColors_3
     DW $000A, $0003, $2000, $0400, $1084, $0010, $4210
@@ -7324,12 +7320,7 @@ Tourian_6_List_Loop:
     DW SkipColors_3
     DW $000D, $0006, $2C00, $1000, $1084, $0013, $4E73
     DW GlowYeild
-  DW $000A
-    DW $294A
-    DW SkipColors_3
-    DW $000A, $0003, $2000, $0400, $1084, $0010, $4210
-    DW GlowYeild
-  DW $000A
+  DW $0014
     DW $294A
     DW SkipColors_3
     DW $000A, $0003, $2000, $0400, $1084, $0010, $4210
@@ -7356,339 +7347,6 @@ Tourian_6_List_Loop:
     DW GlowYeild
   DW GlowJMP, Tourian_6_List_Loop
 
-Tor_1EscTable:
-  DW EmptyInit,Tor_1Esc0_List, EmptyInit,Tor_1Esc1_List, EmptyInit,Tor_1Esc2_List, EmptyInit,Tor_1Esc3_List
-  DW EmptyInit,Tor_1Esc4_List, EmptyInit,Tor_1Esc5_List, EmptyInit,Tor_1Esc6_List, EmptyInit,Tor_1Esc7_List
-Tor_1Esc0_List:
-Tor_1Esc7_List:
-  DW SetColorIndex, $0132
-Tor_1Esc0_List_Loop:
-  DW $0002
-    DW $5294, $4210, $318C, $2108, $1084, $7FFF
-    DW GlowYeild
-  DW $0002
-    DW $4E75, $3DF1, $2D6D, $1CE8, $0C64, $77BF
-    DW GlowYeild
-  DW $0002
-    DW $4A55, $39D1, $2D6D, $1CE8, $0C64, $739F
-    DW GlowYeild
-  DW $0002
-    DW $4636, $35B2, $294D, $18C9, $0844, $6B5F
-    DW GlowYeild
-  DW $0002
-    DW $3DF6, $3192, $252D, $14A9, $0844, $673F
-    DW GlowYeild
-  DW $0002
-    DW $39D7, $2D72, $210E, $1089, $0424, $5EFF
-    DW GlowYeild
-  DW $0002
-    DW $35B7, $2952, $1CEE, $1089, $0424, $5ADF
-    DW GlowYeild
-  DW $0002
-    DW $3198, $2533, $18CE, $0C69, $0004, $529F
-    DW GlowYeild
-  DW $0002
-    DW $35B7, $2952, $1CEE, $1089, $0424, $5ADF
-    DW GlowYeild
-  DW $0002
-    DW $39D7, $2D72, $210E, $1089, $0424, $5EFF
-    DW GlowYeild
-  DW $0002
-    DW $3DF6, $3192, $252D, $14A9, $0844, $673F
-    DW GlowYeild
-  DW $0002
-    DW $4636, $35B2, $294D, $18C9, $0844, $6B5F
-    DW GlowYeild
-  DW $0002
-    DW $4A55, $39D1, $2D6D, $1CE8, $0C64, $739F
-    DW GlowYeild
-  DW $0002
-    DW $4E75, $3DF1, $2D6D, $1CE8, $0C64, $77BF
-    DW GlowYeild
-  DW GlowJMP, Tor_1Esc0_List_Loop
-
-Tor_1Esc1_List:
-  DW SetColorIndex, $0132
-Tor_1Esc1_List_Loop:
-  DW $0002
-    DW $5294, $4210, $318C, $2108, $1084, $7FFF
-    DW GlowYeild
-  DW $0002
-    DW $4E75, $3DF1, $2D6D, $1CE8, $0C64, $77BF
-    DW GlowYeild
-  DW $0002
-    DW $4A55, $39D1, $2D6D, $1CE8, $0C64, $739F
-    DW GlowYeild
-  DW $0002
-    DW $4636, $35B2, $294D, $18C9, $0844, $6B5F
-    DW GlowYeild
-  DW $0002
-    DW $3DF6, $3192, $252D, $14A9, $0844, $673F
-    DW GlowYeild
-  DW $0002
-    DW $39D7, $2D72, $210E, $1089, $0424, $5EFF
-    DW GlowYeild
-  DW $0002
-    DW $35B7, $2952, $1CEE, $1089, $0424, $5ADF
-    DW GlowYeild
-  DW $0002
-    DW $3198, $2533, $18CE, $0C69, $0004, $529F
-    DW GlowYeild
-  DW $0002
-    DW $35B7, $2952, $1CEE, $1089, $0424, $5ADF
-    DW GlowYeild
-  DW $0002
-    DW $39D7, $2D72, $210E, $1089, $0424, $5EFF
-    DW GlowYeild
-  DW $0002
-    DW $3DF6, $3192, $252D, $14A9, $0844, $673F
-    DW GlowYeild
-  DW $0002
-    DW $4636, $35B2, $294D, $18C9, $0844, $6B5F
-    DW GlowYeild
-  DW $0002
-    DW $4A55, $39D1, $2D6D, $1CE8, $0C64, $739F
-    DW GlowYeild
-  DW $0002
-    DW $4E75, $3DF1, $2D6D, $1CE8, $0C64, $77BF
-    DW GlowYeild
-  DW GlowJMP, Tor_1Esc1_List_Loop
-
-Tor_1Esc2_List:
-  DW SetColorIndex, $0132
-Tor_1Esc2_List_Loop:
-  DW $0002
-    DW $5294, $4210, $318C, $2108, $1084, $7FFF
-    DW GlowYeild
-  DW $0002
-    DW $4E75, $3DF1, $2D6D, $1CE8, $0C64, $77BF
-    DW GlowYeild
-  DW $0002
-    DW $4A55, $39D1, $2D6D, $1CE8, $0C64, $739F
-    DW GlowYeild
-  DW $0002
-    DW $4636, $35B2, $294D, $18C9, $0844, $6B5F
-    DW GlowYeild
-  DW $0002
-    DW $3DF6, $3192, $252D, $14A9, $0844, $673F
-    DW GlowYeild
-  DW $0002
-    DW $39D7, $2D72, $210E, $1089, $0424, $5EFF
-    DW GlowYeild
-  DW $0002
-    DW $35B7, $2952, $1CEE, $1089, $0424, $5ADF
-    DW GlowYeild
-  DW $0002
-    DW $3198, $2533, $18CE, $0C69, $0004, $529F
-    DW GlowYeild
-  DW $0002
-    DW $35B7, $2952, $1CEE, $1089, $0424, $5ADF
-    DW GlowYeild
-  DW $0002
-    DW $39D7, $2D72, $210E, $1089, $0424, $5EFF
-    DW GlowYeild
-  DW $0002
-    DW $3DF6, $3192, $252D, $14A9, $0844, $673F
-    DW GlowYeild
-  DW $0002
-    DW $4636, $35B2, $294D, $18C9, $0844, $6B5F
-    DW GlowYeild
-  DW $0002
-    DW $4A55, $39D1, $2D6D, $1CE8, $0C64, $739F
-    DW GlowYeild
-  DW $0002
-    DW $4E75, $3DF1, $2D6D, $1CE8, $0C64, $77BF
-    DW GlowYeild
-  DW GlowJMP, Tor_1Esc2_List_Loop
-
-Tor_1Esc3_List:
-  DW SetColorIndex, $0132
-Tor_1Esc3_List_Loop:
-  DW $0002
-    DW $5294, $4210, $318C, $2108, $1084, $7FFF
-    DW GlowYeild
-  DW $0002
-    DW $4E75, $3DF1, $2D6D, $1CE8, $0C64, $77BF
-    DW GlowYeild
-  DW $0002
-    DW $4A55, $39D1, $2D6D, $1CE8, $0C64, $739F
-    DW GlowYeild
-  DW $0002
-    DW $4636, $35B2, $294D, $18C9, $0844, $6B5F
-    DW GlowYeild
-  DW $0002
-    DW $3DF6, $3192, $252D, $14A9, $0844, $673F
-    DW GlowYeild
-  DW $0002
-    DW $39D7, $2D72, $210E, $1089, $0424, $5EFF
-    DW GlowYeild
-  DW $0002
-    DW $35B7, $2952, $1CEE, $1089, $0424, $5ADF
-    DW GlowYeild
-  DW $0002
-    DW $3198, $2533, $18CE, $0C69, $0004, $529F
-    DW GlowYeild
-  DW $0002
-    DW $35B7, $2952, $1CEE, $1089, $0424, $5ADF
-    DW GlowYeild
-  DW $0002
-    DW $39D7, $2D72, $210E, $1089, $0424, $5EFF
-    DW GlowYeild
-  DW $0002
-    DW $3DF6, $3192, $252D, $14A9, $0844, $673F
-    DW GlowYeild
-  DW $0002
-    DW $4636, $35B2, $294D, $18C9, $0844, $6B5F
-    DW GlowYeild
-  DW $0002
-    DW $4A55, $39D1, $2D6D, $1CE8, $0C64, $739F
-    DW GlowYeild
-  DW $0002
-    DW $4E75, $3DF1, $2D6D, $1CE8, $0C64, $77BF
-    DW GlowYeild
-  DW GlowJMP, Tor_1Esc3_List_Loop
-
-Tor_1Esc4_List:
-  DW SetColorIndex, $0132
-Tor_1Esc4_List_Loop:
-  DW $0002
-    DW $5294, $4210, $318C, $2108, $1084, $7FFF
-    DW GlowYeild
-  DW $0002
-    DW $4E75, $3DF1, $2D6D, $1CE8, $0C64, $77BF
-    DW GlowYeild
-  DW $0002
-    DW $4A55, $39D1, $2D6D, $1CE8, $0C64, $739F
-    DW GlowYeild
-  DW $0002
-    DW $4636, $35B2, $294D, $18C9, $0844, $6B5F
-    DW GlowYeild
-  DW $0002
-    DW $3DF6, $3192, $252D, $14A9, $0844, $673F
-    DW GlowYeild
-  DW $0002
-    DW $39D7, $2D72, $210E, $1089, $0424, $5EFF
-    DW GlowYeild
-  DW $0002
-    DW $35B7, $2952, $1CEE, $1089, $0424, $5ADF
-    DW GlowYeild
-  DW $0002
-    DW $3198, $2533, $18CE, $0C69, $0004, $529F
-    DW GlowYeild
-  DW $0002
-    DW $35B7, $2952, $1CEE, $1089, $0424, $5ADF
-    DW GlowYeild
-  DW $0002
-    DW $39D7, $2D72, $210E, $1089, $0424, $5EFF
-    DW GlowYeild
-  DW $0002
-    DW $3DF6, $3192, $252D, $14A9, $0844, $673F
-    DW GlowYeild
-  DW $0002
-    DW $4636, $35B2, $294D, $18C9, $0844, $6B5F
-    DW GlowYeild
-  DW $0002
-    DW $4A55, $39D1, $2D6D, $1CE8, $0C64, $739F
-    DW GlowYeild
-  DW $0002
-    DW $4E75, $3DF1, $2D6D, $1CE8, $0C64, $77BF
-    DW GlowYeild
-  DW GlowJMP, Tor_1Esc4_List_Loop
-
-Tor_1Esc5_List:
-  DW SetColorIndex, $0132
-Tor_1Esc5_List_Loop:
-  DW $0002
-    DW $5294, $4210, $318C, $2108, $1084, $7FFF
-    DW GlowYeild
-  DW $0002
-    DW $4E75, $3DF1, $2D6D, $1CE8, $0C64, $77BF
-    DW GlowYeild
-  DW $0002
-    DW $4A55, $39D1, $2D6D, $1CE8, $0C64, $739F
-    DW GlowYeild
-  DW $0002
-    DW $4636, $35B2, $294D, $18C9, $0844, $6B5F
-    DW GlowYeild
-  DW $0002
-    DW $3DF6, $3192, $252D, $14A9, $0844, $673F
-    DW GlowYeild
-  DW $0002
-    DW $39D7, $2D72, $210E, $1089, $0424, $5EFF
-    DW GlowYeild
-  DW $0002
-    DW $35B7, $2952, $1CEE, $1089, $0424, $5ADF
-    DW GlowYeild
-  DW $0002
-    DW $3198, $2533, $18CE, $0C69, $0004, $529F
-    DW GlowYeild
-  DW $0002
-    DW $35B7, $2952, $1CEE, $1089, $0424, $5ADF
-    DW GlowYeild
-  DW $0002
-    DW $39D7, $2D72, $210E, $1089, $0424, $5EFF
-    DW GlowYeild
-  DW $0002
-    DW $3DF6, $3192, $252D, $14A9, $0844, $673F
-    DW GlowYeild
-  DW $0002
-    DW $4636, $35B2, $294D, $18C9, $0844, $6B5F
-    DW GlowYeild
-  DW $0002
-    DW $4A55, $39D1, $2D6D, $1CE8, $0C64, $739F
-    DW GlowYeild
-  DW $0002
-    DW $4E75, $3DF1, $2D6D, $1CE8, $0C64, $77BF
-    DW GlowYeild
-  DW GlowJMP, Tor_1Esc5_List_Loop
-
-Tor_1Esc6_List:
-  DW SetColorIndex, $0132
-Tor_1Esc6_List_Loop:
-  DW $0002
-    DW $5294, $4210, $318C, $2108, $1084, $7FFF
-    DW GlowYeild
-  DW $0002
-    DW $4E75, $3DF1, $2D6D, $1CE8, $0C64, $77BF
-    DW GlowYeild
-  DW $0002
-    DW $4A55, $39D1, $2D6D, $1CE8, $0C64, $739F
-    DW GlowYeild
-  DW $0002
-    DW $4636, $35B2, $294D, $18C9, $0844, $6B5F
-    DW GlowYeild
-  DW $0002
-    DW $3DF6, $3192, $252D, $14A9, $0844, $673F
-    DW GlowYeild
-  DW $0002
-    DW $39D7, $2D72, $210E, $1089, $0424, $5EFF
-    DW GlowYeild
-  DW $0002
-    DW $35B7, $2952, $1CEE, $1089, $0424, $5ADF
-    DW GlowYeild
-  DW $0002
-    DW $3198, $2533, $18CE, $0C69, $0004, $529F
-    DW GlowYeild
-  DW $0002
-    DW $35B7, $2952, $1CEE, $1089, $0424, $5ADF
-    DW GlowYeild
-  DW $0002
-    DW $39D7, $2D72, $210E, $1089, $0424, $5EFF
-    DW GlowYeild
-  DW $0002
-    DW $3DF6, $3192, $252D, $14A9, $0844, $673F
-    DW GlowYeild
-  DW $0002
-    DW $4636, $35B2, $294D, $18C9, $0844, $6B5F
-    DW GlowYeild
-  DW $0002
-    DW $4A55, $39D1, $2D6D, $1CE8, $0C64, $739F
-    DW GlowYeild
-  DW $0002
-    DW $4E75, $3DF1, $2D6D, $1CE8, $0C64, $77BF
-    DW GlowYeild
-  DW GlowJMP, Tor_1Esc6_List_Loop
-
 Tor_2EscTable:
   DW EmptyInit,Tor_2Esc0_List, EmptyInit,Tor_2Esc1_List, EmptyInit,Tor_2Esc2_List, EmptyInit,Tor_2Esc3_List
   DW EmptyInit,Tor_2Esc4_List, EmptyInit,Tor_2Esc5_List, EmptyInit,Tor_2Esc6_List, EmptyInit,Tor_2Esc7_List
@@ -7700,43 +7358,43 @@ Tor_2Esc0_List_Loop:
     DW $081A, $0812, $042B, $0423
     DW GlowYeild
   DW $0004
-    DW $0C37, $0C30, $042A, $0423
+    DW $1038, $0C30, $084A, $0823
     DW GlowYeild
   DW $0004
-    DW $1054, $0C2E, $0849, $0422
+    DW $1475, $104F, $0C49, $0843
     DW GlowYeild
   DW $0004
-    DW $1471, $104C, $0848, $0422
+    DW $1C93, $146D, $1068, $0C43
     DW GlowYeild
   DW $0004
-    DW $148E, $106A, $0C66, $0842
+    DW $20D1, $1C8C, $1468, $0C43
     DW GlowYeild
   DW $0004
-    DW $18AB, $1488, $0C65, $0842
+    DW $28EF, $20AA, $1887, $1043
     DW GlowYeild
   DW $0004
-    DW $1CC8, $1486, $1084, $0841
+    DW $2D2C, $24C9, $1C86, $1063
     DW GlowYeild
   DW $0004
-    DW $20E5, $18A4, $1083, $0841
+    DW $354A, $28E7, $20A5, $1463
     DW GlowYeild
   DW $0004
-    DW $1CC8, $1486, $1084, $0841
+    DW $2D2C, $24C9, $1C86, $1063
     DW GlowYeild
   DW $0004
-    DW $18AB, $1488, $0C65, $0842
+    DW $28EF, $20AA, $1887, $1043
     DW GlowYeild
   DW $0004
-    DW $148E, $106A, $0C66, $0842
+    DW $20D1, $1C8C, $1468, $0C43
     DW GlowYeild
   DW $0004
-    DW $1471, $104C, $0848, $0422
+    DW $1C93, $146D, $1068, $0C43
     DW GlowYeild
   DW $0004
-    DW $1054, $0C2E, $0849, $0422
+    DW $1475, $104F, $0C49, $0843
     DW GlowYeild
   DW $0004
-    DW $0C37, $0C30, $042A, $0423
+    DW $1038, $0C30, $084A, $0823
     DW GlowYeild
   DW GlowJMP, Tor_2Esc0_List_Loop
 
@@ -8057,72 +7715,72 @@ Tor_4Esc7_List:
   DW SetColorIndex, $00E8
 Tor_4Esc0_List_Loop:
   DW $0002
-    DW $5294, $39CE, $2108, $1084, $0019, $0012
+    DW $5A73, $412D, $2867, $1463, $3412, $240B
     DW SkipColors_4
     DW $7FFF
     DW GlowYeild
   DW $0002
-    DW $4E75, $35AF, $1CE8, $0C64, $080D, $0809
+    DW $5654, $3D0E, $2468, $1063, $2C0F, $200A
     DW SkipColors_4
     DW $77BF
     DW GlowYeild
   DW $0002
-    DW $4A55, $318F, $1CE9, $0C64, $1000, $1000
+    DW $4E34, $390E, $2048, $1043, $280C, $1C09
     DW SkipColors_4
     DW $739F
     DW GlowYeild
   DW $0002
-    DW $4636, $2D70, $18C9, $0844, $080D, $0809
+    DW $4A15, $356F, $1C49, $0C43, $2C0F, $200A
     DW SkipColors_4
     DW $6B5F
     DW GlowYeild
   DW $0002
-    DW $3DF6, $2D70, $18CA, $0844, $0019, $0012
+    DW $4176, $2D50, $1C29, $0824, $3412, $240B
     DW SkipColors_4
     DW $673F
     DW GlowYeild
   DW $0002
-    DW $39D7, $2951, $14AA, $0424, $080D, $0809
+    DW $3D57, $2931, $182A, $0424, $2C0F, $200A
     DW SkipColors_4
     DW $5EFF
     DW GlowYeild
   DW $0002
-    DW $35B7, $2531, $14AB, $0424, $1000, $1000
+    DW $3537, $2531, $140A, $0404, $280C, $1C09
     DW SkipColors_4
     DW $5ADF
     DW GlowYeild
   DW $0002
-    DW $3198, $2112, $108B, $0004, $080D, $0809
+    DW $3118, $2112, $100B, $0004, $2C0F, $200A
     DW SkipColors_4
     DW $529F
     DW GlowYeild
   DW $0002
-    DW $35B7, $2531, $14AB, $0424, $1000, $1000
+    DW $3537, $2531, $140A, $0404, $280C, $1C09
     DW SkipColors_4
     DW $5ADF
     DW GlowYeild
   DW $0002
-    DW $39D7, $2951, $14AA, $0424, $080D, $0809
+    DW $3D57, $2931, $182A, $0424, $2C0F, $200A
     DW SkipColors_4
     DW $5EFF
     DW GlowYeild
   DW $0002
-    DW $3DF6, $2D70, $18CA, $0844, $0019, $0012
+    DW $4176, $2D50, $1C29, $0824, $3412, $240B
     DW SkipColors_4
     DW $673F
     DW GlowYeild
   DW $0002
-    DW $4636, $2D70, $18C9, $0844, $080D, $0809
+    DW $4A15, $356F, $1C49, $0C43, $2C0F, $200A
     DW SkipColors_4
     DW $6B5F
     DW GlowYeild
   DW $0002
-    DW $4A55, $318F, $1CE9, $0C64, $1000, $1000
+    DW $4E34, $390E, $2048, $1043, $280C, $1C09
     DW SkipColors_4
     DW $739F
     DW GlowYeild
   DW $0002
-    DW $4E75, $35AF, $1CE8, $0C64, $080D, $0809
+    DW $5654, $3D0E, $2468, $1063, $080D, $0809
     DW SkipColors_4
     DW $77BF
     DW GlowYeild
@@ -8608,9 +8266,7 @@ Waterfal:
   DW $00BB, WaterfalTable
 Tourian_:
   DW $00BB, Tourian_Table
-org $8DFFC9
-Tor_1Esc:
-  DW $00BB, Tor_1EscTable
+org $8DFFCD
 Tor_2Esc:
   DW $00BB, Tor_2EscTable
 Tor_3Esc:

@@ -216,23 +216,23 @@
     <Space start="8AB180" end="8AB4D7" />
     <Space start="8AB500" end="8AB5EE" />
     <Space start="8AB600" end="8AB6AC" />
-    <Space start="8AB700" end="8ABEDF" />
+    <Space start="8AB700" end="8ABF05" />
     <Space start="8AC002" end="8AC1B5" />
     <Space start="8DC4FF" end="8DC520" />
     <Space start="8DC527" end="8DC54A" />
-    <Space start="8DC686" end="8DC68F" />
+    <Space start="8DC686" end="8DC694" />
     <Space start="8DEC59" end="8DEC5E" />
     <Space start="8DF765" end="8DF768" />
     <Space start="8DF76D" end="8DF770" />
     <Space start="8DF775" end="8DF7A4" />
-    <Space start="8DF7A9" end="8DF7BF" />
+    <Space start="8DF891" end="8DF8A7" />
     <Space start="8DFFC9" end="8DFFEC" />
     <Space start="8F91C9" end="8F91D2" />
     <Space start="8FC116" end="8FC123" />
     <Space start="90EA57" end="90EA5E" />
     <Space start="A7DC71" end="A7DC74" />
     <Space start="ADF24B" end="ADF257" />
-    <Space start="BB8000" end="BBFF42" />
+    <Space start="BB8000" end="BBF110" />
     <Space start="C08000" end="C0FDEF" />
     <Space start="C18000" end="C1FDEF" />
   </ASMUsedSpaceBankAny>
