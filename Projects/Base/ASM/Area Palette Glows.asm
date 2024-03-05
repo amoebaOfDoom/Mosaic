@@ -42,7 +42,7 @@ org $8DC4FF ; Patch main glow object constructor to support polymorphic glow hea
 
   LDA $0000,Y
   BMI +
-  JMP.l SpawnGlow_V2
+  JML SpawnGlow_V2
 +
   JMP.w SpawnGlow_V1
 MainGlowHandler_ToV2:
