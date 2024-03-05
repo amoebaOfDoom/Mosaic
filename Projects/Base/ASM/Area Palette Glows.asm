@@ -1472,6 +1472,7 @@ Purp_BG_<n>_List_Loop:
   DW GlowJMP, Purp_BG_<n>_List_Loop
 endmacro
 
+print pc
 %Purp_BG__List(0)
 %Purp_BG__List(1)
 %Purp_BG__List(2)
@@ -1579,7 +1580,7 @@ Beacon__Table:
 
 macro Beacon___List(n)
 Beacon__<n>_List:
-  DW SetColorIndex, $00C8
+  DW SetColorIndex, $00E2
 Beacon__<n>_List_Loop:
   DW $000A
     DW !Beacon__<n>_Colors_0a
