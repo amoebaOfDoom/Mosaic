@@ -36,7 +36,7 @@ EnablePalettesFlag:
 org $8AC002
 GetArea:
   ; Enable area palettes is either the flag is set in ROM or one of the debug events is set
-  LDA EnablePalettesFlag
+  LDA.l EnablePalettesFlag
   CMP #$F0F0
   BEQ UseMapArea
   LDA $7ED824 ; event bits $20-27
@@ -44,11 +44,11 @@ GetArea:
   BNE UseMapArea
 
 ;UseTilesetArea:
-  LDX $7E07BB ; tileset index
+  LDX $07BB ; tileset index
   LDA $8F0003,X
   AND #$00FF
   TAX
-  LDA StandardArea,X
+  LDA.l StandardArea,X
   AND #$00FF
   RTS
 UseMapArea:
@@ -62,12 +62,12 @@ UseMapArea:
 GetPalettePointer:
   JSR GetArea
   TAX
-  LDA AreaPalettes+1,X
+  LDA.l AreaPalettes+1,X
   STA $07C7 ; palette bank
-  LDA AreaPalettes+0,X
+  LDA.l AreaPalettes+0,X
   STA $12 ; palette base offset
 
-  LDX $7E07BB ; tileset index
+  LDX $07BB ; tileset index
   LDA $8F0003,X
   AND #$00FF
 
@@ -221,9 +221,9 @@ LoadPhantoonTargetColor:
   TXY
   JSR GetArea
   TAX
-  LDA AreaPalettes+1,X
+  LDA.l AreaPalettes+1,X
   STA $13 ; palette bank
-  LDA AreaPalettes+0,X
+  LDA.l AreaPalettes+0,X
   CLC
   ADC #$0412 ; WS awake is palette $04 + skip header
   STA $12
@@ -240,9 +240,9 @@ MBLightsOn:
 
   JSR GetArea
   TAX
-  LDA AreaPalettes+1,X
+  LDA.l AreaPalettes+1,X
   STA $03 ; palette bank
-  LDA AreaPalettes+0,X
+  LDA.l AreaPalettes+0,X
   CLC
   ADC #$0E3A ; MB is palette $0E + skip header
   STA $02
