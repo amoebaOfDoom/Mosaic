@@ -12,6 +12,21 @@ org $82DF1D
   ;LDA $0006,X
   ;STA $07C6
 
+org $A7DC71
+  JSL LoadPhantoonTargetColor
+  ;LDA $CA61,X
+  ;TAY
+
+org $ADF24B
+  CMP #$0008
+  BNE +
+  SEC
+  RTL
++
+  JSL MBLightsOn
+  CLC
+  RTL
+warnpc $ADF40B
 
 org $8AC000
 EnablePalettesFlag:
@@ -19,9 +34,9 @@ EnablePalettesFlag:
   ; DW $F0F0 ; vanilla = $1478
 
 org $8AC002
-GetPalettePointer:
+GetArea:
   ; Enable area palettes is either the flag is set in ROM or one of the debug events is set
-  LDA EnablePalettesFlag
+  LDA.l EnablePalettesFlag
   CMP #$F0F0
   BEQ UseMapArea
   LDA $7ED824 ; event bits $20-27
@@ -29,29 +44,30 @@ GetPalettePointer:
   BNE UseMapArea
 
 ;UseTilesetArea:
-  LDX $7E07BB ; tileset index
+  LDX $07BB ; tileset index
   LDA $8F0003,X
   AND #$00FF
   TAX
-  LDA StandardArea,X
+  LDA.l StandardArea,X
   AND #$00FF
-  BRA LoadBasedOnArea
+  RTS
 UseMapArea:
   LDA $1F5B  ; map area
   ASL
   CLC
   ADC $1F5B
   AND #$00FF
-  ;BRA LoadBasedOnArea
+  RTS
 
-LoadBasedOnArea:
+GetPalettePointer:
+  JSR GetArea
   TAX
-  LDA AreaPalettes+1,X
+  LDA.l AreaPalettes+1,X
   STA $07C7 ; palette bank
-  LDA AreaPalettes+0,X
+  LDA.l AreaPalettes+0,X
   STA $12 ; palette base offset
 
-  LDX $7E07BB ; tileset index
+  LDX $07BB ; tileset index
   LDA $8F0003,X
   AND #$00FF
 
@@ -86,6 +102,185 @@ StandardArea:
   DB $04*3 ;Draygon
   DB $01*3 ;SpoSpo
   DB $03*3 ;Phantoon
+
+; Calculate the [A]th transitional color from start color in [X] to target color in [Y]
+; Copy of $82DAA6 but the current denominator is stored at $00
+ComputeTransitionalColor:
+  PHA
+  PHA
+  PHX
+  PHY
+  LDA $01,S
+  AND #$001F
+  TAY
+  LDA $03,S
+  AND #$001F
+  TAX
+  LDA $05,S
+  JSR ComputeTransitionalComponent
+  STA $07,S
+  LDA $01,S
+  ASL
+  ASL
+  ASL
+  XBA
+  AND #$001F
+  TAY
+  LDA $03,S
+  ASL
+  ASL
+  ASL
+  XBA
+  AND #$001F
+  TAX
+  LDA $05,S
+  JSR ComputeTransitionalComponent
+  ASL
+  ASL
+  ASL
+  ASL
+  ASL
+  ORA $07,S
+  STA $07,S
+  LDA $01,S
+  LSR
+  LSR
+  XBA
+  AND #$001F
+  TAY
+  LDA $03,S
+  LSR
+  LSR
+  XBA
+  AND #$001F
+  TAX
+  LDA $05,S
+  JSR ComputeTransitionalComponent
+  ASL
+  ASL
+  XBA
+  ORA $07,S
+  STA $07,S
+  PLY
+  PLX
+  PLA
+  PLA
+  RTS
+ComputeTransitionalComponent:
+  CMP #$0000
+  BNE +
+  TXA
+  RTS
++
+  DEC
+  CMP $00
+  BNE +
+  TYA
+  RTS
++
+  PHX
+  INC
+  STA $14
+  TYA
+  SEC
+  SBC $01,S
+  STA $12
+  BPL +
+  EOR #$FFFF
+  INC
++
+  SEP #$21
+  STZ $4204
+  STA $4205
+  LDA $00
+  SBC $14
+  INC
+  STA $4206
+  REP #$20
+  NOP
+  NOP
+  NOP
+  NOP
+  NOP
+  LDA $4214
+  BIT $12
+  BPL +
+  EOR #$FFFF
+  INC
++
+  STA $12
+  PLA
+  XBA
+  CLC
+  ADC $12
+  XBA
+  AND #$00FF
+  RTS
+
+LoadPhantoonTargetColor:
+  TXY
+  JSR GetArea
+  TAX
+  LDA.l AreaPalettes+1,X
+  STA $13 ; palette bank
+  LDA.l AreaPalettes+0,X
+  CLC
+  ADC #$0412 ; WS awake is palette $04 + skip header
+  STA $12
+  LDA [$12],Y
+  TYX
+  TAY
+  RTL
+
+MBLightsOn:
+  INC
+  STA $16 ; transition index
+  LDA #$0007
+  STA $00
+
+  JSR GetArea
+  TAX
+  LDA.l AreaPalettes+1,X
+  STA $03 ; palette bank
+  LDA.l AreaPalettes+0,X
+  CLC
+  ADC #$0E3A ; MB is palette $0E + skip header
+  STA $02
+
+  LDA #$0062
+  STA $06
+-
+  LDY $06
+  LDA [$02],Y
+  TAY ; target color
+  LDX #$0000 ; source color
+  LDA $16
+  JSR ComputeTransitionalColor
+  LDX $06
+  STA $7EC000,X
+  INX
+  INX
+  STX $06
+  CPX #$0080
+  BMI -
+
+  LDA #$00A2
+  STA $06
+-
+  LDY $06
+  LDA [$02],Y
+  TAY
+  LDX #$0000
+  LDA $16
+  JSR ComputeTransitionalColor
+  LDX $06
+  STA $7EC000,X
+  INX
+  INX
+  STX $06
+  CPX #$00C0
+  BMI -
+  RTL
 
 ; Use "InputFile" working directory mode in SMART if you want this to assemble in xkas
 ; Each uncompressed paletter is 256 bytes. Compressing these palettes doesn't always make them smaller anyway
