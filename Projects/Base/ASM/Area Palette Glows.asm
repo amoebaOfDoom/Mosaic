@@ -1472,7 +1472,6 @@ Purp_BG_<n>_List_Loop:
   DW GlowJMP, Purp_BG_<n>_List_Loop
 endmacro
 
-print pc
 %Purp_BG__List(0)
 %Purp_BG__List(1)
 %Purp_BG__List(2)
@@ -2446,77 +2445,77 @@ NorHot4_<n>_List:
   DW SetColorIndex, $00C2
 NorHot4_<n>_List_Loop:
   DW $0010
-    DW NorfairCommon_0
+    DW NorfairDark_0
     DW SkipColors_8
     DW !NorHot4_<n>_Colors_0
     DW GlowYeild
   DW $0004
-    DW NorfairCommon_1
+    DW NorfairDark_1
     DW SkipColors_8
     DW !NorHot4_<n>_Colors_1
     DW GlowYeild
   DW $0004
-    DW NorfairCommon_2
+    DW NorfairDark_2
     DW SkipColors_8
     DW !NorHot4_<n>_Colors_2
     DW GlowYeild
   DW $0005
-    DW NorfairCommon_3
+    DW NorfairDark_3
     DW SkipColors_8
     DW !NorHot4_<n>_Colors_3
     DW GlowYeild
   DW $0006
-    DW NorfairCommon_4
+    DW NorfairDark_4
     DW SkipColors_8
     DW !NorHot4_<n>_Colors_4
     DW GlowYeild
   DW $0007
-    DW NorfairCommon_5
+    DW NorfairDark_5
     DW SkipColors_8
     DW !NorHot4_<n>_Colors_5
     DW GlowYeild
   DW $0008
-    DW NorfairCommon_6
+    DW NorfairDark_6
     DW SkipColors_8
     DW !NorHot4_<n>_Colors_6
     DW GlowYeild
   DW $0010
-    DW NorfairCommon_7
+    DW NorfairDark_7
     DW SkipColors_8
     DW !NorHot4_<n>_Colors_7
     DW GlowYeild
   DW $0008
-    DW NorfairCommon_6
+    DW NorfairDark_6
     DW SkipColors_8
     DW !NorHot4_<n>_Colors_6
     DW GlowYeild
   DW $0007
-    DW NorfairCommon_5
+    DW NorfairDark_5
     DW SkipColors_8
     DW !NorHot4_<n>_Colors_5
     DW GlowYeild
   DW $0006
-    DW NorfairCommon_4
+    DW NorfairDark_4
     DW SkipColors_8
     DW !NorHot4_<n>_Colors_4
     DW GlowYeild
   DW $0005
-    DW NorfairCommon_3
+    DW NorfairDark_3
     DW SkipColors_8
     DW !NorHot4_<n>_Colors_3
     DW GlowYeild
   DW $0004
-    DW NorfairCommon_2
+    DW NorfairDark_2
     DW SkipColors_8
     DW !NorHot4_<n>_Colors_2
     DW GlowYeild
   DW $0004
-    DW NorfairCommon_1
+    DW NorfairDark_1
     DW SkipColors_8
     DW !NorHot4_<n>_Colors_1
     DW GlowYeild
   DW $0010
-    DW NorfairCommon_0
+    DW NorfairDark_0
     DW SkipColors_8
     DW !NorHot4_<n>_Colors_0
     DW GlowYeild
