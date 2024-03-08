@@ -14,10 +14,11 @@ class Palette:
     self.name = name
     self.colors = [re.sub(r'[^0-9A-Fa-f]', '', c) for c in colors]
 
-asm = (Path(__file__).parent.parent / "Projects" / "Base" / "ASM" / "Glow Data.def").resolve()
+asm = (Path(__file__).parent.parent / "Projects" / "Base" / "ASM" / "GlowData.def").resolve()
 palettes = [Palette(*line[0:-1].split()) for line in open(asm) if re.search(r'^!', line) != None]
 
 w = 16
+margin = 64
 im = Image.open("glows.png")
 px = im.load()
 
@@ -38,7 +39,7 @@ with open(asm, "w") as f:
       area = a
     colors = []
     for c_i, _ in enumerate(p.colors):
-      x = (c_i * w) + (w / 2)
+      x = (c_i * w) + (w / 2) + margin
       y = (p_i * w) + (w / 2)
       c = convertFromRGB(px[x , y])
       colors.append("${:04X}".format(c))
