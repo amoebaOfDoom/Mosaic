@@ -30,7 +30,7 @@ with open(asm, "w") as f:
     r = p.name[1:9]
     if(prefix != r):
       print(file=f)
-      print("; " + prefix + " colors", file=f)
+      print("; " + r + " colors", file=f)
       prefix = r
       area = 0
     a = int(p.name[9])
