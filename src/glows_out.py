@@ -14,7 +14,7 @@ class Palette:
     self.name = name
     self.colors = [convertToRGB(int(re.sub(r'[^0-9A-Fa-f]', '', c), 16)) for c in colors]
 
-asm = (Path(__file__).parent.parent / "Projects" / "Base" / "ASM" / "Area Palette Glows.asm").resolve()
+asm = (Path(__file__).parent.parent / "Projects" / "Base" / "ASM" / "Glow Data.def").resolve()
 palettes = [Palette(*line[0:-1].split()) for line in open(asm) if re.search(r'^!', line) != None]
 
 w = 16
