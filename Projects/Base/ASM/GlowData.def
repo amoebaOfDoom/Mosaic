@@ -1104,18 +1104,18 @@
 !Tourian_0_Colors_4b = $280C, $1C09, $2420, $1000, $1084, $4413, $4E73
 !Tourian_0_Colors_5b = $240B, $1808, $2000, $0400, $1084, $3410, $4210
 
-!Tourian_1_Colors_0a = $5294
-!Tourian_1_Colors_1a = $4A52
-!Tourian_1_Colors_2a = $4210
-!Tourian_1_Colors_3a = $39CE
-!Tourian_1_Colors_4a = $318C
-!Tourian_1_Colors_5a = $294A
-!Tourian_1_Colors_0b = $0019, $0012, $5C00, $4000, $1084, $197F, $7FFF
-!Tourian_1_Colors_1b = $0016, $000F, $5000, $3400, $1084, $0D1C, $739C
-!Tourian_1_Colors_2b = $0013, $000C, $4400, $2800, $1084, $00B9, $6739
-!Tourian_1_Colors_3b = $0010, $0009, $3800, $1C00, $1084, $0056, $5AD6
-!Tourian_1_Colors_4b = $000D, $0006, $2C00, $1000, $1084, $0013, $4E73
-!Tourian_1_Colors_5b = $000A, $0003, $2000, $0400, $1084, $0010, $4210
+!Tourian_1_Colors_0a = $4E36
+!Tourian_1_Colors_1a = $41D3
+!Tourian_1_Colors_2a = $3991
+!Tourian_1_Colors_3a = $314F
+!Tourian_1_Colors_4a = $290D
+!Tourian_1_Colors_5a = $20CB
+!Tourian_1_Colors_0b = $0019, $0012, $1DC0, $14E0, $1084, $197F, $5EBA
+!Tourian_1_Colors_1b = $0016, $000F, $1580, $10A0, $1084, $0D1C, $5678
+!Tourian_1_Colors_2b = $0013, $000C, $1140, $0C80, $1084, $00B9, $4E36
+!Tourian_1_Colors_3b = $0010, $0009, $0900, $0840, $1084, $0056, $4A15
+!Tourian_1_Colors_4b = $000D, $0006, $04C0, $0420, $1084, $0013, $41D3
+!Tourian_1_Colors_5b = $000A, $0003, $0080, $0000, $1084, $0010, $3DB2
 
 !Tourian_2_Colors_0a = $5294
 !Tourian_2_Colors_1a = $4A52
@@ -1206,13 +1206,13 @@
 !Tor_2Esc0_Colors_7 = $354A, $28E7, $20A5, $1463
 
 !Tor_2Esc1_Colors_0 = $081A, $0812, $042B, $0423
-!Tor_2Esc1_Colors_1 = $0C37, $0C30, $042A, $0423
-!Tor_2Esc1_Colors_2 = $1054, $0C2E, $0849, $0422
-!Tor_2Esc1_Colors_3 = $1471, $104C, $0848, $0422
-!Tor_2Esc1_Colors_4 = $148E, $106A, $0C66, $0842
-!Tor_2Esc1_Colors_5 = $18AB, $1488, $0C65, $0842
-!Tor_2Esc1_Colors_6 = $1CC8, $1486, $1084, $0841
-!Tor_2Esc1_Colors_7 = $20E5, $18A4, $1083, $0841
+!Tor_2Esc1_Colors_1 = $0C16, $0C0F, $0429, $0402
+!Tor_2Esc1_Colors_2 = $1033, $100D, $0827, $0402
+!Tor_2Esc1_Colors_3 = $1850, $142A, $0C26, $0401
+!Tor_2Esc1_Colors_4 = $1C4D, $1828, $0C24, $0401
+!Tor_2Esc1_Colors_5 = $246A, $1C45, $1023, $0400
+!Tor_2Esc1_Colors_6 = $2887, $2043, $1421, $0400
+!Tor_2Esc1_Colors_7 = $30A4, $2461, $1840, $0800
 
 !Tor_2Esc2_Colors_0 = $081A, $0812, $042B, $0423
 !Tor_2Esc2_Colors_1 = $0C37, $0C30, $042A, $0423
@@ -1289,25 +1289,25 @@
 !Tor_4Esc0_Colors_6c = $5ADF
 !Tor_4Esc0_Colors_7c = $529F
 
-!Tor_4Esc1_Colors_0a = $5294, $39CE, $2108, $1084
-!Tor_4Esc1_Colors_1a = $4E75, $35AF, $1CE8, $0C64
-!Tor_4Esc1_Colors_2a = $4A55, $318F, $1CE9, $0C64
-!Tor_4Esc1_Colors_3a = $4636, $2D70, $18C9, $0844
-!Tor_4Esc1_Colors_4a = $3DF6, $2D70, $18CA, $0844
-!Tor_4Esc1_Colors_5a = $39D7, $2951, $14AA, $0424
-!Tor_4Esc1_Colors_6a = $35B7, $2531, $14AB, $0424
-!Tor_4Esc1_Colors_7a = $3198, $2112, $108B, $0004
+!Tor_4Esc1_Colors_0a = $4E36, $3DB2, $20CB, $0802
+!Tor_4Esc1_Colors_1a = $4A16, $3992, $1CAB, $0402
+!Tor_4Esc1_Colors_2a = $4617, $3593, $18AB, $0402
+!Tor_4Esc1_Colors_3a = $41F8, $3173, $148C, $0403
+!Tor_4Esc1_Colors_4a = $41F8, $3174, $148C, $0403
+!Tor_4Esc1_Colors_5a = $3DD9, $2D54, $106D, $0404
+!Tor_4Esc1_Colors_6a = $39DA, $2955, $0C6D, $0404
+!Tor_4Esc1_Colors_7a = $39DB, $2956, $0C6E, $0405
 !Tor_4Esc1_Colors_0b = $0019, $0012
-!Tor_4Esc1_Colors_1b = $080D, $0809
+!Tor_4Esc1_Colors_1b = $080C, $0809
 !Tor_4Esc1_Colors_2b = $1000, $1000
-!Tor_4Esc1_Colors_0c = $7FFF
-!Tor_4Esc1_Colors_1c = $77BF
-!Tor_4Esc1_Colors_2c = $739F
-!Tor_4Esc1_Colors_3c = $6B5F
-!Tor_4Esc1_Colors_4c = $673F
-!Tor_4Esc1_Colors_5c = $5EFF
-!Tor_4Esc1_Colors_6c = $5ADF
-!Tor_4Esc1_Colors_7c = $529F
+!Tor_4Esc1_Colors_0c = $5EBA
+!Tor_4Esc1_Colors_1c = $5A9A
+!Tor_4Esc1_Colors_2c = $569B
+!Tor_4Esc1_Colors_3c = $567C
+!Tor_4Esc1_Colors_4c = $527C
+!Tor_4Esc1_Colors_5c = $525D
+!Tor_4Esc1_Colors_6c = $4E5E
+!Tor_4Esc1_Colors_7c = $4E5F
 
 !Tor_4Esc2_Colors_0a = $5294, $39CE, $2108, $1084
 !Tor_4Esc2_Colors_1a = $4E75, $35AF, $1CE8, $0C64
