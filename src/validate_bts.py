@@ -28,7 +28,7 @@ class Room:
       level_data = state_node.findall("./LevelData")[0]
       width = int(level_data.attrib['Width'], 16)
       height = int(level_data.attrib['Height'], 16)
-      state['level_data'] = [[None for x in range(height)] for y in range(width)]
+      state['level_data'] = [[None for _ in range(height)] for _ in range(width)]
 
       bts_nodes = state_node.findall("./LevelData/BTS/Screen")
       for bts_node in bts_nodes:
@@ -42,6 +42,14 @@ class Room:
         x = int(layer1_node.attrib['X'], 16)
         y = int(layer1_node.attrib['Y'], 16)
         tiles = [int(t, 16) for t in layer1_node.text.split()]
+        for i, tile in enumerate(tiles):
+          state['level_data'][x][y][i].append(tiles[i])
+
+      layer2_nodes = state_node.findall("./LevelData/Layer2/Screen")
+      for layer2_node in layer2_nodes:
+        x = int(layer2_node.attrib['X'], 16)
+        y = int(layer2_node.attrib['Y'], 16)
+        tiles = [int(t, 16) for t in layer2_node.text.split()]
         for i, tile in enumerate(tiles):
           state['level_data'][x][y][i].append(tiles[i])
 
@@ -150,7 +158,6 @@ filterd_rooms = [
 ]
 
 ignored_styles = [
-  "Base",
   "CrateriaPalette",
   "BrinstarPalette",
   "NorfairPalette",
@@ -176,18 +183,34 @@ for name, style in styles.items():
       for s_i, state in enumerate(room.states):
         for c_i, column in enumerate(state['level_data']):
           for n_i, screen in enumerate(column):
-            for b_i, (bts, tile) in enumerate(screen):
+            for b_i, tile_data in enumerate(screen):
+              bts = tile_data[0]
+              tile = tile_data[1]
+              layer2 = tile_data[2] if len(tile_data) >= 3 else None
+              context_str = f"{room.path} State<{s_i}>Screen({c_i},{n_i})[{b_i:X}]."
+
+              # Check for bad black tiles (ones that may get overwritten by item PLMs)
+              # These sometimes come from BGData -> Layer2 conversion.
+              if layer2 is not None and 0x8E <= (layer2 & 0x3FF) <= 0x95:
+                  print(f"{context_str} Bad black tile (overwritable by item PLM) in layer 2: {layer2:04X}")
+                  valid = 1
+
+              if name == "Base":
+                continue
+
               if name == "TransitTube":
                 base_room = base.rooms[4][0x18]
               else:
                 base_room = base.rooms[a_i][r_i]
               tiletype = tile >> 12
-              base_bts, base_tile = base_room.states[s_i]['level_data'][c_i][n_i][b_i]
+              
+              base_tile_data = base_room.states[s_i]['level_data'][c_i][n_i][b_i]
+              base_bts = base_tile_data[0]
+              base_tile = base_tile_data[1]
               base_tiletype = base_tile >> 12
 
               base_tiletype_bts_str = f"({base_tiletype:X}, {base_bts:02X})"
               tiletype_bts_str = f"({tiletype:X}, {bts:02X})"
-              context_str = f"{room.path} State<{s_i}>Screen({c_i},{n_i})[{b_i:X}]."
 
               # Basic check on tile type and BTS match:
               if (base_tiletype, base_bts) != (tiletype, bts):
@@ -204,6 +227,8 @@ for name, style in styles.items():
                 if tile & 0x3FF in [0x13D, 0x13E, 0x13F]:
                   print(f"{context_str} Background tile in layer 1: {tile:04X}")
                   valid = 1
+
+
         for f_i, fx in enumerate(state['fx']):
           base_fx = base.rooms[a_i][r_i].states[s_i]['fx'][f_i]
           context_str = f"{room.path} State<{s_i}>FX({f_i})"

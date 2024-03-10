@@ -432,6 +432,24 @@ TubeGfx_2:
   DB $00, $00, $00, $00, $FF, $FF, $F0, $FF, $FF, $00, $FF, $FF, $FF, $00, $00, $00, $00, $00, $00, $00, $00, $FF, $00, $FF, $FF, $FF, $00, $FF, $00, $FF, $00, $FF
   DB $F7, $08, $88, $FF, $FF, $FF, $FF, $FF, $FF, $F7, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $00, $FF, $00, $FF, $08, $FF, $FF, $FF, $08, $FF, $FF, $FF, $FF, $FF, $FF
 
+CheckShutterEnemyRoom: ;DB is 8D
+  LDA #$000E
+  JSL $808233
+  BCC +
+  LDA $079F ; area index
+  XBA
+  ORA $079D ; room index
+  CMP #$050E ;TOURAIN ESCAPE ROOM 1
+  BNE +
+  LDA $196A
+  ORA #$0008
+  STA $196A
+  RTL
++
+  LDA #$E192
+  STA $1EBD,Y
+  RTL
+
 org $8FC11B ; Room init code for ocean rooms no longer used due to scrolling sky
   JSL LoadSpeecialRoomTiles
   RTS
@@ -448,8 +466,13 @@ SandFloorColorsInit:
 HeavySandColorsInit:
   JSL UpdateHeavySandColors
   RTS
+CheckShutterEnemyRoomInit:
+  JSL CheckShutterEnemyRoom
+  RTS
 warnpc $8DC696
 
+org $8DFFC9 ; Delete this glow unless we're in the one Tourian room where there is shutters in enemy type slot 1
+  DW #CheckShutterEnemyRoomInit, $F7A9
 
 ; Move animation VRAM offsets
 org $878279
