@@ -12,10 +12,10 @@
 !SkyFlash1_Colors_3 = $6739, $6718, $6718, $6318, $62F7, $62F7, $62F7, $5EF7
 !SkyFlash1_Colors_4 = $7FFF, $7FFF, $7FFF, $7FFF, $7FFF, $7FFF, $7FFF, $7FFF
 
-!SkyFlash2_Colors_0 = $2D6C, $294B, $252A, $2109, $1CE8, $18C7, $14A6, $1085
-!SkyFlash2_Colors_1 = $4632, $4211, $3DF0, $39CF, $35AE, $318D, $2D6C, $294B
-!SkyFlash2_Colors_2 = $5EF8, $5AD7, $56B6, $5295, $4E74, $4A53, $4632, $4211
-!SkyFlash2_Colors_3 = $77BE, $739D, $6F7C, $6B5B, $673A, $6319, $5EF8, $5AD7
+!SkyFlash2_Colors_0 = $1CCB, $18A9, $14A7, $1086, $0845, $0844, $0422, $0421
+!SkyFlash2_Colors_1 = $3590, $316E, $2D6D, $294C, $252B, $252A, $2109, $2108
+!SkyFlash2_Colors_2 = $4E55, $4A54, $4A53, $4632, $4212, $4211, $4210, $4210
+!SkyFlash2_Colors_3 = $671A, $6319, $6319, $6318, $5EF8, $5EF8, $5EF7, $5EF7
 !SkyFlash2_Colors_4 = $7FFF, $7FFF, $7FFF, $7FFF, $7FFF, $7FFF, $7FFF, $7FFF
 
 !SkyFlash3_Colors_0 = $2D6C, $294B, $252A, $2109, $1CE8, $18C7, $14A6, $1085
@@ -67,14 +67,14 @@
 !SurfcEsc1_Colors_6 = $16D2, $25CE, $0D26, $40E7, $2885, $1CA3, $0848
 !SurfcEsc1_Colors_7 = $16D4, $25CF, $0D27, $40E8, $2886, $1CA4, $0015
 
-!SurfcEsc2_Colors_0 = $1D89, $0D06, $0CA3, $2D0E, $2D09, $28C5, $0C81
-!SurfcEsc2_Colors_1 = $1D8A, $0D07, $0CA4, $2D0E, $2D09, $28C5, $0421
-!SurfcEsc2_Colors_2 = $1D8A, $0D28, $0CC4, $2D0F, $2D0A, $28C6, $0423
-!SurfcEsc2_Colors_3 = $1D8B, $0D29, $0CC5, $2D0F, $2D0A, $28C6, $0424
-!SurfcEsc2_Colors_4 = $1DAB, $1149, $10C5, $2D0F, $2D0B, $28C7, $0845
-!SurfcEsc2_Colors_5 = $1DAC, $114A, $10C6, $2D0F, $2D0B, $28C7, $0846
-!SurfcEsc2_Colors_6 = $1DAC, $116B, $10E6, $2D10, $2D0C, $28C8, $0848
-!SurfcEsc2_Colors_7 = $1DAD, $116C, $10E7, $2D10, $2D0C, $28C8, $0015
+!SurfcEsc2_Colors_0 = $10EB, $0CA8, $0464, $2535, $294D, $14A9, $0C66
+!SurfcEsc2_Colors_1 = $0CCA, $0888, $0044, $2115, $252D, $1089, $0421
+!SurfcEsc2_Colors_2 = $08CA, $0888, $0044, $1CF5, $250D, $1069, $0423
+!SurfcEsc2_Colors_3 = $08AA, $0468, $0024, $1CD5, $210D, $0C49, $0424
+!SurfcEsc2_Colors_4 = $04AA, $0468, $0024, $18B5, $20ED, $0C49, $0845
+!SurfcEsc2_Colors_5 = $048A, $0048, $0004, $1895, $1CED, $0829, $0846
+!SurfcEsc2_Colors_6 = $008A, $0048, $0004, $1475, $1CCD, $0809, $0848
+!SurfcEsc2_Colors_7 = $008A, $0048, $0004, $1475, $1CCE, $0809, $0015
 
 !SurfcEsc3_Colors_0 = $1D89, $0D06, $0CA3, $2D0E, $2D09, $28C5, $0C81
 !SurfcEsc3_Colors_1 = $1D8A, $0D07, $0CA4, $2D0E, $2D09, $28C5, $0421
@@ -132,9 +132,9 @@
 !Sky_Esc_1_Colors_2 = $2334, $1F14, $1AF4, $1AD5, $1AD4, $22B7, $0020, $0000, $0000, $0000, $0000
 !Sky_Esc_1_Colors_3 = $27FF, $27FF, $27FF, $27FF, $27FF, $27FF, $0000, $0000, $0000, $0000, $0000
 
-!Sky_Esc_2_Colors_0 = $48D5, $38B0, $286A, $2488, $2067, $1846, $1425, $1024, $0C23, $0C03, $0802
-!Sky_Esc_2_Colors_1 = $3DD8, $31D5, $2991, $25B0, $218F, $1D8E, $0C23, $0C23, $0822, $0802, $0401
-!Sky_Esc_2_Colors_2 = $32FC, $2EDA, $26D8, $26D7, $26D7, $22B7, $0802, $0401, $0401, $0401, $0401
+!Sky_Esc_2_Colors_0 = $5511, $40CD, $2C87, $2886, $2465, $1C44, $1823, $1023, $0C22, $0C02, $0801
+!Sky_Esc_2_Colors_1 = $45F5, $35D3, $29AF, $25AE, $258D, $1D6D, $1002, $0802, $0801, $0801, $0400
+!Sky_Esc_2_Colors_2 = $36FA, $2ED9, $26D7, $26D6, $26B6, $22B6, $0801, $0401, $0401, $0400, $0000
 !Sky_Esc_2_Colors_3 = $27FF, $27FF, $27FF, $27FF, $27FF, $27FF, $0000, $0000, $0401, $0000, $0000
 
 !Sky_Esc_3_Colors_0 = $48D5, $38B0, $286A, $2488, $2067, $1846, $1425, $1024, $0C23, $0C03, $0802
@@ -207,27 +207,27 @@
 !OldT1Esc1_Colors_6c = $215D
 !OldT1Esc1_Colors_7c = $153F
 
-!OldT1Esc2_Colors_0a = $5A73, $41AD, $28E7
-!OldT1Esc2_Colors_1a = $4E14, $396E, $24C8
-!OldT1Esc2_Colors_2a = $41D5, $312E, $1CA8
-!OldT1Esc2_Colors_3a = $3576, $28EF, $1889
-!OldT1Esc2_Colors_4a = $2D17, $20D0, $1489
-!OldT1Esc2_Colors_5a = $20B8, $1891, $106A
-!OldT1Esc2_Colors_6a = $1479, $1051, $084A
+!OldT1Esc2_Colors_0a = $4A52, $2D6B, $1084
+!OldT1Esc2_Colors_1a = $3DF3, $252C, $0C65
+!OldT1Esc2_Colors_2a = $3594, $20ED, $0C66
+!OldT1Esc2_Colors_3a = $2D55, $1CCE, $0847
+!OldT1Esc2_Colors_4a = $20F6, $148F, $0848
+!OldT1Esc2_Colors_5a = $18B7, $1070, $0429
+!OldT1Esc2_Colors_6a = $1058, $0C31, $042A
 !OldT1Esc2_Colors_7a = $081A, $0812, $042B
-!OldT1Esc2_Colors_0b = $0019, $0012, $3460, $0C20
-!OldT1Esc2_Colors_1b = $0014, $000E, $4900, $1C60
-!OldT1Esc2_Colors_2b = $000F, $000A, $5980, $2CA0
-!OldT1Esc2_Colors_3b = $000A, $0005, $6E20, $38C0
-!OldT1Esc2_Colors_4b = $0005, $0001, $7EA0, $4900
-!OldT1Esc2_Colors_0c = $7F9C
-!OldT1Esc2_Colors_1c = $6F3C
-!OldT1Esc2_Colors_2c = $62FD
-!OldT1Esc2_Colors_3c = $529D
-!OldT1Esc2_Colors_4c = $423E
-!OldT1Esc2_Colors_5c = $31DE
-!OldT1Esc2_Colors_6c = $259F
-!OldT1Esc2_Colors_7c = $153F
+!OldT1Esc2_Colors_0b = $0019, $0012, $210E, $1087
+!OldT1Esc2_Colors_1b = $0014, $000E, $2130, $10A9
+!OldT1Esc2_Colors_2b = $000F, $000A, $2153, $10CB
+!OldT1Esc2_Colors_3b = $000A, $0005, $2175, $10ED
+!OldT1Esc2_Colors_4b = $0005, $0001, $21B8, $1510
+!OldT1Esc2_Colors_0c = $4A9F
+!OldT1Esc2_Colors_1c = $425F
+!OldT1Esc2_Colors_2c = $3A1F
+!OldT1Esc2_Colors_3c = $35DF
+!OldT1Esc2_Colors_4c = $2D9F
+!OldT1Esc2_Colors_5c = $295F
+!OldT1Esc2_Colors_6c = $211F
+!OldT1Esc2_Colors_7c = $1CFF
 
 !OldT1Esc3_Colors_0a = $5A73, $41AD, $28E7
 !OldT1Esc3_Colors_1a = $4E14, $396E, $24C8
@@ -352,11 +352,11 @@
 !OldT2Esc1_Colors_3 = $0E37, $096F, $04A8
 !OldT2Esc1_Colors_4 = $025A, $0192, $00CA
 
-!OldT2Esc2_Colors_0 = $35AD, $1CE7, $0C63
-!OldT2Esc2_Colors_1 = $29D0, $150A, $0885
-!OldT2Esc2_Colors_2 = $1E14, $114D, $08A7
-!OldT2Esc2_Colors_3 = $0E37, $096F, $04A8
-!OldT2Esc2_Colors_4 = $025A, $0192, $00CA
+!OldT2Esc2_Colors_0 = $4E73, $35AD, $1CE7
+!OldT2Esc2_Colors_1 = $3A55, $298E, $14C7
+!OldT2Esc2_Colors_2 = $2A57, $1D90, $0CC8
+!OldT2Esc2_Colors_3 = $1A39, $1171, $04A9
+!OldT2Esc2_Colors_4 = $0A3B, $0573, $00AA
 
 !OldT2Esc3_Colors_0 = $35AD, $1CE7, $0C63
 !OldT2Esc3_Colors_1 = $29D0, $150A, $0885
@@ -401,10 +401,10 @@
 !OldT3Esc1_Colors_3 = $5717, $3717, $0717
 !OldT3Esc1_Colors_4 = $67FF, $43FF, $03FF
 
-!OldT3Esc2_Colors_0 = $28C8, $2484, $1C61
-!OldT3Esc2_Colors_1 = $398E, $296B, $1549
-!OldT3Esc2_Colors_2 = $4A74, $2E52, $1230
-!OldT3Esc2_Colors_3 = $5739, $3318, $0B18
+!OldT3Esc2_Colors_0 = $1CED, $14A8, $0843
+!OldT3Esc2_Colors_1 = $2DB1, $1D6D, $052A
+!OldT3Esc2_Colors_2 = $4276, $2A53, $0611
+!OldT3Esc2_Colors_3 = $533A, $3719, $02F8
 !OldT3Esc2_Colors_4 = $67FF, $43FF, $03FF
 
 !OldT3Esc3_Colors_0 = $28C8, $2484, $1C61
@@ -456,14 +456,14 @@
 !Blue_BG_1_Colors_6 = $4460, $3400, $0800
 !Blue_BG_1_Colors_7 = $4040, $3400, $0800
 
-!Blue_BG_2_Colors_0 = $5D22, $4463, $1840
-!Blue_BG_2_Colors_1 = $5901, $4042, $1420
-!Blue_BG_2_Colors_2 = $54E0, $3C21, $1000
-!Blue_BG_2_Colors_3 = $50C0, $3C21, $1000
-!Blue_BG_2_Colors_4 = $4CA0, $3800, $0C00
-!Blue_BG_2_Colors_5 = $4880, $3800, $0C00
-!Blue_BG_2_Colors_6 = $4460, $3400, $0800
-!Blue_BG_2_Colors_7 = $4040, $3400, $0800
+!Blue_BG_2_Colors_0 = $0C72, $0C49, $1027
+!Blue_BG_2_Colors_1 = $0850, $0828, $0C06
+!Blue_BG_2_Colors_2 = $084F, $0827, $0805
+!Blue_BG_2_Colors_3 = $042E, $0426, $0804
+!Blue_BG_2_Colors_4 = $042D, $0406, $0404
+!Blue_BG_2_Colors_5 = $000C, $0005, $0403
+!Blue_BG_2_Colors_6 = $000B, $0004, $0002
+!Blue_BG_2_Colors_7 = $000A, $0004, $0002
 
 !Blue_BG_3_Colors_0 = $5D22, $4463, $1840
 !Blue_BG_3_Colors_1 = $5901, $4042, $1420
@@ -529,14 +529,14 @@
 !Purp_BG_1_Colors_6 = $3411, $1009, $0C03, $0401, $0000, $0000, $0000, $0000
 !Purp_BG_1_Colors_7 = $3010, $0C08, $0802, $0000, $0000, $0000, $0000, $0000
 
-!Purp_BG_2_Colors_0 = $4C17, $280F, $2409, $1C07, $1405, $0C03, $0802, $0401
-!Purp_BG_2_Colors_1 = $4816, $240E, $2008, $1806, $1004, $0802, $0401, $0000
-!Purp_BG_2_Colors_2 = $4415, $200D, $1C07, $1405, $0C03, $0401, $0000, $0000
-!Purp_BG_2_Colors_3 = $4014, $1C0C, $1806, $1004, $0802, $0000, $0000, $0000
-!Purp_BG_2_Colors_4 = $3C13, $180B, $1405, $0C03, $0401, $0000, $0000, $0000
-!Purp_BG_2_Colors_5 = $3812, $140A, $1004, $0802, $0000, $0000, $0000, $0000
-!Purp_BG_2_Colors_6 = $3411, $1009, $0C03, $0401, $0000, $0000, $0000, $0000
-!Purp_BG_2_Colors_7 = $3010, $0C08, $0802, $0000, $0000, $0000, $0000, $0000
+!Purp_BG_2_Colors_0 = $0C77, $0C70, $0C6C, $0C48, $0C46, $0843, $0421, $0000
+!Purp_BG_2_Colors_1 = $0875, $084E, $084A, $0826, $0825, $0422, $0000, $0000
+!Purp_BG_2_Colors_2 = $0874, $084D, $0849, $0825, $0824, $0422, $0000, $0000
+!Purp_BG_2_Colors_3 = $0873, $044B, $0427, $0424, $0423, $0421, $0000, $0000
+!Purp_BG_2_Colors_4 = $0472, $044A, $0426, $0403, $0402, $0001, $0000, $0000
+!Purp_BG_2_Colors_5 = $0471, $0048, $0004, $0002, $0001, $0000, $0000, $0000
+!Purp_BG_2_Colors_6 = $0470, $0047, $0003, $0001, $0000, $0000, $0000, $0000
+!Purp_BG_2_Colors_7 = $046F, $0046, $0002, $0000, $0000, $0000, $0000, $0000
 
 !Purp_BG_3_Colors_0 = $4C17, $280F, $2409, $1C07, $1405, $0C03, $0802, $0401
 !Purp_BG_3_Colors_1 = $4816, $240E, $2008, $1806, $1004, $0802, $0401, $0000
@@ -598,12 +598,12 @@
 !Beacon__1_Colors_4b = $4631
 !Beacon__1_Colors_5b = $3DEF
 
-!Beacon__2_Colors_0a = $02BF, $017F, $0015
-!Beacon__2_Colors_1a = $023B, $00FB, $0011
-!Beacon__2_Colors_2a = $01D8, $0098, $000E
-!Beacon__2_Colors_3a = $0154, $0055, $000B
-!Beacon__2_Colors_4a = $00D0, $0010, $0007
-!Beacon__2_Colors_5a = $00AA, $000B, $0004
+!Beacon__2_Colors_0a = $0456, $0D7F, $0EDF
+!Beacon__2_Colors_1a = $0450, $04FA, $0E3A
+!Beacon__2_Colors_2a = $042D, $04B7, $09D7
+!Beacon__2_Colors_3a = $002A, $0474, $0953
+!Beacon__2_Colors_4a = $0006, $044F, $04CF
+!Beacon__2_Colors_5a = $0003, $002A, $04A9
 !Beacon__2_Colors_0b = $7FFF
 !Beacon__2_Colors_1b = $739C
 !Beacon__2_Colors_2b = $5AD6
@@ -981,11 +981,11 @@
 !WS_Green1_Colors_3 = $000D, $0015
 !WS_Green1_Colors_4 = $000D, $0413
 
-!WS_Green2_Colors_0 = $1EA9, $0BB1
-!WS_Green2_Colors_1 = $1667, $034E
-!WS_Green2_Colors_2 = $0E25, $02EB
-!WS_Green2_Colors_3 = $05E3, $0288
-!WS_Green2_Colors_4 = $01A1, $0225
+!WS_Green2_Colors_0 = $0015, $025B
+!WS_Green2_Colors_1 = $0012, $0218
+!WS_Green2_Colors_2 = $0010, $01D6
+!WS_Green2_Colors_3 = $000D, $0193
+!WS_Green2_Colors_4 = $000B, $0151
 
 !WS_Green3_Colors_0 = $1EA9, $0BB1
 !WS_Green3_Colors_1 = $1667, $034E
@@ -1036,14 +1036,14 @@
 !Waterfal1_Color_3 = $1889
 !Waterfal1_Color_4 = $20AB
 
-!Waterfal2_Color_0 = $0400
-!Waterfal2_Color_7 = $0821
-!Waterfal2_Color_1 = $0C22
-!Waterfal2_Color_6 = $1043
-!Waterfal2_Color_2 = $1864
-!Waterfal2_Color_5 = $1C65
-!Waterfal2_Color_3 = $2086
-!Waterfal2_Color_4 = $2CC9
+!Waterfal2_Color_0 = $0001
+!Waterfal2_Color_7 = $0002
+!Waterfal2_Color_1 = $0003
+!Waterfal2_Color_6 = $0023
+!Waterfal2_Color_2 = $0045
+!Waterfal2_Color_5 = $0066
+!Waterfal2_Color_3 = $0487
+!Waterfal2_Color_4 = $08CA
 
 !Waterfal3_Color_0 = $0400
 !Waterfal3_Color_7 = $0821
@@ -1123,12 +1123,12 @@
 !Tourian_2_Colors_3a = $39CE
 !Tourian_2_Colors_4a = $318C
 !Tourian_2_Colors_5a = $294A
-!Tourian_2_Colors_0b = $0019, $0012, $5C00, $4000, $1084, $197F, $7FFF
-!Tourian_2_Colors_1b = $0016, $000F, $5000, $3400, $1084, $0D1C, $739C
-!Tourian_2_Colors_2b = $0013, $000C, $4400, $2800, $1084, $00B9, $6739
-!Tourian_2_Colors_3b = $0010, $0009, $3800, $1C00, $1084, $0056, $5AD6
-!Tourian_2_Colors_4b = $000D, $0006, $2C00, $1000, $1084, $0013, $4E73
-!Tourian_2_Colors_5b = $000A, $0003, $2000, $0400, $1084, $0010, $4210
+!Tourian_2_Colors_0b = $0019, $0012, $0EDF, $0596, $1084, $197F, $46FF
+!Tourian_2_Colors_1b = $0016, $000F, $0A7B, $0133, $1084, $111C, $3EBD
+!Tourian_2_Colors_2b = $0013, $000C, $0618, $00F0, $1084, $0CD9, $367B
+!Tourian_2_Colors_3b = $0010, $0009, $05B4, $008D, $1084, $0896, $3259
+!Tourian_2_Colors_4b = $000D, $0006, $0151, $004A, $1084, $0453, $2A17
+!Tourian_2_Colors_5b = $000A, $0003, $00EE, $0007, $1084, $0010, $25F6
 
 !Tourian_3_Colors_0a = $5294
 !Tourian_3_Colors_1a = $4A52
@@ -1215,13 +1215,13 @@
 !Tor_2Esc1_Colors_7 = $30A4, $2461, $1840, $0800
 
 !Tor_2Esc2_Colors_0 = $081A, $0812, $042B, $0423
-!Tor_2Esc2_Colors_1 = $0C37, $0C30, $042A, $0423
-!Tor_2Esc2_Colors_2 = $1054, $0C2E, $0849, $0422
-!Tor_2Esc2_Colors_3 = $1471, $104C, $0848, $0422
-!Tor_2Esc2_Colors_4 = $148E, $106A, $0C66, $0842
-!Tor_2Esc2_Colors_5 = $18AB, $1488, $0C65, $0842
-!Tor_2Esc2_Colors_6 = $1CC8, $1486, $1084, $0841
-!Tor_2Esc2_Colors_7 = $20E5, $18A4, $1083, $0841
+!Tor_2Esc2_Colors_1 = $1058, $0C30, $042A, $0422
+!Tor_2Esc2_Colors_2 = $1897, $104F, $0429, $0422
+!Tor_2Esc2_Colors_3 = $20D5, $146E, $0848, $0422
+!Tor_2Esc2_Colors_4 = $2934, $18AC, $0847, $0422
+!Tor_2Esc2_Colors_5 = $3172, $1CCB, $0C66, $0422
+!Tor_2Esc2_Colors_6 = $39B1, $20EA, $0C65, $0422
+!Tor_2Esc2_Colors_7 = $4210, $2529, $1084, $0842
 
 !Tor_2Esc3_Colors_0 = $081A, $0812, $042B, $0423
 !Tor_2Esc3_Colors_1 = $0C37, $0C30, $042A, $0423
@@ -1310,24 +1310,24 @@
 !Tor_4Esc1_Colors_7c = $4E5F
 
 !Tor_4Esc2_Colors_0a = $5294, $39CE, $2108, $1084
-!Tor_4Esc2_Colors_1a = $4E75, $35AF, $1CE8, $0C64
-!Tor_4Esc2_Colors_2a = $4A55, $318F, $1CE9, $0C64
-!Tor_4Esc2_Colors_3a = $4636, $2D70, $18C9, $0844
-!Tor_4Esc2_Colors_4a = $3DF6, $2D70, $18CA, $0844
-!Tor_4Esc2_Colors_5a = $39D7, $2951, $14AA, $0424
-!Tor_4Esc2_Colors_6a = $35B7, $2531, $14AB, $0424
+!Tor_4Esc2_Colors_1a = $4A54, $35AE, $1CE8, $0C64
+!Tor_4Esc2_Colors_2a = $4635, $318F, $18C8, $0844
+!Tor_4Esc2_Colors_3a = $4215, $2D6F, $18C9, $0844
+!Tor_4Esc2_Colors_4a = $3DF6, $2950, $14A9, $0424
+!Tor_4Esc2_Colors_5a = $39D6, $2530, $14AA, $0424
+!Tor_4Esc2_Colors_6a = $35B7, $2111, $108A, $0004
 !Tor_4Esc2_Colors_7a = $3198, $2112, $108B, $0004
 !Tor_4Esc2_Colors_0b = $0019, $0012
 !Tor_4Esc2_Colors_1b = $080D, $0809
 !Tor_4Esc2_Colors_2b = $1000, $1000
-!Tor_4Esc2_Colors_0c = $7FFF
-!Tor_4Esc2_Colors_1c = $77BF
-!Tor_4Esc2_Colors_2c = $739F
-!Tor_4Esc2_Colors_3c = $6B5F
-!Tor_4Esc2_Colors_4c = $673F
-!Tor_4Esc2_Colors_5c = $5EFF
-!Tor_4Esc2_Colors_6c = $5ADF
-!Tor_4Esc2_Colors_7c = $529F
+!Tor_4Esc2_Colors_0c = $46FF
+!Tor_4Esc2_Colors_1c = $42DF
+!Tor_4Esc2_Colors_2c = $42BF
+!Tor_4Esc2_Colors_3c = $3EBF
+!Tor_4Esc2_Colors_4c = $3E9F
+!Tor_4Esc2_Colors_5c = $3A9F
+!Tor_4Esc2_Colors_6c = $3A7F
+!Tor_4Esc2_Colors_7c = $3A7F
 
 !Tor_4Esc3_Colors_0a = $5294, $39CE, $2108, $1084
 !Tor_4Esc3_Colors_1a = $4E75, $35AF, $1CE8, $0C64
