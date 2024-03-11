@@ -12,6 +12,17 @@ org $82DF1D
   ;LDA $0006,X
   ;STA $07C6
 
+org $A6A4D6
+  CMP #$000F
+  BMI +
+  SEC
+  RTS
++
+  JSL RidleyLightsOn
+  CLC
+  RTS
+warnpc $A6A6AF
+
 org $A7DC71
   JSL LoadPhantoonTargetColor
   ;LDA $CA61,X
@@ -238,13 +249,11 @@ MBLightsOn:
   LDA #$0007
   STA $00
 
-  JSR GetArea
-  TAX
-  LDA.l AreaPalettes+1,X
-  STA $03 ; palette bank
-  LDA.l AreaPalettes+0,X
-  CLC
-  ADC #$0E3A ; MB is palette $0E + skip header
+  LDA $07C7
+  STA $03
+  LDA $07C6
+  INC
+  INC
   STA $02
 
   LDA #$0062
@@ -280,6 +289,39 @@ MBLightsOn:
   STX $06
   CPX #$00C0
   BMI -
+  RTL
+
+RidleyLightsOn:
+  PHY
+  STA $16 ; transition index
+  LDA #$000F
+  STA $00
+
+  LDA $07C7
+  STA $03
+  LDA $07C6
+  INC
+  INC
+  STA $02
+
+  LDA #$00E2
+  STA $06
+-
+  LDY $06
+  LDA [$02],Y
+  TAY ; target color
+  LDX #$0000 ; source color
+  LDA $16
+  JSR ComputeTransitionalColor
+  LDX $06
+  STA $7EC000,X
+  INX
+  INX
+  STX $06
+  CPX #$0100
+  BMI -
+
+  PLY
   RTL
 
 ; Use "InputFile" working directory mode in SMART if you want this to assemble in xkas
