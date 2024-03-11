@@ -606,7 +606,7 @@
       <layer2_type>Layer2</layer2_type>
       <layer2_xscroll>C0</layer2_xscroll>
       <layer2_yscroll>00</layer2_yscroll>
-      <ScrollData>02 02 02 02 1F 02 1D 04 </ScrollData>
+      <ScrollData>02 02 02 02 1F 02 02 02 </ScrollData>
       <roomvar>0000</roomvar>
       <FX2>0000</FX2>
       <PLMs>
