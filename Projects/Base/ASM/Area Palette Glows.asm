@@ -34,6 +34,11 @@ incsrc GlowData.def
 ; All code for instructions for V2 glows is run in bank BB, so any instructions used need to be copied there.
 ; It's not possible to mix banks for a single glow. If a glow is converted to V2, it must be entirely moved.
 
+org $8AC000
+EnablePalettesFlag:
+  ; Two bytes go here
+  ; DW $F0F0 ; vanilla = $1478
+
 org $8DC4FF ; Patch main glow object constructor to support polymorphic glow headers
   TYA
   STA $1E7D,X
@@ -109,7 +114,27 @@ SpawnGlow_V2:
   LDA.w #EmptyPre
   STA $1EAD,X ; pre-instruction
 
-  LDA $1F5B ; map area
+  ; Enable area palettes is either the flag is set in ROM or one of the debug events is set
+  LDA.l EnablePalettesFlag
+  CMP #$F0F0
+  BEQ UseMapArea
+  LDA $7ED824 ; event bits $20-27
+  AND #$00FF
+  BNE UseMapArea
+
+;UseTilesetArea:
+  PHX
+  LDX $07BB ; tileset index
+  LDA $8F0003,X
+  AND #$00FF
+  TAX
+  LDA.l StandardArea,X
+  PLX
+  BRA ReadHeader
+UseMapArea:
+  LDA $1F5B  ; map area
+
+ReadHeader:
   AND #$00FF
   ASL
   ASL ; 4 byte entries
@@ -130,6 +155,24 @@ SpawnGlow_V2:
   PLP
   CLC
   RTL
+
+StandardArea:
+  DB $00, $00 ;Crateria Surface
+  DB $00, $00 ;Inner Crateria
+  DB $03, $03 ;Wrecked Ship
+  DB $01, $01 ;Brinstar
+  DB $01 ;Tourian Statues Access/Blue brinstar
+  DB $02, $02 ;Norfair
+  DB $04, $04 ;Maridia
+  DB $05, $05 ;Tourian
+  DB $06, $06, $06, $60, $60, $60 ;Ceres
+  DB $00, $00, $00, $00, $00 ;Utility Rooms
+  ;Bosses
+  DB $01 ;Kraid
+  DB $04 ;Draygon
+  DB $04 ;Draygon
+  DB $01 ;SpoSpo
+  DB $03 ;Phantoon
 
 EmptyInit:
 EmptyPre:
