@@ -80,9 +80,8 @@ class Style:
 
     for room_file in room_files:
       room = Room(room_file)
-      if room.include() or self.name == "Base":
-        self.rooms[room.area][room.index] = room
-      else:
+      self.rooms[room.area][room.index] = room
+      if not room.include() and self.name != "Base":
         self.excluded[room.area][room.index] = room
 
 parser = ArgumentParser(prog="generate_manifest")
@@ -170,7 +169,7 @@ for name, style in styles.items():
   if name in ignored_styles:
     continue
   excluded_count_list = [len(style.excluded[a_i]) for a_i in range(6)]
-  print(f"{name} excluded room count: {excluded_count_list}")
+  print(f"{name} unready room count: {excluded_count_list}")
 
   filtered_excluded_list = [sorted([(a_i, r_i, Path(r.path).stem) for r_i, r in style.excluded[a_i].items() if (a_i, r_i) not in filterd_rooms]) for a_i in range(6)]
   print(f"{name} Rooms TODO:")
@@ -222,8 +221,8 @@ for name, style in styles.items():
                 print(f"{context_str} Wrong tile for grapple block: should be {base_tile:04X} but was {tile:04X}")
                 valid = 1
 
-              # Check for background tiles in wrong layer:
-              if name == "OuterCrateria":
+              # Check for background tiles in wrong layer (excluding KRAID BOSS ROOM which has this in vanilla):
+              if name == "OuterCrateria" and (a_i, r_i) != (1, 47):
                 if tile & 0x3FF in [0x13D, 0x13E, 0x13F]:
                   print(f"{context_str} Background tile in layer 1: {tile:04X}")
                   valid = 1
