@@ -12,6 +12,18 @@ org $82DF1D
   ;LDA $0006,X
   ;STA $07C6
 
+org $89ABFB
+  JSR GetPaletteBlendIndex_Trampoline
+  ;AND #$00FF
+org $89AC01 : LDA.l $8A0000,X
+org $89AC09 : LDA.l $8A0002,X
+org $89AC11 : LDA.l $8A0004,X
+
+org $89AA02
+GetPaletteBlendIndex_Trampoline:
+  JSL GetPaletteBlendIndex
+  RTS
+
 org $A6A4D6
   CMP #$000F
   BMI +
@@ -78,10 +90,7 @@ GetPalettePointer:
   LDA.l AreaPalettes+0,X
   STA $12 ; palette base offset
 
-  LDX $07BB ; tileset index
-  LDA $8F0003,X
-  AND #$00FF
-
+  LDA $08 ; tileset index
   STA $14
   ASL $14
   ASL $14 ; $14 = tileset index * 4
@@ -105,7 +114,7 @@ StandardArea:
   DB $02*3, $02*3 ;Norfair
   DB $04*3, $04*3 ;Maridia
   DB $05*3, $05*3 ;Tourian
-  DB $06*3, $06*3, $06*3, $60*3, $60*3, $60*3 ;Ceres
+  DB $06*3, $06*3, $06*3, $06*3, $06*3, $06*3 ;Ceres
   DB $00*3, $00*3, $00*3, $00*3, $00*3 ;Utility Rooms
   ;Bosses
   DB $01*3 ;Kraid
@@ -324,6 +333,97 @@ RidleyLightsOn:
   PLY
   RTL
 
+GetPaletteBlendIndex:
+  AND #$00FF
+  BNE +
+  RTL
++
+  STA $00
+  JSR GetArea
+  TAX
+  LDA.l BlendTable,X
+  CLC
+  ADC $00
+  RTL
+
+!unused_blend_ent = $6318,$6318,$0000
+
+BlendTable:
+  DL Blends_0, Blends_1, Blends_2, Blends_3, Blends_4, Blends_5, Blends_6, Blends_7
+Blends_0:
+  DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $0400,$1C63,$0000, $28E3,$1C60,$0000, $2485,$3D88,$0000, $0880,$0420,$0000, !unused_blend_ent
+  DW $3800, $20A5,$1C84,$1024, $1087,$14A8,$0844, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $0400,$18A2,$0000, $0020,$0C62,$0000, $0400,$1C45,$0000, !unused_blend_ent, !unused_blend_ent
+Blends_1:
+  DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $0400,$1C63,$0000, $28E3,$1C60,$0000, $2485,$3D88,$0000, $0880,$0420,$0000, !unused_blend_ent
+  DW $3800, $20A5,$1C84,$1024, $1087,$14A8,$0844, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $0400,$18A2,$0000, $0020,$0C62,$0000, $0401,$1467,$0000, !unused_blend_ent, !unused_blend_ent
+Blends_2:
+  DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $0400,$1C63,$0000, $28E3,$1C60,$0000, $2485,$3D88,$0000, $0880,$0420,$0000, !unused_blend_ent
+  DW $3800, $20A5,$1C84,$1024, $1087,$14A8,$0844, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $0400,$18A2,$0000, $0020,$0C62,$0000, $0002,$0066,$0000, !unused_blend_ent, !unused_blend_ent
+Blends_3:
+  DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $0400,$1C63,$0000, $28E3,$1C60,$0000, $2485,$3D88,$0000, $0880,$0420,$0000, !unused_blend_ent
+  DW $3800, $20A5,$1C84,$1024, $1087,$14A8,$0844, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $0400,$18A2,$0000, $0020,$0C62,$0000, $0021,$0082,$0000, !unused_blend_ent, !unused_blend_ent
+Blends_4:
+  DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $0400,$1C63,$0000, $28E3,$1C60,$0000, $2485,$3D88,$0000, $0880,$0420,$0000, !unused_blend_ent
+  DW $3800, $20A5,$1C84,$1024, $1087,$14A8,$0844, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $0400,$18A2,$0000, $0020,$0C62,$0000, $0400,$1C45,$0000, !unused_blend_ent, !unused_blend_ent
+Blends_5:
+  DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $0400,$1C63,$0000, $28E3,$1C60,$0000, $2485,$3D88,$0000, $0880,$0420,$0000, !unused_blend_ent
+  DW $3800, $20A5,$1C84,$1024, $1087,$14A8,$0844, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $0400,$18A2,$0000, $0020,$0C62,$0000, $0421,$0C63,$0000, !unused_blend_ent, !unused_blend_ent
+Blends_6:
+  DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $0400,$1C63,$0000, $28E3,$1C60,$0000, $2485,$3D88,$0000, $0880,$0420,$0000, !unused_blend_ent
+  DW $3800, $20A5,$1C84,$1024, $1087,$14A8,$0844, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $0400,$18A2,$0000, $0020,$0C62,$0000, $0400,$1C45,$0000, !unused_blend_ent, !unused_blend_ent
+Blends_7:
+  DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $0400,$1C63,$0000, $28E3,$1C60,$0000, $2485,$3D88,$0000, $0880,$0420,$0000, !unused_blend_ent
+  DW $3800, $20A5,$1C84,$1024, $1087,$14A8,$0844, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $0400,$18A2,$0000, $0020,$0C62,$0000, $0400,$1C45,$0000, !unused_blend_ent, !unused_blend_ent
+
+
 ; Use "InputFile" working directory mode in SMART if you want this to assemble in xkas
 ; Each uncompressed paletter is 256 bytes. Compressing these palettes doesn't always make them smaller anyway
 
@@ -336,8 +436,6 @@ incbin ..\..\<area>\Export\Tileset\SCE\<t>\palette.snes ; not actually compresse
 endmacro
 
 macro PaletteSet(n, area)
-!dir = ..\..\<area>\Export\Tileset\SCE
-!file = palette.snes
 
 print "Area Palettes <n>:"
 print pc

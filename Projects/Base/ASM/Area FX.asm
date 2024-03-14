@@ -27,9 +27,9 @@ org $89AC57
 org $89AC25
   JSR GetFxType
   ;LDA $0009,X
-org $89ABFB
+org $89ABF8
   JSR GetFxPaletteBlend
-  ;AND #$00FF
+  ;LDA $000F,X
 
 ; use surface new to set max height for lightning with rain fx
 org $8DEC59
@@ -206,6 +206,7 @@ GetFxType_Remove:
   RTS
 
 GetFxPaletteBlend:
+  LDA $000F,X
   AND #$00FF
   PHA
   LDA $0009,X
@@ -246,6 +247,8 @@ CheckTileset:
   BEQ WreakedShipAwake
   CMP #$0005
   BEQ WreakedShipAwake
+CheckTileset_Exit:
+  STA $08
   ASL
   RTL
 InnerCrateriaAwake:
@@ -265,20 +268,20 @@ InnerCrateriaAwake:
   CMP #$0247 ;NINJA PIRATES BOSS ROOM
   BEQ +
 
-  LDA #$0006 ;zebes asleep (tileset 3)
-  RTL
+  LDA #$0003 ;zebes asleep (tileset 3)
+  BRA CheckTileset_Exit
 +
   LDA #$0004 ;zebes awake (tileset 2)
-  RTL
+  BRA CheckTileset_Exit
 WreakedShipAwake:
   LDA #$0058
   JSL $808233
   BCC +
-  LDA #$0008 ;Phantoon defeated (tileset 4)
-  RTL
+  LDA #$0004 ;Phantoon defeated (tileset 4)
+  BRA CheckTileset_Exit
 +
-  LDA #$000A ;Phantoon lurking (tileset 5)
-  RTL
+  LDA #$0005 ;Phantoon lurking (tileset 5)
+  BRA CheckTileset_Exit
 
 UpdateSandFloorColors: ;DB is 8D
   PHX
