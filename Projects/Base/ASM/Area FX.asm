@@ -27,9 +27,9 @@ org $89AC57
 org $89AC25
   JSR GetFxType
   ;LDA $0009,X
-org $89ABFB
+org $89ABF8
   JSR GetFxPaletteBlend
-  ;AND #$00FF
+  ;LDA $000F,X
 
 ; use surface new to set max height for lightning with rain fx
 org $8DEC59
@@ -206,6 +206,7 @@ GetFxType_Remove:
   RTS
 
 GetFxPaletteBlend:
+  LDA $000F,X
   AND #$00FF
   PHA
   LDA $0009,X
