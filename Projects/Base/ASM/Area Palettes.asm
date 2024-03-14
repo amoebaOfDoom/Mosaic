@@ -15,9 +15,9 @@ org $82DF1D
 org $89ABFB
   JSR GetPaletteBlendIndex_Trampoline
   ;AND #$00FF
-org $89AC01 : LDA.l BlendTable+0,X
-org $89AC09 : LDA.l BlendTable+2,X
-org $89AC11 : LDA.l BlendTable+4,X
+org $89AC01 : LDA.l $8A0000,X
+org $89AC09 : LDA.l $8A0002,X
+org $89AC11 : LDA.l $8A0004,X
 
 org $89AA02
 GetPaletteBlendIndex_Trampoline:
@@ -340,7 +340,8 @@ GetPaletteBlendIndex:
 +
   STA $00
   JSR GetArea
-  XBA
+  TAX
+  LDA.l BlendTable,X
   CLC
   ADC $00
   RTL
@@ -348,6 +349,7 @@ GetPaletteBlendIndex:
 !unused_blend_ent = $6318,$6318,$0000
 
 BlendTable:
+  DL Blends_0, Blends_1, Blends_2, Blends_3, Blends_4, Blends_5, Blends_6, Blends_7
 Blends_0:
   DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
