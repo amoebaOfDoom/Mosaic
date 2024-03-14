@@ -425,7 +425,7 @@ Blends_7:
 
 
 ; Use "InputFile" working directory mode in SMART if you want this to assemble in xkas
-; Each uncompressed paletter is 256 bytes. Compressing these palettes doesn't always make them smaller anyway
+; Each uncompressed palette is 256 bytes. Compressing these palettes doesn't always make them smaller anyway
 
 macro PaletteFile(t, n, area)
 AreaPalettes_<n>_<t>:
