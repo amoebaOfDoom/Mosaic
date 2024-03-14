@@ -55,10 +55,7 @@ GetArea:
   BNE UseMapArea
 
 ;UseTilesetArea:
-  LDX $07BB ; tileset index
-  LDA $8F0003,X
-  AND #$00FF
-  TAX
+  LDX $08
   LDA.l StandardArea,X
   AND #$00FF
   RTS
@@ -78,10 +75,7 @@ GetPalettePointer:
   LDA.l AreaPalettes+0,X
   STA $12 ; palette base offset
 
-  LDX $07BB ; tileset index
-  LDA $8F0003,X
-  AND #$00FF
-
+  LDA $08 ; tileset index
   STA $14
   ASL $14
   ASL $14 ; $14 = tileset index * 4
@@ -105,7 +99,7 @@ StandardArea:
   DB $02*3, $02*3 ;Norfair
   DB $04*3, $04*3 ;Maridia
   DB $05*3, $05*3 ;Tourian
-  DB $06*3, $06*3, $06*3, $60*3, $60*3, $60*3 ;Ceres
+  DB $06*3, $06*3, $06*3, $06*3, $06*3, $06*3 ;Ceres
   DB $00*3, $00*3, $00*3, $00*3, $00*3 ;Utility Rooms
   ;Bosses
   DB $01*3 ;Kraid
@@ -336,8 +330,6 @@ incbin ..\..\<area>\Export\Tileset\SCE\<t>\palette.snes ; not actually compresse
 endmacro
 
 macro PaletteSet(n, area)
-!dir = ..\..\<area>\Export\Tileset\SCE
-!file = palette.snes
 
 print "Area Palettes <n>:"
 print pc
