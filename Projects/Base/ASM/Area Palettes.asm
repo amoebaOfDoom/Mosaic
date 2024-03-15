@@ -92,18 +92,16 @@ GetPalettePointer:
   JSR GetArea
   TAX
   LDA.l AreaPalettes+1,X
+  STA $13
   STA $07C7 ; palette bank
   LDA.l AreaPalettes+0,X
-  STA $12 ; palette base offset
-
+  STA $12
   LDA $08 ; tileset index
-  STA $14
-  ASL $14
-  ASL $14 ; $14 = tileset index * 4
-  XBA
+  ASL
   CLC
-  ADC $14 ; tileset index * $104
-  ADC $12 ; can't overflow the bank because we don't allow the area palettes to cross banks
+  ADC $12
+  STA $12
+  LDA [$12]
   STA $07C6
 
   RTL
@@ -128,6 +126,7 @@ StandardArea:
   DB $04*3 ;Draygon
   DB $01*3 ;SpoSpo
   DB $03*3 ;Phantoon
+  DB $01*3 ;Statues Hallway
 
 ; Calculate the [A]th transitional color from start color in [X] to target color in [Y]
 ; Copy of $82DAA6 but the current denominator is stored at $00
@@ -446,6 +445,15 @@ macro PaletteSet(n, area)
 print "Area Palettes <n>:"
 print pc
 AreaPalettes_<n>:
+  DW AreaPalettes_<n>_00, AreaPalettes_<n>_01, AreaPalettes_<n>_02, AreaPalettes_<n>_03
+  DW AreaPalettes_<n>_04, AreaPalettes_<n>_05, AreaPalettes_<n>_06, AreaPalettes_<n>_07
+  DW AreaPalettes_<n>_08, AreaPalettes_<n>_09, AreaPalettes_<n>_0A, AreaPalettes_<n>_0B
+  DW AreaPalettes_<n>_0C, AreaPalettes_<n>_0D, AreaPalettes_<n>_0E, AreaPalettes_SHR_0F
+  DW AreaPalettes_SHR_10, AreaPalettes_SHR_11, AreaPalettes_SHR_12, AreaPalettes_SHR_13
+  DW AreaPalettes_SHR_14, AreaPalettes_SHR_15, AreaPalettes_SHR_16, AreaPalettes_SHR_17
+  DW AreaPalettes_SHR_18, AreaPalettes_SHR_19, AreaPalettes_<n>_1A, AreaPalettes_<n>_1B
+  DW AreaPalettes_<n>_1C, AreaPalettes_<n>_1D, AreaPalettes_<n>_1E, AreaPalettes_<n>_1F
+
 %PaletteFile(00, <n>, <area>)
 %PaletteFile(01, <n>, <area>)
 %PaletteFile(02, <n>, <area>)
@@ -462,24 +470,31 @@ AreaPalettes_<n>:
 %PaletteFile(0D, <n>, <area>)
 %PaletteFile(0E, <n>, <area>)
 %PaletteFile(0F, <n>, <area>)
-%PaletteFile(10, <n>, <area>)
-%PaletteFile(11, <n>, <area>)
-%PaletteFile(12, <n>, <area>)
-%PaletteFile(13, <n>, <area>)
-%PaletteFile(14, <n>, <area>)
-%PaletteFile(15, <n>, <area>)
-%PaletteFile(16, <n>, <area>)
-%PaletteFile(17, <n>, <area>)
-%PaletteFile(18, <n>, <area>)
-%PaletteFile(19, <n>, <area>)
+
 %PaletteFile(1A, <n>, <area>)
 %PaletteFile(1B, <n>, <area>)
 %PaletteFile(1C, <n>, <area>)
 %PaletteFile(1D, <n>, <area>)
 %PaletteFile(1E, <n>, <area>)
+%PaletteFile(1F, <n>, <area>)
 endmacro
 
 org $C08000
+print "Shared Palettes:"
+; Ceres
+%PaletteFile(0F, SHR, Base)
+%PaletteFile(10, SHR, Base)
+%PaletteFile(11, SHR, Base)
+%PaletteFile(12, SHR, Base)
+%PaletteFile(13, SHR, Base)
+%PaletteFile(14, SHR, Base)
+; Utility rooms
+%PaletteFile(15, SHR, Base)
+%PaletteFile(16, SHR, Base)
+%PaletteFile(17, SHR, Base)
+%PaletteFile(18, SHR, Base)
+%PaletteFile(19, SHR, Base)
+
 %PaletteSet(0, CrateriaPalette)
 %PaletteSet(1, BrinstarPalette)
 %PaletteSet(2, NorfairPalette)

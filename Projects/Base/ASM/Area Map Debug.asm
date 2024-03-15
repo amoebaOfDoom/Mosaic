@@ -51,5 +51,6 @@ StandardArea:
   DB $04 ;Draygon
   DB $01 ;SpoSpo
   DB $03 ;Phantoon
+  DB $01 ;Statues Hallway
 
 warnpc $82BF03

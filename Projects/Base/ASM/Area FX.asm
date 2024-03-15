@@ -118,6 +118,7 @@ GlowHandlerTable:
   DW Handler_Area_4 ;Draygon
   DW Handler_Area_1 ;SpoSpo
   DW Handler_Area_3 ;Phantoon
+  DW Handler_Area_1 ;Statues Hallway
 
 ProcessEscapeMask:
   LDA #$000E
@@ -730,6 +731,7 @@ GlowTypeTable:
   DW Glow_Area_4 ;Draygon
   DW Glow_Area_1 ;SpoSpo
   DW Glow_Area_3 ;Phantoon
+  DW Glow_Area_1 ;Statues Hallway
   
 AnimTypeTable:
   DW Anim_Area_0, Anim_Area_0 ;Crateria Surface
@@ -748,5 +750,6 @@ AnimTypeTable:
   DW Anim_Area_4 ;Draygon
   DW Anim_Area_1 ;SpoSpo
   DW Anim_Area_3 ;Phantoon
+  DW Anim_Area_1 ;Statues Hallway
 
 warnpc $83BA00
