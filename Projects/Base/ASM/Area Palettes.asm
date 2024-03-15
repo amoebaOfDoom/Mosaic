@@ -370,7 +370,7 @@ Blends_1:
   DW $3800, $0400,$18A2,$0000, $0020,$0C62,$0000, $0401,$1467,$0000, !unused_blend_ent, !unused_blend_ent
 Blends_2:
   DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
-  DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $294C,$18C8,$0022, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $0400,$1C63,$0000, $28E3,$1C60,$0000, $2485,$3D88,$0000, $0880,$0420,$0000, !unused_blend_ent
   DW $3800, $20A5,$1C84,$1024, $1087,$14A8,$0844, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
@@ -379,7 +379,7 @@ Blends_2:
   DW $3800, $0400,$18A2,$0000, $0020,$0C62,$0000, $0002,$0066,$0000, !unused_blend_ent, !unused_blend_ent
 Blends_3:
   DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
-  DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $298A,$1906,$0040, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $0400,$1C63,$0000, $28E3,$1C60,$0000, $2485,$3D88,$0000, $0880,$0420,$0000, !unused_blend_ent
   DW $3800, $20A5,$1C84,$1024, $1087,$14A8,$0844, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
@@ -397,7 +397,7 @@ Blends_4:
   DW $3800, $0400,$18A2,$0000, $0020,$0C62,$0000, $0400,$1C45,$0000, !unused_blend_ent, !unused_blend_ent
 Blends_5:
   DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
-  DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $2D6B,$1CE7,$0421, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $0400,$1C63,$0000, $28E3,$1C60,$0000, $2485,$3D88,$0000, $0880,$0420,$0000, !unused_blend_ent
   DW $3800, $20A5,$1C84,$1024, $1087,$14A8,$0844, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
