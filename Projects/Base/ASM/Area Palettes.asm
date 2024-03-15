@@ -12,6 +12,12 @@ org $82DF1D
   ;LDA $0006,X
   ;STA $07C6
 
+org $89AB5B ; Skip loading the palette blend for MB. It's always the same as what was already laoded.
+  ;BEQ $1B
+  PLB
+  PLP
+  RTL
+
 org $89ABFB
   JSR GetPaletteBlendIndex_Trampoline
   ;AND #$00FF
