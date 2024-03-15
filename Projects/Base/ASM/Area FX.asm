@@ -271,7 +271,7 @@ InnerCrateriaAwake:
   LDA #$0003 ;zebes asleep (tileset 3)
   BRA CheckTileset_Exit
 +
-  LDA #$0004 ;zebes awake (tileset 2)
+  LDA #$0002 ;zebes awake (tileset 2)
   BRA CheckTileset_Exit
 WreakedShipAwake:
   LDA #$0058
