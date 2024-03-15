@@ -250,7 +250,11 @@ LoadPhantoonTargetColor:
   STA $13 ; palette bank
   LDA.l AreaPalettes+0,X
   CLC
-  ADC #$0412 ; WS awake is palette $04 + skip header
+  ADC #$0008 ; phantoon 4 stileset 4
+  STA $12
+  LDA [$12]
+  INC
+  INC
   STA $12
   LDA [$12],Y
   TYX
@@ -458,6 +462,7 @@ AreaPalettes_<n>:
 %PaletteFile(01, <n>, <area>)
 %PaletteFile(02, <n>, <area>)
 %PaletteFile(03, <n>, <area>)
+print pc
 %PaletteFile(04, <n>, <area>)
 %PaletteFile(05, <n>, <area>)
 %PaletteFile(06, <n>, <area>)
