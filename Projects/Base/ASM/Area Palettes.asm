@@ -364,7 +364,7 @@ Blends_0:
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
-  DW $3800, $0401,$1844,$0000, $0020,$0C62,$0000, $0400,$1C45,$0000, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $0401,$1844,$0000, $0000,$0862,$0000, $0400,$1C45,$0000, !unused_blend_ent, !unused_blend_ent
 Blends_1:
   DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
@@ -382,7 +382,7 @@ Blends_2:
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
-  DW $3800, $0001,$0C66,$0000, $0020,$0C62,$0000, $0002,$0066,$0000, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $0001,$0C66,$0000, $0420,$0843,$0000, $0002,$0066,$0000, !unused_blend_ent, !unused_blend_ent
 Blends_3:
   DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $298A,$1906,$0040, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
@@ -391,7 +391,7 @@ Blends_3:
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
-  DW $3800, $0020,$0C84,$0000, $0020,$0C62,$0000, $0021,$0082,$0000, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $0020,$0C84,$0000, $0020,$0863,$0000, $0021,$0082,$0000, !unused_blend_ent, !unused_blend_ent
 Blends_4:
   DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
@@ -409,7 +409,7 @@ Blends_5:
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
-  DW $3800, $0421,$1084,$0000, $0020,$0C62,$0000, $0421,$0C63,$0000, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $0421,$1084,$0000, $0400,$0C63,$0000, $0421,$0C63,$0000, !unused_blend_ent, !unused_blend_ent
 Blends_6:
   DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
