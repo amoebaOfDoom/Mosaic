@@ -952,7 +952,7 @@ endmacro
 
 ; Crateria and Brinstar need to use the same table to keep vanilla rooms working as expected
 Beacon__Table:
-  DW EmptyInit,Beacon__1_List, EmptyInit,Beacon__1_List, EmptyInit,Beacon__2_List, EmptyInit,Beacon__3_List
+  DW EmptyInit,Beacon__0_List, EmptyInit,Beacon__1_List, EmptyInit,Beacon__2_List, EmptyInit,Beacon__3_List
   DW EmptyInit,Beacon__4_List, EmptyInit,Beacon__5_List, EmptyInit,Beacon__6_List, EmptyInit,Beacon__7_List
 
 macro Beacon___List(n)
@@ -1018,6 +1018,7 @@ Beacon__<n>_List_Loop:
   DW GlowJMP, Beacon__<n>_List_Loop
 endmacro
 
+%Beacon___List(0)
 %Beacon___List(1)
 %Beacon___List(2)
 %Beacon___List(3)

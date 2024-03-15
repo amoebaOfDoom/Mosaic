@@ -584,6 +584,18 @@
 !Purp_BG_7_Colors_7 = $3010, $0C08, $0802, $0000, $0000, $0000, $0000, $0000
 
 ; Beacon__ colors
+!Beacon__0_Colors_0a = $02BF, $017F, $0015
+!Beacon__0_Colors_1a = $023B, $00FB, $0011
+!Beacon__0_Colors_2a = $01D8, $0098, $000E
+!Beacon__0_Colors_3a = $0154, $0055, $000B
+!Beacon__0_Colors_4a = $00D0, $0010, $0007
+!Beacon__0_Colors_5a = $00AA, $000B, $0004
+!Beacon__0_Colors_0b = $7FFF
+!Beacon__0_Colors_1b = $739C
+!Beacon__0_Colors_2b = $5AD6
+!Beacon__0_Colors_3b = $4E73
+!Beacon__0_Colors_4b = $4631
+!Beacon__0_Colors_5b = $3DEF
 
 !Beacon__1_Colors_0a = $02BF, $017F, $0015
 !Beacon__1_Colors_1a = $023B, $00FB, $0011
