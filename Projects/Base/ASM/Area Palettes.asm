@@ -506,6 +506,7 @@ print pc
 %PaletteSet(3, WreckedShipPalette)
 warnpc $C0FFFF
 org $C18000
+; Ceres
 %PaletteFile(0F, COPY, Base)
 %PaletteFile(10, COPY, Base)
 %PaletteFile(11, COPY, Base)
