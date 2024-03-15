@@ -620,6 +620,8 @@ org $8499E5
   DW $000C, $83F0, $83F1, $00FF, $00FF, $00FF, $00FF, $00FF, $00FF, $00FF, $00FF, $87F1, $87F0
   DW $0000
 
+org $8DF771 ; overwrite unused glow with the vanilla beacon glow
+  DW $C685,$EFF7
 
 org $83B800
 
@@ -634,7 +636,7 @@ org $83B800
 !SkyFlash = $F765
 ;!UnusedG1 = $F769
 !WS_Green = $F76D
-;!UnusedG2 = $F771
+!BeaconSH = $F771
 !Blue_BG_ = $F775
 !SpoSpoBG = $F779
 !Purp_BG_ = $F77D
@@ -665,7 +667,7 @@ Glow_Area_0a:
 Glow_Area_0b:
   DW !OldT3Esc, !NullGlow, !NullGlow, !OldT1Esc, !OldT2Esc, !SandFlor, !HevySand, !SamusHot
 Glow_Area_1:
-  DW !Blue_BG_, !Purp_BG_, !Beacon__, !SpoSpoBG, !NullGlow, !SandFlor, !HevySand, !SamusHot
+  DW !Blue_BG_, !Purp_BG_, !Beacon__, !SpoSpoBG, !BeaconSH, !SandFlor, !HevySand, !SamusHot
 Glow_Area_2:
   DW !NullGlow, !NorHot1_, !NorHot2_, !NorHot3_, !NorHot4_, !SandFlor, !HevySand, !SamusHot
 Glow_Area_3:
