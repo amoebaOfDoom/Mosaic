@@ -239,7 +239,7 @@
     <Space start="ADF24B" end="ADF257" />
     <Space start="BB8000" end="BBFE69" />
     <Space start="C08000" end="C0E58B" />
-    <Space start="C18000" end="C1DA5F" />
+    <Space start="C18000" end="C1E58B" />
   </ASMUsedSpaceBankAny>
   <PLMBank>
     <option>Default</option>

@@ -250,7 +250,7 @@ LoadPhantoonTargetColor:
   STA $13 ; palette bank
   LDA.l AreaPalettes+0,X
   CLC
-  ADC #$0008 ; phantoon 4 stileset 4
+  ADC #$0008 ; phantoon's tileset 4
   STA $12
   LDA [$12]
   INC
@@ -462,7 +462,6 @@ AreaPalettes_<n>:
 %PaletteFile(01, <n>, <area>)
 %PaletteFile(02, <n>, <area>)
 %PaletteFile(03, <n>, <area>)
-print pc
 %PaletteFile(04, <n>, <area>)
 %PaletteFile(05, <n>, <area>)
 %PaletteFile(06, <n>, <area>)
@@ -486,6 +485,7 @@ endmacro
 
 org $C08000
 print "Shared Palettes:"
+print pc
 ; Ceres
 %PaletteFile(0F, SHR, Base)
 %PaletteFile(10, SHR, Base)
@@ -506,6 +506,19 @@ print "Shared Palettes:"
 %PaletteSet(3, WreckedShipPalette)
 warnpc $C0FFFF
 org $C18000
+%PaletteFile(0F, COPY, Base)
+%PaletteFile(10, COPY, Base)
+%PaletteFile(11, COPY, Base)
+%PaletteFile(12, COPY, Base)
+%PaletteFile(13, COPY, Base)
+%PaletteFile(14, COPY, Base)
+; Utility rooms
+%PaletteFile(15, COPY, Base)
+%PaletteFile(16, COPY, Base)
+%PaletteFile(17, COPY, Base)
+%PaletteFile(18, COPY, Base)
+%PaletteFile(19, COPY, Base)
+
 %PaletteSet(4, MaridiaPalette)
 %PaletteSet(5, TourianPalette)
 %PaletteSet(6, CrateriaPalette)
