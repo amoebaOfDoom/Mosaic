@@ -165,7 +165,7 @@ StandardArea:
   DB $02, $02 ;Norfair
   DB $04, $04 ;Maridia
   DB $05, $05 ;Tourian
-  DB $06, $06, $06, $60, $60, $60 ;Ceres
+  DB $06, $06, $06, $06, $06, $60 ;Ceres
   DB $00, $00, $00, $00, $00 ;Utility Rooms
   ;Bosses
   DB $01 ;Kraid

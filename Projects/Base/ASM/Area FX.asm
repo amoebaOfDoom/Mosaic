@@ -454,6 +454,43 @@ CheckShutterEnemyRoom: ;DB is 8D
   STA $1EBD,Y
   RTL
 
+FirefliesInit:
+  LDX $07BB
+  LDA $8F0003,X
+  JSL CheckTileset
+  TAX
+  LDA FirefliesDarknessSet,X
+  RTL
++
+  RTL
+
+FirefliesDarkness:
+  PHA
+  LDA $177E
+  CLC
+  ADC $1782
+  TAX
+  PLA
+  CLC
+  RTL
+
+FirefliesDarknessSet:
+  DW Fireflies_Dark_, Fireflies_Dark_ ;Crateria Surface
+  DW Fireflies_Light, Fireflies_Light ;Inner Crateria
+  DW Fireflies_Dark_, Fireflies_Light ;Wrecked Ship
+  DW Fireflies_Dark_, Fireflies_Dark_ ;Brinstar
+  DW Fireflies_Dark_ ;Tourian Statues Access/Blue brinstar
+  DW Fireflies_Dark_, Fireflies_Dark_ ;Norfair
+  DW Fireflies_Dark_, Fireflies_Dark_ ;Maridia
+  DW Fireflies_Dark_, Fireflies_Dark_ ;Tourian
+  DW Fireflies_Dark_, Fireflies_Dark_, Fireflies_Dark_, Fireflies_Dark_, Fireflies_Dark_, Fireflies_Dark_ ;Ceres
+  DW Fireflies_Dark_, Fireflies_Dark_, Fireflies_Dark_, Fireflies_Dark_, Fireflies_Dark_ ;Utility Rooms
+
+Fireflies_Dark_:
+  DW $0000, $0600, $0C00, $1200, $1800, $1900
+Fireflies_Light:
+  DW $0000, $0300, $0600, $0A00, $1000, $1200
+
 org $8FC11B ; Room init code for ocean rooms no longer used due to scrolling sky
   JSL LoadSpeecialRoomTiles
   RTS
@@ -474,6 +511,15 @@ CheckShutterEnemyRoomInit:
   JSL CheckShutterEnemyRoom
   RTS
 warnpc $8DC696
+
+org $88B0A3
+  JSL FirefliesInit
+  ;LDA $88B058
+  ;STA $1782
+
+org $88B102
+  JSL FirefliesDarkness
+  ADC.l $8A0000,X
 
 org $8DFFC9 ; Delete this glow unless we're in the one Tourian room where there is shutters in enemy type slot 1
   DW #CheckShutterEnemyRoomInit, $F7A9
