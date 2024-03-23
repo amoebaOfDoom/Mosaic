@@ -49,6 +49,19 @@ end
 function solid_slope_bottom(bts)
     return bts == 0x00 or bts == 0x07 or bts == 0x13 or bts == 0x12 or bts == 0x15 or bts == 0x16 or bts == 0x17 or bts == 0x1C
 end
+function solid_slope_bottom_left(bts)
+    return bts == 0x00 or bts == 0x07 or bts == 0x13 or bts == 0x15 or bts == 0x17 or bts == 0x03
+end
+function solid_slope_bottom_right(bts)
+    return true
+end
+function solid_slope_top_left(bts)
+    return false
+end
+function solid_slope_top_right(bts)
+    return bts == 0x01 or bts == 0x15 or bts == 0x1C or bts == 0x03
+end
+
 function inside_left(x, y)
     if outside(x, y) then
         return false
@@ -113,6 +126,38 @@ function inside_bottom(x, y)
     end
     return false
 end
+function inside_corner(x, y, flip0)
+    if outside(x, y) then
+        return false
+    end
+    if t:type(x, y) == 8 then
+        return true
+    end
+    if t:type(x, y) == 1 then
+        flip = (t:bts(x, y) & 0xC0) ~ flip0
+        if flip == 0x00 then
+            return solid_slope_bottom_left(t:bts(x, y) & 0x3F)
+        elseif flip == 0x40 then
+            return solid_slope_bottom_right(t:bts(x, y) & 0x3F)
+        elseif flip == 0x80 then
+            return solid_slope_top_left(t:bts(x, y) & 0x3F)
+        elseif flip == 0xC0 then
+            return solid_slope_top_right(t:bts(x, y) & 0x3F)
+        end
+    end
+end
+function inside_bottom_left(x, y)
+    return inside_corner(x, y, 0x00)
+end
+function inside_bottom_right(x, y)
+    return inside_corner(x, y, 0x40)
+end
+function inside_top_left(x, y)
+    return inside_corner(x, y, 0x80)
+end
+function inside_top_right(x, y)
+    return inside_corner(x, y, 0xC0)
+end
 function outside_left(x, y)
     return not inside_left(x,y)
 end
@@ -126,14 +171,14 @@ function outside_bottom(x, y)
     return not inside_bottom(x,y)
 end
 function outside_bottom_left(x, y)
-    return outside_bottom(x, y) or outside_left(x, y)
+    return not inside_bottom_left(x, y)
 end
 function outside_bottom_right(x, y)
-    return outside_bottom(x, y) or outside_right(x, y)
+    return not inside_bottom_right(x, y)
 end
 function outside_top_left(x, y)
-    return outside_top(x, y) or outside_left(x, y)
+    return not inside_top_left(x, y)
 end
 function outside_top_right(x, y)
-    return outside_top(x, y) or outside_right(x, y)
+    return not inside_right(x, y)
 end
