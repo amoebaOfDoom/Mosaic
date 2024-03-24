@@ -12,6 +12,7 @@ tile_bottom_left_outside_corner = 0x101
 tile_top_left_outside_corner = 0x121
 
 tile_bottom_right_inside_corner = 0x26C
+tile_top_right_inside_corner = 0x247
 
 tile_half_bottom_edge = 0x234
 tile_half_top_edge = 0x274
@@ -43,7 +44,6 @@ tile_top_right_steep_slope_small = 0x287
 tile_beside_top_right_steep_slope_small = 0x288
 
 tile_top_right_steep_slope_large = 0x267
-tile_beside_top_right_steep_slope_small = tile_interior
 
 tile_platform_middle = 0x142
 tile_platform_right = 0x143
@@ -175,17 +175,17 @@ if solid(0, 0) then
         if not bts_vflip(-1, 0) then
             t:set_gfx(tile_beside_bottom_right_steep_slope_small, false, false)
         else
-            -- t:set_gfx(tile_beside_top_left_steep_slope_small, true, false)
+            t:set_gfx(tile_beside_top_right_steep_slope_small, false, false)
         end
         return true
     end
-    if t:type(1, 0) == 1 and t:bts(1, 0) & 0x7F == bts_slope_bottom_right_steep_small | 0x40 and inside_right(-1, 0) then
+    if t:type(1, 0) == 1 and (t:bts(1, 0) & 0x7F) == (bts_slope_bottom_right_steep_small | 0x40) and inside_right(-1, 0) then
         if not bts_vflip(1, 0) then
             t:set_gfx(tile_beside_bottom_right_steep_slope_small, true, false)
-            return true
         else
-            -- t:set_gfx(tile_beside_top_left_steep_slope_small, false, false)
+            t:set_gfx(tile_beside_top_right_steep_slope_small, true, false)
         end
+        return true
     end
     
     if t:type(0, -1) == 1 and t:bts(0, -1) & 0xBF == bts_slope_bottom_right_gentle_small and inside_top(0, 1) then
@@ -219,11 +219,11 @@ if solid(0, 0) then
             return true
         end
         if not air(-1, -1) and not air(1, -1) and outside_top_right(-1, 1) and not air(1, 1) then
-            t:set_gfx(tile_bottom_right_inside_corner, false, true)
+            t:set_gfx(tile_top_right_inside_corner, false, false)
             return true
         end
         if not air(-1, -1) and not air(1, -1) and not air(-1, 1) and outside_top_left(1, 1) then
-            t:set_gfx(tile_bottom_right_inside_corner, true, true)
+            t:set_gfx(tile_top_right_inside_corner, true, false)
             return true
         end
     end    
