@@ -130,7 +130,7 @@ function inside_corner(x, y, flip0)
     if outside(x, y) then
         return false
     end
-    if t:type(x, y) == 8 then
+    if solid(x, y) then
         return true
     end
     if t:type(x, y) == 1 then
@@ -180,5 +180,5 @@ function outside_top_left(x, y)
     return not inside_top_left(x, y)
 end
 function outside_top_right(x, y)
-    return not inside_right(x, y)
+    return not inside_top_right(x, y)
 end
