@@ -40,7 +40,7 @@
           <Screen X="0" Y="0">
         82EC 830F 82E2 82ED 82ED 82ED 82EC 82E2 830C 82EB 8331 82EB 82E2 830C 82EA 82EA
         82EC 8A65 82E2 82E3 82E3 82E3 82E4 82E2 82E6 82E3 82E3 82E3 82E2 830F 8331 8331
-        82E4 8AA6 8251 82AB 8EAC 8AAC 86AB 82E2 8EAC 8251 8AAC 1F86 82E2 82E6 82EA 82EA
+        82E4 8AA6 8251 82AB 8EAC 8AAC 86AB 82E2 8EAC 8251 8AAC 8F86 82E2 82E6 82EA 82EA
         830C 80FF 8382 1303 1E8C 1A8C 1251 82E2 1E8C 133C 1A8C 1688 82E2 80FF 8382 8303
         82E6 8AC3 1301 16C3 00FF 00FF 00FF 82E2 00FF 00FF 00FF 17A3 82E2 1386 1301 16C3
         82E2 82E2 0F82 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 82E2 00FF 00FF 00FF
@@ -150,7 +150,7 @@
           <Screen X="0" Y="0">
         00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
         00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-        00 00 00 00 00 00 00 00 00 00 00 93 00 00 00 00
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
         00 00 00 93 D7 97 93 00 D7 80 97 93 00 00 00 00
         00 00 D7 D6 00 00 00 00 00 00 00 92 00 93 D7 D6
         00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
@@ -379,7 +379,7 @@
           <transparency1_A>02</transparency1_A>
           <transparency2_B>1E</transparency2_B>
           <liquidflags_C>0B</liquidflags_C>
-          <paletteflags>00</paletteflags>
+          <paletteflags>80</paletteflags>
           <animationflags>00</animationflags>
           <paletteblend>02</paletteblend>
         </FX1>
