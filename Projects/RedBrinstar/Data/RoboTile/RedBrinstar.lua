@@ -165,7 +165,7 @@ if solid(0, 0) then
         t:set_gfx(tile_bottom_edge, false, false)
         return true
     end
-    if inside_right(-1, 0) and inside_left(1, 0) and outside_top(0, 1) then
+    if inside_right(-1, 0) and inside_left(1, 0) and outside_top(0, 1) and inside_bottom(0, -1) then
         t:set_gfx(tile_top_edge, false, false)
         return true
     end
