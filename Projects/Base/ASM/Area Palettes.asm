@@ -122,7 +122,7 @@ StandardArea:
   DB $00*3, $00*3, $00*3, $00*3, $00*3 ;Utility Rooms
   ;Bosses
   DB $01*3 ;Kraid
-  DB $04*3 ;Draygon
+  DB $02*3 ;Crocomire
   DB $04*3 ;Draygon
   DB $01*3 ;SpoSpo
   DB $03*3 ;Phantoon
