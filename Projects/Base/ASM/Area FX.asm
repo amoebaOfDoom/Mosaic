@@ -238,8 +238,28 @@ org $82DEFD
   ;AND #$00FF
   ;ASL
 org $8AB500 ;free space (due to scrolling sky asm)
+EnableTilesetSwapFlag:
+  ; Two bytes go here
+  ; DW $F0F0 ; vanilla = $147E
+
+org $8AB502
 CheckTileset:
+  ; Enable tileset swapping only if the flag is set in the ROM or debug event flag is set:
   AND #$00FF
+  STA $08
+  LDA.l EnableTilesetSwapFlag
+  CMP #$F0F0
+  BEQ TilesetSwap
+  LDA $7ED825 ; event bit $28
+  AND #$0001
+  BNE TilesetSwap
+  ; Skip tileset swap:
+  LDA $08
+  ASL
+  RTL
+
+TilesetSwap:
+  LDA $08
   CMP #$0002
   BEQ InnerCrateriaAwake
   CMP #$0003
