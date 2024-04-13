@@ -459,7 +459,7 @@ FirefliesInit:
   LDA $8F0003,X
   JSL CheckTileset
   TAX
-  LDA FirefliesDarknessSet,X
+  LDA.l FirefliesDarknessSet,X
   RTL
 +
   RTL
