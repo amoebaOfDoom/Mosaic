@@ -24,7 +24,7 @@ CloseBowlingStairs:
   RTS
 warnpc $849D59
 
-org $8AB600 ; free space (due to scrolling sky)
+org $8AB620 ; free space (due to scrolling sky)
 OpenBowlingStairs_2:
   PHX
   PHY
@@ -122,3 +122,5 @@ UpdateTileType:
   ORA $12
   STA $7F0002,X
   RTS
+
+warnpc $8AB700

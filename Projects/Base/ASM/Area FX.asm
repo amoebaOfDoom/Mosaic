@@ -387,7 +387,7 @@ LoadSpeecialRoomTiles_UnpauseHook:
   PLP
   RTL
 
-
+warnpc $8AB620
 org $8AB700
 TubeGfx_1:
   DB $3F, $FF, $9F, $FF, $E7, $FF, $79, $FF, $1E, $FF, $87, $FF, $E1, $FF, $F8, $FF, $FF, $01, $FF, $00, $FF, $00, $FF, $00, $FF, $00, $FF, $00, $FF, $00, $FF, $00
