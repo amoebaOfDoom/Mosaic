@@ -360,10 +360,10 @@ LoadSpeecialRoomTiles_Tube:
 
 LoadSpeecialRoomTiles_UnpauseHook:
   PHP
-  JSL $80836F ; force blank and lag a frame
+  ;JSL $80836F ; force blank and lag a frame
   JSL LoadSpeecialRoomTiles_Tube
-  JSL $808C83 ; process dma queue immediatly
-  JSL $808382 ; unforce blank and lag a frame
+  ;JSL $808C83 ; process dma queue immediatly
+  ;JSL $808382 ; unforce blank and lag a frame
   PLP
   RTL
 
@@ -459,7 +459,7 @@ FirefliesInit:
   LDA $8F0003,X
   JSL CheckTileset
   TAX
-  LDA FirefliesDarknessSet,X
+  LDA.l FirefliesDarknessSet,X
   RTL
 +
   RTL
