@@ -69,11 +69,15 @@ class Room:
           palette_flags = get_int(fx_node, "./paletteflags")
           fx_type = get_int(fx_node, "type")
           liquid_flags = get_int(fx_node, "liquidflags_C")
+          surface_start = get_int(fx_node, "surfacestart")
+          surface_new = get_int(fx_node, "surfacenew")
+          off_screen_liquid = surface_start > 256 * height and surface_new > 256 * height
           fx['heated'] =  palette_flags & 0x80 != 0
-          fx['lava'] = fx_type == 2
-          fx['acid'] = fx_type == 4
+          fx['lava'] = fx_type == 2 and not off_screen_liquid
+          fx['acid'] = fx_type == 4 and not off_screen_liquid
           fx['water'] = fx_type == 6 and liquid_flags & 0x04 == 0
           if fx['water']:
+            fx['liquidflags'] = get_int(fx_node, "liquidflags") & 0xC4
             fx['surfacestart'] = get_int(fx_node, "surfacestart")
             fx['surfacenew'] = get_int(fx_node, "surfacenew")
             fx['surfacespeed'] = get_int(fx_node, "surfacespeed")
@@ -246,11 +250,8 @@ for name, style in styles.items():
                   invalid = 1
 
         if name == "TransitTube":
-          # Skip FX checks for TransitTube that have no effect.
-          # (Note that "heat" would still have an effect, so we do check that one.)
-          skip_fx_keys = ["water", "lava", "acid", "surfacestart", "surfacenew", "surfacespeed", "surfacedelay"]
-        else:
-          skip_fx_keys = []
+          # Skip FX checks for TransitTube as they would have no effect.
+          continue
 
         base_state = base.rooms[a_i][r_i].states[s_i]
         if len(state['fx']) != len(base_state['fx']):
@@ -262,8 +263,6 @@ for name, style in styles.items():
             context_str = f"{room.path} State<{s_i}>FX({f_i})"
             keys = set(fx.keys()).union(base_fx.keys())
             for key in keys:
-              if key in skip_fx_keys:
-                continue
               fx_val = fx.get(key)
               base_val = base_fx.get(key)
               if fx_val != base_val:
