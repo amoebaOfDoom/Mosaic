@@ -2847,7 +2847,7 @@
           <type>06</type>
           <transparency1_A>02</transparency1_A>
           <transparency2_B>18</transparency2_B>
-          <liquidflags_C>81</liquidflags_C>
+          <liquidflags_C>85</liquidflags_C>
           <paletteflags>00</paletteflags>
           <animationflags>01</animationflags>
           <paletteblend>54</paletteblend>
