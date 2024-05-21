@@ -285,7 +285,7 @@
       <music>0000</music>
       <FX1s>
         <FX1 default="true">
-          <surfacestart>01C8</surfacestart>
+          <surfacestart>01E0</surfacestart>
           <surfacenew>FFFF</surfacenew>
           <surfacespeed>0000</surfacespeed>
           <surfacedelay>00</surfacedelay>
