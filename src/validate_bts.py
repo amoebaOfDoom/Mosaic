@@ -54,15 +54,33 @@ class Room:
           state['level_data'][x][y][i].append(tiles[i])
 
       fx_nodes = state_node.findall("./FX1s/FX1")
-      state['fx'] = [{'palette_flags': 0} for i in fx_nodes]
 
       if(len(fx_nodes) == 0):
-        state['fx'] = [{'palette_flags': 0}]
+        fx_list = [{
+          "heated": False,
+          "water": False,
+          "lava": False,
+          "acid": False,
+        }]
       else:
+        fx_list = []
         for f_i, fx_node in enumerate(fx_nodes):
+          fx = {}
           palette_flags = get_int(fx_node, "./paletteflags")
-          state['fx'][f_i]['palette_flags'] = palette_flags
+          fx_type = get_int(fx_node, "type")
+          liquid_flags = get_int(fx_node, "liquidflags_C")
+          fx['heated'] =  palette_flags & 0x80 != 0
+          fx['lava'] = fx_type == 2
+          fx['acid'] = fx_type == 4
+          fx['water'] = fx_type == 6 and liquid_flags & 0x04 == 0
+          if fx['water']:
+            fx['surfacestart'] = get_int(fx_node, "surfacestart")
+            fx['surfacenew'] = get_int(fx_node, "surfacenew")
+            fx['surfacespeed'] = get_int(fx_node, "surfacespeed")
+            fx['surfacedelay'] = get_int(fx_node, "surfacedelay")
+          fx_list.append(fx)
 
+      state['fx'] = fx_list
       self.states.append(state)
 
   def include(self):
@@ -98,7 +116,7 @@ styles = {y.name : y for y in [Style(x) for x in root_path.iterdir() if x.is_dir
 
 base = styles["Base"]
 
-valid = 0
+invalid = 0
 
 filterd_rooms = [
   (0,  4), #CRATERIA SAVE ROOM
@@ -191,8 +209,8 @@ for name, style in styles.items():
               # Check for bad black tiles (ones that may get overwritten by item PLMs)
               # These sometimes come from BGData -> Layer2 conversion.
               if layer2 is not None and 0x8E <= (layer2 & 0x3FF) <= 0x95:
-                  print(f"{context_str} Bad black tile (overwritable by item PLM) in layer 2: {layer2:04X}")
-                  valid = 1
+                  print(f"🔴 {context_str} Bad black tile (overwritable by item PLM) in layer 2: {layer2:04X}")
+                  invalid = 1
 
               if name == "Base":
                 continue
@@ -213,29 +231,47 @@ for name, style in styles.items():
 
               # Basic check on tile type and BTS match:
               if (base_tiletype, base_bts) != (tiletype, bts):
-                print(f"{context_str} Should be {base_tiletype_bts_str} but was {tiletype_bts_str}")
-                valid = 1
+                print(f"🔴 {context_str} Should be {base_tiletype_bts_str} but was {tiletype_bts_str}")
+                invalid = 1
 
               # Grapple block check:
               if tiletype == 0xE and tile & 0xF7FF != base_tile & 0xF7FF:
-                print(f"{context_str} Wrong tile for grapple block: should be {base_tile:04X} but was {tile:04X}")
-                valid = 1
+                print(f"🔴 {context_str} Wrong tile for grapple block: should be {base_tile:04X} but was {tile:04X}")
+                invalid = 1
 
               # Check for background tiles in wrong layer (excluding KRAID BOSS ROOM which has this in vanilla):
               if name == "OuterCrateria" and (a_i, r_i) != (1, 47):
                 if tile & 0x3FF in [0x13D, 0x13E, 0x13F]:
-                  print(f"{context_str} Background tile in layer 1: {tile:04X}")
-                  valid = 1
+                  print(f"🔴 {context_str} Background tile in layer 1: {tile:04X}")
+                  invalid = 1
 
+        if name == "TransitTube":
+          # Skip FX checks for TransitTube that have no effect.
+          # (Note that "heat" would still have an effect, so we do check that one.)
+          skip_fx_keys = ["water", "lava", "acid", "surfacestart", "surfacenew", "surfacespeed", "surfacedelay"]
+        else:
+          skip_fx_keys = []
 
-        for f_i, fx in enumerate(state['fx']):
-          base_fx = base.rooms[a_i][r_i].states[s_i]['fx'][f_i]
-          context_str = f"{room.path} State<{s_i}>FX({f_i})"
+        base_state = base.rooms[a_i][r_i].states[s_i]
+        if len(state['fx']) != len(base_state['fx']):
+          print(f"🔴 {room.path} State<{s_i}> Different amount of non-default FX entries")
+          invalid = 1
+        else:
+          for f_i, fx in enumerate(state['fx']):
+            base_fx = base.rooms[a_i][r_i].states[s_i]['fx'][f_i]
+            context_str = f"{room.path} State<{s_i}>FX({f_i})"
+            keys = set(fx.keys()).union(base_fx.keys())
+            for key in keys:
+              if key in skip_fx_keys:
+                continue
+              fx_val = fx.get(key)
+              base_val = base_fx.get(key)
+              if fx_val != base_val:
+                print(f"🔴 {context_str} '{key}' is {fx_val} compared to {base_val} in Base")
+                invalid = 1
 
-          heat = (fx['palette_flags'] & 0x80) != 0
-          base_heat = (base_fx['palette_flags'] & 0x80) != 0
-          if(heat != base_heat):
-            print(f"{context_str} Heat bit should be {base_heat} but was {heat}")
-            valid = 1
-
-exit(valid)
+if invalid:
+  print("🔴 FAILED")
+else:
+  print("🟢 PASSED")
+exit(invalid)
