@@ -248,7 +248,7 @@
       </Screen>
         </Layer2>
       </LevelData>
-      <GFXset>0C</GFXset>
+      <GFXset>0D</GFXset>
       <music>0000</music>
       <FX1s>
         <FX1 default="true">
@@ -258,11 +258,11 @@
           <surfacedelay>00</surfacedelay>
           <type>06</type>
           <transparency1_A>02</transparency1_A>
-          <transparency2_B>14</transparency2_B>
+          <transparency2_B>18</transparency2_B>
           <liquidflags_C>82</liquidflags_C>
-          <paletteflags>20</paletteflags>
+          <paletteflags>22</paletteflags>
           <animationflags>00</animationflags>
-          <paletteblend>E8</paletteblend>
+          <paletteblend>48</paletteblend>
         </FX1>
       </FX1s>
       <Enemies killcount="00" />
