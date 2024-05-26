@@ -3,6 +3,9 @@ from argparse import ArgumentParser
 from pathlib import Path
 import xml.etree.ElementTree as xml
 import json
+import sys
+
+sys.stdout.reconfigure(encoding='utf-8')
 
 class Room:
   def __init__(self, path):
