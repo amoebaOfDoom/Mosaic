@@ -8,7 +8,7 @@
   <height>01</height>
   <upscroll>70</upscroll>
   <dnscroll>A0</dnscroll>
-  <specialGFX>00</specialGFX>
+  <specialGFX>80</specialGFX>
   <Doors>
     <Door>
       <toroom area="03" index="04" />
@@ -72,7 +72,7 @@
         034F 034F 034F 034F 034F 034F 82EE 8343 8357 8331 82EA 82EA 82EA 82EA 82EA 82EA
         82ED 82ED 82EF 82EF 82EF 82EF 8315 82E8 8343 82EC 82EA 82EA 82EA 82EA 82EA 82EA
         8305 8B15 82E2 82EF 830B 8306 8331 830F 82E8 82C9 82EF 82EF 82EF 82EF 82EF 82EF
-        8315 82EE 82E3 82E3 82E3 82E3 82E3 830F 830F 82EE 8307 8308 8309 826F 8331 82E6
+        8315 82EE 82E2 82E2 82E2 82E2 82E2 830F 830F 82EE 8307 8308 8309 826F 8331 82E6
       </Screen>
         </Layer1>
         <BTS>
@@ -164,7 +164,7 @@
           <transparency1_A>02</transparency1_A>
           <transparency2_B>18</transparency2_B>
           <liquidflags_C>03</liquidflags_C>
-          <paletteflags>00</paletteflags>
+          <paletteflags>02</paletteflags>
           <animationflags>00</animationflags>
           <paletteblend>48</paletteblend>
         </FX1>
@@ -234,7 +234,7 @@
         034F 034F 034F 034F 034F 034F 82EE 8343 8357 8331 82EA 82EA 82EA 82EA 82EA 82EA
         82ED 82ED 82EF 82EF 82EF 82EF 8315 82E8 8343 82EC 82EA 82EA 82EA 82EA 82EA 82EA
         8305 8B15 82E2 82EF 830B 8306 8331 830F 82E8 82C9 82EF 82EF 82EF 82EF 82EF 82EF
-        8315 82EE 82E3 82E3 82E3 82E3 82E3 830F 830F 82EE 8307 8308 8309 826F 8331 82E6
+        8315 82EE 82E2 82E2 82E2 82E2 82E2 830F 830F 82EE 8307 8308 8309 826F 8331 82E6
       </Screen>
         </Layer1>
         <BTS>
