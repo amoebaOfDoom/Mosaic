@@ -8,7 +8,7 @@
   <height>01</height>
   <upscroll>70</upscroll>
   <dnscroll>A0</dnscroll>
-  <specialGFX>00</specialGFX>
+  <specialGFX>80</specialGFX>
   <Doors>
     <Door>
       <toroom area="02" index="1A" />
@@ -41,8 +41,8 @@
         82E5 82E5 82E5 82E5 82E5 82E5 82E5 82E5 82E5 82E5 82E5 82E5 82E5 82E5 82E5 82E5
         82ED 82ED 82ED 82ED 82ED 82ED 82ED 82ED 82ED 82ED 82ED 82ED 82ED 82ED 82ED 82ED
         82E3 82E3 82E3 82EB 0693 0692 030F 030F 030F 030F 030F 0B03 0B04 0309 02ED 02ED
-        82E3 82E3 82E3 82EB 02ED 02ED 02ED 030F 030F 030F 030F 030F 030F 030F 030F 030F
-        82E3 82E3 82E3 82EB 030F 030F 030F 030F 030F 030F 030F 030F 02ED 02ED 02ED 02ED
+        82E3 82E3 82E3 82EB 02ED 02ED 02ED 02E1 030F 030F 030F 00FF 030F 030F 030F 030F
+        82E3 82E3 82E3 82EB 030F 030F 030F 00FF 030F 030F 030F 02E1 02ED 02ED 02ED 02ED
         82EB 82EB 82EB 82EB 0300 0309 0386 02AD 030F 030F 030F 030F 030F 030F 030F 0292
         9440 C40C 00FF 00FF 00FF 82EB 82EB 82EB 82EB 82EB 82EB 82EB 82EB 82EB 82EB 82EB
         9460 D42C 00FF 00FF 00FF 82EB 82EA 82EA 82EC 82EA 82EA 82EA 82EA 82EA 82EA 82EA
@@ -163,7 +163,7 @@
           <transparency1_A>02</transparency1_A>
           <transparency2_B>1E</transparency2_B>
           <liquidflags_C>0B</liquidflags_C>
-          <paletteflags>80</paletteflags>
+          <paletteflags>82</paletteflags>
           <animationflags>00</animationflags>
           <paletteblend>02</paletteblend>
         </FX1>

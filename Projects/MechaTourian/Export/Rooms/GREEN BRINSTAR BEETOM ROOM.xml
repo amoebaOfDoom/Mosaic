@@ -43,8 +43,8 @@
       <LevelData Width="1" Height="1">
         <Layer1>
           <Screen X="0" Y="0">
-        8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081
-        8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081
+        82E3 82E3 82E3 82E3 82E3 82E3 82E3 82E3 82E3 82E3 82E3 82E3 82E3 82E3 82E3 82E3
+        82E5 82E5 82E5 82E5 82E5 82E5 82E5 82E5 82E5 82E5 82E5 82E5 82E5 82E5 82E5 82E5
         8331 82ED 8311 8312 82ED 8331 82ED 8311 8311 82ED 8312 8311 8312 8311 8312 8331
         830F 8F15 8AEF 8AEF 8AEF 8AEF 8AEF 8AEF 8AEF 8AEF 8AEF 8AEF 8AEF 8AEF 8B15 830F
         82E7 86EE 00FF 00FF 00FF 0354 0732 00FF 04FF 0332 0354 00FF 00FF 00FF 82EE 82E7
@@ -58,7 +58,7 @@
         8305 8306 8331 8715 82ED 82ED 82ED 82ED 82ED 82ED 82ED 82ED 8315 8303 8304 82ED
         8331 86AC 8308 8309 8305 8306 8303 8304 8306 8303 8304 8300 8301 82AC 86AC 8308
         82ED 8305 8306 8303 8304 8300 8301 8302 8307 8308 8309 82ED 8300 8301 82AC 86AC
-        8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081
+        82ED 82ED 82ED 82ED 82ED 82ED 82ED 82ED 82ED 82ED 82ED 82ED 82ED 82ED 82ED 82ED
       </Screen>
         </Layer1>
         <BTS>
@@ -84,7 +84,21 @@
       </LevelData>
       <GFXset>0D</GFXset>
       <music>0000</music>
-      <FX1s />
+      <FX1s>
+        <FX1 default="true">
+          <surfacestart>FFFF</surfacestart>
+          <surfacenew>FFFF</surfacenew>
+          <surfacespeed>0000</surfacespeed>
+          <surfacedelay>00</surfacedelay>
+          <type>00</type>
+          <transparency1_A>02</transparency1_A>
+          <transparency2_B>02</transparency2_B>
+          <liquidflags_C>00</liquidflags_C>
+          <paletteflags>02</paletteflags>
+          <animationflags>00</animationflags>
+          <paletteblend>00</paletteblend>
+        </FX1>
+      </FX1s>
       <Enemies killcount="04">
         <Enemy>
           <ID>E87F</ID>
