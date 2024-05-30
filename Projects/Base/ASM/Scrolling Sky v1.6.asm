@@ -18,8 +18,6 @@ lorom
 ; Note: you can save space in the rom if you copy the scrolling sky to every column of layer 2. It will compress nicely.
 ;
 
-!YPositionReference = $7EFDFE
-
 org $8F91C9 ;Normal scrolling sky room setup code
   JSL RoomSetupASM
   RTS
@@ -255,16 +253,16 @@ RoomSetupASM:
     DB $42, $0F
     DW ScrollInstructionList
   REP #$30
-  LDA #$00E0
+  LDA $7F9602 ;First 16x16 tile of layer 2
+  AND #$03FE ;Use to look up which table to use
   STA $059A
-  STZ $059C
   LDA $0915 ;Screen's Y position in pixels
   STA $0919 ;Screen's relative Y position reference point in pixels
   STA $B7 ;Value for $2110 (Y scroll of BG 2)
   STZ $0923 ;Screen's relative Y position offset for transitions
   JSL LoadFullBG
   LDA #$FFFF
-  STA !YPositionReference
+  STA $059C
   PLP
   RTL
 warnpc $88A81C
@@ -290,9 +288,7 @@ ScrollPreInstruction_NotPaused:
   LDA #$4A
   STA $59 ;BG2 tilemap base address = $4800, size = 32x64
   REP #$30
-  LDA $7F9602 ;First 16x16 tile of layer 2
-  AND #$03FE ;Use to look up which table to use
-  TAX
+  LDX $059A
   LDA ScrollingSkySectionTable_List,x
   TAY
   LDA $0006,y ;HDMA table entry address
@@ -328,9 +324,7 @@ UpdateScrollPositions_Loop:
   ADC #$00C0
   STA $14 ;last line
 
-  LDA $7F9602 ;First 16x16 tile of layer 2
-  AND #$03FE ;Use to look up which table to use
-  TAX
+  LDX $059A
   LDA ScrollingSkySectionTable_List,x
   TAY ;Y = scrolling sky table index
   LDX #$0003 ;X = indirect HDMA table index starting at the second entry
@@ -429,7 +423,7 @@ RoomMainASM_NotPaused:
   REP #$30
   LDA $0915 ;Screen's Y position in pixels
   AND #$FFF8
-  CMP !YPositionReference
+  CMP $059C
   BEQ DontUpdateTiles
   BIT #$0008
   BNE HalfScroll
@@ -463,7 +457,7 @@ SetupGraphicsDMA:
 
   LDA $0915 ;Screen's Y position in pixels
   AND #$FFF8
-  CMP !YPositionReference
+  CMP $059C
   BPL +
 
   LDA $0915 ;Screen's Y position in pixels
@@ -514,7 +508,7 @@ SetupGraphicsDMA_Exit:
   LDA $0915 ;Screen's Y position in pixels
   STA $B7 ;Value for $2110 (Y scroll of BG 2)
   AND #$FFF8
-  STA !YPositionReference
+  STA $059C
   RTL
 print pc
 warnpc $88B057
@@ -682,7 +676,7 @@ Copy8x8TileRowBottom_BothFlip:
 CopyTilesFullScroll:
   LDA $0915 ;Screen's Y position in pixels
   AND #$FFF8
-  CMP !YPositionReference
+  CMP $059C
   BPL +
 
   LDA $0915 ;Screen's Y position in pixels
@@ -741,7 +735,7 @@ CopyTilesHalfScroll:
 
   LDA $0915 ;Screen's Y position in pixels
   AND #$FFF8
-  CMP !YPositionReference
+  CMP $059C
   BPL +
 
   LDA $0915
@@ -825,7 +819,7 @@ LoadFullBG_Loop:
   BMI LoadFullBG_Continue
   JSR ExecuteDMA
   LDA #$FFFF
-  STA !YPositionReference
+  STA $059C
   RTL
 
 LoadFullBG_Continue:
