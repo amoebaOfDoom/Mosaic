@@ -32,6 +32,7 @@ class Room:
       width = int(level_data.attrib['Width'], 16)
       height = int(level_data.attrib['Height'], 16)
       state['level_data'] = [[None for _ in range(height)] for _ in range(width)]
+      state['layer2_type'] = state_node.findall("layer2_type")[0].text
 
       bts_nodes = state_node.findall("./LevelData/BTS/Screen")
       for bts_node in bts_nodes:
@@ -181,6 +182,77 @@ filterd_rooms = [
   (5, 18), #TOURIAN ELEVATOR SAVE ROOM
 ]
 
+# Dust Torizo needs to use BGData, otherwise graphics will get messed up in the room.
+required_bg_data_rooms = [
+  (5, 6),  #DUST TORIZO
+]
+
+# These rooms need to use Layer2 so that the randomizer can edit their backgrounds to insert the Transit Tube.
+required_layer2_rooms = [
+  (0, 0),  #LANDING SITE
+  (0, 2),  #PARLOR AND ALCATRAZ
+  (0, 5),  #WEST OCEAN
+  (0, 9),  #EAST OCEAN
+  (0, 14), #CRATERIA LAKE
+  (1, 3),  #EARLY SUPER ROOM
+  (1, 12), #PINK BRINSTAR POWER BOMB ROOM
+  (1, 15), #CONSTRUCTION ZONE
+  (1, 19), #ETECOON ENERGY TANK ROOM
+  (1, 25), #PINK BRINSTAR HOPPER ROOM
+  (1, 37), #BETA POWER BOMB ROOM
+  (1, 40), #BELOW SPAZER
+  (1, 46), #KRAID BOSS DOOR
+  (1, 52), #KRAID HIDEOUT ENTRANCE
+  (2, 1),  #CATHEDRAL ENTRANCE
+  (2, 2),  #CATHEDRAL
+  (2, 7),  #ICE BEAM SNAKE ROOM
+  (2, 8),  #CRUMBLE SHAFT
+  (2, 12), #CROCOMIRE ESCAPE
+  (2, 14), #POST CROCOMIRE FARMING ROOM
+  (2, 20), #GRAPPLE JUMP CAVERN
+  (2, 21), #GRAPPLE TUTORIAL ROOM 2
+  (2, 23), #GRAPPLE BEAM ROOM
+  (2, 26), #BUBBLE MOUNTAIN
+  (2, 29), #SINGLE CHAMBER
+  (2, 30), #DOUBLE CHAMBER
+  (2, 33), #VOLCANO ROOM
+  (2, 34), #KRONIC BOOST ROOM
+  (2, 37), #LAVA DIVE ROOM
+  (2, 45), #BUBBLE MOUNTIAN BAT ROOM
+  (2, 60), #FAST PILLARS SETUP ROOM
+  (2, 62), #MICKEY MOUSE
+  (2, 65), #THE WORST ROOM IN THE GAME
+  (2, 66), #AMPHITHEATRE
+  (2, 67), #LOWER NORFAIR MAZE ROOM
+  (2, 69), #RED KEYHUNTER SHAFT
+  (2, 70), #WASTELAND
+  (2, 72), #THREE MUSKATEERS ROOM
+  (2, 74), #SCREW ATTACK ROOM
+  (3, 0),  #BOWLING ALLEY
+  (3, 6),  #ELECTRIC DEATH ROOM
+  (3, 7),  #WRECKED SHIP ENERGY TANK ROOM
+  (4, 5),  #FISH TANK
+  (4, 6),  #TURTLE FAMILY ROOM
+  (4, 8),  #PUFFER MOUNTIAN
+  (4, 10), #WATERING HOLE
+  (4, 11), #NORTHWEST MARIDIA BUG ROOM
+  (4, 13), #PSEUDO PLASMA SPARK ROOM
+  (4, 14), #CRAB HOLE
+  (4, 17), #PLASMA BEAM ROOM
+  (4, 20), #PLASMA SPARK ROOM
+  (4, 21), #PLASMA CLIMB
+  (4, 33), #MARIDIA AQUEDUCT
+  (4, 36), #PANTS ROOM
+  (4, 37), #EAST PANT ROOM
+  (4, 42), #DRAYGON BOSS DOOR
+  (4, 53), #WEST CACTUS ALLEY
+  (5, 2),  #METROID ROOM 2
+  (5, 8),  #TOURIAN SEAWEED ROOM
+  (5, 12), #RINKA SHAFT
+  (5, 16), #TOURIAN HORIZONTAL ESCAPE
+  (5, 17), #TOURIAN VERTICAL ESCAPE
+]
+
 ignored_styles = [
   "CrateriaPalette",
   "BrinstarPalette",
@@ -205,6 +277,14 @@ for name, style in styles.items():
   for a_i, area in style.rooms.items():
     for r_i, room in area.items():
       for s_i, state in enumerate(room.states):
+        if (a_i, r_i) in required_bg_data_rooms and state['layer2_type'] != 'BGData':
+          print(f"🔴 {room.path} State<{s_i}> expected to have BGData (to prevent graphical glitches), but has {state['layer2_type']}")
+          invalid = 1
+          
+        if (a_i, r_i) in required_layer2_rooms and state['layer2_type'] != 'Layer2':
+          print(f"🔴 {room.path} State<{s_i}> expected to have Layer2 (to support Transit Tube passing through), but has {state['layer2_type']}")
+          invalid = 1
+                
         for c_i, column in enumerate(state['level_data']):
           for n_i, screen in enumerate(column):
             for b_i, tile_data in enumerate(screen):
