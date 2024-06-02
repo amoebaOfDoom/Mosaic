@@ -30,6 +30,79 @@ GetPaletteBlendIndex_Trampoline:
   JSL GetPaletteBlendIndex
   RTS
 
+org $A5E87C
+  JSL SetupSpoSpoTransitionColors
+  NOP : NOP
+  ;LDA #$0080
+  ;STA $0F7A
+
+org $A5E8E5
+  LDY $12
+  LDA $0000,y
+  TAY
+  LDA $7E7880
+  BEQ SpoSpoDecay_Vanilla
+  TYA
+  JSL SpoSpoDecay
+  BRA SpoSpoDecay_Exit
+SpoSpoDecay_Vanilla:
+  LDX #$0000
+-
+  LDA $E4F9,y
+  STA $7EC080,x
+  LDA $E5D9,y
+  STA $7EC0E0,x
+  INY
+  INY
+  INX
+  INX
+  CPX #$0020
+  BNE -
+SpoSpoDecay_Exit:
+  PLX
+  PLY
+  INY
+  INY
+  RTL
+warnpc $A5E91C
+
+org $A5E91C
+  PHY
+  PHX
+  LDX #$001E
+-
+  LDA $E4B9,x
+  STA $7EC320,x
+  DEX
+  DEX
+  BPL -
+
+  JSL SetupSpoSpoTransitionColors
+  LDA $7E7880
+  BEQ SpoSpoAlreadyDead_Vanilla
+  LDX #$001E
+-
+  LDA $7E7840,x
+  STA $7EC280,x
+  LDA $7E7860,x
+  STA $7EC2E0,x
+  DEX
+  DEX
+  BPL -
+  BRA SpoSpoDecay_Exit
+SpoSpoAlreadyDead_Vanilla:
+  LDX #$001E
+-
+  LDA $E5B9,x
+  STA $7EC280,x
+  LDA $E699,x
+  STA $7EC2E0,x
+  DEX
+  DEX
+  BPL -
+  BRA SpoSpoDecay_Exit
+warnpc $A5E96E
+
 org $A6A4D6
   CMP #$000F
   BMI +
@@ -340,6 +413,251 @@ RidleyLightsOn:
   BMI -
 
   PLY
+  RTL
+
+ComputeSepiaTone:
+; extract color channels in 8.8 fixed point
+  CLC
+  STA $08
+  AND #$001F
+  XBA
+  STA $0A
+  LDA $08
+  AND #$03E0
+  ASL
+  ASL
+  ASL
+  STA $0C
+  LDA $08
+  AND #$7C00
+  LSR
+  LSR
+  STA $0E
+
+; R = R*$00.64 + G*$00.C5 + B*$00.30
+; G = R*$00.59 + G*$00.B0 + B*$00.2B
+; B = R*$00.46 + G*$00.89 + B*$00.21
+
+  LDA $0A
+  LDY #$0064
+  JSR FixedPointMultiply
+  STA $10
+  LDA $0C
+  LDY #$00C5
+  JSR FixedPointMultiply
+  CLC
+  ADC $10
+  STA $10
+  LDA $0E
+  LDY #$0030
+  JSR FixedPointMultiply
+  CLC
+  ADC $10
+  AND #$1F00 ; truncate and store as R
+  XBA
+  STA $08
+
+  LDA $0A
+  LDY #$0059
+  JSR FixedPointMultiply
+  STA $10
+  LDA $0C
+  LDY #$00B0
+  JSR FixedPointMultiply
+  CLC
+  ADC $10
+  STA $10
+  LDA $0E
+  LDY #$002B
+  JSR FixedPointMultiply
+  CLC
+  ADC $10
+  AND #$1F00
+  LSR
+  LSR
+  LSR
+  ORA $08
+  STA $08 ; truncate and store as G
+
+  LDA $0A
+  LDY #$0046
+  JSR FixedPointMultiply
+  STA $10
+  LDA $0C
+  LDY #$0089
+  JSR FixedPointMultiply
+  CLC
+  ADC $10
+  STA $10
+  LDA $0E
+  LDY #$0021
+  JSR FixedPointMultiply
+  CLC
+  ADC $10
+  AND #$1F00
+  ASL
+  ASL
+  ORA $08
+  STA $08 ; truncate and store as B
+
+  RTS
+
+; unsigned multiply A * Y, where A is 000aaaaa.00000000 and Y is 00000000.hyyyyyyy
+FixedPointMultiply:
+  BEQ ++
+  STA $05F1
+  STZ $05F3
+
+  ; result = (A*h)/2 + (A*y)/$100
+  ; the fast multiplier is 16x8 signed multiplication
+  SEP #$30
+  STA $211B
+  XBA
+  STA $211B
+  TYA
+  AND #$7F
+  STA $211C
+
+  TYA
+  BPL +
+  REP #$30
+  LDA $05F1
+  LSR ;(A*1)/2
+  CLC
+  ADC $2135 ; + (A*y)/$100
+  RTS
++
+  REP #$30
+  LDA $2135 ;(A*0)/2 + (A*y)/$100
+++
+  RTS
+
+SetupSpoSpoTransitionColors:
+  PHX
+  PHY
+  LDA #$0080
+  STA $0F7A
+
+; test for vanilla colors
+  LDA $07C7
+  STA $03
+  LDA $07C6
+  INC
+  INC
+  STA $02
+
+  LDY #$0080
+  LDX #$0000
+-
+  LDA [$02],Y
+  STA $7E7800,X
+  INY
+  INY
+  INX
+  INX
+  CPX #$0020
+  BMI -
+
+  LDY #$00E0
+  LDX #$0000
+-
+  LDA [$02],Y
+  STA $7E7820,X
+  INY
+  INY
+  INX
+  INX
+  CPX #$0020
+  BMI -
+
+  LDA VanillaSpoSpoPalette
+  CMP $07C6
+  BNE SetupSpoSpoTransitionColors_NonVanilla
+  LDA VanillaSpoSpoPalette+1
+  CMP $07C7
+  BNE SetupSpoSpoTransitionColors_NonVanilla
+  LDA #$0000
+  STA $7E7880
+  PLY
+  PLX
+  RTL
+
+VanillaSpoSpoPalette:
+  DL AreaPalettes_1_1D
+
+SetupSpoSpoTransitionColors_NonVanilla:
+  LDX #$0000
+-
+  LDA $7E7800,X
+  PHX
+  JSR ComputeSepiaTone
+  PLX
+  STA $7E7840,X
+
+  LDA $7E7820,X
+  PHX
+  JSR ComputeSepiaTone
+  PLX
+  STA $7E7860,X
+
+  INX
+  INX
+  CPX #$0020
+  BMI -
+
+  LDA #$0001
+  STA $7E7880
+  PLY
+  PLX
+  RTL
+
+SpoSpoDecay:
+  LSR
+  LSR
+  LSR
+  LSR
+  LSR
+  INC
+  STA $16 ; transition index
+  LDA #$0007
+  STA $00
+
+  LDA #$0000
+  STA $06
+  TAX
+-
+  LDA $7E7840,X
+  TAY ; target color
+  LDA $7E7800,X
+  TAX ; source color
+  LDA $16
+  JSR ComputeTransitionalColor
+  LDX $06
+  STA $7EC080,X
+  INX
+  INX
+  STX $06
+  CPX #$0020
+  BMI -
+
+  LDA #$0000
+  STA $06
+  TAX
+-
+  LDA $7E7860,X
+  TAY ; target color
+  LDA $7E7820,X
+  TAX ; source color
+  LDA $16
+  JSR ComputeTransitionalColor
+  LDX $06
+  STA $7EC0E0,X
+  INX
+  INX
+  STX $06
+  CPX #$0020
+  BMI -
+
   RTL
 
 GetPaletteBlendIndex:
