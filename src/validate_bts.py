@@ -284,6 +284,23 @@ for name, style in styles.items():
         if (a_i, r_i) in required_layer2_rooms and state['layer2_type'] != 'Layer2':
           print(f"🔴 {room.path} State<{s_i}> expected to have Layer2 (to support Transit Tube passing through), but has {state['layer2_type']}")
           invalid = 1
+
+        if (a_i, r_i) == (2, 48):
+          # Check that top two rows of Layer1 in SPEEDBOOSTER RUBBLE HALLWAY match vanilla,
+          # since otherwise the shot block PLM overload strats may not work.
+          match = True
+          for c_i, column in enumerate(state['level_data']):
+            for n_i, screen in enumerate(column):
+              for b_i, tile_data in list(enumerate(screen))[:32]:
+                tile = tile_data[1]
+                base_tile_data = base.rooms[a_i][r_i].states[s_i]['level_data'][c_i][n_i][b_i]
+                base_tile = base_tile_data[1]
+                if tile != base_tile:
+                  print(f"🔴 {room.path} State<{s_i}>Screen({c_i},{n_i})[{b_i:X}] Layer1 tile should be {base_tile:04X} but is {tile:04X}")
+                  match = False
+          if not match:
+              print(f"🔴 {room.path} Top two rows of Layer1 tiles should match vanilla, to ensure that shot block PLM overload strat works")
+              invalid = 1
                 
         for c_i, column in enumerate(state['level_data']):
           for n_i, screen in enumerate(column):
