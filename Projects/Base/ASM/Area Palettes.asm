@@ -30,6 +30,10 @@ GetPaletteBlendIndex_Trampoline:
   JSL GetPaletteBlendIndex
   RTS
 
+org $A4986D
+  JSL LoadCrocSpikePalette
+  JMP $9BB3
+
 org $A5E87C
   JSL SetupSpoSpoTransitionColors
   NOP : NOP
@@ -411,6 +415,72 @@ RidleyLightsOn:
   STX $06
   CPX #$0100
   BMI -
+
+  PLY
+  RTL
+
+VanillaCrocPalette:
+  DL AreaPalettes_2_1B
+LoadCrocSpikePalette:
+  PHY
+  LDA $07C7
+  STA $03
+  LDA $07C6
+  INC
+  INC
+  STA $02
+
+  LDY #$0002
+  LDX #$0162
+-
+  LDA [$02],Y
+  STA $7EC000,X
+  INX
+  INX
+  INY
+  INY
+  CPY #$0020
+  BMI -
+
+  LDA VanillaCrocPalette
+  CMP $07C6
+  BNE LoadCrocSpikePalette_NonVanilla
+  LDA VanillaCrocPalette+1
+  CMP $07C7
+  BNE LoadCrocSpikePalette_NonVanilla
+  PLY
+  RTL
+LoadCrocSpikePalette_NonVanilla:
+  LDA #$0004
+  STA $00
+
+  LDY #$00CE
+  LDA [$02],Y
+  STA $7EC14E
+
+  LDY #$00CA
+  LDA [$02],Y
+  STA $7EC152
+  INY
+  INY
+  LDA [$02],Y
+  STA $7EC154
+
+  LDY #$00C4
+  LDA [$02],Y
+  STA $7EC158
+  INY
+  INY
+  LDA [$02],Y
+  STA $7EC15A
+  INY
+  INY
+  LDA [$02],Y
+  STA $7EC15C
+
+  LDY #$00DE
+  LDA [$02],Y
+  STA $7EC15E
 
   PLY
   RTL
