@@ -1,5 +1,1 @@
-<RoboTileSet>
-<Script Name="Fill" Priority="0">
-require("WestMaridiaThin")
-</Script>
-</RoboTileSet>
+../../../Base/Data/RoboTile/WestMaridiaThin.xml

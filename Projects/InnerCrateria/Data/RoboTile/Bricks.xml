@@ -1,5 +1,1 @@
-<RoboTileSet>
-<Script Name="Fill" Priority="0">
-require("Bricks")
-</Script>
-</RoboTileSet>
+../../../Base/Data/RoboTile/Bricks.xml

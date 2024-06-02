@@ -1,5 +1,1 @@
-<RoboTileSet>
-<Script Name="Fill" Priority="0">
-require("OuterCrateriaWater")
-</Script>
-</RoboTileSet>
+../../../Base/Data/RoboTile/OuterCrateriaWater.xml
