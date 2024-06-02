@@ -1,5 +1,1 @@
-<RoboTileSet>
-<Script Name="Fill" Priority="0">
-require("GreenBrinstar")
-</Script>
-</RoboTileSet>
+../../../Base/Data/RoboTile/GreenBrinstar.xml
