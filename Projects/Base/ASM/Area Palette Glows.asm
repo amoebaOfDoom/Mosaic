@@ -87,6 +87,9 @@ MainGlowHandler_Exit:
 org $8DC54C
 MainGlowHandler_V1:
 
+org $8DE45A
+  JMP HeatGlowAdditionalInit ;STA $1EBD,y
+
 org $8DF891 ; overwrite moved glow
 SpawnGlow_V1:
   LDA #$C594  ; points to an RTS
@@ -102,6 +105,61 @@ SpawnGlow_V1:
   PLP
   CLC
   RTL
+
+HeatGlowAdditionalInit:
+  STA $1EBD,Y
+  PHY
+  PHX
+  LDX $07BB ; tileset index
+  LDA $8F0003,X
+  AND #$00FF
+  CMP #$0002 ; assume Norfair tilesets already handle this with glow config
+  BEQ HeatGlowAdditionalInit_Exit
+  LDY #FakeHeatGlowSync
+  JSL $8DC4E9
+HeatGlowAdditionalInit_Exit:
+  PLX
+  PLY
+FakeHeatGlowSyncInit:
+  RTS
+
+FakeHeatGlowSync:
+  DW FakeHeatGlowSyncInit, FakeHeatGlowSyncInstructionList
+
+FakeHeatGlowSyncInstructionList:
+  DW $F1C6 : DB $00
+  DW $0010, $C595
+  DW $F1C6 : DB $01
+  DW $0004, $C595
+  DW $F1C6 : DB $02
+  DW $0004, $C595
+  DW $F1C6 : DB $03
+  DW $0005, $C595
+  DW $F1C6 : DB $04
+  DW $0006, $C595
+  DW $F1C6 : DB $05
+  DW $0007, $C595
+  DW $F1C6 : DB $06
+  DW $0008, $C595
+  DW $F1C6 : DB $07
+  DW $0008, $C595
+  DW $F1C6 : DB $08
+  DW $0008, $C595
+  DW $F1C6 : DB $09
+  DW $0008, $C595
+  DW $F1C6 : DB $0A
+  DW $0007, $C595
+  DW $F1C6 : DB $0B
+  DW $0006, $C595
+  DW $F1C6 : DB $0C
+  DW $0005, $C595
+  DW $F1C6 : DB $0D
+  DW $0004, $C595
+  DW $F1C6 : DB $0E
+  DW $0004, $C595
+  DW $F1C6 : DB $0F
+  DW $0010, $C595
+  DW $C61E, FakeHeatGlowSyncInstructionList
 
 org $BB8000
 SpawnGlow_V2:
