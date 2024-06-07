@@ -45,6 +45,11 @@ GetTilesetIndex:
   LDA $8F0003,X
   PLX
   AND #$00FF
+  CMP #$0020
+  BPL +
+  RTS
++
+  LDA #$0020
   RTS
 
 CallGlowHandler:
@@ -119,6 +124,8 @@ GlowHandlerTable:
   DW Handler_Area_1 ;SpoSpo
   DW Handler_Area_3 ;Phantoon
   DW Handler_Area_1 ;Statues Hallway
+  ;Exotic
+  DW Handler_Area_X
 
 ProcessEscapeMask:
   LDA #$000E
@@ -181,6 +188,8 @@ Handler_Area_1:
 Handler_Area_2:
 Handler_Area_4:
 Handler_Area_6:
+Handler_Area_7:
+Handler_Area_X:
   LDA $196A
   RTS
 
@@ -747,7 +756,8 @@ Glow_Area_6:
   DW !NullGlow, !NullGlow, !NullGlow, !NullGlow, !NullGlow, !SandFlor, !HevySand, !SamusHot
 Glow_Area_7:
   DW !NullGlow, !NullGlow, !NullGlow, !NullGlow, !NullGlow, !SandFlor, !HevySand, !SamusHot
-
+Glow_Area_X:
+  DW !NullGlow, !NullGlow, !NullGlow, !NullGlow, !NullGlow, !SandFlor, !HevySand, !SamusHot
 
 !NullAnim = $824B
 !V_Spike_ = $8251
@@ -779,6 +789,8 @@ Anim_Area_6:
   DW !H_Spike_, !V_Spike_, !NullAnim, !SandFall, #Ceiling_, !VilePlum, !R_Tread_, !L_Tread_
 Anim_Area_7:
   DW !H_Spike_, !V_Spike_, !NullAnim, !SandFall, #Ceiling_, !VilePlum, !R_Tread_, !L_Tread_
+Anim_Area_X:
+  DW !H_Spike_, !V_Spike_, !NullAnim, !SandFall, #Ceiling_, !VilePlum, !R_Tread_, !L_Tread_
 
 GlowTypeTable:
   DW Glow_Area_0a, Glow_Area_0a ;Crateria Surface
@@ -798,6 +810,8 @@ GlowTypeTable:
   DW Glow_Area_1 ;SpoSpo
   DW Glow_Area_3 ;Phantoon
   DW Glow_Area_1 ;Statues Hallway
+  ;Exotic
+  DW Glow_Area_X
   
 AnimTypeTable:
   DW Anim_Area_0, Anim_Area_0 ;Crateria Surface
@@ -817,5 +831,7 @@ AnimTypeTable:
   DW Anim_Area_1 ;SpoSpo
   DW Anim_Area_3 ;Phantoon
   DW Anim_Area_1 ;Statues Hallway
+  ;Exotic
+  DW Anim_Area_X
 
 warnpc $83BA00

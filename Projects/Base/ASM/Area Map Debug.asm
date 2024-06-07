@@ -13,7 +13,7 @@ org $82BEA3 ; overwrite unused code
 SetMapAreaInject:
   LDA $7ED824 ; event bits $20-27
   AND #$00FF
-  BEQ MatchMapToTileset
+  BEQ SkipSettingMapArea
   STZ $1F5B
   DEC $1F5B
 -
@@ -23,34 +23,11 @@ SetMapAreaInject:
   LDX $07BB
   RTS
 
-MatchMapToTileset:
-  LDX $07BB
-  LDA $8F0003,X
-  AND #$00FF
-  TAX
-  LDA.l StandardArea,X
-  AND #$00FF
-  STA $1F5B
+; In Mosaic the map area is only used if one of the event bits is set
+; In an actual map rando seed, this is set up by the map area.
+; So nothing needs to be done if no event bits are set.
+SkipSettingMapArea:
   LDX $07BB
   RTS
-
-StandardArea:
-  DB $00, $00 ;Crateria Surface
-  DB $00, $00 ;Inner Crateria
-  DB $03, $03 ;Wrecked Ship
-  DB $01, $01 ;Brinstar
-  DB $01 ;Tourian Statues Access
-  DB $02, $02 ;Norfair
-  DB $04, $04 ;Maridia
-  DB $05, $05 ;Tourian
-  DB $06, $06, $06, $06, $06, $06 ;Ceres
-  DB $00, $00, $00, $00, $00 ;Utility Rooms
-  ;Bosses
-  DB $01 ;Kraid
-  DB $02 ;Crocomire
-  DB $04 ;Draygon
-  DB $01 ;SpoSpo
-  DB $03 ;Phantoon
-  DB $01 ;Statues Hallway
 
 warnpc $82BF03

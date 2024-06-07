@@ -172,6 +172,14 @@ SpawnGlow_V2:
   LDA.w #EmptyPre
   STA $1EAD,X ; pre-instruction
 
+  PHX
+  LDX $07BB ; tileset index
+  LDA $8F0003,X
+  PLX
+  AND #$00FF
+  CMP #$0020
+  BPL UseTilesetArea
+
   ; Enable area palettes is either the flag is set in ROM or one of the debug events is set
   LDA.l EnablePalettesFlag
   CMP #$F0F0
@@ -180,14 +188,8 @@ SpawnGlow_V2:
   AND #$00FF
   BNE UseMapArea
 
-;UseTilesetArea:
-  PHX
-  LDX $07BB ; tileset index
-  LDA $8F0003,X
-  AND #$00FF
-  TAX
-  LDA.l StandardArea,X
-  PLX
+UseTilesetArea:
+  LDA #$0008
   BRA ReadHeader
 UseMapArea:
   LDA $1F5B  ; map area
@@ -213,25 +215,6 @@ ReadHeader:
   PLP
   CLC
   RTL
-
-StandardArea:
-  DB $00, $00 ;Crateria Surface
-  DB $00, $00 ;Inner Crateria
-  DB $03, $03 ;Wrecked Ship
-  DB $01, $01 ;Brinstar
-  DB $01 ;Tourian Statues Access/Blue brinstar
-  DB $02, $02 ;Norfair
-  DB $04, $04 ;Maridia
-  DB $05, $05 ;Tourian
-  DB $06, $06, $06, $06, $06, $60 ;Ceres
-  DB $00, $00, $00, $00, $00 ;Utility Rooms
-  ;Bosses
-  DB $01 ;Kraid
-  DB $04 ;Draygon
-  DB $04 ;Draygon
-  DB $01 ;SpoSpo
-  DB $03 ;Phantoon
-  DB $01 ;Statues Hallway
 
 EmptyInit:
 EmptyPre:
@@ -402,6 +385,7 @@ ResetLightning:
 SkyFlashTable:
   DW EmptyInit,SkyFlash0_List, EmptyInit,SkyFlash1_List, EmptyInit,SkyFlash2_List, EmptyInit,SkyFlash3_List
   DW EmptyInit,SkyFlash4_List, EmptyInit,SkyFlash5_List, EmptyInit,SkyFlash6_List, EmptyInit,SkyFlash7_List
+  DW EmptyInit,SkyFlash0_List
 
 macro SkyFlash_List(n)
 SkyFlash<n>_List:
@@ -469,6 +453,7 @@ endmacro
 SurfcEscTable:
   DW EmptyInit,SurfcEsc0_List, EmptyInit,SurfcEsc1_List, EmptyInit,SurfcEsc2_List, EmptyInit,SurfcEsc3_List
   DW EmptyInit,SurfcEsc4_List, EmptyInit,SurfcEsc5_List, EmptyInit,SurfcEsc6_List, EmptyInit,SurfcEsc7_List
+  DW EmptyInit,SurfcEsc0_List
 
 macro SurfcEsc_List(n)
 SurfcEsc<n>_List:
@@ -531,6 +516,7 @@ endmacro
 Sky_Esc_Table:
   DW EmptyInit,Sky_Esc_0_List, EmptyInit,Sky_Esc_1_List, EmptyInit,Sky_Esc_2_List, EmptyInit,Sky_Esc_3_List
   DW EmptyInit,Sky_Esc_4_List, EmptyInit,Sky_Esc_5_List, EmptyInit,Sky_Esc_6_List, EmptyInit,Sky_Esc_7_List
+  DW EmptyInit,Sky_Esc_0_List
 
 macro Sky_Esc_List(n)
 Sky_Esc_<n>_List:
@@ -584,6 +570,7 @@ endmacro
 OldT1EscTable:
   DW EmptyInit,OldT1Esc0_List, EmptyInit,OldT1Esc1_List, EmptyInit,OldT1Esc2_List, EmptyInit,OldT1Esc3_List
   DW EmptyInit,OldT1Esc4_List, EmptyInit,OldT1Esc5_List, EmptyInit,OldT1Esc6_List, EmptyInit,OldT1Esc7_List
+  DW EmptyInit,OldT1Esc0_List
 
 macro OldT1Esc_List(n)
 OldT1Esc<n>_List:
@@ -702,6 +689,7 @@ endmacro
 OldT2EscTable:
   DW EmptyInit,OldT2Esc0_List, EmptyInit,OldT2Esc1_List, EmptyInit,OldT2Esc2_List, EmptyInit,OldT2Esc3_List
   DW EmptyInit,OldT2Esc4_List, EmptyInit,OldT2Esc5_List, EmptyInit,OldT2Esc6_List, EmptyInit,OldT2Esc7_List
+  DW EmptyInit,OldT2Esc0_List
 
 macro OldT2Esc_List(n)
 OldT2Esc<n>_List:
@@ -767,6 +755,7 @@ endmacro
 OldT3EscTable:
   DW EmptyInit,OldT3Esc0_List, EmptyInit,OldT3Esc1_List, EmptyInit,OldT3Esc2_List, EmptyInit,OldT3Esc3_List
   DW EmptyInit,OldT3Esc4_List, EmptyInit,OldT3Esc5_List, EmptyInit,OldT3Esc6_List, EmptyInit,OldT3Esc7_List
+  DW EmptyInit,OldT3Esc0_List
 
 macro OldT3Esc_List(n)
 OldT3Esc<n>_List:
@@ -835,6 +824,8 @@ endmacro
 Blue_BG_Table:
   DW EmptyInit,Blue_BG_0_List, EmptyInit,Blue_BG_1_List, EmptyInit,Blue_BG_2_List, EmptyInit,Blue_BG_3_List
   DW EmptyInit,Blue_BG_4_List, EmptyInit,Blue_BG_5_List, EmptyInit,Blue_BG_6_List, EmptyInit,Blue_BG_7_List
+  DW EmptyInit,Blue_BG_1_List
+
 
 macro Blue_BG__List(n)
 Blue_BG_<n>_List:
@@ -921,6 +912,7 @@ SpoSpoBGPreInstruction:
 SpoSpoBGTable:
   DW SpoSpoBGInit,SpoSpoBG0_List, SpoSpoBGInit,SpoSpoBG1_List, SpoSpoBGInit,SpoSpoBG2_List, SpoSpoBGInit,SpoSpoBG3_List
   DW SpoSpoBGInit,SpoSpoBG4_List, SpoSpoBGInit,SpoSpoBG5_List, SpoSpoBGInit,SpoSpoBG6_List, SpoSpoBGInit,SpoSpoBG7_List
+  DW SpoSpoBGInit,SpoSpoBG1_List
 SpoSpoBG0_List:
   DW SetPreInstruction, SpoSpoBGPreInstruction
   DW GlowJMP, Blue_BG_0_List
@@ -950,6 +942,7 @@ SpoSpoBG7_List:
 Purp_BG_Table:
   DW EmptyInit,Purp_BG_0_List, EmptyInit,Purp_BG_1_List, EmptyInit,Purp_BG_2_List, EmptyInit,Purp_BG_3_List
   DW EmptyInit,Purp_BG_4_List, EmptyInit,Purp_BG_5_List, EmptyInit,Purp_BG_6_List, EmptyInit,Purp_BG_7_List
+  DW EmptyInit,Purp_BG_1_List
 
 macro Purp_BG__List(n)
 Purp_BG_<n>_List:
@@ -1013,6 +1006,7 @@ endmacro
 Beacon__Table:
   DW EmptyInit,Beacon__0_List, EmptyInit,Beacon__1_List, EmptyInit,Beacon__2_List, EmptyInit,Beacon__3_List
   DW EmptyInit,Beacon__4_List, EmptyInit,Beacon__5_List, EmptyInit,Beacon__6_List, EmptyInit,Beacon__7_List
+  DW EmptyInit,Beacon__1_List
 
 macro Beacon___List(n)
 Beacon__<n>_List:
@@ -1202,6 +1196,7 @@ NorfairCommonColorsInit:
 NorHot1_Table:
   DW NorfairCommonColorsInit,NorHot1_0_List, NorfairCommonColorsInit,NorHot1_1_List, NorfairCommonColorsInit,NorHot1_2_List, NorfairCommonColorsInit,NorHot1_3_List
   DW NorfairCommonColorsInit,NorHot1_4_List, NorfairCommonColorsInit,NorHot1_5_List, NorfairCommonColorsInit,NorHot1_6_List, NorfairCommonColorsInit,NorHot1_7_List
+  DW NorfairCommonColorsInit,NorHot1_2_List
 
 macro NorHot1__List(n)
 NorHot1_<n>_List:
@@ -1318,6 +1313,7 @@ endmacro
 NorHot2_Table:
   DW NorfairCommonColorsInit,NorHot2_0_List, NorfairCommonColorsInit,NorHot2_1_List, NorfairCommonColorsInit,NorHot2_2_List, NorfairCommonColorsInit,NorHot2_3_List
   DW NorfairCommonColorsInit,NorHot2_4_List, NorfairCommonColorsInit,NorHot2_5_List, NorfairCommonColorsInit,NorHot2_6_List, NorfairCommonColorsInit,NorHot2_7_List
+  DW NorfairCommonColorsInit,NorHot2_2_List
 
 macro NorHot2__List(n)
 NorHot2_<n>_List:
@@ -1413,6 +1409,7 @@ endmacro
 NorHot3_Table:
   DW NorfairCommonColorsInit,NorHot3_0_List, NorfairCommonColorsInit,NorHot3_1_List, NorfairCommonColorsInit,NorHot3_2_List, NorfairCommonColorsInit,NorHot3_3_List
   DW NorfairCommonColorsInit,NorHot3_4_List, NorfairCommonColorsInit,NorHot3_5_List, NorfairCommonColorsInit,NorHot3_6_List, NorfairCommonColorsInit,NorHot3_7_List
+  DW NorfairCommonColorsInit,NorHot3_2_List
 
 macro NorHot3__List(n)
 NorHot3_<n>_List:
@@ -1589,6 +1586,7 @@ NorfairCommonDarkInit:
 NorHot4_Table:
   DW NorfairCommonDarkInit,NorHot4_0_List, NorfairCommonDarkInit,NorHot4_1_List, NorfairCommonDarkInit,NorHot4_2_List, NorfairCommonDarkInit,NorHot4_3_List
   DW NorfairCommonDarkInit,NorHot4_4_List, NorfairCommonDarkInit,NorHot4_5_List, NorfairCommonDarkInit,NorHot4_6_List, NorfairCommonDarkInit,NorHot4_7_List
+  DW NorfairCommonDarkInit,NorHot4_2_List
 
 macro NorHot4__List(n)
 NorHot4_<n>_List:
@@ -1686,6 +1684,7 @@ endmacro
 WS_GreenTable:
   DW EmptyInit,WS_Green0_List, EmptyInit,WS_Green1_List, EmptyInit,WS_Green2_List, EmptyInit,WS_Green3_List
   DW EmptyInit,WS_Green4_List, EmptyInit,WS_Green5_List, EmptyInit,WS_Green6_List, EmptyInit,WS_Green7_List
+  DW EmptyInit,WS_Green3_List
 
 macro WS_Green_List(n)
 WS_Green<n>_List:
@@ -1755,6 +1754,7 @@ WaterfallColorsInit:
 WaterfalTable:
   DW WaterfallColorsInit,Waterfal0_List, WaterfallColorsInit,Waterfal1_List, WaterfallColorsInit,Waterfal2_List, WaterfallColorsInit,Waterfal3_List
   DW WaterfallColorsInit,Waterfal4_List, WaterfallColorsInit,Waterfal5_List, WaterfallColorsInit,Waterfal6_List, WaterfallColorsInit,Waterfal7_List
+  DW WaterfallColorsInit,Waterfal4_List
 
 macro Waterfal_List(n)
 Waterfal<n>_List:
@@ -1807,6 +1807,7 @@ Tourian_PreInstruction:
 Tourian_Table:
   DW EmptyInit,Tourian_0_List, EmptyInit,Tourian_1_List, EmptyInit,Tourian_2_List, EmptyInit,Tourian_3_List
   DW EmptyInit,Tourian_4_List, EmptyInit,Tourian_5_List, EmptyInit,Tourian_6_List, EmptyInit,Tourian_7_List
+  DW EmptyInit,Tourian_5_List
 
 macro Tourian__List(n)
 Tourian_<n>_List:
@@ -1877,6 +1878,7 @@ endmacro
 Tor_2EscTable:
   DW EmptyInit,Tor_2Esc0_List, EmptyInit,Tor_2Esc1_List, EmptyInit,Tor_2Esc2_List, EmptyInit,Tor_2Esc3_List
   DW EmptyInit,Tor_2Esc4_List, EmptyInit,Tor_2Esc5_List, EmptyInit,Tor_2Esc6_List, EmptyInit,Tor_2Esc7_List
+  DW EmptyInit,Tor_2Esc5_List
 
 macro Tor_2Esc_List(n)
 Tor_2Esc<n>_List:
@@ -1939,6 +1941,7 @@ endmacro
 Tor_3EscTable:
   DW EmptyInit,Tor_3Esc0_List, EmptyInit,Tor_3Esc1_List, EmptyInit,Tor_3Esc2_List, EmptyInit,Tor_3Esc3_List
   DW EmptyInit,Tor_3Esc4_List, EmptyInit,Tor_3Esc5_List, EmptyInit,Tor_3Esc6_List, EmptyInit,Tor_3Esc7_List
+  DW EmptyInit,Tor_3Esc5_List
 Tor_3Esc0_List:
   DW SetColorIndex, $00A8
   DW GlowJMP, Tor_4Esc0_List_Loop
@@ -1967,6 +1970,7 @@ Tor_3Esc7_List:
 Tor_4EscTable:
   DW EmptyInit,Tor_4Esc0_List, EmptyInit,Tor_4Esc1_List, EmptyInit,Tor_4Esc2_List, EmptyInit,Tor_4Esc3_List
   DW EmptyInit,Tor_4Esc4_List, EmptyInit,Tor_4Esc5_List, EmptyInit,Tor_4Esc6_List, EmptyInit,Tor_4Esc7_List
+  DW EmptyInit,Tor_4Esc5_List
 
 macro Tor_4Esc_List(n)
 Tor_4Esc<n>_List:

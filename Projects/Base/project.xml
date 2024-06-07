@@ -7,7 +7,7 @@
   <LoadASMonImportFromXML>false</LoadASMonImportFromXML>
   <ScanROMonImportFromROM>false</ScanROMonImportFromROM>
   <ApplyASMonImportFromROM>false</ApplyASMonImportFromROM>
-  <LogLevel>Info</LogLevel>
+  <LogLevel>Debug</LogLevel>
   <PaletteFormat>SNES</PaletteFormat>
   <RoomNameSpaceBankAny>
     <Space start="DFD500" end="DFFFFF" />
@@ -181,13 +181,13 @@
   </UserReservedSpace>
   <ScannedFreeSpace />
   <ASMUsedSpaceBankAny>
-    <Space start="82BEA3" end="82BEF4" />
+    <Space start="82BEA3" end="82BEBF" />
     <Space start="82DEF7" end="82DEF9" />
     <Space start="82DEFD" end="82DF00" />
     <Space start="82DF1D" end="82DF28" />
     <Space start="82E833" end="82E83A" />
     <Space start="82EADB" end="82EAE2" />
-    <Space start="83B800" end="83B98F" />
+    <Space start="83B800" end="83B9B3" />
     <Space start="8498D1" end="849A3E" />
     <Space start="849CC5" end="849CCE" />
     <Space start="849E0D" end="849E28" />
@@ -219,12 +219,12 @@
     <Space start="89AC57" end="89AC59" />
     <Space start="89AC62" end="89AC69" />
     <Space start="89AC98" end="89AC9F" />
-    <Space start="89AF60" end="89B0AF" />
+    <Space start="89AF60" end="89B0BA" />
     <Space start="8AB180" end="8AB4D4" />
     <Space start="8AB502" end="8AB604" />
     <Space start="8AB620" end="8AB6CC" />
     <Space start="8AB700" end="8ABF6F" />
-    <Space start="8AC002" end="8ACC31" />
+    <Space start="8AC002" end="8ACD2C" />
     <Space start="8DC4FF" end="8DC520" />
     <Space start="8DC527" end="8DC54A" />
     <Space start="8DC686" end="8DC694" />
@@ -244,9 +244,9 @@
     <Space start="A6A4D6" end="A6A4E2" />
     <Space start="A7DC71" end="A7DC74" />
     <Space start="ADF24B" end="ADF257" />
-    <Space start="BB8000" end="BBFE69" />
-    <Space start="C08000" end="C0E58B" />
-    <Space start="C18000" end="C1E58B" />
+    <Space start="BB8000" end="BBFE9C" />
+    <Space start="C08000" end="C0F197" />
+    <Space start="C18000" end="C1D0BA" />
   </ASMUsedSpaceBankAny>
   <PLMBank>
     <option>Default</option>
