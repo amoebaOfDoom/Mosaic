@@ -141,6 +141,11 @@ EnablePalettesFlag:
 
 org $8AC002
 GetArea:
+  LDX $07BB
+  LDA $8F0003,X
+  AND #$00FF
+  CMP #$0020
+  BPL UseTilesetArea
   ; Enable area palettes is either the flag is set in ROM or one of the debug events is set
   LDA.l EnablePalettesFlag
   CMP #$F0F0
@@ -149,13 +154,8 @@ GetArea:
   AND #$00FF
   BNE UseMapArea
 
-;UseTilesetArea:
-  LDX $07BB ; tileset index
-  LDA $8F0003,X
-  AND #$00FF
-  TAX
-  LDA.l StandardArea,X
-  AND #$00FF
+UseTilesetArea:
+  LDA #$0008*3
   RTS
 UseMapArea:
   LDA $1F5B  ; map area
@@ -170,40 +170,26 @@ GetPalettePointer:
   TAX
   LDA.l AreaPalettes+1,X
   STA $13
-  STA $07C7 ; palette bank
+  ;STA $07C7 ; palette bank
   LDA.l AreaPalettes+0,X
   STA $12
   LDA $08 ; tileset index
   ASL
   CLC
+  ADC $08
+  CLC
   ADC $12
   STA $12
   LDA [$12]
   STA $07C6
+  INC $12
+  LDA [$12]
+  STA $07C7
 
   RTL
 
 AreaPalettes:
-  DL AreaPalettes_0, AreaPalettes_1, AreaPalettes_2, AreaPalettes_3, AreaPalettes_4, AreaPalettes_5, AreaPalettes_6, AreaPalettes_7
-
-StandardArea:
-  DB $00*3, $00*3 ;Crateria Surface
-  DB $00*3, $00*3 ;Inner Crateria
-  DB $03*3, $03*3 ;Wrecked Ship
-  DB $01*3, $01*3 ;Brinstar
-  DB $01*3 ;Tourian Statues Access/Blue brinstar
-  DB $02*3, $02*3 ;Norfair
-  DB $04*3, $04*3 ;Maridia
-  DB $05*3, $05*3 ;Tourian
-  DB $06*3, $06*3, $06*3, $06*3, $06*3, $06*3 ;Ceres
-  DB $00*3, $00*3, $00*3, $00*3, $00*3 ;Utility Rooms
-  ;Bosses
-  DB $01*3 ;Kraid
-  DB $02*3 ;Crocomire
-  DB $04*3 ;Draygon
-  DB $01*3 ;SpoSpo
-  DB $03*3 ;Phantoon
-  DB $01*3 ;Statues Hallway
+  DL AreaPalettes_0, AreaPalettes_1, AreaPalettes_2, AreaPalettes_3, AreaPalettes_4, AreaPalettes_5, AreaPalettes_6, AreaPalettes_7, AreaPalettes_X
 
 ; Calculate the [A]th transitional color from start color in [X] to target color in [Y]
 ; Copy of $82DAA6 but the current denominator is stored at $00
@@ -324,10 +310,18 @@ LoadPhantoonTargetColor:
   JSR GetArea
   TAX
   LDA.l AreaPalettes+1,X
-  STA $13 ; palette bank
+  STA $16 ; palette bank
   LDA.l AreaPalettes+0,X
+  STA $15
+  LDA [$15]
+  STA $12
+  INC $15
+  LDA [$15]
+  STA $13
+
+  LDA $12
   CLC
-  ADC #$0008 ; phantoon's tileset 4
+  ADC #$0004*3 ; phantoon's tileset 4
   STA $12
   LDA [$12]
   INC
@@ -746,7 +740,7 @@ GetPaletteBlendIndex:
 !unused_blend_ent = $6318,$6318,$0000
 
 BlendTable:
-  DL Blends_0, Blends_1, Blends_2, Blends_3, Blends_4, Blends_5, Blends_6, Blends_7
+  DL Blends_0, Blends_1, Blends_2, Blends_3, Blends_4, Blends_5, Blends_6, Blends_7, Blends_X
 Blends_0:
   DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
@@ -819,6 +813,15 @@ Blends_7:
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $0400,$18A2,$0000, $0020,$0C62,$0000, $0400,$1C45,$0000, !unused_blend_ent, !unused_blend_ent
+Blends_X:
+  DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $0400,$1C63,$0000, $28E3,$1C60,$0000, $2485,$3D88,$0000, $20A1,$1840,$0000, !unused_blend_ent
+  DW $3800, $20A5,$1C84,$1024, $1087,$14A8,$0844, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $3800, $0400,$18A2,$0000, $0020,$0C62,$0000, $0400,$1C45,$0000, !unused_blend_ent, !unused_blend_ent
 
 
 ; Use "InputFile" working directory mode in SMART if you want this to assemble in xkas
@@ -837,14 +840,14 @@ macro PaletteSet(n, area)
 print "Area Palettes <n>:"
 print pc
 AreaPalettes_<n>:
-  DW AreaPalettes_<n>_00, AreaPalettes_<n>_01, AreaPalettes_<n>_02, AreaPalettes_<n>_03
-  DW AreaPalettes_<n>_04, AreaPalettes_<n>_05, AreaPalettes_<n>_06, AreaPalettes_<n>_07
-  DW AreaPalettes_<n>_08, AreaPalettes_<n>_09, AreaPalettes_<n>_0A, AreaPalettes_<n>_0B
-  DW AreaPalettes_<n>_0C, AreaPalettes_<n>_0D, AreaPalettes_<n>_0E, AreaPalettes_SHR_0F
-  DW AreaPalettes_SHR_10, AreaPalettes_SHR_11, AreaPalettes_SHR_12, AreaPalettes_SHR_13
-  DW AreaPalettes_SHR_14, AreaPalettes_SHR_15, AreaPalettes_SHR_16, AreaPalettes_SHR_17
-  DW AreaPalettes_SHR_18, AreaPalettes_SHR_19, AreaPalettes_<n>_1A, AreaPalettes_<n>_1B
-  DW AreaPalettes_<n>_1C, AreaPalettes_<n>_1D, AreaPalettes_<n>_1E, AreaPalettes_<n>_1F
+  DL AreaPalettes_<n>_00, AreaPalettes_<n>_01, AreaPalettes_<n>_02, AreaPalettes_<n>_03
+  DL AreaPalettes_<n>_04, AreaPalettes_<n>_05, AreaPalettes_<n>_06, AreaPalettes_<n>_07
+  DL AreaPalettes_<n>_08, AreaPalettes_<n>_09, AreaPalettes_<n>_0A, AreaPalettes_<n>_0B
+  DL AreaPalettes_<n>_0C, AreaPalettes_<n>_0D, AreaPalettes_<n>_0E, AreaPalettes_SHR_0F
+  DL AreaPalettes_SHR_10, AreaPalettes_SHR_11, AreaPalettes_SHR_12, AreaPalettes_SHR_13
+  DL AreaPalettes_SHR_14, AreaPalettes_SHR_15, AreaPalettes_SHR_16, AreaPalettes_SHR_17
+  DL AreaPalettes_SHR_18, AreaPalettes_SHR_19, AreaPalettes_<n>_1A, AreaPalettes_<n>_1B
+  DL AreaPalettes_<n>_1C, AreaPalettes_<n>_1D, AreaPalettes_<n>_1E, AreaPalettes_<n>_1F
 
 %PaletteFile(00, <n>, <area>)
 %PaletteFile(01, <n>, <area>)
@@ -874,6 +877,38 @@ endmacro
 org $C08000
 print "Shared Palettes:"
 print pc
+%PaletteSet(0, CrateriaPalette)
+%PaletteSet(1, BrinstarPalette)
+%PaletteSet(2, NorfairPalette)
+%PaletteSet(3, WreckedShipPalette)
+%PaletteSet(4, MaridiaPalette)
+warnpc $C0FFFF
+org $C18000
+%PaletteSet(5, TourianPalette)
+%PaletteSet(6, CrateriaPalette)
+%PaletteSet(7, CrateriaPalette)
+
+print "Non-themed Palettes:"
+print pc
+AreaPalettes_X:
+  ; Vanilla
+  DL AreaPalettes_0_00, AreaPalettes_0_01, AreaPalettes_0_02, AreaPalettes_0_03
+  DL AreaPalettes_3_04, AreaPalettes_3_05
+  DL AreaPalettes_1_06, AreaPalettes_1_07, AreaPalettes_1_08
+  DL AreaPalettes_2_09, AreaPalettes_2_0A
+  DL AreaPalettes_4_0B, AreaPalettes_4_0C
+  DL AreaPalettes_5_0D, AreaPalettes_5_0E
+  DL AreaPalettes_SHR_0F, AreaPalettes_SHR_10, AreaPalettes_SHR_11, AreaPalettes_SHR_12, AreaPalettes_SHR_13, AreaPalettes_SHR_14
+  DL AreaPalettes_SHR_15, AreaPalettes_SHR_16, AreaPalettes_SHR_17, AreaPalettes_SHR_18, AreaPalettes_SHR_19
+  DL AreaPalettes_1_1A
+  DL AreaPalettes_2_1B
+  DL AreaPalettes_4_1C
+  DL AreaPalettes_1_1D
+  DL AreaPalettes_3_1E
+  DL AreaPalettes_1_1F
+  ; Exotic
+  DL AreaPalettes_X_20
+
 ; Ceres
 %PaletteFile(0F, SHR, Base)
 %PaletteFile(10, SHR, Base)
@@ -887,29 +922,6 @@ print pc
 %PaletteFile(17, SHR, Base)
 %PaletteFile(18, SHR, Base)
 %PaletteFile(19, SHR, Base)
+; Exotic
 
-%PaletteSet(0, CrateriaPalette)
-%PaletteSet(1, BrinstarPalette)
-%PaletteSet(2, NorfairPalette)
-%PaletteSet(3, WreckedShipPalette)
-warnpc $C0FFFF
-org $C18000
-; Ceres
-%PaletteFile(0F, COPY, Base)
-%PaletteFile(10, COPY, Base)
-%PaletteFile(11, COPY, Base)
-%PaletteFile(12, COPY, Base)
-%PaletteFile(13, COPY, Base)
-%PaletteFile(14, COPY, Base)
-; Utility rooms
-%PaletteFile(15, COPY, Base)
-%PaletteFile(16, COPY, Base)
-%PaletteFile(17, COPY, Base)
-%PaletteFile(18, COPY, Base)
-%PaletteFile(19, COPY, Base)
-
-%PaletteSet(4, MaridiaPalette)
-%PaletteSet(5, TourianPalette)
-%PaletteSet(6, CrateriaPalette)
-%PaletteSet(7, CrateriaPalette)
 warnpc $C1FFFF
