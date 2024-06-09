@@ -277,7 +277,7 @@ for name, style in styles.items():
   for a_i, area in style.rooms.items():
     for r_i, room in area.items():
       for s_i, state in enumerate(room.states):
-        if (a_i, r_i) in required_bg_data_rooms and state['layer2_type'] != 'BGData':
+        if (a_i, r_i) in required_bg_data_rooms and state['layer2_type'] != 'BGData' and name != 'Outline':
           print(f"🔴 {room.path} State<{s_i}> expected to have BGData (to prevent graphical glitches), but has {state['layer2_type']}")
           invalid = 1
           

@@ -1,0 +1,5 @@
+<RoboTileSet>
+  <Script Name="fill" Priority="0">
+    require("outline")
+  </Script>
+</RoboTileSet>
