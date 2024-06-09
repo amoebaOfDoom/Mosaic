@@ -486,11 +486,14 @@ CheckShutterEnemyRoom: ;DB is 8D
 FirefliesInit:
   LDX $07BB
   LDA $8F0003,X
+  CMP #$0020
+  BPL +
   JSL CheckTileset
   TAX
   LDA.l FirefliesDarknessSet,X
   RTL
 +
+  LDA #Fireflies_Dark_
   RTL
 
 FirefliesDarkness:
