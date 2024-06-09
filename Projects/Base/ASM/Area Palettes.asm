@@ -436,10 +436,10 @@ LoadCrocSpikePalette:
   CPY #$0020
   BMI -
 
-  LDA VanillaCrocPalette
+  LDA.l VanillaCrocPalette
   CMP $07C6
   BNE LoadCrocSpikePalette_NonVanilla
-  LDA VanillaCrocPalette+1
+  LDA.l VanillaCrocPalette+1
   CMP $07C7
   BNE LoadCrocSpikePalette_NonVanilla
   PLY
@@ -634,10 +634,10 @@ SetupSpoSpoTransitionColors:
   CPX #$0020
   BMI -
 
-  LDA VanillaSpoSpoPalette
+  LDA.l VanillaSpoSpoPalette
   CMP $07C6
   BNE SetupSpoSpoTransitionColors_NonVanilla
-  LDA VanillaSpoSpoPalette+1
+  LDA.l VanillaSpoSpoPalette+1
   CMP $07C7
   BNE SetupSpoSpoTransitionColors_NonVanilla
   LDA #$0000
@@ -923,5 +923,5 @@ AreaPalettes_X:
 %PaletteFile(18, SHR, Base)
 %PaletteFile(19, SHR, Base)
 ; Exotic
-
+%PaletteFile(20, X, Matrix)
 warnpc $C1FFFF
