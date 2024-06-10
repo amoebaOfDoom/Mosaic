@@ -312,6 +312,8 @@ LoadPhantoonTargetColor:
   LDA.l AreaPalettes+1,X
   STA $16 ; palette bank
   LDA.l AreaPalettes+0,X
+  CLC
+  ADC #$0004*3 ; phantoon's tileset 4
   STA $15
   LDA [$15]
   STA $12
@@ -320,10 +322,6 @@ LoadPhantoonTargetColor:
   STA $13
 
   LDA $12
-  CLC
-  ADC #$0004*3 ; phantoon's tileset 4
-  STA $12
-  LDA [$12]
   INC
   INC
   STA $12
