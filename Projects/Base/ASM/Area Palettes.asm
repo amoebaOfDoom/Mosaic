@@ -923,5 +923,5 @@ AreaPalettes_X:
 %PaletteFile(18, SHR, Base)
 %PaletteFile(19, SHR, Base)
 ; Exotic
-%PaletteFile(20, X, Matrix)
+%PaletteFile(20, X, Outline)
 warnpc $C1FFFF
