@@ -312,6 +312,8 @@ LoadPhantoonTargetColor:
   LDA.l AreaPalettes+1,X
   STA $16 ; palette bank
   LDA.l AreaPalettes+0,X
+  CLC
+  ADC #$0004*3 ; phantoon's tileset 4
   STA $15
   LDA [$15]
   STA $12
@@ -320,10 +322,6 @@ LoadPhantoonTargetColor:
   STA $13
 
   LDA $12
-  CLC
-  ADC #$0004*3 ; phantoon's tileset 4
-  STA $12
-  LDA [$12]
   INC
   INC
   STA $12
@@ -436,10 +434,10 @@ LoadCrocSpikePalette:
   CPY #$0020
   BMI -
 
-  LDA VanillaCrocPalette
+  LDA.l VanillaCrocPalette
   CMP $07C6
   BNE LoadCrocSpikePalette_NonVanilla
-  LDA VanillaCrocPalette+1
+  LDA.l VanillaCrocPalette+1
   CMP $07C7
   BNE LoadCrocSpikePalette_NonVanilla
   PLY
@@ -634,10 +632,10 @@ SetupSpoSpoTransitionColors:
   CPX #$0020
   BMI -
 
-  LDA VanillaSpoSpoPalette
+  LDA.l VanillaSpoSpoPalette
   CMP $07C6
   BNE SetupSpoSpoTransitionColors_NonVanilla
-  LDA VanillaSpoSpoPalette+1
+  LDA.l VanillaSpoSpoPalette+1
   CMP $07C7
   BNE SetupSpoSpoTransitionColors_NonVanilla
   LDA #$0000
@@ -923,5 +921,5 @@ AreaPalettes_X:
 %PaletteFile(18, SHR, Base)
 %PaletteFile(19, SHR, Base)
 ; Exotic
-
+%PaletteFile(20, X, Outline)
 warnpc $C1FFFF
