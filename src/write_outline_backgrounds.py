@@ -25,6 +25,7 @@ for room_filename in os.listdir(root_path):
     room_path = os.path.join(root_path, room_filename)
     print(room_path)
     tree = xml.parse(room_path)
+    # TODO: check GFXset == 0x20 to avoid overwriting BGs that we shouldn't.
     states = tree.findall("./States/State")
     for state_node in states:
         layer2_screens = state_node.findall("./LevelData/Layer2/Screen")
