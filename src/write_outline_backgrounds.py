@@ -26,6 +26,7 @@ for room_filename in os.listdir(root_path):
     print(room_path)
     tree = xml.parse(room_path)
     # TODO: check GFXset == 0x20 to avoid overwriting BGs that we shouldn't.
+    # Also Dust Torizo Room needs to be handled specially.
     states = tree.findall("./States/State")
     for state_node in states:
         layer2_screens = state_node.findall("./LevelData/Layer2/Screen")
