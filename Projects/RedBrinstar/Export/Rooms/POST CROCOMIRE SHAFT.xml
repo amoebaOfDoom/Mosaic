@@ -60,8 +60,8 @@
       <LevelData Width="1" Height="5">
         <Layer1>
           <Screen X="0" Y="0">
-        82AF 82B0 8165 8165 8165 8103 9C63 9C62 9862 9863 8503 8165 8165 8165 86B0 86AF
-        82CF 82AF 82B0 8165 8165 8103 0C43 0C42 0842 0843 8503 8165 8165 86B0 86AF 8165
+        8125 8207 8165 8165 8165 8103 9C63 9C62 9862 9863 8503 8165 8165 8165 8622 8520
+        8100 82AF 82B0 8165 8165 8103 0C43 0C42 0842 0843 8503 8165 8165 86B0 86AF 8500
         8102 82CF 82AF 82B0 8647 8121 CC1D 5C1C 581C 581D 8521 8247 86B0 86AF 86CF 8502
         8102 8166 82CF 16B1 1621 00FF 00FF 00FF 00FF 00FF 00FF 1221 12B1 8165 8165 8502
         8102 8647 1646 1645 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 1245 1246 8124 8520
@@ -255,7 +255,7 @@
           <transparency1_A>02</transparency1_A>
           <transparency2_B>02</transparency2_B>
           <liquidflags_C>00</liquidflags_C>
-          <paletteflags>00</paletteflags>
+          <paletteflags>02</paletteflags>
           <animationflags>00</animationflags>
           <paletteblend>00</paletteblend>
         </FX1>
