@@ -96,15 +96,37 @@ room_air_tile_overrides = {
     (1, 49): [(x, y) for y in [9, 10, 11] for x in [3, 4, 5]],
     # Right-side refill station
     (2, 57): [(x, y) for y in [9, 10, 11] for x in [7, 8, 9]],
+    (4, 45): [(x, y) for y in [9, 10, 11] for x in [7, 8, 9]],
+    (4, 52): [(x, y) for y in [9, 10, 11] for x in [7, 8, 9]],
+    # Left-side double refill station
+    (5, 9):  [(x, y) for y in [9, 10, 11] for x in [5, 6, 7, 8, 9]],
     # Right-side double refill station
     (1, 50): [(x, y) for y in [9, 10, 11] for x in [6, 7, 8, 9, 10]],
     # Center refill station
     (2, 43): [(x, y) for y in [9, 10, 11] for x in [6, 7, 8]],
-
     # Left-side save stations:
+    (0, 4): [(x, y) for y in [6, 7, 8, 9, 10, 11] for x in [5, 6]],
+    (1, 27): [(x, y) for y in [6, 7, 8, 9, 10, 11] for x in [5, 6]],
+    (1, 30): [(x, y) for y in [6, 7, 8, 9, 10, 11] for x in [5, 6]],
+    (1, 31): [(x, y) for y in [6, 7, 8, 9, 10, 11] for x in [5, 6]],
+    (2, 47): [(x, y) for y in [6, 7, 8, 9, 10, 11] for x in [5, 6]],
+    (2, 52): [(x, y) for y in [6, 7, 8, 9, 10, 11] for x in [5, 6]],
+    (4, 41): [(x, y) for y in [6, 7, 8, 9, 10, 11] for x in [5, 6]],
+    (5, 13): [(x, y) for y in [6, 7, 8, 9, 10, 11] for x in [5, 6]],
     # Right-side save stations:
+    (1, 54): [(x, y) for y in [6, 7, 8, 9, 10, 11] for x in [7, 8]],
+    (1, 55): [(x, y) for y in [6, 7, 8, 9, 10, 11] for x in [7, 8]],
+    (2, 15): [(x, y) for y in [6, 7, 8, 9, 10, 11] for x in [7, 8]],
+    (2, 51): [(x, y) for y in [6, 7, 8, 9, 10, 11] for x in [7, 8]],
+    (2, 76): [(x, y) for y in [6, 7, 8, 9, 10, 11] for x in [7, 8]],
+    (3, 15): [(x, y) for y in [6, 7, 8, 9, 10, 11] for x in [7, 8]],
+    (4, 0): [(x, y) for y in [6, 7, 8, 9, 10, 11] for x in [7, 8]],
+    (4, 23): [(x, y) for y in [6, 7, 8, 9, 10, 11] for x in [7, 8]],
+    # Center save stations:
+    (2, 50): [(x, y) for y in [6, 7, 8, 9, 10, 11] for x in [7, 8]],
+    (4, 44): [(x, y) for y in [6, 7, 8, 9, 10, 11] for x in [7, 8]],
     # Glass tunnel:
-    (4, 1): [(x, 0x15) for x in range(3, 13)] + [(x, 0x1A) for x in range(4, 12)] ,
+    (4, 1): [(x, 0x15) for x in range(3, 13)] + [(x, 0x1A) for x in range(4, 12)],
 }
 
 other_overrides = {}
