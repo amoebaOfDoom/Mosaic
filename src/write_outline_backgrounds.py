@@ -210,7 +210,7 @@ for room_filename in os.listdir(root_path):
 
                     cell = "{:04X}".format(tile)
                     cell_list.append(cell)
-                rows.append("            " + " ".join(cell_list))
-            data = "\n" + "\n".join(rows) + "\n          "
+                rows.append("        " + " ".join(cell_list))
+            data = "\n" + "\n".join(rows) + "\n      "
             layer2_screen.text = data
     tree.write(room_path)
