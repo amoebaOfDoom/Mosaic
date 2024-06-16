@@ -16,6 +16,7 @@ bts_slope_bottom_right_gentle_small = 0x16
 bts_slope_bottom_right_gentle_large = 0x17
 bts_slope_bottom_right_step_small = 0x02
 bts_slope_bottom_right_step_large = 0x03
+bts_slope_broken = 0x0F  # The broken slopes used in Tourian Escape Room 3
 
 base_tile_idx = 0x113
 hflip = 0x40
@@ -76,6 +77,7 @@ slope_bts_tile_offset_dict = {
     bts_slope_bottom_right_step_large | hflip: 0x42,
     bts_slope_bottom_right_step_large | vflip: 0x41,
     bts_slope_bottom_right_step_large | hflip | vflip: 0x43,
+    bts_slope_broken: 0x64,
 }
 
 # Certain tiles we want to be drawn in the background like air even though they may have solid parts:
@@ -127,6 +129,8 @@ room_air_tile_overrides = {
     (4, 44): [(x, y) for y in [6, 7, 8, 9, 10, 11] for x in [7, 8]],
     # Glass tunnel:
     (4, 1): [(x, 0x15) for x in range(3, 13)] + [(x, 0x1A) for x in range(4, 12)],
+    # Spore Spawn's Room
+    (1, 11): [(x, y) for y in [0x1E, 0x1F] for x in [7, 8]],
 }
 
 other_overrides = {
