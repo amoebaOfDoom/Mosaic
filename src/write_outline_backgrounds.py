@@ -131,6 +131,20 @@ room_air_tile_overrides = {
     (4, 1): [(x, 0x15) for x in range(3, 13)] + [(x, 0x1A) for x in range(4, 12)],
     # Spore Spawn's Room
     (1, 11): [(x, y) for y in [0x1E, 0x1F] for x in [7, 8]],
+    # Items hidden in scenery:
+    (0, 5): [(0x1C, 0x03)],  # West Ocean
+    (1, 4): [(0x1E, 0x07)],  # Brinstar Reserve Tank Room
+    (1, 16): [(0x1C, 0x22)],  # Blue Brinstar Energy Tank Room
+    (1, 29): [(5, 12)],  # Billy Mays Room
+    (1, 43): [(5, 4)],  # Warehouse Energy Tank Room
+    (2, 1): [(0x22, 0x1C)],  # Cathedral
+    (2, 8): [(1, 8)],  # Crumble Shaft
+    (2, 24): [(7, 11)],  # Norfair Reserve Tank Room
+    (2, 27): [(0xBC, 0x13)],  # Speedbooster Hall
+    (2, 55): [(0x15, 0x08)],  # Golden Torizo's Room
+    (2, 73): [(14, 11)],  # Ridley Tank Room
+    (4, 6): [(0x2C, 0x1D)],  # Mama Turtle Room
+    (4, 42): [(0x1C, 0x06)],  # Precious Room
 }
 
 other_overrides = {
