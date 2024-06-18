@@ -145,6 +145,13 @@ room_air_tile_overrides = {
     (2, 73): [(14, 11)],  # Ridley Tank Room
     (4, 6): [(0x2C, 0x1D)],  # Mama Turtle Room
     (4, 42): [(0x1C, 0x06)],  # Precious Room
+    # Elevator bottom platforms
+    (1, 0): [(x, y) for y in [0x2C, 0x2D] for x in [6, 7, 8, 9]],  # Green Brinstar Main Shaft
+    (1, 36): [(x, y) for y in [0x2C, 0x2D] for x in [6, 7, 8, 9]],  # Caterpillar Room
+    (2, 3): [(x, y) for y in [0x2C, 0x2D] for x in [6, 7, 8, 9]],  # Business Center
+    (2, 54): [(x, y) for y in [0x2A, 0x2B] for x in [0x46, 0x47, 0x48, 0x49]],  # Main Hall
+    (4, 19): [(x, y) for y in [0x2C, 0x2D] for x in [6, 7, 8, 9]],  # Maridia Elevator Room
+    (5, 0): [(x, y) for y in [0x2C, 0x2D] for x in [6, 7, 8, 9]],  # Tourian First Room
 }
 
 other_overrides = {
