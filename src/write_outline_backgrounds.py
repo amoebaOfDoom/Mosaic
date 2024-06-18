@@ -81,7 +81,7 @@ slope_bts_tile_offset_dict = {
 }
 
 # Certain tiles we want to be drawn in the background like air even though they may have solid parts:
-room_air_tile_overrides = {
+air_tile_overrides = {
     # Landing Site: Ship
     (0, 0): [(x, y) for y in range(0x45, 0x4A) for x in range(0x42, 0x4E)],
     # Right-side map station rooms: Crateria, Maridia
@@ -154,6 +154,13 @@ room_air_tile_overrides = {
     (5, 0): [(x, y) for y in [0x2C, 0x2D] for x in [6, 7, 8, 9]],  # Tourian First Room
 }
 
+solid_tile_overrides = {
+    # Bowling Alley: for tiles that get changed by the Bowling Chozo enemy on room entry,
+    # we want the collision drawn to reflect the post-change state since this is what is observable
+    (3, 0): [(x, y) for y in [0x1E, 0x1F, 0x20, 0x21] for x in range(0x17, 0x24)] +
+            [(x, y) for y in [0x22, 0x23, 0x24, 0x25] for x in [0x1C, 0x1D, 0x1E, 0x1F]]
+}
+
 other_overrides = {
     # Dragon Rock scroll PLM blocks:
     (2, 75, 0x0F, 0x06): 0x2C2,
@@ -222,9 +229,12 @@ for room_filename in os.listdir(root_path):
 
                     room_x = screen_x * 16 + x
                     room_y = screen_y * 16 + y
-                    if (room_area, room_index) in room_air_tile_overrides:                        
-                        if (room_x, room_y) in room_air_tile_overrides[(room_area, room_index)]:
+                    if (room_area, room_index) in air_tile_overrides:
+                        if (room_x, room_y) in air_tile_overrides[(room_area, room_index)]:
                             tile = base_tile_idx + air_offset
+                    if (room_area, room_index) in solid_tile_overrides:
+                        if (room_x, room_y) in solid_tile_overrides[(room_area, room_index)]:
+                            tile = base_tile_idx + solid_offset
                     
                     parity = (i & 1) ^ ((i >> 4) & 1)
                     if parity == 1:
