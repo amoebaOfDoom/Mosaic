@@ -86,7 +86,7 @@
         00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
         00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
         00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-        93 D2 00 00 92 D3 00 00 D3 D2 00 00 92 D3 00 00
+        D3 D2 00 00 92 D3 00 00 D3 D2 00 00 92 D3 00 00
         D2 00 00 00 00 00 92 D3 D2 00 00 00 00 00 92 00
         00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
         00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
@@ -114,7 +114,7 @@
           <transparency1_A>02</transparency1_A>
           <transparency2_B>1E</transparency2_B>
           <liquidflags_C>40</liquidflags_C>
-          <paletteflags>00</paletteflags>
+          <paletteflags>1E</paletteflags>
           <animationflags>00</animationflags>
           <paletteblend>48</paletteblend>
         </FX1>
