@@ -313,7 +313,7 @@ for name, style in styles.items():
               # Check for bad black tiles (ones that may get overwritten by item PLMs)
               # These sometimes come from BGData -> Layer2 conversion.
               if layer2 is not None and 0x8E <= (layer2 & 0x3FF) <= 0x95:
-                  print(f"🔴 {context_str} Bad black tile (overwritable by item PLM) in layer 2: {layer2:04X}")
+                  print(f"🔴 {context_str} Bad clear tile (overwritable by item PLM) in layer 2: {layer2:04X}")
                   invalid = 1
 
               if name == "Base":
