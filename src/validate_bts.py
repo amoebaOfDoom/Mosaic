@@ -194,6 +194,7 @@ required_layer2_rooms = [
   (0, 5),  #WEST OCEAN
   (0, 9),  #EAST OCEAN
   (0, 14), #CRATERIA LAKE
+  (0, 17), #WEST OCEAN BRIDGE
   (1, 3),  #EARLY SUPER ROOM
   (1, 12), #PINK BRINSTAR POWER BOMB ROOM
   (1, 15), #CONSTRUCTION ZONE
