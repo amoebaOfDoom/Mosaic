@@ -194,6 +194,7 @@ required_layer2_rooms = [
   (0, 5),  #WEST OCEAN
   (0, 9),  #EAST OCEAN
   (0, 14), #CRATERIA LAKE
+  (0, 17), #WEST OCEAN BRIDGE
   (1, 3),  #EARLY SUPER ROOM
   (1, 12), #PINK BRINSTAR POWER BOMB ROOM
   (1, 15), #CONSTRUCTION ZONE
@@ -242,6 +243,7 @@ required_layer2_rooms = [
   (4, 20), #PLASMA SPARK ROOM
   (4, 21), #PLASMA CLIMB
   (4, 33), #MARIDIA AQUEDUCT
+  (4, 35), #BOTWOON HALLWAY
   (4, 36), #PANTS ROOM
   (4, 37), #EAST PANT ROOM
   (4, 42), #DRAYGON BOSS DOOR
