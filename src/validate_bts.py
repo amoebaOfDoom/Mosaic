@@ -242,6 +242,7 @@ required_layer2_rooms = [
   (4, 20), #PLASMA SPARK ROOM
   (4, 21), #PLASMA CLIMB
   (4, 33), #MARIDIA AQUEDUCT
+  (4, 35), #BOTWOON HALLWAY
   (4, 36), #PANTS ROOM
   (4, 37), #EAST PANT ROOM
   (4, 42), #DRAYGON BOSS DOOR
