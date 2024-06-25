@@ -593,11 +593,11 @@
           <surfacedelay>00</surfacedelay>
           <type>06</type>
           <transparency1_A>02</transparency1_A>
-          <transparency2_B>16</transparency2_B>
+          <transparency2_B>18</transparency2_B>
           <liquidflags_C>01</liquidflags_C>
           <paletteflags>04</paletteflags>
           <animationflags>02</animationflags>
-          <paletteblend>EE</paletteblend>
+          <paletteblend>48</paletteblend>
         </FX1>
       </FX1s>
       <Enemies killcount="06">
