@@ -2550,7 +2550,7 @@
           <transparency1_A>02</transparency1_A>
           <transparency2_B>02</transparency2_B>
           <liquidflags_C>00</liquidflags_C>
-          <paletteflags>02</paletteflags>
+          <paletteflags>00</paletteflags>
           <animationflags>00</animationflags>
           <paletteblend>02</paletteblend>
         </FX1>
@@ -5329,7 +5329,7 @@
           <transparency1_A>02</transparency1_A>
           <transparency2_B>02</transparency2_B>
           <liquidflags_C>00</liquidflags_C>
-          <paletteflags>02</paletteflags>
+          <paletteflags>00</paletteflags>
           <animationflags>00</animationflags>
           <paletteblend>02</paletteblend>
         </FX1>
@@ -7877,7 +7877,7 @@
           <transparency1_A>02</transparency1_A>
           <transparency2_B>02</transparency2_B>
           <liquidflags_C>00</liquidflags_C>
-          <paletteflags>02</paletteflags>
+          <paletteflags>00</paletteflags>
           <animationflags>00</animationflags>
           <paletteblend>02</paletteblend>
         </FX1>
@@ -10424,7 +10424,7 @@
           <transparency1_A>02</transparency1_A>
           <transparency2_B>02</transparency2_B>
           <liquidflags_C>00</liquidflags_C>
-          <paletteflags>02</paletteflags>
+          <paletteflags>00</paletteflags>
           <animationflags>00</animationflags>
           <paletteblend>02</paletteblend>
         </FX1>
