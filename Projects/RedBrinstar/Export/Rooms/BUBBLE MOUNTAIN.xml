@@ -547,7 +547,7 @@
           <transparency1_A>02</transparency1_A>
           <transparency2_B>1E</transparency2_B>
           <liquidflags_C>01</liquidflags_C>
-          <paletteflags>04</paletteflags>
+          <paletteflags>02</paletteflags>
           <animationflags>02</animationflags>
           <paletteblend>02</paletteblend>
         </FX1>
