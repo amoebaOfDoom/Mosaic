@@ -375,9 +375,9 @@
           <surfacenew>FFFF</surfacenew>
           <surfacespeed>0000</surfacespeed>
           <surfacedelay>00</surfacedelay>
-          <type>00</type>
+          <type>0C</type>
           <transparency1_A>02</transparency1_A>
-          <transparency2_B>02</transparency2_B>
+          <transparency2_B>30</transparency2_B>
           <liquidflags_C>00</liquidflags_C>
           <paletteflags>00</paletteflags>
           <animationflags>00</animationflags>
@@ -845,7 +845,7 @@
           <surfacedelay>00</surfacedelay>
           <type>0C</type>
           <transparency1_A>02</transparency1_A>
-          <transparency2_B>14</transparency2_B>
+          <transparency2_B>30</transparency2_B>
           <liquidflags_C>00</liquidflags_C>
           <paletteflags>00</paletteflags>
           <animationflags>00</animationflags>
