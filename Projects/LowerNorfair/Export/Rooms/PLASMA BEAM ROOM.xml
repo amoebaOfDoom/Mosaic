@@ -356,21 +356,21 @@
       </Screen>
         </Layer2>
       </LevelData>
-      <GFXset>0A</GFXset>
+      <GFXset>09</GFXset>
       <music>0000</music>
       <FX1s>
         <FX1 default="true">
-          <surfacestart>FFFF</surfacestart>
-          <surfacenew>FFFF</surfacenew>
+          <surfacestart>02C0</surfacestart>
+          <surfacenew>FFF0</surfacenew>
           <surfacespeed>0000</surfacespeed>
           <surfacedelay>00</surfacedelay>
-          <type>00</type>
+          <type>02</type>
           <transparency1_A>02</transparency1_A>
           <transparency2_B>02</transparency2_B>
-          <liquidflags_C>00</liquidflags_C>
+          <liquidflags_C>84</liquidflags_C>
           <paletteflags>00</paletteflags>
           <animationflags>00</animationflags>
-          <paletteblend>00</paletteblend>
+          <paletteblend>02</paletteblend>
         </FX1>
       </FX1s>
       <Enemies killcount="06">

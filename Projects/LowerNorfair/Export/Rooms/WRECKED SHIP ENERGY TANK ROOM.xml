@@ -365,17 +365,17 @@
       <music>0300</music>
       <FX1s>
         <FX1 default="true">
-          <surfacestart>00B0</surfacestart>
+          <surfacestart>01DC</surfacestart>
           <surfacenew>FFFF</surfacenew>
           <surfacespeed>0000</surfacespeed>
           <surfacedelay>00</surfacedelay>
-          <type>06</type>
+          <type>02</type>
           <transparency1_A>02</transparency1_A>
           <transparency2_B>18</transparency2_B>
           <liquidflags_C>83</liquidflags_C>
           <paletteflags>00</paletteflags>
           <animationflags>02</animationflags>
-          <paletteblend>48</paletteblend>
+          <paletteblend>02</paletteblend>
         </FX1>
       </FX1s>
       <Enemies killcount="02">
