@@ -77,10 +77,10 @@ class Room:
           surface_new = get_int(fx_node, "surfacenew")
           off_screen_liquid = surface_start > 256 * height and surface_new > 256 * height
           fx['heated'] =  palette_flags & 0x80 != 0
-          fx['lava'] = fx_type == 2 and not off_screen_liquid
+          fx['lava'] = fx_type == 2 and not off_screen_liquid and liquid_flags & 0x04 == 0
           fx['acid'] = fx_type == 4 and not off_screen_liquid
           fx['water'] = fx_type == 6 and liquid_flags & 0x04 == 0
-          if fx['water']:
+          if fx['water'] or fx['lava'] or fx['acid']:
             fx['liquidflags'] = get_int(fx_node, "liquidflags") & 0xC4
             fx['surfacestart'] = get_int(fx_node, "surfacestart")
             fx['surfacenew'] = get_int(fx_node, "surfacenew")
