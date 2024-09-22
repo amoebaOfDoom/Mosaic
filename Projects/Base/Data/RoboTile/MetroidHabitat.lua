@@ -3,36 +3,36 @@ require("Common")
 tile_air = 0x0FF
 tile_unknown = 0x0DF
 tile_unknown_solid = 0x5F
-tile_interior = 0x210
-tile_bottom_edge = 0x207
-tile_right_edge = 0x20A
-tile_bottom_right_outside_corner = 0x20B
-tile_bottom_right_inside_corner = 0x20E
+tile_interior = 0x081
+tile_bottom_edge = 0x101
+tile_right_edge = 0x160
+tile_bottom_left_outside_corner = 0x156
+tile_bottom_right_inside_corner = 0x142
 
-tile_half_bottom_edge = 0x217
-tile_under_half_bottom_edge = 0x218
+tile_half_bottom_edge = 0x239
+tile_under_half_bottom_edge = 0x238
 
-tile_half_right_edge = 0x219
-tile_beside_half_right_edge = 0x21A
+tile_half_right_edge = 0x25A
+tile_beside_half_right_edge = 0x27A
 
-tile_bottom_right_45_slope = 0x208
-tile_under_bottom_right_45_slope = 0x209
+tile_top_right_45_slope = 0x177
+tile_above_top_right_45_slope = 0x178
 
-tile_bottom_right_45_small_slope = 0x283
-tile_bottom_right_45_large_slope = 0x284
+tile_top_right_45_small_slope = 0x136
+tile_top_right_45_large_slope = 0x137
 
-tile_bottom_right_gentle_slope_small = 0x20C
-tile_bottom_right_gentle_slope_large = 0x20D
-tile_under_bottom_right_gentle_slope_small = 0x20E
-tile_under_bottom_right_gentle_slope_large = 0x20F
+tile_top_right_gentle_slope_small = 0x29B
+tile_top_right_gentle_slope_large = 0x29C
+tile_above_top_right_gentle_slope_small = 0x27B
+tile_above_top_right_gentle_slope_large = 0x28C
 
-tile_bottom_right_steep_slope_small = 0x214
-tile_bottom_right_steep_slope_large = 0x212
-tile_beside_bottom_right_steep_slope_small = 0x215
-tile_beside_bottom_right_steep_slope_large = 0x213
+tile_bottom_right_steep_slope_small = 0x27E
+tile_bottom_right_steep_slope_large = 0x29E
+tile_beside_bottom_right_steep_slope_small = 0x27F
+tile_beside_bottom_right_steep_slope_large = 0x29F
 
-tile_platform_middle = 0x9E
-tile_platform_right = 0x5F
+tile_platform_middle = 0x1B9
+tile_platform_right = 0x1B8
 
 -- Invariant tiles (non-black CRE tiles): leave them unchanged
 if invariant(0, 0) then
@@ -49,19 +49,19 @@ end
 if t:type(0, 0) == 1 then
     bts = t:bts(0, 0) & 0xBF
     if bts == bts_slope_bottom_right_45 then
-        t:set_gfx(tile_bottom_right_45_slope, bts_hflip(0, 0), false)
+        t:set_gfx(tile_top_right_45_slope, bts_hflip(0, 0), true)
         return true
     end
     if bts == bts_slope_bottom_right_45 | 0x80 then
-        t:set_gfx(tile_bottom_right_45_slope, bts_hflip(0, 0), true)
+        t:set_gfx(tile_top_right_45_slope, bts_hflip(0, 0), false)
         return true
     end
     if bts == bts_slope_bottom_right_45_small | 0x80 then
-        t:set_gfx(tile_bottom_right_45_small_slope, bts_hflip(0, 0), true)
+        t:set_gfx(tile_top_right_45_small_slope, bts_hflip(0, 0), false)
         return true
     end
     if bts == bts_slope_bottom_right_45_large | 0x80 then
-        t:set_gfx(tile_bottom_right_45_large_slope, bts_hflip(0, 0), true)
+        t:set_gfx(tile_top_right_45_large_slope, bts_hflip(0, 0), false)
         return true
     end
     if bts == bts_slope_bottom_right_steep_small then
@@ -81,19 +81,19 @@ if t:type(0, 0) == 1 then
         return true
     end
     if bts == bts_slope_bottom_right_gentle_small then
-        t:set_gfx(tile_bottom_right_gentle_slope_small, bts_hflip(0, 0), false)
+        t:set_gfx(tile_top_right_gentle_slope_small, bts_hflip(0, 0), true)
         return true
     end
     if bts == bts_slope_bottom_right_gentle_large then
-        t:set_gfx(tile_bottom_right_gentle_slope_large, bts_hflip(0, 0), false)
+        t:set_gfx(tile_top_right_gentle_slope_large, bts_hflip(0, 0), true)
         return true
     end
     if bts == bts_slope_bottom_right_gentle_small | 0x80 then
-        t:set_gfx(tile_bottom_right_gentle_slope_small, bts_hflip(0, 0), true)
+        t:set_gfx(tile_top_right_gentle_slope_small, bts_hflip(0, 0), false)
         return true
     end
     if bts == bts_slope_bottom_right_gentle_large | 0x80 then
-        t:set_gfx(tile_bottom_right_gentle_slope_large, bts_hflip(0, 0), true)
+        t:set_gfx(tile_top_right_gentle_slope_large, bts_hflip(0, 0), false)
         return true
     end
     if bts == bts_slope_whole_bottom_edge and air(0, -1) then
@@ -122,19 +122,19 @@ end
 if solid(0, 0) then
     -- Outside corners (opaque):
     if outside_right(-1, 0) and inside_left(1, 0) and outside_bottom(0, -1) and inside_top(0, 1) then
-        t:set_gfx(tile_bottom_right_outside_corner, false, false)
+        t:set_gfx(tile_bottom_left_outside_corner, true, false)
         return true
     end
     if outside_left(1, 0) and inside_right(-1, 0) and outside_bottom(0, -1) and inside_top(0, 1) then
-        t:set_gfx(tile_bottom_right_outside_corner, true, false)
+        t:set_gfx(tile_bottom_left_outside_corner, false, false)
         return true
     end
     if outside_right(-1, 0) and inside_left(1, 0) and outside_top(0, 1) and inside_bottom(0, -1) then
-        t:set_gfx(tile_bottom_right_outside_corner, false, true)
+        t:set_gfx(tile_bottom_left_outside_corner, true, true)
         return true
     end
     if outside_left(1, 0) and inside_right(-1, 0) and outside_top(0, 1) and inside_bottom(0, -1) then
-        t:set_gfx(tile_bottom_right_outside_corner, true, true)
+        t:set_gfx(tile_bottom_left_outside_corner, false, true)
         return true
     end
 
@@ -175,19 +175,19 @@ if solid(0, 0) then
     end
     
     if t:type(0, -1) == 1 and t:bts(0, -1) & 0xBF == bts_slope_bottom_right_gentle_small and inside_top(0, 1) then
-        t:set_gfx(tile_under_bottom_right_gentle_slope_small, bts_hflip(0, -1), false)
+        t:set_gfx(tile_above_top_right_gentle_slope_small, bts_hflip(0, -1), true)
         return true
     end
     if t:type(0, 1) == 1 and t:bts(0, 1) & 0xBF == bts_slope_bottom_right_gentle_small | 0x80 and inside_bottom(0, -1) then
-        t:set_gfx(tile_under_bottom_right_gentle_slope_small, bts_hflip(0, 1), true)
+        t:set_gfx(tile_above_top_right_gentle_slope_small, bts_hflip(0, 1), false)
         return true
     end
     if t:type(0, -1) == 1 and t:bts(0, -1) & 0xBF == bts_slope_bottom_right_gentle_large and inside_top(0, 1) then
-        t:set_gfx(tile_under_bottom_right_gentle_slope_large, bts_hflip(0, -1), false)
+        t:set_gfx(tile_above_top_right_gentle_slope_large, bts_hflip(0, -1), true)
         return true
     end
     if t:type(0, 1) == 1 and t:bts(0, 1) & 0xBF == bts_slope_bottom_right_gentle_large | 0x80 and inside_bottom(0, -1) then
-        t:set_gfx(tile_under_bottom_right_gentle_slope_large, bts_hflip(0, 1), true)
+        t:set_gfx(tile_above_top_right_gentle_slope_large, bts_hflip(0, 1), false)
         return true
     end
 
@@ -209,7 +209,7 @@ if solid(0, 0) then
     end
 
     if t:type(0, -1) == 1 and (t:bts(0, -1) & 0xBF == bts_slope_bottom_right_45) then
-        t:set_gfx(tile_under_bottom_right_45_slope, bts_hflip(0, -1), false)
+        t:set_gfx(tile_above_top_right_45_slope, bts_hflip(0, -1), true)
         return true
     end
 
