@@ -4,10 +4,10 @@ tile_air = 0x0FF
 tile_unknown = 0x0DF
 tile_unknown_solid = 0x5F
 tile_interior = 0x081
-tile_bottom_edge = 0x101
-tile_right_edge = 0x160
+tile_top_edge = 0x132
+tile_right_edge = 0x171
 tile_bottom_left_outside_corner = 0x156
-tile_bottom_right_inside_corner = 0x142
+tile_top_right_inside_corner = 0x178
 
 tile_half_bottom_edge = 0x239
 tile_under_half_bottom_edge = 0x238
@@ -97,11 +97,11 @@ if t:type(0, 0) == 1 then
         return true
     end
     if bts == bts_slope_whole_bottom_edge and air(0, -1) then
-        t:set_gfx(tile_bottom_edge, false, false)
+        t:set_gfx(tile_top_edge, false, true)
         return true
     end
     if bts == bts_slope_whole_bottom_edge | 0x80 and air(0, 1) then
-        t:set_gfx(tile_bottom_edge, false, true)
+        t:set_gfx(tile_top_edge, false, false)
         return true
     end    
     if (bts == bts_slope_half_bottom_edge_1 or bts == bts_slope_half_bottom_edge_2) and solid(0, 1) then
@@ -148,11 +148,11 @@ if solid(0, 0) then
         return true
     end
     if inside_right(-1, 0) and inside_left(1, 0) and outside_bottom(0, -1) and inside_top(0, 1) then
-        t:set_gfx(tile_bottom_edge, false, false)
+        t:set_gfx(tile_top_edge, false, true)
         return true
     end
     if inside_right(-1, 0) and inside_left(1, 0) and outside_top(0, 1) and inside_bottom(0, -1) then
-        t:set_gfx(tile_bottom_edge, false, true)
+        t:set_gfx(tile_top_edge, false, false)
         return true
     end
 
@@ -221,19 +221,19 @@ if solid(0, 0) then
     if inside_right(-1, 0) and inside_left(1, 0) and inside_bottom(0, -1) and inside_top(0, 1) then
         -- Inside corners:
         if outside_bottom_right(-1, -1) and not air(1, -1) and not air(-1, 1) and not air(1, 1) then
-            t:set_gfx(tile_bottom_right_inside_corner, false, false)
+            t:set_gfx(tile_top_right_inside_corner, false, true)
             return true
         end
         if not air(-1, -1) and outside_bottom_left(1, -1) and not air(-1, 1) and not air(1, 1) then
-            t:set_gfx(tile_bottom_right_inside_corner, true, false)
+            t:set_gfx(tile_top_right_inside_corner, true, true)
             return true
         end
         if not air(-1, -1) and not air(1, -1) and outside_top_right(-1, 1) and not air(1, 1) then
-            t:set_gfx(tile_bottom_right_inside_corner, false, true)
+            t:set_gfx(tile_top_right_inside_corner, false, false)
             return true
         end
         if not air(-1, -1) and not air(1, -1) and not air(-1, 1) and outside_top_left(1, 1) then
-            t:set_gfx(tile_bottom_right_inside_corner, true, true)
+            t:set_gfx(tile_top_right_inside_corner, true, false)
             return true
         end
     end    
