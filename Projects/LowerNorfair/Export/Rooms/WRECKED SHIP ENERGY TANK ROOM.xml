@@ -794,7 +794,7 @@
       <music>0300</music>
       <FX1s>
         <FX1 default="true">
-          <surfacestart>FFFF</surfacestart>
+          <surfacestart>0000</surfacestart>
           <surfacenew>FFFF</surfacenew>
           <surfacespeed>0000</surfacespeed>
           <surfacedelay>00</surfacedelay>
@@ -804,7 +804,7 @@
           <liquidflags_C>00</liquidflags_C>
           <paletteflags>00</paletteflags>
           <animationflags>00</animationflags>
-          <paletteblend>00</paletteblend>
+          <paletteblend>48</paletteblend>
         </FX1>
       </FX1s>
       <Enemies killcount="00" />
