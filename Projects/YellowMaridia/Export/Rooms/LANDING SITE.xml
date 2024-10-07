@@ -2550,7 +2550,7 @@
           <transparency1_A>02</transparency1_A>
           <transparency2_B>18</transparency2_B>
           <liquidflags_C>07</liquidflags_C>
-          <paletteflags>06</paletteflags>
+          <paletteflags>00</paletteflags>
           <animationflags>00</animationflags>
           <paletteblend>54</paletteblend>
         </FX1>
