@@ -4,9 +4,9 @@ tile_air = 0x0FF
 tile_unknown = 0x0DF
 tile_unknown_solid = 0x5F
 tile_interior = 0x081
-tile_top_edge = 0x132
-tile_right_edge = 0x171
-tile_bottom_left_outside_corner = 0x156
+tile_top_edge = 0x133
+tile_right_edge = 0x191
+tile_bottom_left_outside_corner = 0x143
 tile_top_right_inside_corner = 0x178
 
 tile_half_bottom_edge = 0x239
@@ -113,7 +113,7 @@ if t:type(0, 0) == 1 then
         return true
     end
     if bts & 0x3F == bts_slope_half_right_edge then
-        t:set_gfx(tile_half_right_edge, bts_hflip(0, 0), false)
+        t:set_gfx(tile_half_right_edge, not bts_hflip(0, 0), false)
         return true
     end
 end
@@ -200,11 +200,11 @@ if solid(0, 0) then
         return true
     end
     if t:type(-1, 0) == 1 and (t:bts(-1, 0) & 0x7F == bts_slope_half_right_edge) then
-        t:set_gfx(tile_beside_half_right_edge, false, false)
+        t:set_gfx(tile_beside_half_right_edge, true, false)
         return true
     end
     if t:type(1, 0) == 1 and (t:bts(1, 0) & 0x7F == bts_slope_half_right_edge | 0x40) then
-        t:set_gfx(tile_beside_half_right_edge, true, false)
+        t:set_gfx(tile_beside_half_right_edge, false, false)
         return true
     end
 
