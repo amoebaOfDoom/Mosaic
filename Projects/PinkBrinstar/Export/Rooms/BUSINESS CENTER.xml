@@ -158,9 +158,9 @@
         8481 8481 8481 8B5C 8F28 8B29 8350 8ADB 8ADC 8750 8F29 8B28 8F5C 8081 8081 8081
         8481 8B5C 8F28 8B29 8F08 8F07 8350 00FF 00FF 8750 8B07 8B08 8F29 8B28 8F5C 8081
         8481 8306 8F08 8F07 174E 1B91 1B1C 00FF 00FF 1F1C 1F91 134E 8B07 8B08 8706 8081
-        8481 8B06 874E 1B92 04FF 04FF 04FF 00FF 00FF 00FF 00FF 00FF 1F92 834E 8F06 8081
-        8081 8B06 8350 0B00 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 0F05 8750 8706 8081
-        8B5C 8B29 8350 0B05 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 0F00 8750 8F29 8F5C
+        8481 8B06 874E 1B92 0B24 04FF 04FF 00FF 00FF 00FF 00FF 0B01 1F92 834E 8F06 8081
+        8081 8B06 8350 0B00 0325 00FF 00FF 00FF 00FF 00FF 00FF 00FF 0F05 8750 8706 8081
+        8B5C 8B29 8350 00FF 0B05 00FF 00FF 00FF 00FF 00FF 00FF 00FF 0F00 8750 8F29 8F5C
         8B06 8F07 1B09 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 1F09 8B07 8F06
         8B06 8350 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 0F05 8750 8706
         8306 8350 0B00 00FF 00FF 00FF 8085 90FF 90FF 8485 00FF 00FF 00FF 0700 8750 8F06
@@ -378,13 +378,13 @@
           <surfacenew>FFFF</surfacenew>
           <surfacespeed>0000</surfacespeed>
           <surfacedelay>00</surfacedelay>
-          <type>02</type>
+          <type>08</type>
           <transparency1_A>02</transparency1_A>
-          <transparency2_B>1E</transparency2_B>
+          <transparency2_B>0A</transparency2_B>
           <liquidflags_C>00</liquidflags_C>
           <paletteflags>00</paletteflags>
           <animationflags>00</animationflags>
-          <paletteblend>02</paletteblend>
+          <paletteblend>00</paletteblend>
         </FX1>
       </FX1s>
       <Enemies killcount="06">
