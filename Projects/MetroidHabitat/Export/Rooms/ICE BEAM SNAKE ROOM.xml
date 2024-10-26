@@ -123,7 +123,7 @@
           <Screen X="0" Y="2">
         8D61 8560 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 8213 00FF 00FF 8160 8161
         8D61 8560 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 8213 81B8 00FF 8160 8161
-        8D61 8560 00FF 00FF 00FF 81B8 81B9 81B9 81B9 81B9 85B8 8213 00FF 00FF 8160 8161
+        8D61 8560 00FF 00FF 00FF 81B8 81B9 81B9 81B9 81B9 85B8 8213 00FF 00FF 8180 8181
         8D61 8560 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 8213 00FF 81B8 81B9 81B9
         8D61 8560 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 8213 00FF 00FF 8160 8D62
         8581 8580 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 8213 00FF 00FF 8D43 8901
@@ -390,7 +390,7 @@
           <transparency1_A>02</transparency1_A>
           <transparency2_B>1E</transparency2_B>
           <liquidflags_C>03</liquidflags_C>
-          <paletteflags>9E</paletteflags>
+          <paletteflags>80</paletteflags>
           <animationflags>03</animationflags>
           <paletteblend>02</paletteblend>
         </FX1>

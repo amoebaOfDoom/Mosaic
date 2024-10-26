@@ -18,7 +18,7 @@ tile_number_unknown = 0x0DE
 function invariant(x, y)
     -- Tiles to leave intact: CRE tiles except for black
     local tile = t:gfx_tile(x, y)
-    return tile < 0xFF and tile ~= tile_number_air and tile ~= 0x81 and tile ~= 0x44
+    return tile < 0xFF and tile ~= tile_number_air and tile ~= 0x81 and tile ~= 0x44 and tile ~= 0x0DF
 end
 function air(x, y) 
     return t:type(x, y) == 0
