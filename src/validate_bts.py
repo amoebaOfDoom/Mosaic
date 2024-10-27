@@ -77,10 +77,10 @@ class Room:
           surface_new = get_int(fx_node, "surfacenew")
           off_screen_liquid = surface_start > 256 * height and surface_new > 256 * height
           fx['heated'] =  palette_flags & 0x80 != 0
-          fx['lava'] = fx_type == 2 and not off_screen_liquid
+          fx['lava'] = fx_type == 2 and not off_screen_liquid and liquid_flags & 0x04 == 0
           fx['acid'] = fx_type == 4 and not off_screen_liquid
           fx['water'] = fx_type == 6 and liquid_flags & 0x04 == 0
-          if fx['water']:
+          if fx['water'] or fx['lava'] or fx['acid']:
             fx['liquidflags'] = get_int(fx_node, "liquidflags") & 0xC4
             fx['surfacestart'] = get_int(fx_node, "surfacestart")
             fx['surfacenew'] = get_int(fx_node, "surfacenew")
@@ -194,6 +194,7 @@ required_layer2_rooms = [
   (0, 5),  #WEST OCEAN
   (0, 9),  #EAST OCEAN
   (0, 14), #CRATERIA LAKE
+  (0, 17), #WEST OCEAN BRIDGE
   (1, 3),  #EARLY SUPER ROOM
   (1, 12), #PINK BRINSTAR POWER BOMB ROOM
   (1, 15), #CONSTRUCTION ZONE
@@ -242,6 +243,7 @@ required_layer2_rooms = [
   (4, 20), #PLASMA SPARK ROOM
   (4, 21), #PLASMA CLIMB
   (4, 33), #MARIDIA AQUEDUCT
+  (4, 35), #BOTWOON HALLWAY
   (4, 36), #PANTS ROOM
   (4, 37), #EAST PANT ROOM
   (4, 42), #DRAYGON BOSS DOOR
