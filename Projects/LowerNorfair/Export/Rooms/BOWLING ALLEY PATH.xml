@@ -8,7 +8,7 @@
   <height>01</height>
   <upscroll>70</upscroll>
   <dnscroll>A0</dnscroll>
-  <specialGFX>00</specialGFX>
+  <specialGFX>80</specialGFX>
   <Doors>
     <Door>
       <toroom area="00" index="05" />
@@ -113,7 +113,7 @@
       </Screen>
         </BTS>
       </LevelData>
-      <GFXset>09</GFXset>
+      <GFXset>0A</GFXset>
       <music>0000</music>
       <FX1s>
         <FX1 default="true">
@@ -125,7 +125,7 @@
           <transparency1_A>02</transparency1_A>
           <transparency2_B>18</transparency2_B>
           <liquidflags_C>81</liquidflags_C>
-          <paletteflags>1F</paletteflags>
+          <paletteflags>00</paletteflags>
           <animationflags>00</animationflags>
           <paletteblend>48</paletteblend>
         </FX1>
