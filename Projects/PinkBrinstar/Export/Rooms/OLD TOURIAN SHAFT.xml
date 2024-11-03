@@ -1547,11 +1547,11 @@
           <surfacenew>0010</surfacenew>
           <surfacespeed>FF98</surfacespeed>
           <surfacedelay>28</surfacedelay>
-          <type>08</type>
+          <type>04</type>
           <transparency1_A>02</transparency1_A>
-          <transparency2_B>0A</transparency2_B>
+          <transparency2_B>1E</transparency2_B>
           <liquidflags_C>01</liquidflags_C>
-          <paletteflags>19</paletteflags>
+          <paletteflags>38</paletteflags>
           <animationflags>00</animationflags>
           <paletteblend>00</paletteblend>
         </FX1>
@@ -5053,9 +5053,9 @@
           <surfacenew>FFFF</surfacenew>
           <surfacespeed>0000</surfacespeed>
           <surfacedelay>00</surfacedelay>
-          <type>08</type>
+          <type>0C</type>
           <transparency1_A>02</transparency1_A>
-          <transparency2_B>0A</transparency2_B>
+          <transparency2_B>30</transparency2_B>
           <liquidflags_C>00</liquidflags_C>
           <paletteflags>00</paletteflags>
           <animationflags>00</animationflags>
