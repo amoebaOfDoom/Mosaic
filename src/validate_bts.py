@@ -312,10 +312,15 @@ for name, style in styles.items():
               layer2 = tile_data[2] if len(tile_data) >= 3 else None
               context_str = f"{room.path} State<{s_i}>Screen({c_i},{n_i})[{b_i:X}]."
 
-              # Check for bad black tiles (ones that may get overwritten by item PLMs)
+              # Check for bad transparent tiles (ones that may get overwritten by item PLMs)
               # These sometimes come from BGData -> Layer2 conversion.
               if layer2 is not None and 0x8E <= (layer2 & 0x3FF) <= 0x95:
                   print(f"🔴 {context_str} Bad clear tile (overwritable by item PLM) in layer 2: {layer2:04X}")
+                  invalid = 1
+
+              # Also check for bad transparent tiles in Layer 1, but ignore Ceres which has vanilla cases:
+              if tile is not None and 0x8E <= (tile & 0x3FF) <= 0x95 and "CERES" not in room.path:
+                  print(f"🔴 {context_str} Bad clear tile (overwritable by item PLM) in layer 1: {tile:04X}")
                   invalid = 1
 
               if name == "Base":
