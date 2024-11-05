@@ -102,8 +102,8 @@
         8145 8143 8145 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF
       </Screen>
           <Screen X="2" Y="0">
-        8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081
-        8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081
+        8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 82C0 8081 8081 8081 8081
+        8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 817A 8081 8081 8081 8081
         8081 8142 8081 8081 8142 8081 8142 8142 8081 8143 8669 8178 8669 8668 8145 8669
         8142 8142 8145 8143 8143 8145 8143 8143 8145 8143 8668 8178 8145 8668 8669 8669
         8142 8143 8143 8145 8623 8622 8621 8621 8621 8620 8669 8178 8669 8145 8669 8668
@@ -404,10 +404,10 @@
           <surfacespeed>0000</surfacespeed>
           <surfacedelay>00</surfacedelay>
           <type>00</type>
-          <transparency1_A>2A</transparency1_A>
+          <transparency1_A>02</transparency1_A>
           <transparency2_B>02</transparency2_B>
           <liquidflags_C>00</liquidflags_C>
-          <paletteflags>00</paletteflags>
+          <paletteflags>1F</paletteflags>
           <animationflags>00</animationflags>
           <paletteblend>00</paletteblend>
         </FX1>

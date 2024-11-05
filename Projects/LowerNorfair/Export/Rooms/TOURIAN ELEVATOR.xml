@@ -134,8 +134,8 @@
         820C 81FA 81FB 81CB 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 81CB 81F9 81EF 81EF
         81FA 81FB 8143 89A1 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 89A6 820C 820B 81EF
         81FB 8208 8216 81A1 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 81A1 8208 81FD 8236
-        83FF 83FF 83FF 83FF 83FF 83FF 83FF 83FF 83FF 83FF 83FF 83FF 83FF 83FF 83FF 83FF
-        83FF 83FF 83FF 83FF 83FF 83FF 83FF 83FF 83FF 83FF 83FF 83FF 83FF 83FF 83FF 83FF
+        81EF 81EF 81EF 81EF 81EF 81EF 81EF 81EF 81EF 81EF 81EF 81EF 81EF 81EF 81EF 81EF
+        81EF 81EF 81EF 81EF 81EF 81EF 81EF 81EF 81EF 81EF 81EF 81EF 81EF 81EF 81EF 81EF
       </Screen>
         </Layer1>
         <BTS>
@@ -299,7 +299,7 @@
           <transparency1_A>02</transparency1_A>
           <transparency2_B>1E</transparency2_B>
           <liquidflags_C>01</liquidflags_C>
-          <paletteflags>02</paletteflags>
+          <paletteflags>1F</paletteflags>
           <animationflags>00</animationflags>
           <paletteblend>02</paletteblend>
         </FX1>
