@@ -973,7 +973,7 @@ LoadFullBG_Continue:
 
 
 ExecuteDMA:
-  LDA EnableAlwaysOnNMI
+  LDA.l EnableAlwaysOnNMI
   BNE ExecuteDMA_AlwaysOnNMI
   LDA $84
   AND #$0080
