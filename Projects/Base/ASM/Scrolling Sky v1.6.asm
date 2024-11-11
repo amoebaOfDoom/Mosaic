@@ -514,6 +514,13 @@ print pc
 warnpc $88B057
 
 org $8AB180 ;Overwriting the tilemap that used to be used by scrolling sky
+EnableAlwaysOnNMI:
+  dw $0000              ; Overwritable control flag, indicating if NMI is always enabled 
+                        ; $0000 = no (vanilla behavior),  non-zero = yes (used in Map Rando)
+!TimerOnlyNMI = $1F7C   ; If NMI is always enabled, RAM address to check if NMI is in timer-only mode (when queued DMA will not be handled)
+                        ; A zero word at this address indicates normal NMI, non-zero indicates timer-only mode
+org $8AB182
+
 Copy8x8TileRowTop:
   LDA $7F9602,x
   PHX
@@ -966,12 +973,17 @@ LoadFullBG_Continue:
 
 
 ExecuteDMA:
+  LDA EnableAlwaysOnNMI
+  BNE ExecuteDMA_AlwaysOnNMI
   LDA $84
   AND #$0080
   BEQ ExecuteDMA_NoNMI
 ExecuteDMA_NMI:
   JSL $808338 ;Wait for NMI
   RTS
+ExecuteDMA_AlwaysOnNMI:
+  LDA !TimerOnlyNMI
+  BEQ ExecuteDMA_NMI
 ExecuteDMA_NoNMI:
   JSL $808C83 ;Process DMA Stack
   RTS
