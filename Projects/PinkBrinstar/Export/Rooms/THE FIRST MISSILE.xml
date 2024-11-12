@@ -44,9 +44,9 @@
         8306 8350 8449 8448 8447 00FF 0323 00FF 0301 0304 00FF 0341 00FF 00FF D80C 9840
         8306 834E 834E 834E 834E 834E 834E 834E 834E 834E 834E 834E 834E 834E 834E 834E
         8306 834E 834E 834E 834E 834E 834E 834E 834E 834E 834E 834E 834E 834E 834E 8307
-        8306 8B4E 8B4E 8B4E 8B4E 8B4E 8B4E 8B4E 8B4E 8B4E 8B4E 8B4E 8B4E 8B4E 8B4E 8729
-        8306 8350 00FF 00FF 00FF 00FF 00FF 00FF 00FF 8316 00FF 00FF 00FF 00FF 8750 8706
-        8306 8350 00FF 00FF 00FF 00FF 00FF 00FF 00FF 8316 00FF 00FF 00FF 00FF 8750 8F06
+        8306 8F4E 8F4E 8F4E 8F4E 8F4E 8F4E 8F4E 8F4E 8F4E 8F4E 8F4E 8F4E 8F4E 8F4E 8729
+        8306 8350 0B02 00FF 0B21 0B05 0B04 0B05 0B01 8316 0B41 0F03 0F02 0B22 8750 8706
+        8306 8350 00FF 00FF 00FF 00FF 00FF 00FF 00FF 8316 0B21 00FF 00FF 00FF 8750 8F06
         8B06 8350 00FF 00FF 00FF 00FF 00FF 00FF 00FF 8316 00FF 00FF 00FF 00FF 8750 8706
       </Screen>
         </Layer1>
@@ -99,9 +99,9 @@
           <surfacenew>FFFF</surfacenew>
           <surfacespeed>0000</surfacespeed>
           <surfacedelay>00</surfacedelay>
-          <type>00</type>
+          <type>08</type>
           <transparency1_A>02</transparency1_A>
-          <transparency2_B>02</transparency2_B>
+          <transparency2_B>0A</transparency2_B>
           <liquidflags_C>00</liquidflags_C>
           <paletteflags>00</paletteflags>
           <animationflags>00</animationflags>

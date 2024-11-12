@@ -81,7 +81,7 @@
         88BD 807A 807B 807B 807B 807B 807B 807B 807B 807B 807B 807B 807B 807B 847A 8750
         805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 8750
         00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 8717 8307
-        00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 0305 00FF 00FF 00FF 00FF 00FF 8750 8F06
+        00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 0305 00FF 00FF 00FF 00FF 00FF 8750 8729
         00FF 00FF 00FF 00FF 00FF 00FF 030F 00FF 0325 0301 0302 0347 0348 00FF 8750 8706
       </Screen>
           <Screen X="0" Y="1">
@@ -283,7 +283,7 @@
           <transparency2_B>18</transparency2_B>
           <liquidflags_C>03</liquidflags_C>
           <paletteflags>00</paletteflags>
-          <animationflags>01</animationflags>
+          <animationflags>02</animationflags>
           <paletteblend>48</paletteblend>
         </FX1>
       </FX1s>

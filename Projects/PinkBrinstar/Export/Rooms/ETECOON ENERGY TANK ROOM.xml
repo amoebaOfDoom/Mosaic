@@ -617,12 +617,12 @@
           <surfacenew>FFFF</surfacenew>
           <surfacespeed>0000</surfacespeed>
           <surfacedelay>00</surfacedelay>
-          <type>00</type>
+          <type>08</type>
           <transparency1_A>02</transparency1_A>
-          <transparency2_B>02</transparency2_B>
+          <transparency2_B>0A</transparency2_B>
           <liquidflags_C>00</liquidflags_C>
-          <paletteflags>01</paletteflags>
-          <animationflags>00</animationflags>
+          <paletteflags>00</paletteflags>
+          <animationflags>02</animationflags>
           <paletteblend>00</paletteblend>
         </FX1>
       </FX1s>

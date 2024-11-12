@@ -41,8 +41,8 @@
         8326 8329 8350 805F 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 805F 00FF 00FF
         8081 8B06 8350 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF
         8081 8B06 8350 2056 2056 805F 23B8 03B9 07B9 27B8 805F 2056 2056 23B8 03B9 07B9
-        8081 8B06 8B07 82BD 82BE 805F 83D8 03D9 07D9 87D8 805F 86BE 82BE 83D8 53D9 37D9
-        8081 806F 805F 805F 805F 805F 805F 00FF 00FF 805F 805F 805F 805F 805F 805F 805F
+        8081 8B06 82BD 82BD 82BE 805F 83D8 03D9 07D9 87D8 805F 86BE 82BE 83D8 53D9 37D9
+        8081 806F 805F 805F 805F 805F 805F 017D 017D 805F 805F 805F 805F 805F 805F 805F
       </Screen>
           <Screen X="1" Y="0">
         8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081 8081
@@ -60,7 +60,7 @@
         00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 8750 8706 8081
         27B8 2056 2056 2056 2056 23B8 03B9 07B9 27B8 2056 2056 2056 2056 8750 8F29 8B28
         87D8 86BE 82BD 82BD 82BE 83D8 53D9 37D9 87D8 86BE 82BD 82BD 82BD 82BD 8B07 8B08
-        805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 8081
+        805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F
       </Screen>
           <Screen X="0" Y="1">
         8081 806F 805F 807A 807B 807B 807B 007B 007B 807B 807B 807B 807B 807C 805F 846F
@@ -256,12 +256,12 @@
           <surfacenew>FFFF</surfacenew>
           <surfacespeed>0000</surfacespeed>
           <surfacedelay>00</surfacedelay>
-          <type>00</type>
+          <type>08</type>
           <transparency1_A>02</transparency1_A>
-          <transparency2_B>02</transparency2_B>
+          <transparency2_B>0A</transparency2_B>
           <liquidflags_C>00</liquidflags_C>
           <paletteflags>00</paletteflags>
-          <animationflags>20</animationflags>
+          <animationflags>22</animationflags>
           <paletteblend>00</paletteblend>
         </FX1>
       </FX1s>

@@ -131,7 +131,7 @@
           <transparency2_B>18</transparency2_B>
           <liquidflags_C>03</liquidflags_C>
           <paletteflags>00</paletteflags>
-          <animationflags>00</animationflags>
+          <animationflags>02</animationflags>
           <paletteblend>48</paletteblend>
         </FX1>
       </FX1s>
