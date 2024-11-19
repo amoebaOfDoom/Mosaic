@@ -4,10 +4,10 @@ tile_air = 0x0FF
 tile_unknown = 0x0DF
 tile_unknown_solid = 0x5F
 tile_interior = 0x81
-tile_bottom_edge = 0x1AA
-tile_right_edge = 0x1AA
-tile_bottom_right_outside_corner = 0x1AA
-tile_bottom_right_inside_corner = 0x1AA
+tile_bottom_edge = 0x164
+tile_right_edge = 0x164
+tile_bottom_right_outside_corner = 0x164
+tile_bottom_right_inside_corner = 0x164
 
 tile_half_bottom_edge = 0x226
 tile_under_half_bottom_edge = 0x269
