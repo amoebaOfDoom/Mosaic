@@ -13,7 +13,7 @@ bts_slope_bottom_right_step_small = 0x02
 bts_slope_bottom_right_step_large = 0x03
 
 tile_number_air = 0x0FF
-tile_number_unknown = 0x0DE
+tile_number_unknown = 0x0DF
 
 function invariant(x, y)
     -- Tiles to leave intact: CRE tiles except for black
