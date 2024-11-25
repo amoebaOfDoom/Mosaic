@@ -474,9 +474,6 @@ CheckShutterEnemyRoom: ;DB is 8D
   ORA $079D ; room index
   CMP #$050E ;TOURAIN ESCAPE ROOM 1
   BNE +
-  LDA $196A
-  ORA #$0008
-  STA $196A
   RTL
 +
   LDA #$E192
