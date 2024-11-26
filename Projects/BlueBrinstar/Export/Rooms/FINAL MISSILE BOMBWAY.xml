@@ -440,12 +440,12 @@
           <surfacespeed>0000</surfacespeed>
           <surfacedelay>00</surfacedelay>
           <type>00</type>
-          <transparency1_A>28</transparency1_A>
+          <transparency1_A>2A</transparency1_A>
           <transparency2_B>02</transparency2_B>
           <liquidflags_C>00</liquidflags_C>
           <paletteflags>00</paletteflags>
           <animationflags>00</animationflags>
-          <paletteblend>62</paletteblend>
+          <paletteblend>00</paletteblend>
         </FX1>
       </FX1s>
       <Enemies killcount="00">
