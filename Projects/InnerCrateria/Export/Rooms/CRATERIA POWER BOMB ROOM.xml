@@ -166,7 +166,7 @@
       <layer2_yscroll>C0</layer2_yscroll>
       <ScrollData const="0000" />
       <roomvar>0000</roomvar>
-      <FX2>C116</FX2>
+      <FX2>0000</FX2>
       <PLMs>
         <PLM>
           <type>EEE3</type>
