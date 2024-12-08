@@ -33,6 +33,8 @@ class Room:
       height = int(level_data.attrib['Height'], 16)
       state['level_data'] = [[None for _ in range(height)] for _ in range(width)]
       state['layer2_type'] = state_node.findall("layer2_type")[0].text
+      state['layer1_2'] = int(state_node.findall("layer1_2")[0].text, 16)
+      state['FX2'] = int(state_node.findall("FX2")[0].text, 16)
 
       bts_nodes = state_node.findall("./LevelData/BTS/Screen")
       for bts_node in bts_nodes:
@@ -286,6 +288,24 @@ for name, style in styles.items():
         if (a_i, r_i) in required_layer2_rooms and state['layer2_type'] != 'Layer2':
           print(f"🔴 {room.path} State<{s_i}> expected to have Layer2 (to support Transit Tube passing through), but has {state['layer2_type']}")
           invalid = 1
+
+        scrolling_sky_setup_asm = state['layer1_2'] == 0x91C9
+        scrolling_sky_main_asm = state['FX2'] == 0xC116
+        if scrolling_sky_setup_asm or scrolling_sky_main_asm:
+          if scrolling_sky_setup_asm and not scrolling_sky_main_asm:
+            print(f"🔴 {room.path} State<{s_i}> has scrolling sky setup ASM but not main ASM")
+            invalid = 1
+          if scrolling_sky_main_asm and not scrolling_sky_setup_asm:
+            print(f"🔴 {room.path} State<{s_i}> has scrolling sky main ASM but not setup ASM")
+            invalid = 1
+          if len(state['level_data'][0][0][0]) <= 2:
+            print(f"🔴 {room.path} State<{s_i}> has scrolling sky ASM but no Layer2 data")
+            invalid = 1
+          else:                      
+            scroll_index = state['level_data'][0][0][0][2] & 0x03FF
+            if scroll_index not in [0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0E, 0x10]:            
+              print(f"🔴 {room.path} State<{s_i}> has scrolling sky ASM but invalid scroll index {scroll_index:X}")
+              invalid = 1
 
         if (a_i, r_i) == (2, 48):
           # Check that top two rows of Layer1 in SPEEDBOOSTER RUBBLE HALLWAY match vanilla,
