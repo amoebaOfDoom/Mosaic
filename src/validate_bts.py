@@ -83,7 +83,7 @@ class Room:
           fx['acid'] = fx_type == 4 and not off_screen_liquid
           fx['water'] = fx_type == 6 and liquid_flags & 0x04 == 0
           if fx['water'] or fx['lava'] or fx['acid']:
-            fx['liquidflags'] = get_int(fx_node, "liquidflags") & 0xC4
+            fx['liquidflags'] = get_int(fx_node, "liquidflags_C") & 0xC4
             fx['surfacestart'] = get_int(fx_node, "surfacestart")
             fx['surfacenew'] = get_int(fx_node, "surfacenew")
             fx['surfacespeed'] = get_int(fx_node, "surfacespeed")
