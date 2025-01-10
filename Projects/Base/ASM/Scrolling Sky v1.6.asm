@@ -812,6 +812,8 @@ LoadFullBG:
   LDA $0998 ;Game state
   CMP #$0006;Game is loading from save
   BEQ +
+  CMP #$001F;Game is new (post-intro)
+  BEQ +
   CMP #$0028;Game is loading from demo
   BNE ++
 +
