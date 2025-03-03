@@ -396,6 +396,36 @@ for name, style in styles.items():
                 print(f"🔴 {context_str} '{key}' is {fx_val} compared to {base_val} in Base")
                 invalid = 1
 
+
+tilesets_path = root_path / "Base/Export/Tileset/SCE"
+# Across all tilesets (excluding Ceres), look for SCE tiles using palettes 0 or 1,
+# outside the space (0-31) reserved for such tiles:
+#
+# These palettes have colors that don't fade during door transitions, so they 
+# require special handling to avoid garbled tiles showing up in the middle of transitions.
+for path in sorted(os.listdir(tilesets_path)):
+    tileset_num = int(path, 16)
+    if 0xF <= tileset_num <= 0x14:
+      # Skip Ceres tilesets
+      continue
+    tile_data = open(f'{tilesets_path}/{path}/16x16tiles.ttb', 'rb').read()
+    bad_tiles = {}
+    for i in range(0, min(len(tile_data), 6144), 2):
+        x = tile_data[i] | (tile_data[i + 1] << 8)
+        pal = (x >> 10) & 7
+        c = x & 0x3ff
+        if pal <= 1 and c < 640 and c > 32:
+            if c not in bad_tiles:
+                bad_tiles[c] = set()
+            bad_tiles[c].add(i // 8)
+    if len(bad_tiles) > 0:
+      invalid = 1
+      print(f"🔴 In tileset {path}, SCE tiles using palette 0 or 1, outside the reserved space (0-31):")
+      for c in sorted(bad_tiles.keys()):
+          t = bad_tiles[c]
+          print("8x8 tile {:03x}, used in 16x16 tiles: {}".format(
+              c, ', '.join('{:03x}'.format(x + 0x100) for x in sorted(t))))
+
 if invalid:
   print("🔴 FAILED")
 else:
