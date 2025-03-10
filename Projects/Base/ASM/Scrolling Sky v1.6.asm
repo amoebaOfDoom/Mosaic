@@ -967,6 +967,7 @@ LoadFullBG_Continue:
   CLC
   ADC #$000E ;ADC #$001C
   STA $0330 ;'Stack' pointer for 00D0 table
+  STZ $097E ;clear BG2 VRAM update flag
   JSR ExecuteDMA
   LDA #$0010
   CLC
