@@ -249,6 +249,8 @@ RoomSetupASM:
   LDA $091C
   ORA #$01
   STA $091C ;disable normal Y scrolling graphics routines for layer 2
+  STZ $097E ;clear horizontal scroll BG2 VRAM update flag
+  STZ $098C ;clear vertical scroll BG2 VRAM update flag
   JSL $888435 ;spawn HDMA object
     DB $42, $0F
     DW ScrollInstructionList
@@ -967,7 +969,6 @@ LoadFullBG_Continue:
   CLC
   ADC #$000E ;ADC #$001C
   STA $0330 ;'Stack' pointer for 00D0 table
-  STZ $097E ;clear BG2 VRAM update flag
   JSR ExecuteDMA
   LDA #$0010
   CLC
