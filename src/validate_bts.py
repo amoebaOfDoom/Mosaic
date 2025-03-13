@@ -35,6 +35,8 @@ class Room:
       state['layer2_type'] = state_node.findall("layer2_type")[0].text
       state['layer1_2'] = int(state_node.findall("layer1_2")[0].text, 16)
       state['FX2'] = int(state_node.findall("FX2")[0].text, 16)
+      if state['layer2_type'] == 'BGData':
+        state['BGData'] = xml.tostring(state_node.findall("BGData")[0])
 
       bts_nodes = state_node.findall("./LevelData/BTS/Screen")
       for bts_node in bts_nodes:
@@ -266,6 +268,13 @@ ignored_styles = [
   "TourianPalette",
 ]
 
+base_bgdata_set = set()
+for a_i, area in base.rooms.items():
+  for r_i, room in area.items():
+    for s_i, state in enumerate(room.states):
+      if 'BGData' in state:
+        base_bgdata_set.add(state['BGData'])
+
 for name, style in styles.items():
   if name in ignored_styles:
     continue
@@ -284,7 +293,13 @@ for name, style in styles.items():
         if (a_i, r_i) in required_bg_data_rooms and state['layer2_type'] != 'BGData' and name != 'Outline':
           print(f"🔴 {room.path} State<{s_i}> expected to have BGData (to prevent graphical glitches), but has {state['layer2_type']}")
           invalid = 1
-          
+
+        if 'BGData' in state and state['BGData'] not in base_bgdata_set and (a_i, r_i) != (5, 6) and name != "GreenBrinstar":
+          # DUST TORIZO ROOM (5, 6) is excluded, since non-vanilla BGData is allowed there.
+          # GreenBrinstar is temporarily excluded because it has false positives, due to a vanilla BGData that is not used in Base.
+          print(f"🔴 {room.path} State<{s_i}> has non-vanilla BGData")
+          invalid = 1
+
         if (a_i, r_i) in required_layer2_rooms and state['layer2_type'] != 'Layer2':
           print(f"🔴 {room.path} State<{s_i}> expected to have Layer2 (to support Transit Tube passing through), but has {state['layer2_type']}")
           invalid = 1
