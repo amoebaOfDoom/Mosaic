@@ -1,5 +1,5 @@
-<Config Version="1.19.8826.17969">
-  <ROMfile>..\..\Super Metroid.smc</ROMfile>
+<Config Version="1.19.9206.24871">
+  <ROMfile>..\..\..\..\ROMs\SM tests\Super Metroid (JU) [!].smc</ROMfile>
   <PatchQuickmet>true</PatchQuickmet>
   <SaveNames>true</SaveNames>
   <LevelBufferAmount>200</LevelBufferAmount>
