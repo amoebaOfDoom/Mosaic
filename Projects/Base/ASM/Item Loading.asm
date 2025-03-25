@@ -13,7 +13,7 @@ lorom
 
 macro RegularItemPLM(addr, gfx)
 org $840000+<addr>
-  dw load_item_gfx_pal_0, <gfx>  ; load item graphics
+  dw load_item_gfx, <gfx>  ; load item graphics
   dw $887C, <addr>+$21           ; go to end if item is collected
   dw $8A24, <addr>+$18           ; set link instruction
   dw $86C1, $DF89                ; pre-instruction = go to link instruction if triggered
@@ -24,7 +24,7 @@ endmacro
 
 macro ChozoBallItemPLM(addr, gfx)
 org $840000+<addr>
-  dw load_item_gfx_pal_0, <gfx>  ; load item graphics
+  dw load_item_gfx, <gfx>  ; load item graphics
   dw $887C, <addr>+$2C           ; go to end if item is collected
   dw $8A2E, $DFAF                ; call $DFAF (item orb)
   dw $8A2E, $DFC7                ; call $DFC7 (item orb burst)
@@ -39,7 +39,7 @@ endmacro
 
 macro ShotBlockItemPLM(addr, gfx)
 org $840000+<addr>
-  dw load_item_gfx_pal_0, <gfx>  ; load item graphics
+  dw load_item_gfx, <gfx>  ; load item graphics
   dw $8A2E, $E007                ; call $E007 (item shot block)
   dw $887C, <addr>+$30           ; go to end if item is collected
   dw $8A24, <addr>+$27           ; set link instruction
@@ -54,44 +54,51 @@ org $840000+<addr>
 endmacro
 
 ; Patch item PLM instruction lists:
-%RegularItemPLM($E099, etank_gfx)
-%RegularItemPLM($E0BE, missile_gfx)
-%RegularItemPLM($E0E3, super_gfx)
-%RegularItemPLM($E108, pb_gfx)
-%ChozoBallItemPLM($E44A, etank_gfx)
-%ChozoBallItemPLM($E47C, missile_gfx)
-%ChozoBallItemPLM($E4AE, super_gfx)
-%ChozoBallItemPLM($E4E0, pb_gfx)
-%ShotBlockItemPLM($E911, etank_gfx)
-%ShotBlockItemPLM($E949, missile_gfx)
-%ShotBlockItemPLM($E981, super_gfx)
-%ShotBlockItemPLM($E9B9, pb_gfx)
+%RegularItemPLM($E099, etank_gfx_header)
+%RegularItemPLM($E0BE, missile_gfx_header)
+%RegularItemPLM($E0E3, super_gfx_header)
+%RegularItemPLM($E108, pb_gfx_header)
+%ChozoBallItemPLM($E44A, etank_gfx_header)
+%ChozoBallItemPLM($E47C, missile_gfx_header)
+%ChozoBallItemPLM($E4AE, super_gfx_header)
+%ChozoBallItemPLM($E4E0, pb_gfx_header)
+%ShotBlockItemPLM($E911, etank_gfx_header)
+%ShotBlockItemPLM($E949, missile_gfx_header)
+%ShotBlockItemPLM($E981, super_gfx_header)
+%ShotBlockItemPLM($E9B9, pb_gfx_header)
 
 ; Unused space in bank $84:
 org !bank_84_free_space_start
-; load item PLM graphics, with all tiles using palette 0
-load_item_gfx_pal_0:
+; load item PLM graphics, with reference to item graphics header anywhere in bank $84
+; (rather than it having to be embedded in the instruction list)
+load_item_gfx:
     PHY
 
-    ; $20 = pointer to item graphics (at [[Y]]): 8 tiles (2 frames of 2x2)
+    ; Y = pointer to item graphics header (at [[Y]])
     LDA $0000,y
-    STA $20
+    TAY
 
-    ; $22, $24, $26, $28 = zeros (for palette 0)
-    LDA #$0000
-    STA $22
-    STA $24
-    STA $26
-    STA $28
-
-    ; call vanilla function to load item PLM graphics, with Y pointing to direct page variables $20..$28
-    LDY #$0020
+    ; call vanilla function to load item PLM graphics
     JSR $8764
 
     PLY
     INY
     INY
     RTS
+
+etank_gfx_header:
+    dw etank_gfx, $0000, $0000, $0000, $0000
+
+missile_gfx_header:
+    dw missile_gfx, $0000, $0000, $0000, $0000
+
+super_gfx_header:
+    dw super_gfx, $0000, $0000, $0000, $0000
+
+pb_gfx_header:
+    dw pb_gfx, $0000, $0000, $0000, $0000
+
+print pc
 warnpc !bank_84_free_space_end
 
 org !bank_89_free_space_start
