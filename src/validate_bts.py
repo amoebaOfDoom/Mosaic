@@ -381,9 +381,10 @@ for name, style in styles.items():
                 invalid = 1
 
               # Grapple block check:
-              if tiletype == 0xE and tile & 0xF7FF != base_tile & 0xF7FF:
-                print(f"🔴 {context_str} Wrong tile for grapple block: should be {base_tile:04X} but was {tile:04X}")
-                invalid = 1
+              if name != "Invisible":
+                if tiletype == 0xE and tile & 0xF7FF != base_tile & 0xF7FF:
+                  print(f"🔴 {context_str} Wrong tile for grapple block: should be {base_tile:04X} but was {tile:04X}")
+                  invalid = 1
 
               # Check for background tiles in wrong layer (excluding KRAID BOSS ROOM which has this in vanilla):
               if name == "OuterCrateria" and (a_i, r_i) != (1, 47):
