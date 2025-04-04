@@ -13,7 +13,7 @@ lorom
 
 macro RegularItemPLM(addr, gfx)
 org $840000+<addr>
-  dw load_item_gfx, <gfx>  ; load item graphics
+  dw load_item_gfx, <gfx>        ; load item graphics
   dw $887C, <addr>+$21           ; go to end if item is collected
   dw $8A24, <addr>+$18           ; set link instruction
   dw $86C1, $DF89                ; pre-instruction = go to link instruction if triggered
@@ -24,7 +24,7 @@ endmacro
 
 macro ChozoBallItemPLM(addr, gfx)
 org $840000+<addr>
-  dw load_item_gfx, <gfx>  ; load item graphics
+  dw load_item_gfx, <gfx>        ; load item graphics
   dw $887C, <addr>+$2C           ; go to end if item is collected
   dw $8A2E, $DFAF                ; call $DFAF (item orb)
   dw $8A2E, $DFC7                ; call $DFC7 (item orb burst)
@@ -39,7 +39,7 @@ endmacro
 
 macro ShotBlockItemPLM(addr, gfx)
 org $840000+<addr>
-  dw load_item_gfx, <gfx>  ; load item graphics
+  dw load_item_gfx, <gfx>        ; load item graphics
   dw $8A2E, $E007                ; call $E007 (item shot block)
   dw $887C, <addr>+$30           ; go to end if item is collected
   dw $8A24, <addr>+$27           ; set link instruction
@@ -50,6 +50,8 @@ org $840000+<addr>
   dw $E067                       ; draw second frame
   dw $873F, <addr>+$17           ; decrement timer and loop if non-zero
   dw $8A2E, $E020                ; call $E020 (item shot block reconcealing)
+  dw $8724, <addr>+$04           ; go to start (without loading graphics again)
+org $840000+<addr>+$34
   dw $8724, <addr>+$04           ; go to start (without loading graphics again)
 endmacro
 
