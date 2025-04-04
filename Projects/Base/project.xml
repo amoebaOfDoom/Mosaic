@@ -1,5 +1,5 @@
 <Config Version="1.19.9206.24871">
-  <ROMfile>..\..\..\..\ROMs\SM tests\Super Metroid (JU) [!].smc</ROMfile>
+  <ROMfile>..\..\Super Metroid.smc</ROMfile>
   <PatchQuickmet>true</PatchQuickmet>
   <SaveNames>true</SaveNames>
   <LevelBufferAmount>200</LevelBufferAmount>
@@ -188,6 +188,7 @@
     <Space start="82E833" end="82E83A" />
     <Space start="82EADB" end="82EAE2" />
     <Space start="83B800" end="83B9B3" />
+    <Space start="8486D1" end="8486EB" />
     <Space start="8498D1" end="849A3E" />
     <Space start="849CC5" end="849CCE" />
     <Space start="849E0D" end="849E28" />
@@ -195,6 +196,18 @@
     <Space start="849ED1" end="849F24" />
     <Space start="84D3CF" end="84D3D4" />
     <Space start="84D3EC" end="84D3F1" />
+    <Space start="84E099" end="84E0B0" />
+    <Space start="84E0BE" end="84E0D5" />
+    <Space start="84E0E3" end="84E0FA" />
+    <Space start="84E108" end="84E11F" />
+    <Space start="84E44A" end="84E46C" />
+    <Space start="84E47C" end="84E49E" />
+    <Space start="84E4AE" end="84E4D0" />
+    <Space start="84E4E0" end="84E502" />
+    <Space start="84E911" end="84E937" />
+    <Space start="84E949" end="84E96F" />
+    <Space start="84E981" end="84E9A7" />
+    <Space start="84E9B9" end="84E9DF" />
     <Space start="8781BA" end="8781C0" />
     <Space start="878279" end="87827A" />
     <Space start="87827F" end="878280" />
@@ -202,12 +215,13 @@
     <Space start="87828B" end="87828C" />
     <Space start="878291" end="878292" />
     <Space start="87C964" end="87CA7D" />
-    <Space start="88A7D8" end="88A815" />
+    <Space start="88A7D8" end="88A81B" />
     <Space start="88AD76" end="88AF34" />
     <Space start="88B0A3" end="88B0A6" />
     <Space start="88B102" end="88B109" />
     <Space start="88B4E4" end="88B4E6" />
     <Space start="88F600" end="88FAFE" />
+    <Space start="899200" end="8995FF" />
     <Space start="89AA02" end="89AA06" />
     <Space start="89AB5B" end="89AB5D" />
     <Space start="89AB90" end="89AB92" />
@@ -221,7 +235,7 @@
     <Space start="89AC62" end="89AC69" />
     <Space start="89AC98" end="89AC9F" />
     <Space start="89AF60" end="89B0BA" />
-    <Space start="8AB180" end="8AB4E1" />
+    <Space start="8AB180" end="8AB4E6" />
     <Space start="8AB502" end="8AB604" />
     <Space start="8AB620" end="8AB6CC" />
     <Space start="8AB700" end="8ABF6E" />
