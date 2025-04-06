@@ -7,7 +7,7 @@ tile_interior = 0x131
 tile_bottom_edge = 0x111
 tile_right_edge = 0x130
 tile_bottom_right_outside_corner = 0x110
-tile_bottom_right_inside_corner = 0x1B2
+tile_bottom_right_inside_corner = 0x112
 
 tile_half_bottom_edge = 0x21D
 
@@ -30,7 +30,7 @@ tile_beside_bottom_left_steep_slope_small = 0x27B
 tile_platform_middle = 0x2DC
 tile_platform_left = 0x2DB
 
-tile_column = 0x18C
+tile_column = 0x2DD
 tile_column_cap = 0x18E
 
 -- Invariant tiles (non-black CRE tiles): leave them unchanged
