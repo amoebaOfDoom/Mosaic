@@ -352,13 +352,10 @@ UpdateHeavySandColors: ;DB is 8D
 LoadSpeecialRoomTiles:
   PHK
   PLB
-  LDA $07DF
-  CMP #$E2B6 ;transit tube main asm
-  BEQ LoadSpeecialRoomTiles_Bowl
 
 LoadSpeecialRoomTiles_Tube:
   LDY $0330
-  LDA #$03E0
+  LDA #$0400
   STA $00D0,Y
   LDA #$8A00
   STA $00D3,Y
@@ -377,28 +374,6 @@ LoadSpeecialRoomTiles_Tube:
   LDA.w #TubeGfx+$0400
   STA $00D2,Y
   LDA #$2400 ; overwrite vileplumes
-  STA $00D5,Y
-  TYA
-  CLC
-  ADC #$0007
-  STA $0330
-
-  LDA #$8A00
-  STA $0605
-  LDA #LoadSpeecialRoomTiles_UnpauseHook
-  STA $0604
-
-  RTL
-
-LoadSpeecialRoomTiles_Bowl:
-  LDY $0330
-  LDA #$0280
-  STA $00D0,Y
-  LDA #$8A00
-  STA $00D3,Y
-  LDA.w #BowlGfx
-  STA $00D2,Y
-  LDA #$3E00 ; area after the CRE
   STA $00D5,Y
   TYA
   CLC
@@ -476,8 +451,6 @@ Fireflies_Light:
 org $8AD000
 TubeGfx:
 incbin Tube.gfx
-BowlGfx:
-incbin Bowl.gfx
 
 org $8FC11B ; Room init code for ocean rooms no longer used due to scrolling sky
   JSL LoadSpeecialRoomTiles
