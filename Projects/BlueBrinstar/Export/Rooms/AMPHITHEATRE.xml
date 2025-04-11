@@ -1142,7 +1142,7 @@
           <liquidflags_C>82</liquidflags_C>
           <paletteflags>80</paletteflags>
           <animationflags>00</animationflags>
-          <paletteblend>00</paletteblend>
+          <paletteblend>08</paletteblend>
         </FX1>
         <FX1 default="true">
           <surfacestart>04E8</surfacestart>
@@ -1155,7 +1155,7 @@
           <liquidflags_C>82</liquidflags_C>
           <paletteflags>80</paletteflags>
           <animationflags>02</animationflags>
-          <paletteblend>00</paletteblend>
+          <paletteblend>08</paletteblend>
         </FX1>
       </FX1s>
       <Enemies killcount="09">
