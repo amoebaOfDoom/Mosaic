@@ -1,3 +1,5 @@
+lorom
+
 ; Acid tilemap: replace palette 0 with palette 6:
 org $8A8840
 dw $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E, $0C4E
