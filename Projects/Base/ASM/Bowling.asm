@@ -24,7 +24,7 @@ CloseBowlingStairs:
   RTS
 warnpc $849D59
 
-org $8AB620 ; free space (due to scrolling sky)
+org $8AB502 ; free space (due to scrolling sky)
 OpenBowlingStairs_2:
   PHX
   PHY
