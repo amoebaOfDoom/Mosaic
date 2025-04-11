@@ -969,9 +969,9 @@ ClearLayer3_WRAM_Address_Black:
 ClearLayer3_VRAM_Inc_Value:
     DW $0080, $0000
 ClearLayer3_ClearTileTinted:
-    DW $180F    ; palette 6, fill with color 3 (FX-specific air tint)
+    DW $180F    ; palette 6, color 3 (FX-specific air tint)
 ClearLayer3_ClearTileBlack:
-    DW $180E    ; palette 6: fill with color 0 (transparent)
+    DW $0C0F    ; palette 3, color 3 (transparent)
   
 warnpc $80A2F9
 
@@ -984,9 +984,9 @@ get_clear_tile:
     LDA $196E
     CMP #$0004  ; Use palette 2 for the clear tile if the FX type is acid
     BEQ +
-    LDA #$180F    ; palette 6, fill with color 3 (FX-specific air tint)
+    LDA #$180F    ; palette 6, color 3 (FX-specific air tint)
     RTS
 +
-    LDA #$180E    ; palette 6: fill with color 0 (transparent)
+    LDA #$0C0F    ; palette 3, color 3 (transparent)
     RTS
 warnpc $82E6A1
