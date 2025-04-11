@@ -736,11 +736,12 @@ GetPaletteBlendIndex:
   RTL
 
 !unused_blend_ent = $6318,$6318,$0000
+!acidfx_blend_ent = $02DF,$01D7,$00AC
 
 BlendTable:
   DL Blends_0, Blends_1, Blends_2, Blends_3, Blends_4, Blends_5, Blends_6, Blends_7, Blends_X
 Blends_0:
-  DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $0000, $0E3F,$0D7F,$0000, !acidfx_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $0020,$1064,$0000, $28E3,$1C60,$0000, $2485,$3D88,$0000, $20A1,$1840,$0000, !unused_blend_ent
   DW $3800, $20A5,$1C84,$1024, $1087,$14A8,$0844, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
@@ -749,7 +750,7 @@ Blends_0:
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $0401,$1844,$0000, $0000,$0862,$0000, $0400,$1C45,$0000, !unused_blend_ent, !unused_blend_ent
 Blends_1:
-  DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $0000, $0E3F,$0D7F,$0000, !acidfx_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $0800,$14A5,$0000, $28E3,$1C60,$0000, $2485,$3D88,$0000, $20A1,$1840,$0000, !unused_blend_ent
   DW $3800, $20A4,$1C83,$1061, $1087,$14A8,$0844, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
@@ -758,7 +759,7 @@ Blends_1:
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $0400,$1464,$0000, $0020,$0C62,$0000, $0401,$1467,$0000, !unused_blend_ent, !unused_blend_ent
 Blends_2:
-  DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $0000, $0E3F,$0D7F,$0000, !acidfx_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $294C,$18C8,$0022, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $0400,$1484,$0000, $28E3,$1C60,$0000, $2485,$3D88,$0000, $20A1,$1840,$0000, !unused_blend_ent
   DW $3800, $14A8,$1087,$0C23, $1087,$14A8,$0844, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
@@ -767,7 +768,7 @@ Blends_2:
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $0001,$0C66,$0000, $0420,$0843,$0000, $0002,$0066,$0000, !unused_blend_ent, !unused_blend_ent
 Blends_3:
-  DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $0000, $0E3F,$0D7F,$0000, !acidfx_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $298A,$1906,$0040, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $0401,$1485,$0000, $28E3,$1C60,$0000, $2485,$3D88,$0000, $20A1,$1840,$0000, !unused_blend_ent
   DW $3800, $14E7,$10C6,$0442, $1087,$14A8,$0844, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
@@ -776,7 +777,7 @@ Blends_3:
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $0020,$0C84,$0000, $0020,$0863,$0000, $0021,$0082,$0000, !unused_blend_ent, !unused_blend_ent
 Blends_4:
-  DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $0000, $0E3F,$0D7F,$0000, !acidfx_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $0400,$1C63,$0000, $28E3,$1C60,$0000, $2485,$3D88,$0000, $0880,$0420,$0000, !unused_blend_ent
   DW $3800, $14E5,$10C4,$0461, $1087,$14A8,$0844, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
@@ -785,7 +786,7 @@ Blends_4:
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $0400,$18A2,$0000, $0020,$0C62,$0000, $0400,$1C45,$0000, !unused_blend_ent, !unused_blend_ent
 Blends_5:
-  DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $0000, $0E3F,$0D7F,$0000, !acidfx_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $2D6B,$1CE7,$0421, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $0421,$14A5,$0000, $28E3,$1C60,$0000, $2485,$3D88,$0000, $20A1,$1840,$0000, !unused_blend_ent
   DW $3800, $1CC6,$18A5,$0C63, $1087,$14A8,$0844, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
@@ -794,7 +795,7 @@ Blends_5:
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $0421,$1084,$0000, $0400,$0C63,$0000, $0421,$0C63,$0000, !unused_blend_ent, !unused_blend_ent
 Blends_6:
-  DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $0000, $0E3F,$0D7F,$0000, !acidfx_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $0400,$1C63,$0000, $28E3,$1C60,$0000, $2485,$3D88,$0000, $20A1,$1840,$0000, !unused_blend_ent
   DW $3800, $20A5,$1C84,$1024, $1087,$14A8,$0844, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
@@ -803,7 +804,7 @@ Blends_6:
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $0400,$18A2,$0000, $0020,$0C62,$0000, $0400,$1C45,$0000, !unused_blend_ent, !unused_blend_ent
 Blends_7:
-  DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $0000, $0E3F,$0D7F,$0000, !acidfx_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $0400,$1C63,$0000, $28E3,$1C60,$0000, $2485,$3D88,$0000, $20A1,$1840,$0000, !unused_blend_ent
   DW $3800, $20A5,$1C84,$1024, $1087,$14A8,$0844, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
@@ -812,7 +813,7 @@ Blends_7:
   DW $3800, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $0400,$18A2,$0000, $0020,$0C62,$0000, $0400,$1C45,$0000, !unused_blend_ent, !unused_blend_ent
 Blends_X:
-  DW $0000, $0E3F,$0D7F,$0000, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
+  DW $0000, $0E3F,$0D7F,$0000, !acidfx_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $314A,$20C6,$0820, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
   DW $3800, $0400,$1C63,$0000, $28E3,$1C60,$0000, $2485,$3D88,$0000, $20A1,$1840,$0000, !unused_blend_ent
   DW $3800, $20A5,$1C84,$1024, $1087,$14A8,$0844, !unused_blend_ent, !unused_blend_ent, !unused_blend_ent
@@ -923,3 +924,69 @@ AreaPalettes_X:
 ; Exotic
 %PaletteFile(20, X, Outline)
 warnpc $C1FFFF
+
+; Clear layer 3:
+org $80A29C
+    PHP
+    LDX #$0002
+ClearLayer3_Loop:
+    REP #$20
+    LDA #$5880
+    STA $2116 ; DMA VRAM address
+    LDA.w ClearLayer3_DMA_Params,X
+    STA $4310 ; DMA Parameter/VRAM Address
+
+    LDA $196E
+    CMP #$0004  ; Use palette 2 for the clear tile if the FX type is acid
+    BEQ +
+    LDA.w ClearLayer3_WRAM_Address_Tinted,X
+    BRA ++
++
+    LDA.w ClearLayer3_WRAM_Address_Black,X
+++
+    STA $4312 ; DMA WRAM Address
+    LDA #$0080
+    STA $4314 ; DMA WRAM Bank
+    LDA #$0780
+    STA $4315 ; DMA Bytes
+    SEP #$20
+    LDA.w ClearLayer3_VRAM_Inc_Value,X
+    STA $2115 ; VRAM Adress Increment Value
+    LDA #$02
+    STA $420B ; Start DMA
+    DEX
+    DEX
+    BPL ClearLayer3_Loop
+    PLP
+    RTL
+
+ClearLayer3_DMA_Params:
+    DW $1908, $1808
+ClearLayer3_WRAM_Address_Tinted:
+    DW #ClearLayer3_ClearTileTinted+1, #ClearLayer3_ClearTileTinted+0
+ClearLayer3_WRAM_Address_Black:
+    DW #ClearLayer3_ClearTileBlack+1, #ClearLayer3_ClearTileBlack+0
+ClearLayer3_VRAM_Inc_Value:
+    DW $0080, $0000
+ClearLayer3_ClearTileTinted:
+    DW $180F    ; palette 6, color 3 (FX-specific air tint)
+ClearLayer3_ClearTileBlack:
+    DW $0C0F    ; palette 3, color 3 (transparent)
+  
+warnpc $80A2F9
+
+org $82E569
+    JSR get_clear_tile
+
+; Unused space in bank $82
+org $82E675
+get_clear_tile:
+    LDA $196E
+    CMP #$0004  ; Use palette 2 for the clear tile if the FX type is acid
+    BEQ +
+    LDA #$180F    ; palette 6, color 3 (FX-specific air tint)
+    RTS
++
+    LDA #$0C0F    ; palette 3, color 3 (transparent)
+    RTS
+warnpc $82E6A1
