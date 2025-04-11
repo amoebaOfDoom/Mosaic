@@ -939,10 +939,10 @@ ClearLayer3_Loop:
     LDA $196E
     CMP #$0004  ; Use palette 2 for the clear tile if the FX type is acid
     BEQ +
-    LDA.w ClearLayer3_WRAM_Address_Pal6,X
+    LDA.w ClearLayer3_WRAM_Address_Tinted,X
     BRA ++
 +
-    LDA.w ClearLayer3_WRAM_Address_Pal2,X
+    LDA.w ClearLayer3_WRAM_Address_Black,X
 ++
     STA $4312 ; DMA WRAM Address
     LDA #$0080
@@ -962,16 +962,16 @@ ClearLayer3_Loop:
 
 ClearLayer3_DMA_Params:
     DW $1908, $1808
-ClearLayer3_WRAM_Address_Pal6:
-    DW #ClearLayer3_ClearTilePal6+1, #ClearLayer3_ClearTilePal6+0
-ClearLayer3_WRAM_Address_Pal2:
-    DW #ClearLayer3_ClearTilePal2+1, #ClearLayer3_ClearTilePal2+0
+ClearLayer3_WRAM_Address_Tinted:
+    DW #ClearLayer3_ClearTileTinted+1, #ClearLayer3_ClearTileTinted+0
+ClearLayer3_WRAM_Address_Black:
+    DW #ClearLayer3_ClearTileBlack+1, #ClearLayer3_ClearTileBlack+0
 ClearLayer3_VRAM_Inc_Value:
     DW $0080, $0000
-ClearLayer3_ClearTilePal6:
-    DW $180F    ; palette 6: color 3 is an FX-specific air tint
-ClearLayer3_ClearTilePal2:
-    DW $080F    ; palette 2: color 3 is always black
+ClearLayer3_ClearTileTinted:
+    DW $180F    ; palette 6, fill with color 3 (FX-specific air tint)
+ClearLayer3_ClearTileBlack:
+    DW $180E    ; palette 6: fill with color 0 (transparent)
   
 warnpc $80A2F9
 
