@@ -959,7 +959,13 @@ ClearLayer3_Loop:
     BPL ClearLayer3_Loop
     PLP
     RTL
+  
+; Be sure we stop before $A2E1, to maintain compatibility with earlier Map Rando seeds that
+; used that space in the hud_expansion_opaque.asm patch, for TransitionDMA_CalculateLayer2XPos.
+warnpc $80A2E1
 
+; other unused space in bank $80
+org $8081C0
 ClearLayer3_DMA_Params:
     DW $1908, $1808
 ClearLayer3_WRAM_Address_Tinted:
@@ -972,8 +978,7 @@ ClearLayer3_ClearTileTinted:
     DW $180F    ; palette 6, color 3 (FX-specific air tint)
 ClearLayer3_ClearTileBlack:
     DW $0C0F    ; palette 3, color 3 (transparent)
-  
-warnpc $80A2F9
+warnpc $8081DC
 
 org $82E569
     JSR get_clear_tile
