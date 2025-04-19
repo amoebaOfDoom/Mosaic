@@ -27,6 +27,9 @@ org $89AC57
 org $89AC25
   JSR GetFxType
   ;LDA $0009,X
+org $89AC3A
+  JSR GetFxType
+  ;LDA $0009,X
 org $89ABF8
   JSR GetFxPaletteBlend
   ;LDA $000F,X
