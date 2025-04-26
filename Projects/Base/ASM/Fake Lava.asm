@@ -27,7 +27,7 @@ org $90A458 : JSR CheckLavaActive_90
 org $90EE03 : JSR CheckLavaActive_90
 org $90EE86 : JSR CheckLavaActive_90
 org $91D9D1 : JSR CheckLavaActive_91
-org $91F1D2 : JSR CheckLavaActive_91
+org $91F12D : JSR CheckLavaActive_91
 org $91F17D : JSR CheckLavaActive_91
 org $91F6A9 : JSR CheckLavaActive_91
 org $91F70A : JSR CheckLavaActive_91
