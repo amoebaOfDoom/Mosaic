@@ -263,8 +263,6 @@ RoomSetupASM:
   STA $B7 ;Value for $2110 (Y scroll of BG 2)
   STZ $0923 ;Screen's relative Y position offset for transitions
   JSL LoadFullBG
-  LDA #$FFFF
-  STA $059C
   PLP
   RTL
 warnpc $88A81C
@@ -829,7 +827,13 @@ LoadFullBG_Loop:
   CMP #$0111
   BMI LoadFullBG_Continue
   JSR ExecuteDMA
+  LDA $0B36 ;Samus y-direction
+  BEQ .no_vertical
+  LDA $0915
+  BRA .done
+.no_vertical
   LDA #$FFFF
+.done
   STA $059C
   RTL
 
