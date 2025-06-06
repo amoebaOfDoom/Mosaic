@@ -414,6 +414,7 @@ CheckShutterEnemyRoom: ;DB is 8D
 FirefliesInit:
   LDX $07BB
   LDA $8F0003,X
+  AND #$00FF
   CMP #$0020
   BPL +
   JSL CheckTileset
@@ -436,7 +437,7 @@ FirefliesDarkness:
 
 FirefliesDarknessSet:
   DW Fireflies_Dark_, Fireflies_Dark_ ;Crateria Surface
-  DW Fireflies_Light, Fireflies_Light ;Inner Crateria
+  DW Fireflies_Dark_, Fireflies_Light ;Inner Crateria
   DW Fireflies_Dark_, Fireflies_Light ;Wrecked Ship
   DW Fireflies_Dark_, Fireflies_Dark_ ;Brinstar
   DW Fireflies_Dark_ ;Tourian Statues Access/Blue brinstar
@@ -449,7 +450,7 @@ FirefliesDarknessSet:
 Fireflies_Dark_:
   DW $0000, $0600, $0C00, $1200, $1800, $1900
 Fireflies_Light:
-  DW $0000, $0300, $0600, $0A00, $1000, $1200
+  DW $0000, $0300, $0600, $0900, $0C00, $0D00
 
 org $8AD000
 TubeGfx:
