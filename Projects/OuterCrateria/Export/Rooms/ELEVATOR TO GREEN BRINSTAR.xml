@@ -96,6 +96,7 @@
           <Screen X="0" Y="0">
         0008 038E 038E 038E 038E 038E 038E 038E 038E 038E 038E 038E 038E 038E 038E 038E
         038E 038E 038E 038E 038E 038E 038E 038E 038E 038E 038E 038E 038E 038E 038E 038E
+        038E 038E 038E 038E 038E 038E 038E 038E 038E 038E 038E 038E 038E 038E 038E 038E
         0BAE 0BAF 0BB0 0BB1 0BB2 0BB3 0BB4 0BAE 0BAF 0BB0 0BB1 0BB2 0BB3 0BB4 0BB3 0BB4
         038F 038F 038F 038F 038F 038F 038F 038F 038F 038F 038F 038F 038F 038F 038F 038F
         059E 059D 059F 059E 059D 059C 059B 059A 0599 059F 059E 059D 059C 059B 059A 0599
@@ -109,7 +110,6 @@
         0349 0346 0347 0348 0349 0346 0347 0348 0349 0346 0347 0348 0349 0346 0347 0348
         0346 0347 0348 0349 0346 0347 0348 0349 0346 0347 0348 0349 0346 0347 0348 0349
         0349 0346 0347 0348 0349 0346 0347 0348 0349 0346 0347 0348 0349 0346 0347 0348
-        0346 0347 0348 0349 0346 0347 0348 0349 0346 0347 0348 0349 0346 0347 0348 0349
       </Screen>
         </Layer2>
       </LevelData>
@@ -130,11 +130,11 @@
       </Enemies>
       <EnemyTypes />
       <layer2_type>Layer2</layer2_type>
-      <layer2_xscroll>00</layer2_xscroll>
+      <layer2_xscroll>80</layer2_xscroll>
       <layer2_yscroll>00</layer2_yscroll>
       <ScrollData const="0000" />
       <roomvar>0000</roomvar>
-      <FX2>0000</FX2>
+      <FX2>C116</FX2>
       <PLMs>
         <PLM>
           <type>B703</type>
@@ -146,7 +146,7 @@
         </PLM>
       </PLMs>
       <BGData />
-      <layer1_2>91D4</layer1_2>
+      <layer1_2>91C9</layer1_2>
     </State>
   </States>
 </Room>
