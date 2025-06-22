@@ -115,7 +115,21 @@
       </LevelData>
       <GFXset>00</GFXset>
       <music>0309</music>
-      <FX1s />
+      <FX1s>
+        <FX1 default="true">
+          <surfacestart>FFFF</surfacestart>
+          <surfacenew>0000</surfacenew>
+          <surfacespeed>0000</surfacespeed>
+          <surfacedelay>00</surfacedelay>
+          <type>0A</type>
+          <transparency1_A>02</transparency1_A>
+          <transparency2_B>0E</transparency2_B>
+          <liquidflags_C>00</liquidflags_C>
+          <paletteflags>01</paletteflags>
+          <animationflags>00</animationflags>
+          <paletteblend>22</paletteblend>
+        </FX1>
+      </FX1s>
       <Enemies killcount="00">
         <Enemy>
           <ID>D73F</ID>
