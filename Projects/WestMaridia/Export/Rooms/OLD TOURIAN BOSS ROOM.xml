@@ -375,7 +375,7 @@
           <surfacenew>FFFF</surfacenew>
           <surfacespeed>0000</surfacespeed>
           <surfacedelay>00</surfacedelay>
-          <type>0C</type>
+          <type>00</type>
           <transparency1_A>02</transparency1_A>
           <transparency2_B>30</transparency2_B>
           <liquidflags_C>00</liquidflags_C>
