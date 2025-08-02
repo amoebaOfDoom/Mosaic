@@ -279,8 +279,8 @@
           <surfacespeed>0000</surfacespeed>
           <surfacedelay>00</surfacedelay>
           <type>06</type>
-          <transparency1_A>18</transparency1_A>
-          <transparency2_B>02</transparency2_B>
+          <transparency1_A>02</transparency1_A>
+          <transparency2_B>18</transparency2_B>
           <liquidflags_C>83</liquidflags_C>
           <paletteflags>02</paletteflags>
           <animationflags>00</animationflags>
