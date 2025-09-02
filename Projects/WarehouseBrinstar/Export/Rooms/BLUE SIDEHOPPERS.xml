@@ -198,8 +198,8 @@
         </Enemy>
       </EnemyTypes>
       <layer2_type>Layer2</layer2_type>
-      <layer2_xscroll>C0</layer2_xscroll>
-      <layer2_yscroll>C0</layer2_yscroll>
+      <layer2_xscroll>00</layer2_xscroll>
+      <layer2_yscroll>00</layer2_yscroll>
       <ScrollData const="0000" />
       <roomvar>0000</roomvar>
       <FX2>0000</FX2>
@@ -370,8 +370,8 @@
         </Enemy>
       </EnemyTypes>
       <layer2_type>Layer2</layer2_type>
-      <layer2_xscroll>C0</layer2_xscroll>
-      <layer2_yscroll>C0</layer2_yscroll>
+      <layer2_xscroll>00</layer2_xscroll>
+      <layer2_yscroll>00</layer2_yscroll>
       <ScrollData const="0000" />
       <roomvar>0000</roomvar>
       <FX2>0000</FX2>
