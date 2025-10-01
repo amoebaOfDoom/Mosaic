@@ -1,6 +1,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2f3a8cc4 (restored /Projects/Base/project.xml from repo)
 =======
 >>>>>>> 2f3a8cc4 (restored /Projects/Base/project.xml from repo)
 <Config Version="2.0.9342.15795">
@@ -395,6 +398,7 @@
       <Name>Speed booster collected</Name>
     </StateCondition>
   </StateConditions>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <Config Version="1.19.9206.24871">
@@ -1186,4 +1190,6 @@
     </StateCondition>
   </StateConditions>
 >>>>>>> 2939c542 (Had a conflict issue with Projects/Base/project.xml, I think I resolved it successfully)
+=======
+>>>>>>> 2f3a8cc4 (restored /Projects/Base/project.xml from repo)
 </Config>
