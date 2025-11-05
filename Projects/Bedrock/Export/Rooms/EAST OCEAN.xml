@@ -2490,10 +2490,10 @@
       <layer2_yscroll>00</layer2_yscroll>
       <ScrollData>00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 02 02 02 02 02 02 01 01 01 01 01 01 01 </ScrollData>
       <roomvar>0000</roomvar>
-      <FX2>C116</FX2>
+      <FX2>0000</FX2>
       <PLMs />
       <BGData />
-      <layer1_2>91C9</layer1_2>
+      <layer1_2>0000</layer1_2>
     </State>
   </States>
 </Room>
