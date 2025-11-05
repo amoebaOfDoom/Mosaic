@@ -9,7 +9,7 @@ end
 tile_air = 0x0FF
 tile_unknown = 0x0DF
 tile_unknown_solid = 0x5F
-tile_interior = rand({0x16E, 0x175, 0x176, 0x177, 0x178, 0x179})
+tile_interior = rand({0x16E, 0x173, 0x175, 0x176, 0x177, 0x178, 0x179})
 tile_bottom_edge = 0x16D
 tile_right_edge = 0x162
 tile_bottom_right_outside_corner = 0x163
@@ -34,7 +34,7 @@ tile_under_bottom_right_gentle_slope_large = 0x171
 
 tile_bottom_right_steep_slope_small = 0x16A
 tile_bottom_right_steep_slope_large = 0x16B
-tile_beside_bottom_right_steep_slope_small = 0x16C
+tile_beside_bottom_right_steep_slope_small = rand({0x16C, 0x174})
 tile_beside_bottom_right_steep_slope_large = 0x213
 
 tile_platform_middle = 0x151
