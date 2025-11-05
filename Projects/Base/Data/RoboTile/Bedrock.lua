@@ -1,6 +1,6 @@
 require("Common")
 
-math.randomseed(t:abs_x() + (t:abs_y() * 256))
+math.randomseed(t:abs_x() + (t:abs_y() * 256) + os.time())
 
 function rand(l)
   return l[math.random(#l)]
@@ -35,7 +35,7 @@ tile_under_bottom_right_gentle_slope_large = 0x171
 tile_bottom_right_steep_slope_small = 0x16A
 tile_bottom_right_steep_slope_large = 0x16B
 tile_beside_bottom_right_steep_slope_small = rand({0x16C, 0x174})
-tile_beside_bottom_right_steep_slope_large = 0x213
+tile_beside_bottom_right_steep_slope_large = 0x172
 
 tile_platform_middle = 0x151
 tile_platform_right = 0x150
