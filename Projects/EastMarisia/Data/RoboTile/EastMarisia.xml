@@ -1,1 +1,5 @@
-../../../Base/Data/RoboTile/EastMarisia.xml
+<RoboTileSet>
+  <Script Name="fill" Priority="0">
+    require("bedrock")
+  </Script>
+</RoboTileSet>
