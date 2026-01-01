@@ -67,8 +67,8 @@
         88BD 80BD 80BD 80BB 80BB 88AD 8163 8563 839F 80BE 8163 816D 816D 816D 816D 816D
       </Screen>
           <Screen X="1" Y="0">
-        8173 8176 8176 816E 8176 8173 8178 8173 8175 8179 816E 8176 8178 8176 8173 8178
-        8175 8178 8176 8176 8176 816E 8178 8173 8175 8178 8176 8178 8176 8173 8178 8173
+        8173 8176 8176 816E 8176 8173 8178 8177 8175 8179 816E 8176 8178 8176 8177 8178
+        8175 8178 8176 8176 8176 816E 8178 8173 8175 8178 8176 8178 8176 8173 8178 8177
         896D 896D 896D 896D 896D 896D 896D 896D 896D 896D 896D 896D 896D 896D 896D 896D
         00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF
         00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF
@@ -228,7 +228,7 @@
           <transparency1_A>02</transparency1_A>
           <transparency2_B>1E</transparency2_B>
           <liquidflags_C>82</liquidflags_C>
-          <paletteflags>9E</paletteflags>
+          <paletteflags>80</paletteflags>
           <animationflags>00</animationflags>
           <paletteblend>08</paletteblend>
         </FX1>
