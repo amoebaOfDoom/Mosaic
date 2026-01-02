@@ -396,7 +396,7 @@
           <liquidflags_C>02</liquidflags_C>
           <paletteflags>82</paletteflags>
           <animationflags>02</animationflags>
-          <paletteblend>08</paletteblend>
+          <paletteblend>0E</paletteblend>
         </FX1>
       </FX1s>
       <Enemies killcount="0B">

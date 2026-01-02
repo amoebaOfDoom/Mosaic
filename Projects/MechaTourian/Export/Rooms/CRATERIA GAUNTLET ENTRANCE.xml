@@ -240,7 +240,7 @@
           <liquidflags_C>40</liquidflags_C>
           <paletteflags>00</paletteflags>
           <animationflags>00</animationflags>
-          <paletteblend>08</paletteblend>
+          <paletteblend>0E</paletteblend>
         </FX1>
       </FX1s>
       <Enemies killcount="03">
@@ -607,7 +607,7 @@
           <liquidflags_C>40</liquidflags_C>
           <paletteflags>02</paletteflags>
           <animationflags>00</animationflags>
-          <paletteblend>08</paletteblend>
+          <paletteblend>0E</paletteblend>
         </FX1>
       </FX1s>
       <Enemies killcount="03">
