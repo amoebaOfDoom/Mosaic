@@ -8,7 +8,7 @@
   <height>01</height>
   <upscroll>00</upscroll>
   <dnscroll>00</dnscroll>
-  <specialGFX>00</specialGFX>
+  <specialGFX>80</specialGFX>
   <Doors>
     <Door>
       <toroom area="03" index="04" />

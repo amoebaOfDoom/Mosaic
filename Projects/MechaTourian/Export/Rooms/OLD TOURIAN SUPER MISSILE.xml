@@ -1793,7 +1793,7 @@
           <liquidflags_C>40</liquidflags_C>
           <paletteflags>00</paletteflags>
           <animationflags>02</animationflags>
-          <paletteblend>08</paletteblend>
+          <paletteblend>0E</paletteblend>
         </FX1>
       </FX1s>
       <Enemies killcount="00">
