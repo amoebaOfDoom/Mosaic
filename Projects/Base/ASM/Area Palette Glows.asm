@@ -4,7 +4,7 @@ incsrc GlowData.def
 
 ; Support for custom area palette glows
 ; Handles tileset glows that would be misplaced when the tileset's area and the map's area don't match
-; Extends the glow header format to be polumorphic. The vanilla header type is V1, and the new one is V2.
+; Extends the glow header format to be polymorphic. The vanilla header type is V1, and the new one is V2.
 ; V1 headers look like this:
 ; org $8DXXXX
 ;   DW GlowInitCode, GlowInstructionList
@@ -1796,6 +1796,82 @@ endmacro
 %Waterfal_List(6)
 %Waterfal_List(7)
 
+AcidfallTable:
+  DW WaterfallColorsInit,Acidfall0_List, WaterfallColorsInit,Acidfall0_List, WaterfallColorsInit,Acidfall0_List, WaterfallColorsInit,Acidfall0_List
+  DW WaterfallColorsInit,Acidfall0_List, WaterfallColorsInit,Acidfall0_List, WaterfallColorsInit,Acidfall0_List, WaterfallColorsInit,Acidfall0_List
+  DW WaterfallColorsInit,Acidfall0_List
+
+macro Acidfall_List(n)
+Acidfall<n>_List:
+  DW SetColorIndex, $0068
+Acidfall<n>_List_Loop:
+  DW $0002
+    DW !Acidfall<n>_Color_0, !Acidfall<n>_Color_1, !Acidfall<n>_Color_2, !Acidfall<n>_Color_3, !Acidfall<n>_Color_4, !Acidfall<n>_Color_5, !Acidfall<n>_Color_6, !Acidfall<n>_Color_7
+    DW GlowYeild
+  DW $0002
+    DW !Acidfall<n>_Color_1, !Acidfall<n>_Color_2, !Acidfall<n>_Color_3, !Acidfall<n>_Color_4, !Acidfall<n>_Color_5, !Acidfall<n>_Color_6, !Acidfall<n>_Color_7, !Acidfall<n>_Color_0
+    DW GlowYeild
+  DW $0002
+    DW !Acidfall<n>_Color_2, !Acidfall<n>_Color_3, !Acidfall<n>_Color_4, !Acidfall<n>_Color_5, !Acidfall<n>_Color_6, !Acidfall<n>_Color_7, !Acidfall<n>_Color_0, !Acidfall<n>_Color_1
+    DW GlowYeild
+  DW $0002
+    DW !Acidfall<n>_Color_3, !Acidfall<n>_Color_4, !Acidfall<n>_Color_5, !Acidfall<n>_Color_6, !Acidfall<n>_Color_7, !Acidfall<n>_Color_0, !Acidfall<n>_Color_1, !Acidfall<n>_Color_2
+    DW GlowYeild
+  DW $0002
+    DW !Acidfall<n>_Color_4, !Acidfall<n>_Color_5, !Acidfall<n>_Color_6, !Acidfall<n>_Color_7, !Acidfall<n>_Color_0, !Acidfall<n>_Color_1, !Acidfall<n>_Color_2, !Acidfall<n>_Color_3
+    DW GlowYeild
+  DW $0002
+    DW !Acidfall<n>_Color_5, !Acidfall<n>_Color_6, !Acidfall<n>_Color_7, !Acidfall<n>_Color_0, !Acidfall<n>_Color_1, !Acidfall<n>_Color_2, !Acidfall<n>_Color_3, !Acidfall<n>_Color_4
+    DW GlowYeild
+  DW $0002
+    DW !Acidfall<n>_Color_6, !Acidfall<n>_Color_7, !Acidfall<n>_Color_0, !Acidfall<n>_Color_1, !Acidfall<n>_Color_2, !Acidfall<n>_Color_3, !Acidfall<n>_Color_4, !Acidfall<n>_Color_5
+    DW GlowYeild
+  DW $0002
+    DW !Acidfall<n>_Color_7, !Acidfall<n>_Color_0, !Acidfall<n>_Color_1, !Acidfall<n>_Color_2, !Acidfall<n>_Color_3, !Acidfall<n>_Color_4, !Acidfall<n>_Color_5, !Acidfall<n>_Color_6
+    DW GlowYeild
+  DW GlowJMP, Acidfall<n>_List_Loop
+endmacro
+
+%Acidfall_List(0)
+
+LavafallTable:
+  DW WaterfallColorsInit,Lavafall0_List, WaterfallColorsInit,Lavafall0_List, WaterfallColorsInit,Lavafall0_List, WaterfallColorsInit,Lavafall0_List
+  DW WaterfallColorsInit,Lavafall0_List, WaterfallColorsInit,Lavafall0_List, WaterfallColorsInit,Lavafall0_List, WaterfallColorsInit,Lavafall0_List
+  DW WaterfallColorsInit,Lavafall0_List
+
+macro Lavafall_List(n)
+Lavafall<n>_List:
+  DW SetColorIndex, $0068
+Lavafall<n>_List_Loop:
+  DW $0002
+    DW !Lavafall<n>_Color_0, !Lavafall<n>_Color_1, !Lavafall<n>_Color_2, !Lavafall<n>_Color_3, !Lavafall<n>_Color_4, !Lavafall<n>_Color_5, !Lavafall<n>_Color_6, !Lavafall<n>_Color_7
+    DW GlowYeild
+  DW $0002
+    DW !Lavafall<n>_Color_1, !Lavafall<n>_Color_2, !Lavafall<n>_Color_3, !Lavafall<n>_Color_4, !Lavafall<n>_Color_5, !Lavafall<n>_Color_6, !Lavafall<n>_Color_7, !Lavafall<n>_Color_0
+    DW GlowYeild
+  DW $0002
+    DW !Lavafall<n>_Color_2, !Lavafall<n>_Color_3, !Lavafall<n>_Color_4, !Lavafall<n>_Color_5, !Lavafall<n>_Color_6, !Lavafall<n>_Color_7, !Lavafall<n>_Color_0, !Lavafall<n>_Color_1
+    DW GlowYeild
+  DW $0002
+    DW !Lavafall<n>_Color_3, !Lavafall<n>_Color_4, !Lavafall<n>_Color_5, !Lavafall<n>_Color_6, !Lavafall<n>_Color_7, !Lavafall<n>_Color_0, !Lavafall<n>_Color_1, !Lavafall<n>_Color_2
+    DW GlowYeild
+  DW $0002
+    DW !Lavafall<n>_Color_4, !Lavafall<n>_Color_5, !Lavafall<n>_Color_6, !Lavafall<n>_Color_7, !Lavafall<n>_Color_0, !Lavafall<n>_Color_1, !Lavafall<n>_Color_2, !Lavafall<n>_Color_3
+    DW GlowYeild
+  DW $0002
+    DW !Lavafall<n>_Color_5, !Lavafall<n>_Color_6, !Lavafall<n>_Color_7, !Lavafall<n>_Color_0, !Lavafall<n>_Color_1, !Lavafall<n>_Color_2, !Lavafall<n>_Color_3, !Lavafall<n>_Color_4
+    DW GlowYeild
+  DW $0002
+    DW !Lavafall<n>_Color_6, !Lavafall<n>_Color_7, !Lavafall<n>_Color_0, !Lavafall<n>_Color_1, !Lavafall<n>_Color_2, !Lavafall<n>_Color_3, !Lavafall<n>_Color_4, !Lavafall<n>_Color_5
+    DW GlowYeild
+  DW $0002
+    DW !Lavafall<n>_Color_7, !Lavafall<n>_Color_0, !Lavafall<n>_Color_1, !Lavafall<n>_Color_2, !Lavafall<n>_Color_3, !Lavafall<n>_Color_4, !Lavafall<n>_Color_5, !Lavafall<n>_Color_6
+    DW GlowYeild
+  DW GlowJMP, Lavafall<n>_List_Loop
+endmacro
+
+%Lavafall_List(0)
+
 ; Tourian tileset glows
 Tourian_PreInstruction:
   LDA $1E79,X
@@ -2059,6 +2135,10 @@ endmacro
 %Tor_4Esc_List(7)
 print pc
 
+org $8DF579 ; overwrite part of vanilla waterfall table, now unused
+  DW $00BB, AcidfallTable
+org $8DF57D ; overwrite part of vanilla waterfall table, now unused
+  DW $00BB, LavafallTable
 org $8DF765
 SkyFlash:
   DW $00BB, SkyFlashTable

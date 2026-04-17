@@ -22,7 +22,7 @@
       <doorcode>
         <Code OP="A0" ARG="827B" />
         <Code OP="22" ARG="878027" />
-        <Code OP="22" ARG="8483D7" StackRelative="09 4F B6 60" />
+        <Code OP="22" ARG="8483D7" StackRelative="04 09 4F B6" />
         <Code OP="60" />
       </doorcode>
     </Door>
@@ -2708,7 +2708,7 @@
           <transparency1_A>02</transparency1_A>
           <transparency2_B>02</transparency2_B>
           <liquidflags_C>00</liquidflags_C>
-          <paletteflags>01</paletteflags>
+          <paletteflags>00</paletteflags>
           <animationflags>42</animationflags>
           <paletteblend>00</paletteblend>
         </FX1>

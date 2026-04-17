@@ -1040,7 +1040,7 @@
           <transparency2_B>02</transparency2_B>
           <liquidflags_C>02</liquidflags_C>
           <paletteflags>1F</paletteflags>
-          <animationflags>03</animationflags>
+          <animationflags>83</animationflags>
           <paletteblend>00</paletteblend>
         </FX1>
       </FX1s>
