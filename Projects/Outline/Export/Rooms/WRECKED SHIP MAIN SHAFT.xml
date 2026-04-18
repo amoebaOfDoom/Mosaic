@@ -22,7 +22,7 @@
       <doorcode>
         <Code OP="A0" ARG="827B" />
         <Code OP="22" ARG="878027" />
-        <Code OP="22" ARG="8483D7" StackRelative="09 4F B6 60" />
+        <Code OP="22" ARG="8483D7" StackRelative="04 09 4F B6" />
         <Code OP="60" />
       </doorcode>
     </Door>
