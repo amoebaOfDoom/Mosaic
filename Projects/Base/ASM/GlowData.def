@@ -1102,6 +1102,27 @@
 !Waterfal7_Color_3 = $2086
 !Waterfal7_Color_4 = $2CC9
 
+;0022 0064 0086 00c8 00ea 010c 014e 0170
+; AcidFall colors
+!Acidfall0_Color_0 = $0022
+!Acidfall0_Color_7 = $0064
+!Acidfall0_Color_1 = $0086
+!Acidfall0_Color_6 = $00c8
+!Acidfall0_Color_2 = $00ea
+!Acidfall0_Color_5 = $010c
+!Acidfall0_Color_3 = $014e
+!Acidfall0_Color_4 = $0170
+
+; LavaFall colors
+!Lavafall0_Color_0 = $0022
+!Lavafall0_Color_7 = $0024
+!Lavafall0_Color_1 = $0446
+!Lavafall0_Color_6 = $0468
+!Lavafall0_Color_2 = $046a
+!Lavafall0_Color_5 = $048c
+!Lavafall0_Color_3 = $04ae
+!Lavafall0_Color_4 = $08d0
+
 ; Tourian_ colors
 !Tourian_0_Colors_0a = $5A73
 !Tourian_0_Colors_1a = $4E10

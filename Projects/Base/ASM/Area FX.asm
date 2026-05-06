@@ -635,8 +635,22 @@ org $8499E5
 org $8DF771 ; overwrite unused glow with the vanilla beacon glow
   DW $C685,$EFF7
 
+org $8880E8 ; overwrite unused blending modes for layer blending mode for additive acidfalls
+  LDY #$04
+  LDA #$06
+  STA $69
+  LDA #$11
+  STA $6B
+  JMP $8099
+org $888099
+  LDA #$26
+  STA $71
+  RTS
+
 org $83B800
 
+!Acidfall = $F579
+!Lavafall = $F57D
 !NullGlow = $F745
 ;!Statue_3 = $F749
 ;!Statue_1 = $F74D
@@ -646,7 +660,7 @@ org $83B800
 ;!GT_Glow_ = $F75D
 !SamusHot = $F761
 !SkyFlash = $F765
-;!UnusedG1 = $F769
+!UnusedG1 = $F769
 !WS_Green = $F76D
 !BeaconSH = $F771
 !Blue_BG_ = $F775
@@ -685,7 +699,7 @@ Glow_Area_2:
 Glow_Area_3:
   DW !WS_Green, !NullGlow, !NullGlow, !NullGlow, !NullGlow, !SandFlor, !HevySand, !SamusHot
 Glow_Area_4:
-  DW !NullGlow, !NullGlow, !Waterfal, !NullGlow, !NullGlow, !SandFlor, !HevySand, !SamusHot
+  DW !Acidfall, !Lavafall, !Waterfal, !NullGlow, !NullGlow, !SandFlor, !HevySand, !SamusHot
 Glow_Area_5:
   DW !Tor_4Esc, !Tourian_, !Tor_3Esc, !Tor_1Esc, !Tor_2Esc, !SandFlor, !HevySand, !SamusHot
 Glow_Area_6:
