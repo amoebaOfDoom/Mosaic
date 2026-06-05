@@ -155,13 +155,13 @@ GetArea:
   BNE UseMapArea
 
 UseTilesetArea:
-  LDA #$0008*3
+  LDA #$0008*3 ; 9th entry will always be the vanilla version of the palette. This is what we want to use when we are matching the palette to the tileset's area.
   RTS
 UseMapArea:
-  LDA $1F5B  ; map area
+  LDA $1F8A  ; map palette area
   ASL
   CLC
-  ADC $1F5B
+  ADC $1F8A
   AND #$00FF
   RTS
 

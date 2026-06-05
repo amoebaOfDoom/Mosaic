@@ -189,10 +189,10 @@ SpawnGlow_V2:
   BNE UseMapArea
 
 UseTilesetArea:
-  LDA #$0008
+  LDA #$0008 ; 9th entry will always be the vanilla version of this glow. This is what we want to use when we are matching the glow to the tileset.
   BRA ReadHeader
 UseMapArea:
-  LDA $1F5B  ; map area
+  LDA $1F8A  ; map palette area
 
 ReadHeader:
   AND #$00FF

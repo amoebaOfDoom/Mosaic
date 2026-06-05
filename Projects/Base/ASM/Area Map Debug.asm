@@ -16,8 +16,11 @@ SetMapAreaInject:
   BEQ SkipSettingMapArea
   STZ $1F5B
   DEC $1F5B
+  STZ $1F8A
+  DEC $1F8A
 -
   INC $1F5B
+  INC $1F8A
   LSR
   BCC -
   LDX $07BB
