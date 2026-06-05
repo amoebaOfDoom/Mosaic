@@ -649,8 +649,6 @@ org $888099
 
 org $83B800
 
-!Acidfall = $F579
-!Lavafall = $F57D
 !NullGlow = $F745
 ;!Statue_3 = $F749
 ;!Statue_1 = $F74D
@@ -699,7 +697,7 @@ Glow_Area_2:
 Glow_Area_3:
   DW !WS_Green, !NullGlow, !NullGlow, !NullGlow, !NullGlow, !SandFlor, !HevySand, !SamusHot
 Glow_Area_4:
-  DW !Acidfall, !Lavafall, !Waterfal, !NullGlow, !NullGlow, !SandFlor, !HevySand, !SamusHot
+  DW !NullGlow, !NullGlow, !Waterfal, !NullGlow, !NullGlow, !SandFlor, !HevySand, !SamusHot
 Glow_Area_5:
   DW !Tor_4Esc, !Tourian_, !Tor_3Esc, !Tor_1Esc, !Tor_2Esc, !SandFlor, !HevySand, !SamusHot
 Glow_Area_6:

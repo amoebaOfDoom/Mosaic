@@ -1731,9 +1731,24 @@ endmacro
 WaterfallColorsInit:
   PHX
   PHY
+  LDA #$0068 ;SetColorIndex
+  STA $1E8D,Y
+  LDA $196E ;FX type
+  CMP #$0006 ;Water
+  BEQ WaterfallColorsInit_Preload
+  CMP #$0004 ;Acid
+  BEQ +
+  LDA #Lavafall_List
+  BRA WaterfallColorsInit_Next
++
+  LDA #Acidfall_List
+WaterfallColorsInit_Next:
+  STA $1EBD,Y
+WaterfallColorsInit_Preload:
+
   LDA $1EBD,Y
-  CLC
-  ADC #$0006
+  INC
+  INC
   STA $12
 
   LDY #$0000
@@ -1758,7 +1773,6 @@ WaterfalTable:
 
 macro Waterfal_List(n)
 Waterfal<n>_List:
-  DW SetColorIndex, $0068
 Waterfal<n>_List_Loop:
   DW $0002
     DW !Waterfal<n>_Color_0, !Waterfal<n>_Color_1, !Waterfal<n>_Color_2, !Waterfal<n>_Color_3, !Waterfal<n>_Color_4, !Waterfal<n>_Color_5, !Waterfal<n>_Color_6, !Waterfal<n>_Color_7
@@ -1796,81 +1810,62 @@ endmacro
 %Waterfal_List(6)
 %Waterfal_List(7)
 
-AcidfallTable:
-  DW WaterfallColorsInit,Acidfall0_List, WaterfallColorsInit,Acidfall0_List, WaterfallColorsInit,Acidfall0_List, WaterfallColorsInit,Acidfall0_List
-  DW WaterfallColorsInit,Acidfall0_List, WaterfallColorsInit,Acidfall0_List, WaterfallColorsInit,Acidfall0_List, WaterfallColorsInit,Acidfall0_List
-  DW WaterfallColorsInit,Acidfall0_List
+Acidfall_List:
+Acidfall_List_Loop:
+  DW $0002
+    DW !Acidfall_Color_0, !Acidfall_Color_1, !Acidfall_Color_2, !Acidfall_Color_3, !Acidfall_Color_4, !Acidfall_Color_5, !Acidfall_Color_6, !Acidfall_Color_7
+    DW GlowYeild
+  DW $0002
+    DW !Acidfall_Color_1, !Acidfall_Color_2, !Acidfall_Color_3, !Acidfall_Color_4, !Acidfall_Color_5, !Acidfall_Color_6, !Acidfall_Color_7, !Acidfall_Color_0
+    DW GlowYeild
+  DW $0002
+    DW !Acidfall_Color_2, !Acidfall_Color_3, !Acidfall_Color_4, !Acidfall_Color_5, !Acidfall_Color_6, !Acidfall_Color_7, !Acidfall_Color_0, !Acidfall_Color_1
+    DW GlowYeild
+  DW $0002
+    DW !Acidfall_Color_3, !Acidfall_Color_4, !Acidfall_Color_5, !Acidfall_Color_6, !Acidfall_Color_7, !Acidfall_Color_0, !Acidfall_Color_1, !Acidfall_Color_2
+    DW GlowYeild
+  DW $0002
+    DW !Acidfall_Color_4, !Acidfall_Color_5, !Acidfall_Color_6, !Acidfall_Color_7, !Acidfall_Color_0, !Acidfall_Color_1, !Acidfall_Color_2, !Acidfall_Color_3
+    DW GlowYeild
+  DW $0002
+    DW !Acidfall_Color_5, !Acidfall_Color_6, !Acidfall_Color_7, !Acidfall_Color_0, !Acidfall_Color_1, !Acidfall_Color_2, !Acidfall_Color_3, !Acidfall_Color_4
+    DW GlowYeild
+  DW $0002
+    DW !Acidfall_Color_6, !Acidfall_Color_7, !Acidfall_Color_0, !Acidfall_Color_1, !Acidfall_Color_2, !Acidfall_Color_3, !Acidfall_Color_4, !Acidfall_Color_5
+    DW GlowYeild
+  DW $0002
+    DW !Acidfall_Color_7, !Acidfall_Color_0, !Acidfall_Color_1, !Acidfall_Color_2, !Acidfall_Color_3, !Acidfall_Color_4, !Acidfall_Color_5, !Acidfall_Color_6
+    DW GlowYeild
+  DW GlowJMP, Acidfall_List_Loop
 
-macro Acidfall_List(n)
-Acidfall<n>_List:
-  DW SetColorIndex, $0068
-Acidfall<n>_List_Loop:
+Lavafall_List:
+Lavafall_List_Loop:
   DW $0002
-    DW !Acidfall<n>_Color_0, !Acidfall<n>_Color_1, !Acidfall<n>_Color_2, !Acidfall<n>_Color_3, !Acidfall<n>_Color_4, !Acidfall<n>_Color_5, !Acidfall<n>_Color_6, !Acidfall<n>_Color_7
+    DW !Lavafall_Color_0, !Lavafall_Color_1, !Lavafall_Color_2, !Lavafall_Color_3, !Lavafall_Color_4, !Lavafall_Color_5, !Lavafall_Color_6, !Lavafall_Color_7
     DW GlowYeild
   DW $0002
-    DW !Acidfall<n>_Color_1, !Acidfall<n>_Color_2, !Acidfall<n>_Color_3, !Acidfall<n>_Color_4, !Acidfall<n>_Color_5, !Acidfall<n>_Color_6, !Acidfall<n>_Color_7, !Acidfall<n>_Color_0
+    DW !Lavafall_Color_1, !Lavafall_Color_2, !Lavafall_Color_3, !Lavafall_Color_4, !Lavafall_Color_5, !Lavafall_Color_6, !Lavafall_Color_7, !Lavafall_Color_0
     DW GlowYeild
   DW $0002
-    DW !Acidfall<n>_Color_2, !Acidfall<n>_Color_3, !Acidfall<n>_Color_4, !Acidfall<n>_Color_5, !Acidfall<n>_Color_6, !Acidfall<n>_Color_7, !Acidfall<n>_Color_0, !Acidfall<n>_Color_1
+    DW !Lavafall_Color_2, !Lavafall_Color_3, !Lavafall_Color_4, !Lavafall_Color_5, !Lavafall_Color_6, !Lavafall_Color_7, !Lavafall_Color_0, !Lavafall_Color_1
     DW GlowYeild
   DW $0002
-    DW !Acidfall<n>_Color_3, !Acidfall<n>_Color_4, !Acidfall<n>_Color_5, !Acidfall<n>_Color_6, !Acidfall<n>_Color_7, !Acidfall<n>_Color_0, !Acidfall<n>_Color_1, !Acidfall<n>_Color_2
+    DW !Lavafall_Color_3, !Lavafall_Color_4, !Lavafall_Color_5, !Lavafall_Color_6, !Lavafall_Color_7, !Lavafall_Color_0, !Lavafall_Color_1, !Lavafall_Color_2
     DW GlowYeild
   DW $0002
-    DW !Acidfall<n>_Color_4, !Acidfall<n>_Color_5, !Acidfall<n>_Color_6, !Acidfall<n>_Color_7, !Acidfall<n>_Color_0, !Acidfall<n>_Color_1, !Acidfall<n>_Color_2, !Acidfall<n>_Color_3
+    DW !Lavafall_Color_4, !Lavafall_Color_5, !Lavafall_Color_6, !Lavafall_Color_7, !Lavafall_Color_0, !Lavafall_Color_1, !Lavafall_Color_2, !Lavafall_Color_3
     DW GlowYeild
   DW $0002
-    DW !Acidfall<n>_Color_5, !Acidfall<n>_Color_6, !Acidfall<n>_Color_7, !Acidfall<n>_Color_0, !Acidfall<n>_Color_1, !Acidfall<n>_Color_2, !Acidfall<n>_Color_3, !Acidfall<n>_Color_4
+    DW !Lavafall_Color_5, !Lavafall_Color_6, !Lavafall_Color_7, !Lavafall_Color_0, !Lavafall_Color_1, !Lavafall_Color_2, !Lavafall_Color_3, !Lavafall_Color_4
     DW GlowYeild
   DW $0002
-    DW !Acidfall<n>_Color_6, !Acidfall<n>_Color_7, !Acidfall<n>_Color_0, !Acidfall<n>_Color_1, !Acidfall<n>_Color_2, !Acidfall<n>_Color_3, !Acidfall<n>_Color_4, !Acidfall<n>_Color_5
+    DW !Lavafall_Color_6, !Lavafall_Color_7, !Lavafall_Color_0, !Lavafall_Color_1, !Lavafall_Color_2, !Lavafall_Color_3, !Lavafall_Color_4, !Lavafall_Color_5
     DW GlowYeild
   DW $0002
-    DW !Acidfall<n>_Color_7, !Acidfall<n>_Color_0, !Acidfall<n>_Color_1, !Acidfall<n>_Color_2, !Acidfall<n>_Color_3, !Acidfall<n>_Color_4, !Acidfall<n>_Color_5, !Acidfall<n>_Color_6
+    DW !Lavafall_Color_7, !Lavafall_Color_0, !Lavafall_Color_1, !Lavafall_Color_2, !Lavafall_Color_3, !Lavafall_Color_4, !Lavafall_Color_5, !Lavafall_Color_6
     DW GlowYeild
-  DW GlowJMP, Acidfall<n>_List_Loop
-endmacro
+  DW GlowJMP, Lavafall_List_Loop
 
-%Acidfall_List(0)
-
-LavafallTable:
-  DW WaterfallColorsInit,Lavafall0_List, WaterfallColorsInit,Lavafall0_List, WaterfallColorsInit,Lavafall0_List, WaterfallColorsInit,Lavafall0_List
-  DW WaterfallColorsInit,Lavafall0_List, WaterfallColorsInit,Lavafall0_List, WaterfallColorsInit,Lavafall0_List, WaterfallColorsInit,Lavafall0_List
-  DW WaterfallColorsInit,Lavafall0_List
-
-macro Lavafall_List(n)
-Lavafall<n>_List:
-  DW SetColorIndex, $0068
-Lavafall<n>_List_Loop:
-  DW $0002
-    DW !Lavafall<n>_Color_0, !Lavafall<n>_Color_1, !Lavafall<n>_Color_2, !Lavafall<n>_Color_3, !Lavafall<n>_Color_4, !Lavafall<n>_Color_5, !Lavafall<n>_Color_6, !Lavafall<n>_Color_7
-    DW GlowYeild
-  DW $0002
-    DW !Lavafall<n>_Color_1, !Lavafall<n>_Color_2, !Lavafall<n>_Color_3, !Lavafall<n>_Color_4, !Lavafall<n>_Color_5, !Lavafall<n>_Color_6, !Lavafall<n>_Color_7, !Lavafall<n>_Color_0
-    DW GlowYeild
-  DW $0002
-    DW !Lavafall<n>_Color_2, !Lavafall<n>_Color_3, !Lavafall<n>_Color_4, !Lavafall<n>_Color_5, !Lavafall<n>_Color_6, !Lavafall<n>_Color_7, !Lavafall<n>_Color_0, !Lavafall<n>_Color_1
-    DW GlowYeild
-  DW $0002
-    DW !Lavafall<n>_Color_3, !Lavafall<n>_Color_4, !Lavafall<n>_Color_5, !Lavafall<n>_Color_6, !Lavafall<n>_Color_7, !Lavafall<n>_Color_0, !Lavafall<n>_Color_1, !Lavafall<n>_Color_2
-    DW GlowYeild
-  DW $0002
-    DW !Lavafall<n>_Color_4, !Lavafall<n>_Color_5, !Lavafall<n>_Color_6, !Lavafall<n>_Color_7, !Lavafall<n>_Color_0, !Lavafall<n>_Color_1, !Lavafall<n>_Color_2, !Lavafall<n>_Color_3
-    DW GlowYeild
-  DW $0002
-    DW !Lavafall<n>_Color_5, !Lavafall<n>_Color_6, !Lavafall<n>_Color_7, !Lavafall<n>_Color_0, !Lavafall<n>_Color_1, !Lavafall<n>_Color_2, !Lavafall<n>_Color_3, !Lavafall<n>_Color_4
-    DW GlowYeild
-  DW $0002
-    DW !Lavafall<n>_Color_6, !Lavafall<n>_Color_7, !Lavafall<n>_Color_0, !Lavafall<n>_Color_1, !Lavafall<n>_Color_2, !Lavafall<n>_Color_3, !Lavafall<n>_Color_4, !Lavafall<n>_Color_5
-    DW GlowYeild
-  DW $0002
-    DW !Lavafall<n>_Color_7, !Lavafall<n>_Color_0, !Lavafall<n>_Color_1, !Lavafall<n>_Color_2, !Lavafall<n>_Color_3, !Lavafall<n>_Color_4, !Lavafall<n>_Color_5, !Lavafall<n>_Color_6
-    DW GlowYeild
-  DW GlowJMP, Lavafall<n>_List_Loop
-endmacro
-
-%Lavafall_List(0)
 
 ; Tourian tileset glows
 Tourian_PreInstruction:
@@ -2134,11 +2129,8 @@ endmacro
 %Tor_4Esc_List(6)
 %Tor_4Esc_List(7)
 print pc
+warnpc $BBFFFF
 
-org $8DF579 ; overwrite part of vanilla waterfall table, now unused
-  DW $00BB, AcidfallTable
-org $8DF57D ; overwrite part of vanilla waterfall table, now unused
-  DW $00BB, LavafallTable
 org $8DF765
 SkyFlash:
   DW $00BB, SkyFlashTable
