@@ -1811,24 +1811,24 @@ endmacro
 %Waterfal_List(7)
 
 ; AcidFall colors
-!Acidfall_Color_0 = $0022
-!Acidfall_Color_7 = $0064
-!Acidfall_Color_1 = $0086
-!Acidfall_Color_6 = $00c8
-!Acidfall_Color_2 = $00ea
-!Acidfall_Color_5 = $010c
-!Acidfall_Color_3 = $014e
-!Acidfall_Color_4 = $0170
+!Acidfall_Color_0 = $00C8
+!Acidfall_Color_7 = $00C7
+!Acidfall_Color_1 = $00A6
+!Acidfall_Color_6 = $00A5
+!Acidfall_Color_2 = $0084
+!Acidfall_Color_5 = $0063
+!Acidfall_Color_3 = $0042
+!Acidfall_Color_4 = $0021
 
 ; LavaFall colors
-!Lavafall_Color_0 = $0022
-!Lavafall_Color_7 = $0024
+!Lavafall_Color_0 = $0488
+!Lavafall_Color_7 = $0467
 !Lavafall_Color_1 = $0446
-!Lavafall_Color_6 = $0468
-!Lavafall_Color_2 = $046a
-!Lavafall_Color_5 = $048c
-!Lavafall_Color_3 = $04ae
-!Lavafall_Color_4 = $08d0
+!Lavafall_Color_6 = $0025
+!Lavafall_Color_2 = $0004
+!Lavafall_Color_5 = $0003
+!Lavafall_Color_3 = $0002
+!Lavafall_Color_4 = $0001
 
 Acidfall_List:
 Acidfall_List_Loop:
