@@ -1,6 +1,6 @@
 lorom
 
-; Edit plms for uopening and closing teh stairs in bowling alley to not actually alter graphics
+; Edit plms for uopening and closing the stairs in bowling alley to not actually alter graphics
 
 ;org $8482BD
 ;  AND #$0F

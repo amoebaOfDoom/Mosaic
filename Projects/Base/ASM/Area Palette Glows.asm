@@ -13,7 +13,7 @@ incsrc GlowData.def
 ; org $8DZZZZ
 ; GlowInstructionList:
 ;
-; V2 headers lok like this:
+; V2 headers look like this:
 ; org 8DXXXX
 ;   DW $00BB, $TTTT
 ; org $BBTTTT
