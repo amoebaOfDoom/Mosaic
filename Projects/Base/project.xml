@@ -1,4 +1,4 @@
-<Config Version="2.0.9570.38488">
+<Config Version="2.0.9771.32944">
   <ROMfile>..\..\Super Metroid.smc</ROMfile>
   <PatchQuickmet>true</PatchQuickmet>
   <SaveNames>true</SaveNames>
@@ -7,7 +7,6 @@
   <LoadASMonImportFromXML>false</LoadASMonImportFromXML>
   <ScanROMonImportFromROM>false</ScanROMonImportFromROM>
   <ApplyASMonImportFromROM>false</ApplyASMonImportFromROM>
-  <LogLevel>Info</LogLevel>
   <PaletteFormat>SNES</PaletteFormat>
   <RoomNameSpaceBankAny>
     <Space start="DFD500" end="DFFFFF" />
